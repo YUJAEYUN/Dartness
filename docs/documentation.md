@@ -55,3 +55,7 @@ python -m venv .venv
 Windows에서는 `.venv/Scripts/`의 실행 파일을 사용합니다.
 
 GitHub Pages 게시 워크플로는 수동 실행입니다. 저장소 Settings → Pages에서 Source를 GitHub Actions로 설정한 뒤 `Publish docs`를 실행합니다. 게시 작업은 공개 docs만 포함하므로 내부 법인 목록·조회 결과·키를 문서 폴더에 넣지 않습니다. 아직 사이트가 게시됐다고 가정하지 않습니다.
+
+## 개발 흐름과 정합성 기록
+
+[작업 흐름](development-workflow.md)과 [정합성 검토](consistency.md)를 따릅니다. 규칙 식별자는 중요한 항목에만 붙이고, 구현되지 않은 것은 미구현으로 남깁니다. 주간 빌드는 의미 정합성 검토를 대신하지 않습니다.
