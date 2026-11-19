@@ -17,4 +17,4 @@
 <a id="amount"></a>
 ## 금액 처리 안내
 
-AMOUNT-001의 기준은 [요구사항의 정확성과 근거](../requirements.md#accuracy)입니다. 단위를 확인할 수 없는 금액은 추정하지 않고 확인 필요로 처리합니다. [현재 검토 상태](../consistency.md#amount-001)에서 구현 여부를 확인합니다. 아직 관련 구현·테스트는 없습니다.
+AMOUNT-001의 기준은 [요구사항의 정확성과 근거](../requirements.md#accuracy)입니다. 단위를 확인할 수 없는 금액은 추정하지 않고 확인 필요로 처리합니다. [현재 검토 상태](../consistency.md#amount-001)에서 구현 여부를 확인합니다. [금액 단위 처리](../amounts.md)에 입력·출력과 지원 범위를 정의했습니다. 구현은 src/dartness/amounts.py, 검증은 tests/test_amounts.py입니다. 정상 변환은 공시 사실의 검증 완료를 뜻하지 않습니다.
