@@ -1,0 +1,47 @@
+site_name: Dartness 설계 문서
+site_description: 사람이 읽는 기준 문서와 에이전트의 지식 지도
+site_url: https://yujaeyun.github.io/Dartness/
+repo_url: https://github.com/YUJAEYUN/Dartness
+edit_uri: edit/main/docs/
+theme:
+  name: material
+  language: ko
+  font: false
+  palette:
+    primary: teal
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+plugins:
+  - search:
+      lang: [en]
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+extra_javascript:
+  - javascripts/mermaid.mjs
+extra_css:
+  - stylesheets/extra.css
+validation:
+  nav:
+    omitted_files: warn
+  links:
+    not_found: warn
+    unrecognized_links: warn
+nav:
+  - 시작: index.md
+  - 합의한 요구사항: requirements.md
+  - 구조와 판단 경계: architecture.md
+  - 결과물 예시: output-example.md
+  - 문서 운영과 메모리: documentation.md
+  - LLM 위키: wiki/index.md
+  - 다음 작업: work-state.md
+  - 검토 중인 제안: development-environment-proposal.md

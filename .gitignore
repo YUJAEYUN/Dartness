@@ -1,0 +1,7 @@
+site/
+.venv/
+__pycache__/
+.env
+.env.*
+!.env.example
+CLAUDE.local.md

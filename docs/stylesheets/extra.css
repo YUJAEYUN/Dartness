@@ -1,0 +1,4 @@
+ :root { --md-text-font-family: system-ui, "Noto Sans KR", sans-serif; }
+.md-typeset { font-size: .88rem; line-height: 1.85; }
+.md-typeset table:not([class]) { font-size: .8rem; }
+.md-typeset h1 { font-weight: 750; }
