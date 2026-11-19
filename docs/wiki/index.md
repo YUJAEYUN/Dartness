@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| CI·브랜치 설정 | [검사와 설정 방법](../ci.md) |
 | 개발 작업 진행 | [작업 흐름](../development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |
 | 기능·데이터 계약 설계 | [요구사항](../requirements.md), [판단 경계](../architecture.md) |
