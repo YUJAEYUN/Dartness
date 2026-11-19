@@ -42,6 +42,7 @@ nav:
   - 구조와 판단 경계: architecture.md
   - 결과물 예시: output-example.md
   - 문서 운영과 메모리: documentation.md
+  - CI와 브랜치 설정: ci.md
   - 개발 작업 흐름: development-workflow.md
   - 정합성 검토: consistency.md
   - 기록 양식:
