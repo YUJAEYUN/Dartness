@@ -49,3 +49,17 @@ tests/test_dart_smoke.py에서 가짜 응답으로 회사·보고서 일치, 페
 ## 관련 초안
 
 [PR #8](https://github.com/YUJAEYUN/Dartness/pull/8)의 테스트 절차와 KIND 정답 초안은 아직 사용자 검토 중입니다. 이번 작업이 해당 정답·오차 허용 기준을 확정하지 않습니다.
+
+## 개발자 문서를 관리하는 범위
+
+이번에 사용하는 공식 규격은 2026-11-20에 확인했습니다. 전체 개발자 문서를 복제하거나 임베딩하지 않고, 아래 호출에 필요한 규격과 공식 링크를 보관합니다.
+
+| API | 이번 코드에서 확인한 계약 |
+|---|---|
+| corpCode.xml | crtfc_key, ZIP의 list/corp_code·corp_name·stock_code |
+| list.json | corp_code·bgn_de·end_de·pblntf_detail_ty·last_reprt_at·page_count, status·total_page·list |
+| document.xml | rcept_no, 성공 시 ZIP·실패 시 XML 상태 응답 |
+
+API 키의 값은 문서·테스트에 적지 않습니다. 계약·응답이 달라지면 공식 문서를 다시 확인하고 문서·코드·테스트를 함께 고칩니다. 저장한 규격을 최신이라고 영구 가정하지 않습니다.
+
+개발 에이전트가 규격을 확인하는 과정과 조회 에이전트가 도구를 실행하는 과정을 구분합니다. 실제 조회 때마다 웹검색으로 엔드포인트·필드를 만들어내지 않습니다. API가 늘면 필요한 규격을 추가하고 공식 문서 링크를 찾는 비용이 커질 때 문서 검색·임베딩의 필요성을 평가합니다. MCP는 API 호출 인터페이스의 후보이며 공식 규격 원본이나 재무 해석 검증을 대체하지 않습니다.
