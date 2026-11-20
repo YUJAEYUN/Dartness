@@ -1,0 +1,33 @@
+{
+  "status": "collected",
+  "collected_at": "2026-11-20T01:30:11.608857+00:00",
+  "corp_code": "00359395",
+  "stock_code": "084990",
+  "corp_name": "헬릭스미스",
+  "report_name": "사업보고서 (2025.12)",
+  "filing_date": "20260320",
+  "rcept_no": "20260320001142",
+  "report_period_from_name": "2025.12",
+  "request_count": 3,
+  "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260320001142",
+  "zip_sha256": "4720dcaefa5179137083857a25b49b2adc6786b084f9819c57a37cb7fe866368",
+  "documents": [
+    {
+      "name": "20260320001142_00760.xml",
+      "bytes": 456943,
+      "sha256": "ce63564c7f2d3ebf42d3be350437b9a5fdecf8788481ff39daca15045ae2dea2"
+    },
+    {
+      "name": "20260320001142.xml",
+      "bytes": 1638940,
+      "sha256": "aaf7d6b9ebc497c249a3b8113815cfe0bba594b03b12906288e0a6f9238e4962"
+    },
+    {
+      "name": "20260320001142_00761.xml",
+      "bytes": 453172,
+      "sha256": "fe91ccb4bb23bf0e7ea2356a766513c753d6ad70ba4915581226052b6198bb74"
+    }
+  ],
+  "financial_extraction": "not_performed",
+  "correction_history": "not_checked"
+}
