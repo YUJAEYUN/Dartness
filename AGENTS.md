@@ -21,3 +21,5 @@
 
 - Code checks (Python 3.12): install requirements-dev.txt, then run python -m ruff check ., python -m ruff format --check ., python -m mypy, and python -m pytest -q.
 - Amount normalization is not disclosure extraction or fact validation. Preserve this distinction in docs and code.
+
+- Before extraction work, read docs/testing.md. Derive expected answers from source evidence, not implementation output. Mark real, modified, development, and held-out cases honestly; draft fixtures are not verified extraction tests.
