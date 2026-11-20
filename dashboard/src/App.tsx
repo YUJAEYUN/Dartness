@@ -23,6 +23,8 @@ const docs = [
   ["요구사항", "requirements.md", "조회·출력에서 지켜야 할 기준"],
   ["에이전트 위임 범위", "delegation.md", "자동으로 처리할 일과 확인할 일"],
   ["테스트 기준", "testing.md", "정답과 근거를 확인하는 방법"],
+  ["개발 원칙과 평가", "engineering-principles.md", "다섯 원칙과 실행 결과를 확인하는 방법"],
+  ["현금 조회 계약", "cash-query-contract.md", "확정한 범위와 구현 전에 확인할 항목"],
   ["구조와 판단 경계", "architecture.md", "코드와 에이전트의 역할"],
 ];
 const date = (value: string) =>
@@ -131,7 +133,7 @@ export default function App() {
             한눈에 보기
           </a>
           <a href="#decisions">
-            <CircleHelp size={18} />내 결정이 필요한 일
+            <CircleHelp size={18} />최근 결정
           </a>
           <a href="#progress">
             <GitBranch size={18} />
@@ -212,28 +214,29 @@ export default function App() {
         <section id="decisions" className="decision">
           <div className="section-title">
             <h2>
-              <CircleHelp size={21} />내 결정이 필요한 일
+              <CircleHelp size={21} />최근 결정
             </h2>
-            <span className="badge amber">설계 질문 · 미확정</span>
+            <span className="badge success">결정 완료</span>
           </div>
-          <h3>현금 조회는 어느 범위를 기본으로 볼까요?</h3>
+          <h3>현금 조회는 법인 자체를 기본으로 봅니다</h3>
           <p>
             법인 자체의 금액과 자회사를 포함한 그룹 전체의 금액은 다를 수
             있습니다.
           </p>
           <div className="recommendation">
-            <span className="recommend-label">추천안</span>
+            <span className="recommend-label">확정한 기준</span>
             <strong>법인 자체를 기본으로, 그룹 전체는 선택할 수 있게</strong>
             <p>
-              영업 대상 법인이 보유한 금액을 먼저 확인하기 좋습니다. 선택에 따라
-              조회할 공시와 조건을 충족하는 법인 목록이 달라집니다.
+              별도·개별 재무제표를 기본으로 사용합니다. 연결은 선택할 수 있습니다.
+              확인하지 못한 금액을 0원이나 연결 금액으로 대신 채우지 않고,
+              API 누락·재무제표 없음·요청 시점 자료 없음·추출 실패를 구분해 기록합니다.
             </p>
           </div>
           <footer>
-            <span>아직 조회 기준에 적용하지 않았습니다.</span>
+            <span>2026. 11. 20. 합의 · 조회 추출기는 아직 미구현</span>
             <Button asChild>
-              <a href={`${repository}/blob/main/docs/management-screen.md`}>
-                질문과 근거 확인
+              <a href={`${repository}/blob/main/docs/requirements.md#cash-scope`}>
+                확정한 기준 확인
               </a>
             </Button>
           </footer>
