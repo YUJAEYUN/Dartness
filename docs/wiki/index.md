@@ -11,6 +11,8 @@
 | 관리 화면 구현·갱신 | [첫 화면·실행·데이터 원본·검사 한계](../management-screen.md). dashboard/src/App.tsx, data.ts, data.test.ts와 scripts/snapshot.mjs |
 | 개발 작업 진행 | [작업 흐름](../development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |
+| 개발 원칙·실행 평가 | [다섯 개발 원칙](../engineering-principles.md), [평가 기록](../record-forms/evaluation.md) |
+| 현금 조회 범위·계약 | [확정한 범위](../requirements.md#cash-scope), [첫 계약 초안](../cash-query-contract.md) |
 | 기능·데이터 계약 설계 | [요구사항](../requirements.md), [판단 경계](../architecture.md) |
 | 엑셀 양식 조정 | [출력 예시](../output-example.md) |
 | 문서·메모리 운영 | [운영 기준](../documentation.md) |

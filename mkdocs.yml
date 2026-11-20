@@ -45,6 +45,8 @@ nav:
   - 실제 공시 사례: cases/helixmith-cash.md
   - 금액 단위 처리: amounts.md
   - 합의한 요구사항: requirements.md
+  - 에이전트 개발 원칙: engineering-principles.md
+  - 현금 조회 계약 초안: cash-query-contract.md
   - 구조와 판단 경계: architecture.md
   - 결과물 예시: output-example.md
   - 문서 운영과 메모리: documentation.md
@@ -52,6 +54,7 @@ nav:
   - 개발 작업 흐름: development-workflow.md
   - 정합성 검토: consistency.md
   - 기록 양식:
+      - 실행 평가: record-forms/evaluation.md
       - 공시 테스트 사례: record-forms/test-case.md
       - 설계 결정: record-forms/decision.md
       - 정합성 검토: record-forms/consistency-review.md
