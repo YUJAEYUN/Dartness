@@ -1,0 +1,20 @@
+{
+  "consolidated": {
+    "file": "consolidated-balance-section.html",
+    "sha256": "6abfd75a203b2943bbed42dd7cf06e54d1fef5e04ec8561d581ee81311654d37",
+    "source_character_start": 137019,
+    "source_character_end": 149665,
+    "selection": "원문 제목부터 기간·단위 표와 재무상태표 끝까지 수동 선정",
+    "purpose": "development",
+    "full_source_sha256": "066359157fbb986c64d6c96bc820bb6af17288c611d190be192f7fb7128cf6b8"
+  },
+  "separate": {
+    "file": "separate-balance-section.html",
+    "sha256": "2aadb068193466bfb11dcf2555986d1abcd49c52cbddc271bed100522ae1ed89",
+    "source_character_start": 467129,
+    "source_character_end": 479197,
+    "selection": "원문 제목부터 기간·단위 표와 재무상태표 끝까지 수동 선정",
+    "purpose": "development",
+    "full_source_sha256": "066359157fbb986c64d6c96bc820bb6af17288c611d190be192f7fb7128cf6b8"
+  }
+}

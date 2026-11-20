@@ -23,8 +23,8 @@ flowchart LR
     classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f
     classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4
     class E,F done
-    class B,C partial
-    class A,D,G,H,I todo
+    class B,C,D partial
+    class A,G,H,I todo
 ```
 
 ## 단계별 상태와 근거
@@ -37,7 +37,7 @@ flowchart LR
 | A | 조회 조건 입력 | 미구현 | [요구사항](requirements.md) | 템플릿 형식, 입력 검증 |
 | B | 법인·공시 찾기 | 일부 | src/dartness/dart_smoke.py, [수집 검사](dart-live-check.md) | 고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택 |
 | C | 원문 수집 | 일부 | src/dartness/dart_smoke.py, [수집 검사](dart-live-check.md) | 수동 실행 1건만 수집. 여러 법인 수집, 캐시 |
-| D | 현금 행·열 추출 | 미구현 | 이슈 #19 | 표 파싱, 시점 열 선택, 원문 위치 기록 |
+| D | 현금 행·열 추출 | 일부 | src/dartness/cash_table.py, [지원 범위](cash-table-extraction.md) | 선정된 단순 재무상태표 구간만 지원. 절 자동 선정·다른 법인 서식·주석 추출 |
 | E | 단위 정규화 | 구현 | src/dartness/amounts.py, [금액 단위 처리](amounts.md) | 대시·괄호 음수 등 지원하지 않는 표기 |
 | F | 계약 검증 | 구현 | src/dartness/cash_contract.py, [현금 계약](cash-query-contract.md) | 외부 JSON 입력, 근거의 사실 확인 |
 | G | 합계·차이 판정 | 미구현 | [정확성과 근거](requirements.md#accuracy) | 자동 차이 판정. 표시 기준만 합의됨 |
@@ -46,11 +46,11 @@ flowchart LR
 
 ## 지금 · 다음 · 나중
 
-**지금**은 열린 이슈로 확정된 작업입니다. **다음**과 **나중**은 에이전트의 제안이며 순서를 사용자와 아직 정하지 않았습니다.
+**지금**은 현재 도달한 구현 범위입니다. 열린 후속 작업은 [작업 상태](work-state.md)에서 확인합니다. **다음**과 **나중**은 에이전트의 제안이며 순서를 사용자와 아직 정하지 않았습니다.
 
 | 구분 | 작업 | 상태 |
 |---|---|---|
-| 지금 | 현금 행·열 추출 (이슈 #19) | 확정, 미착수 |
+| 지금 | 현금 행·열 추출 (이슈 #19) | 선정된 구간의 첫 구현 완료, 확장 범위 미정 |
 | 다음 | 다른 법인·서식의 실제 사례와 별도 검증용 공시 확보 | 제안 |
 | 다음 | 법인·공시 찾기를 임의 법인으로 확장 | 제안 |
 | 나중 | 합계·차이 판정, 조건 비교, 엑셀 결과 | 제안 |
