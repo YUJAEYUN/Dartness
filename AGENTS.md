@@ -13,7 +13,7 @@
 - Update the relevant source docs, wiki links, and work state when behavior or meaningful decisions change.
 
 - Follow docs/development-workflow.md: use a task branch and PR; do not push task changes directly to main.
-- Review relevant docs/wiki/code relationships using docs/consistency.md. Record evidence and unimplemented or unverified scope; do not claim semantic consistency from a passing build.
+- Review relevant docs, wiki, and code relationships using docs/consistency.md. Record evidence and unimplemented or unverified scope; do not claim semantic consistency from a passing build.
 - Explain changes to fixtures, expected outputs, check exclusions, or CI rules separately in the PR.
 
 - Use natural Korean familiar to developers. Prefer direct questions in templates and complete sentences over abstract labels or compressed noun lists. Explain technical terms when needed without changing their meaning.
