@@ -67,4 +67,4 @@ Check code의 dart_smoke 입력을 true로 지정한 수동 실행에만 별도 
 
 ## 관리 화면 검사
 
-이슈 #13에서 기존 code-quality에 Node.js 24·npm ci·UI 린트·Vitest·TypeScript strict·Vite 빌드를 추가했습니다. package-lock.json을 사용하고 dashboard/dist/를 management-dashboard 아티팩트로 7일 보관합니다. 별도 필수 검사 설정이나 권한 확대는 없습니다. CI는 GitHub를 재조회하지 않고 저장된 스냅샷으로 빌드합니다. 스냅샷 시각과 검증 한계는 [관리 화면](management-screen.md)에 명시합니다.
+이슈 #13에서 기존 code-quality에 Node.js 24·npm ci·UI 린트·Vitest·TypeScript strict·Vite 빌드를 추가했습니다. package-lock.json을 사용하고 dashboard/dist/를 management-dashboard 아티팩트로 7일 보관합니다. 별도 필수 검사 설정이나 권한 확대는 없습니다. 일반 CI는 GitHub를 재조회하지 않고 저장된 스냅샷으로 빌드합니다. Vercel 빌드는 공개 API에서 새 스냅샷을 생성하고 조회 실패 시 빌드도 실패합니다. 스냅샷 시각과 검증 한계는 [관리 화면](management-screen.md)에 명시합니다.

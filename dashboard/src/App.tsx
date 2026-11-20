@@ -183,7 +183,7 @@ export default function App() {
           </Button>
         </header>
         <div className="snapshot-info">
-          <span>GitHub 공개 상태 스냅샷</span>
+          <span>배포 시 저장한 GitHub 상태</span>
           <span>
             {snapshot
               ? `${date(snapshot.generatedAt)} 기준 · 한국 시간`
@@ -191,7 +191,7 @@ export default function App() {
           </span>
         </div>
         <p className="notice">
-          실시간 화면이 아닙니다. 다시 읽기는 저장된 자료만 불러옵니다. 최신
+          Vercel 빌드 때 갱신합니다. 실시간 화면은 아니며, 다시 읽기는 저장된 자료만 불러옵니다. 최신
           상태와 답변은 GitHub에서 확인하세요.
         </p>
         {error && (

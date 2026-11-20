@@ -63,11 +63,11 @@ React + TypeScript + Vite와 shadcn/ui Button을 바탕으로 만든 정적 화�
 
 ## 실행과 갱신
 
-Node.js 24와 GitHub CLI가 필요합니다. 저장소 루트에서 `cd dashboard`, `npm ci`, `npm run dev`로 엽니다. 정적 결과물은 `npm run build`가 만드는 dashboard/dist/입니다. 사용자는 Vercel 배포를 선택했습니다. Root Directory는 dashboard, 빌드는 npm run build, 출력은 dist, 운영 브랜치는 main입니다. 실제 배포 주소는 아직 확인하지 못했습니다.
+Node.js 24가 필요합니다. 저장소 루트에서 `cd dashboard`, `npm ci`, `npm run dev`로 엽니다. 정적 결과물은 `npm run build`가 만드는 dashboard/dist/입니다. 사용자는 Vercel 배포를 선택했습니다. Root Directory는 dashboard, 빌드는 npm run build, 출력은 dist, 운영 브랜치는 main입니다. 실제 배포 주소는 아직 확인하지 못했습니다.
 
-`npm run snapshot`은 gh의 기존 인증으로 공개 이슈·PR·main 검사 상태만 읽어 public/data/snapshot.json에 저장합니다. 제목·번호·상태·원본 URL·시각만 허용하며 토큰·본문·사용자 정보는 포함하지 않습니다. 조회 실패는 비정상 종료하고 이전 자료를 유지합니다. 최대 최근 100건이며 한도에 닿으면 화면에 표시합니다. 검사 이력은 최근 10건이며 전체 이력은 GitHub 링크에서 확인합니다.
+`npm run snapshot`은 공식 GitHub 공개 API에서 인증 없이 이슈·PR·main 검사 상태를 읽어 public/data/snapshot.json에 저장합니다. Vercel 빌드(VERCEL=1)에서는 npm run build가 이 갱신을 먼저 실행합니다. 제목·번호·상태·원본 URL·시각만 허용하며 토큰·본문·사용자 정보는 포함하지 않습니다. 조회 실패는 비정상 종료하고 이전 파일을 유지합니다. Vercel에서는 빌드도 실패하므로 오래된 자료로 새 배포를 성공 처리하지 않습니다. 각 요청은 15초 제한이며 재시도하지 않습니다. 공개 API 호출 제한(429 등)도 실패로 처리합니다. 최대 최근 100건이며 한도에 닿으면 화면에 표시합니다. 검사 이력은 최근 10건이며 전체 이력은 GitHub 링크에서 확인합니다.
 
-화면의 다시 읽기는 저장된 JSON을 다시 읽습니다. GitHub 자료 자체를 갱신하려면 스냅샷 재생성·빌드·배포가 필요합니다. 24시간이 지난 자료와 미래 시각은 주의 표시를 합니다. 이 기준은 작업 현황의 표시용이며 DART 공시 판단 기준과 무관합니다.
+화면의 다시 읽기는 저장된 JSON을 다시 읽습니다. Vercel에서 새 빌드를 실행하면 스냅샷 재생성 후 배포합니다. 이슈만 닫고 새 빌드가 없으면 화면은 갱신되지 않습니다. 일반 CI와 로컬 빌드는 외부 요청 없이 저장된 JSON을 사용합니다. 24시간이 지난 자료와 미래 시각은 주의 표시를 합니다. 이 기준은 작업 현황의 표시용이며 DART 공시 판단 기준과 무관합니다.
 
 결정 카드는 기준 문서의 합의 상태를 수동 반영합니다. 현재 현금 조회 범위는 결정 완료입니다. 결정 내용이 바뀌면 기준 문서와 카드를 같은 PR에서 갱신합니다. 이슈 전체를 LLM으로 분류하거나 모든 예외를 자동 발견하지 않습니다.
 
