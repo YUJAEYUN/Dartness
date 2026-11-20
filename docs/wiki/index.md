@@ -8,7 +8,7 @@
 | CI·브랜치 설정 | [검사와 설정 방법](../ci.md) |
 | 테스트·정답 사례 준비 | [테스트 절차](../testing.md), [실제 공시 초안](../cases/helixmith-cash.md) |
 | 위임·병합 판단 | [합의한 위임 정책](../delegation.md) |
-| 관리 화면 설계 | [첫 화면과 데이터 원본](../management-screen.md) |
+| 관리 화면 구현·갱신 | [첫 화면·실행·데이터 원본·검사 한계](../management-screen.md). dashboard/src/App.tsx, data.ts, data.test.ts와 scripts/snapshot.mjs |
 | 개발 작업 진행 | [작업 흐름](../development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |
 | 기능·데이터 계약 설계 | [요구사항](../requirements.md), [판단 경계](../architecture.md) |

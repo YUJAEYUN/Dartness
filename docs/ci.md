@@ -64,3 +64,7 @@ PR #1의 원격 작업 브랜치 docs/development-workflow는 병합 사실을 �
 ## 수동 DART 연동 작업
 
 Check code의 dart_smoke 입력을 true로 지정한 수동 실행에만 별도 dart-smoke 작업을 추가합니다. 실제 요청과 산출물·오류 처리의 범위는 [DART 실제 수집 검사](dart-live-check.md)를 따릅니다. 일반 PR에서는 실행하지 않으며 code-quality는 그대로 실행합니다. 새로운 필수 검사 등록은 필요하지 않습니다.
+
+## 관리 화면 검사
+
+이슈 #13에서 기존 code-quality에 Node.js 24·npm ci·UI 린트·Vitest·TypeScript strict·Vite 빌드를 추가했습니다. package-lock.json을 사용하고 dashboard/dist/를 management-dashboard 아티팩트로 7일 보관합니다. 별도 필수 검사 설정이나 권한 확대는 없습니다. CI는 GitHub를 재조회하지 않고 저장된 스냅샷으로 빌드합니다. 스냅샷 시각과 검증 한계는 [관리 화면](management-screen.md)에 명시합니다.
