@@ -125,3 +125,34 @@ def test_implemented_rules_have_an_example_or_test() -> None:
         if not unimplemented and rule not in covered and rule not in sources
     ]
     assert uncovered == []
+
+
+STATUS_CLASSES = {"구현": "done", "일부": "partial", "미구현": "todo"}
+
+
+def _status_table(text: str, marker: str) -> list[list[str]]:
+    lines = text.split(f"<!-- system-status: {marker} -->\n", 1)[1].splitlines()
+    rows = []
+    for line in lines[2:]:
+        if not line.startswith("|"):
+            break
+        rows.append([cell.strip() for cell in line.strip("|").split("|")])
+    assert rows, marker
+    return rows
+
+
+def test_system_status_map_matches_stage_table() -> None:
+    text = (ROOT / "docs" / "system-status.md").read_text(encoding="utf-8")
+    table = {row[0]: STATUS_CLASSES[row[2]] for row in _status_table(text, "stages")}
+    drawn: dict[str, str] = {}
+    for ids, css in re.findall(r"^\s*class ([A-Z,]+) (\w+)$", text, re.MULTILINE):
+        for node in ids.split(","):
+            assert node not in drawn, f"{node} colored twice"
+            drawn[node] = css
+    assert drawn == table
+
+
+def test_system_status_lists_every_rule() -> None:
+    text = (ROOT / "docs" / "system-status.md").read_text(encoding="utf-8")
+    listed = {row[0] for row in _status_table(text, "rules")}
+    assert listed == _defined_rule_ids()

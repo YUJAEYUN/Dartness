@@ -11,7 +11,7 @@ main에 다음 기능이 있습니다.
 - 현금 조회 Python 계약 v1과 헬릭스미스 개발용 사례: [계약](cash-query-contract.md), [사례](cases/helixmith-cash.md)
 - 조회용 관리 화면(Vercel 빌드 때 GitHub 공개 상태 갱신): [관리 화면](management-screen.md)
 
-확정한 기준은 원본 문서에 있습니다. 위임 범위는 [위임 정책](delegation.md), 현금 조회 범위는 [요구사항](requirements.md#cash-scope), 개발 원칙은 [개발 원칙](engineering-principles.md)을 봅니다.
+처리 흐름의 단계별 구현 상태와 다음·나중 작업은 [시스템 상태](system-status.md)에 있습니다. 확정한 기준은 원본 문서에 있습니다. 위임 범위는 [위임 정책](delegation.md), 현금 조회 범위는 [요구사항](requirements.md#cash-scope), 개발 원칙은 [개발 원칙](engineering-principles.md)을 봅니다.
 
 ## 진행 중인 작업
 
