@@ -9,6 +9,7 @@
 
 | 목적 | 문서 |
 |---|---|
+| 지금 어디까지 만들었고 다음은 무엇인가 | [시스템 상태](system-status.md) |
 | 무엇을 에이전트에게 맡기는가 | [위임 정책](delegation.md) |
 | 작업을 한곳에서 보고 싶은가 | [관리 화면](management-screen.md) |
 | 어떤 개발 원칙을 따르는가 | [다섯 개발 원칙](engineering-principles.md) |

@@ -20,6 +20,7 @@ import {
 } from "./data";
 import "./App.css";
 const docs = [
+  ["시스템 상태", "system-status.md", "처리 흐름의 구현 상태와 다음 작업"],
   ["요구사항", "requirements.md", "조회·출력에서 지켜야 할 기준"],
   ["에이전트 위임 범위", "delegation.md", "자동으로 처리할 일과 확인할 일"],
   ["테스트 기준", "testing.md", "정답과 근거를 확인하는 방법"],
