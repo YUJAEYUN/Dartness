@@ -9,6 +9,7 @@
 | 테스트·정답 사례 준비 | [테스트 절차](../testing.md), [실제 공시 초안](../cases/helixmith-cash.md) |
 | 문서 예시 테스트 작성 | [작성 규칙](../testing.md#doc-examples). 로더는 tests/doc_examples.py, 연결 검사는 tests/test_docs_consistency.py |
 | 위임·병합 판단 | [합의한 위임 정책](../delegation.md) |
+| docs→화면 생성·검사 | [동기화 범위](../management-screen.md). dashboard/scripts/system-status.mjs, dashboard/src/ProjectStatus.tsx, dashboard/scripts/system-status.test.mjs |
 | 관리 화면 구현·갱신 | [첫 화면·실행·데이터 원본·검사 한계](../management-screen.md). dashboard/src/App.tsx, dashboard/src/data.ts, dashboard/src/data.test.ts, dashboard/scripts/snapshot.mjs, dashboard/scripts/github-snapshot.mjs (Vercel 빌드 시 갱신) |
 | 개발 작업 진행 | [작업 흐름](../development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |

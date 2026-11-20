@@ -68,3 +68,7 @@ Check code의 dart_smoke 입력을 true로 지정한 수동 실행에만 별도 
 ## 관리 화면 검사
 
 이슈 #13에서 기존 code-quality에 Node.js 24·npm ci·UI 린트·Vitest·TypeScript strict·Vite 빌드를 추가했습니다. package-lock.json을 사용하고 dashboard/dist/를 management-dashboard 아티팩트로 7일 보관합니다. 별도 필수 검사 설정이나 권한 확대는 없습니다. 일반 CI는 GitHub를 재조회하지 않고 저장된 스냅샷으로 빌드합니다. Vercel 빌드는 공개 API에서 새 스냅샷을 생성하고 조회 실패 시 빌드도 실패합니다. 스냅샷 시각과 검증 한계는 [관리 화면](management-screen.md)에 명시합니다.
+
+## docs와 대시보드 생성물 검사
+
+code-quality가 UI 빌드 전에 `npm run docs:check`를 실행합니다. 시스템 상태 원본과 커밋된 생성 JSON이 다르면 실패하며 빌드의 자동 재생성으로 그 실패를 숨기지 않습니다. 생성기와 경계 사례는 UI Vitest에서 실행합니다. 로컬 훅 설치와 검사 한계는 [관리 화면](management-screen.md)에 있습니다. 필수 검사 이름·권한·기존 검사·정답은 바꾸지 않았습니다.

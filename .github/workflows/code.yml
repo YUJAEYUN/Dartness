@@ -33,6 +33,8 @@ jobs:
           cache-dependency-path: dashboard/package-lock.json
       - run: npm ci
         working-directory: dashboard
+      - run: npm run docs:check
+        working-directory: dashboard
       - run: npm run lint && npm test && npm run build
         working-directory: dashboard
       - uses: actions/upload-artifact@v4

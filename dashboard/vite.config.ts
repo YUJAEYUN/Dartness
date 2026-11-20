@@ -4,4 +4,7 @@ import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  define: {
+    "import.meta.env.VITE_SOURCE_REF": JSON.stringify(process.env.VERCEL_GIT_COMMIT_SHA || "main"),
+  },
 });

@@ -35,11 +35,11 @@ flowchart LR
 | ID | 단계 | 상태 | 근거 | 아직 없는 것 |
 |---|---|---|---|---|
 | A | 조회 조건 입력 | 미구현 | [요구사항](requirements.md) | 템플릿 형식, 입력 검증 |
-| B | 법인·공시 찾기 | 일부 | src/dartness/dart_smoke.py, [수집 검사](dart-live-check.md) | 고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택 |
-| C | 원문 수집 | 일부 | src/dartness/dart_smoke.py, [수집 검사](dart-live-check.md) | 수동 실행 1건만 수집. 여러 법인 수집, 캐시 |
-| D | 현금 행·열 추출 | 일부 | src/dartness/cash_table.py, [지원 범위](cash-table-extraction.md) | 선정된 단순 재무상태표 구간만 지원. 절 자동 선정·다른 법인 서식·주석 추출 |
-| E | 단위 정규화 | 구현 | src/dartness/amounts.py, [금액 단위 처리](amounts.md) | 대시·괄호 음수 등 지원하지 않는 표기 |
-| F | 계약 검증 | 구현 | src/dartness/cash_contract.py, [현금 계약](cash-query-contract.md) | 외부 JSON 입력, 근거의 사실 확인 |
+| B | 법인·공시 찾기 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md) | 고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택 |
+| C | 원문 수집 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md) | 수동 실행 1건만 수집. 여러 법인 수집, 캐시 |
+| D | 현금 행·열 추출 | 일부 | src/dartness/cash_table.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md) | 선정된 단순 재무상태표 구간만 지원. 절 자동 선정·다른 법인 서식·주석 추출 |
+| E | 단위 정규화 | 구현 | src/dartness/amounts.py, tests/test_amounts.py, [금액 단위 처리](amounts.md) | 대시·괄호 음수 등 지원하지 않는 표기 |
+| F | 계약 검증 | 구현 | src/dartness/cash_contract.py, tests/test_cash_contract.py, [현금 계약](cash-query-contract.md) | 외부 JSON 입력, 근거의 사실 확인 |
 | G | 합계·차이 판정 | 미구현 | [정확성과 근거](requirements.md#accuracy) | 자동 차이 판정. 표시 기준만 합의됨 |
 | H | 조건 비교 | 미구현 | [현금 계약](cash-query-contract.md) | 금액 조건 비교 방식, 결과 포함 정책 |
 | I | 엑셀 결과 | 미구현 | [결과물 예시](output-example.md) | 열 배치, 파일 생성 |
@@ -48,6 +48,7 @@ flowchart LR
 
 **지금**은 현재 도달한 구현 범위입니다. 열린 후속 작업은 [작업 상태](work-state.md)에서 확인합니다. **다음**과 **나중**은 에이전트의 제안이며 순서를 사용자와 아직 정하지 않았습니다.
 
+<!-- system-status: next -->
 | 구분 | 작업 | 상태 |
 |---|---|---|
 | 지금 | 현금 행·열 추출 (이슈 #19) | 선정된 구간의 첫 구현 완료, 확장 범위 미정 |
@@ -60,6 +61,7 @@ flowchart LR
 
 아래는 요구사항에서 아직 정하지 않은 항목입니다. 원본은 [아직 정하지 않은 것](requirements.md)과 [현금 계약](cash-query-contract.md)입니다.
 
+<!-- system-status: decisions -->
 | 결정 | 영향받는 단계 |
 |---|---|
 | 기본 조회 시점(기준일 기본값) | A, D |
@@ -71,7 +73,7 @@ flowchart LR
 
 ## 규칙별 검사 현황
 
-[정합성 검토](consistency.md)에 정의한 규칙과 그 규칙을 확인하는 검사입니다. 검사는 계약·변환 단계에서 잘못된 대체를 막는지 확인합니다. 원문 추출(D)이 아직 없으므로 추출 결과가 규칙을 지키는지는 확인하지 못합니다.
+[정합성 검토](consistency.md)에 정의한 규칙과 그 규칙을 확인하는 검사입니다. 검사는 계약·변환 단계에서 잘못된 대체를 막는지 확인합니다. 선정된 단순 구간의 추출(D)도 검사하지만 전체 보고서·다른 법인 서식의 정확성을 증명하지는 않습니다.
 
 <!-- system-status: rules -->
 | 규칙 | 내용 | 검사 위치 |
@@ -88,8 +90,10 @@ flowchart LR
 | 코드 검사(린트·타입·테스트) | 필수 CI | .github/workflows/code.yml |
 | 문서 빌드 | 필수 CI | .github/workflows/docs.yml |
 | 문서 경로·규칙·예시 연결 검사 | pytest 안에서 실행 | tests/test_docs_consistency.py |
-| 관리 화면 | 배포됨, GitHub 상태만 표시 | [관리 화면](management-screen.md) |
+| 관리 화면 | 배포됨, docs의 시스템 상태와 GitHub 작업 상태 표시 | [관리 화면](management-screen.md) |
 
 ## 이 문서를 갱신할 때
 
 단계의 상태가 바뀌는 PR에서 지도와 표를 함께 고칩니다. tests/test_docs_consistency.py가 지도의 색과 표의 상태가 같은지, 정의된 규칙이 모두 규칙 현황에 있는지, 근거 파일이 실제로 있는지 확인합니다. 상태 판단 자체가 맞는지는 확인하지 못하므로 PR에서 근거를 적습니다.
+
+이 문서는 관리 화면의 시스템 상태 데이터 원본이기도 합니다. 원본을 고친 뒤 dashboard에서 `npm run docs:generate`를 실행해 생성 파일을 함께 커밋합니다. 필수 CI의 `npm run docs:check`가 생성물 불일치를 실패로 처리합니다. [화면 동기화 범위와 한계](management-screen.md)를 확인합니다.
