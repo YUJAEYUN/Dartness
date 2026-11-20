@@ -88,9 +88,8 @@ export function ProjectStatus() {
           <a href={`${sourceBase}/${status.catalogSource}`}>유형 명세</a>
         </div>
         <p className="muted">
-          사용자가 요청한 조회 유형과 현재 구현 범위입니다. 현금의 일부 추출만
-          구현됐고 다른 유형은 명세 단계입니다. 미결 기준을 임의로 채우지
-          않습니다.
+          사용자가 요청한 조회 유형입니다. 구현 범위는 각 카드의 상태를 확인하세요.
+          유형을 누르면 입력·결과·근거·아직 정하지 않은 기준을 펼칠 수 있습니다.
         </p>
         <div className="query-type-list">
           {status.queryTypes.map((item) => (
