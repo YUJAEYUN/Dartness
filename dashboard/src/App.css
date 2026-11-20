@@ -439,3 +439,11 @@ summary {
 .source-evidence a { color: #087e8b; text-decoration: underline; }
 .next-task { margin: 12px 0 0; font-weight: 500; }
 @media(max-width:700px) { .stage-list { grid-template-columns: 1fr 1fr; } }
+
+.query-type-list { display: grid; gap: 12px; margin-bottom: 18px; }
+.query-type { border: 1px solid #dce4ee; border-radius: 8px; padding: 16px; margin: 0; }
+.query-type summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0; font-size: 1rem; color: #24354e; }
+.query-type[open] summary { margin-bottom: 20px; }
+.query-type dl { margin: 0; font-size: .9rem; line-height: 1.8; }
+.query-type dt { color: #087e8b; font-weight: 600; }
+.query-type dd { margin: 3px 0 14px; color: #52647b; }

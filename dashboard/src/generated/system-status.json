@@ -1,6 +1,55 @@
 {
+  "catalogSource": "docs/query-types.md",
+  "catalogSha256": "12e9fb76626cf49795ab69be8d7e21752799ec7ab03260d45880811222bc4882",
+  "queryTypes": [
+    {
+      "id": "cash",
+      "name": "현금및현금성자산 금액",
+      "status": "일부",
+      "input": "법인·기준일·별도/개별 또는 연결·금액 조건",
+      "result": "원문 금액·단위·통화·시점·재무 범위, 조건 판정은 구현 후 제공",
+      "evidence": "재무상태표의 행·열, 적용 단위·기간 문맥과 원문 링크",
+      "unresolved": "기준일 기본값·정정 선택·금액 비교 방식·미확인 결과 포함 정책 미결"
+    },
+    {
+      "id": "try-assets",
+      "name": "터키 리라화(TRY) 자산 보유",
+      "status": "미구현",
+      "input": "법인·시점·대상 자산 범위·TRY 또는 원화 금액 조건",
+      "result": "자산 종류·보유 주체·TRY 금액, 원화 평가액은 근거가 있을 때만",
+      "evidence": "외화자산·금융상품·통화별 보유내역과 환산 근거",
+      "unresolved": "현금/예금만 볼지 전체 자산인지, 원화 평가액 종류·환율과 환산 시점 미결"
+    },
+    {
+      "id": "us-bonds",
+      "name": "미국채권 보유 금액",
+      "status": "미구현",
+      "input": "법인·시점·채권 종류와 발행 주체 범위·금액 조건",
+      "result": "채권 종류·발행 주체·통화·보유금액·평가 기준",
+      "evidence": "금융자산·채무증권·투자내역 주석의 항목과 원문 링크",
+      "unresolved": "미국 국채만인지 미국 회사채도 포함하는지, 액면/장부/공정가치 비교 기준 미결"
+    },
+    {
+      "id": "share-compensation",
+      "name": "주식보상과 위탁 증권사",
+      "status": "미구현",
+      "input": "법인·대상 기간·보상 유형·제도 또는 실제 시행 중 조회 대상",
+      "result": "보상 유형·시행/부여 사실·해당 시점, 확인된 위탁 증권사와 역할",
+      "evidence": "주식기준보상·보상계약·관련 공시에서 사실과 증권사별 근거",
+      "unresolved": "제도 존재와 실제 부여/지급의 구분, 증권사의 위탁·중개·보관 역할과 보상 유형 미결"
+    },
+    {
+      "id": "stock-collateral-loan",
+      "name": "주식담보대출 관련 법인",
+      "status": "미구현",
+      "input": "법인·시점/기간·차입자·담보 제공자 등 조회 역할",
+      "result": "차입자·담보 제공자·대출 기관·담보 주식·금액·기간 중 확인된 항목",
+      "evidence": "차입금·담보제공·주식 담보계약 등 해당 관계를 명시한 공시",
+      "unresolved": "법인 차입과 주요주주 개인 차입 중 대상, 현재 잔액과 기간 중 실행 여부 구분 미결"
+    }
+  ],
   "source": "docs/system-status.md",
-  "sourceSha256": "dc901dc77ee14c3b90a841906b323167e2a0fe89a637f40b903ca4586ddde685",
+  "sourceSha256": "895b4b1627b0c6c7b50dc20a83ce7a56f69451dd5beac6517fb2d22f94e9c34b",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class B,C,D partial\n    class A,G,H,I todo",
   "stages": [
     {
@@ -70,13 +119,18 @@
   "next": [
     {
       "group": "지금",
-      "task": "현금 행·열 추출 (이슈 #19)",
-      "status": "선정된 구간의 첫 구현 완료, 확장 범위 미정"
+      "task": "올인원 다섯 조회 유형의 입력·결과·근거·미결 명세 (이슈 #32)",
+      "status": "명세와 대시보드 범위 연결, 현금 외 추출은 미구현"
     },
     {
       "group": "다음",
-      "task": "다른 법인·서식의 실제 사례와 별도 검증용 공시 확보",
+      "task": "유형별 미결 질문 하나를 정하고 실행 계약·실제 공시 사례 준비",
       "status": "제안"
+    },
+    {
+      "group": "나중",
+      "task": "다른 법인 현금 사례 평가 (이슈 #31)",
+      "status": "범위 정리를 위해 보류"
     },
     {
       "group": "다음",

@@ -79,11 +79,54 @@ export function ProjectStatus() {
     status.stages.find((item) => item.id === selected) ?? status.stages[0];
   return (
     <>
+      <section id="query-types" className="panel">
+        <div className="section-title">
+          <h2>
+            <BookOpen size={21} />
+            올인원 조회 범위
+          </h2>
+          <a href={`${sourceBase}/${status.catalogSource}`}>유형 명세</a>
+        </div>
+        <p className="muted">
+          사용자가 요청한 조회 유형과 현재 구현 범위입니다. 현금의 일부 추출만
+          구현됐고 다른 유형은 명세 단계입니다. 미결 기준을 임의로 채우지
+          않습니다.
+        </p>
+        <div className="query-type-list">
+          {status.queryTypes.map((item) => (
+            <details key={item.id} className="query-type">
+              <summary>
+                <strong>{item.name}</strong>
+                <span
+                  className={`badge ${item.status === "일부" ? "amber" : item.status === "구현" ? "success" : ""}`}
+                >
+                  {item.status === "일부" ? "일부 구현" : item.status}
+                </span>
+              </summary>
+              <dl>
+                <dt>입력</dt>
+                <dd>{item.input}</dd>
+                <dt>확인할 결과</dt>
+                <dd>{item.result}</dd>
+                <dt>필요한 근거</dt>
+                <dd>{item.evidence}</dd>
+                <dt>확인 필요·아직 정하지 않은 것</dt>
+                <dd>{item.unresolved}</dd>
+              </dl>
+            </details>
+          ))}
+        </div>
+        <small>
+          원본: {status.catalogSource} · 원본 해시{" "}
+          {status.catalogSha256.slice(0, 12)}
+        </small>
+      </section>
+
       <section id="system" className="panel system-panel">
         <div className="section-title">
           <h2>
             <GitBranch size={21} />
-            전체 구현 상태
+            현금 조회 경로의 구현 상태
           </h2>
           <a href={`${sourceBase}/${status.source}`}>기준 원문</a>
         </div>
@@ -134,7 +177,7 @@ export function ProjectStatus() {
         <div className="section-title">
           <h2>
             <CircleHelp size={21} />
-            아직 정하지 않은 것
+            현금 조회에서 아직 정하지 않은 것
           </h2>
           <span className="badge amber">{status.decisions.length}개 미결</span>
         </div>
@@ -159,9 +202,7 @@ export function ProjectStatus() {
                     .join(" · ")}
                 </small>
               </div>
-              <a
-                href={`${sourceBase}/${status.source}#답을-기다리는-결정`}
-              >
+              <a href={`${sourceBase}/${status.source}#답을-기다리는-결정`}>
                 근거
               </a>
             </li>

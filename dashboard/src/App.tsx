@@ -60,7 +60,7 @@ function Rows({ items, empty }: { items: Item[]; empty: string }) {
           <span className={`badge ${item.state === "merged" ? "success" : ""}`}>
             {(
               {
-                open: "진행 중",
+                open: "열린 작업",
                 closed: "종료",
                 merged: "병합 완료",
                 completed: item.conclusion === "success" ? "통과" : "결과 확인",
@@ -143,9 +143,13 @@ export default function App() {
             <LayoutDashboard size={18} />
             한눈에 보기
           </a>
+          <a href="#query-types">
+            <BookOpen size={18} />
+            올인원 조회 범위
+          </a>
           <a href="#system">
             <GitBranch size={18} />
-            전체 구현 상태
+            현금 조회 경로
           </a>
           <a href="#next">
             <BookOpen size={18} />
@@ -157,7 +161,7 @@ export default function App() {
           </a>
           <a href="#progress">
             <GitBranch size={18} />
-            진행 중인 일
+            열린 작업
           </a>
           <a href="#completed">
             <CheckCheck size={18} />
@@ -247,7 +251,7 @@ export default function App() {
             <div className="section-title">
               <h2>
                 <GitBranch size={20} />
-                진행 중인 일
+                열린 작업
               </h2>
               {snapshot && (
                 <span className="count">

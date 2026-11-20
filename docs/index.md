@@ -14,6 +14,7 @@
 | 작업을 한곳에서 보고 싶은가 | [관리 화면](management-screen.md) |
 | 어떤 개발 원칙을 따르는가 | [다섯 개발 원칙](engineering-principles.md) |
 | 현금 조회를 어떻게 구현할 것인가 | [계약 초안](cash-query-contract.md) |
+| 어떤 조회 유형을 다루는가 | [올인원 조회 유형 명세](query-types.md) |
 | 무엇을 만들고 있는가 | [합의한 요구사항](requirements.md) |
 | 코드와 에이전트는 무엇을 맡는가 | [구조와 판단 경계](architecture.md) |
 | 결과를 어떻게 보여주는가 | [결과물 예시](output-example.md) |
