@@ -9,6 +9,8 @@
 
 | 목적 | 문서 |
 |---|---|
+| 무엇을 에이전트에게 맡기는가 | [위임 정책](delegation.md) |
+| 작업을 한곳에서 보고 싶은가 | [관리 화면 설계안](management-screen.md) |
 | 무엇을 만들고 있는가 | [합의한 요구사항](requirements.md) |
 | 코드와 에이전트는 무엇을 맡는가 | [구조와 판단 경계](architecture.md) |
 | 결과를 어떻게 보여주는가 | [결과물 예시](output-example.md) |
