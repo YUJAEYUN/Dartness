@@ -46,9 +46,9 @@ tests/test_dart_smoke.py에서 가짜 응답으로 회사·보고서 일치, 페
 - [공시 원문 ZIP](https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019003)
 - [고유번호 목록](https://opendart.fss.or.kr/guide/detail.do?apiGrpCd=DS001&apiId=2019018)
 
-## 관련 초안
+## 관련 테스트 기준
 
-[PR #8](https://github.com/YUJAEYUN/Dartness/pull/8)의 테스트 절차와 KIND 정답 초안은 아직 사용자 검토 중입니다. 이번 작업이 해당 정답·오차 허용 기준을 확정하지 않습니다.
+[PR #8](https://github.com/YUJAEYUN/Dartness/pull/8)은 병합됐습니다. [테스트 절차](testing.md)와 [KIND 사례](cases/helixmith-cash.md)의 원문 값·단위·차이는 보존하고, 표시 단위로 설명 가능한 작은 차이는 기본 표에서 경고하지 않기로 합의했습니다. 이번 수집 작업이 금액 정답 검증이나 자동 오차 판정을 구현한 것은 아닙니다.
 
 ## 개발자 문서를 관리하는 범위
 

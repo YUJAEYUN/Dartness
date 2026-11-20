@@ -23,3 +23,4 @@
 - Amount normalization is not disclosure extraction or fact validation. Preserve this distinction in docs and code.
 
 - Do not introduce third-party DART MCP servers, skills, or dedicated API wrappers. Use official OpenDART endpoints directly; see docs/dart-live-check.md. This does not prohibit general-purpose development libraries.
+- Before extraction work, read docs/testing.md. Derive expected answers from source evidence, not implementation output. Mark real, modified, development, and held-out cases honestly; draft fixtures are not verified extraction tests.
