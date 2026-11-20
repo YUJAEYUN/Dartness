@@ -26,6 +26,21 @@ jobs:
       - run: python -m ruff format --check .
       - run: python -m mypy
       - run: python -m pytest -q
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: dashboard/package-lock.json
+      - run: npm ci
+        working-directory: dashboard
+      - run: npm run lint && npm test && npm run build
+        working-directory: dashboard
+      - uses: actions/upload-artifact@v4
+        with:
+          name: management-dashboard
+          path: dashboard/dist/
+          if-no-files-found: error
+          retention-days: 7
 
   dart-smoke:
     if: github.event_name == 'workflow_dispatch' && inputs.dart_smoke
