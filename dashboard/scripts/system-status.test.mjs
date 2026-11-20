@@ -3,6 +3,7 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   generateSystemStatus,
+  readQueryTypes,
   serializeStatus,
   root,
   sourcePath,
@@ -11,7 +12,11 @@ import {
 const source = readFileSync(resolve(root, sourcePath), "utf8");
 describe("docs와 PO 화면의 동기화", () => {
   it("표에 없는 노드로 흐름을 연결하면 거절한다", () => {
-    expect(() => generateSystemStatus(source.replace("    classDef done", "    I --> Z\n    classDef done"))).toThrow("단계 ID");
+    expect(() =>
+      generateSystemStatus(
+        source.replace("    classDef done", "    I --> Z\n    classDef done"),
+      ),
+    ).toThrow("단계 ID");
   });
   it("단계·질문·다음 작업과 규칙을 원문에서 가져온다", () => {
     const result = generateSystemStatus(source);
@@ -72,5 +77,53 @@ describe("docs와 PO 화면의 동기화", () => {
       generateSystemStatus(source).sourceSha256,
     );
     expect(serializeStatus(changed)).not.toBe(serializeStatus(source));
+  });
+});
+
+describe("올인원 조회 유형 원본", () => {
+  const catalog = readFileSync(resolve(root, "docs/query-types.md"), "utf8");
+  it("사용자가 요청한 다섯 유형과 원본 필드를 보존한다", () => {
+    const types = readQueryTypes(catalog);
+    expect(types.map((t) => t.id)).toEqual([
+      "cash",
+      "try-assets",
+      "us-bonds",
+      "share-compensation",
+      "stock-collateral-loan",
+    ]);
+    expect(types.every(t => t.input && t.result && t.evidence && t.unresolved)).toBe(true);
+  });
+  it("정의하지 않은 구현 상태와 중복 유형을 거절한다", () => {
+    expect(() =>
+      readQueryTypes(catalog.replace("| try-assets |", "| cash |")),
+    ).toThrow("중복");
+    expect(() =>
+      readQueryTypes(
+        catalog.replace(
+          "| 현금및현금성자산 금액 | 일부 |",
+          "| 현금및현금성자산 금액 | 준비됨 |",
+        ),
+      ),
+    ).toThrow("구현 상태");
+  });
+  it("객체의 기본 속성 이름을 구현 상태로 받아들이지 않는다", () => {
+    expect(() => readQueryTypes(catalog.replace("| 현금및현금성자산 금액 | 일부 |", "| 현금및현금성자산 금액 | toString |"))).toThrow("구현 상태");
+  });
+  it("원본에서 유형을 삭제하면 생성 화면 데이터도 달라진다", () => {
+    const changed = catalog
+      .split("\n")
+      .filter((line) => !line.startsWith("| us-bonds |"))
+      .join("\n");
+    const before = generateSystemStatus(source, undefined, catalog);
+    const after = generateSystemStatus(source, undefined, changed);
+    expect(after.queryTypes.length).toBe(before.queryTypes.length - 1);
+    expect(after.catalogSha256).not.toBe(before.catalogSha256);
+  });
+  it("열이나 필수 값이 누락된 유형을 거절한다", () => {
+    expect(() =>
+      readQueryTypes(
+        catalog.replace("| cash |", "|  |"),
+      ),
+    ).toThrow();
   });
 });
