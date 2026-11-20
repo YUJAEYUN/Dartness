@@ -4,6 +4,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      dart_smoke:
+        description: 'DART 실제 공시 1건 수집 (시크릿 필요)'
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -21,3 +26,24 @@ jobs:
       - run: python -m ruff format --check .
       - run: python -m mypy
       - run: python -m pytest -q
+
+  dart-smoke:
+    if: github.event_name == 'workflow_dispatch' && inputs.dart_smoke
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect one DART filing
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          PYTHONPATH: src
+        run: python -m dartness.dart_smoke
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dart-smoke-${{ github.run_id }}
+          path: work/dart-smoke/
+          if-no-files-found: error
+          retention-days: 3
