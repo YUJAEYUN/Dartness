@@ -1,0 +1,22 @@
+{
+  "company": "주식회사 헬릭스미스",
+  "source_url": "https://kind.krx.co.kr/external/2026/03/20/001561/20260320005559/11011.htm",
+  "source_provider": "한국거래소 KIND",
+  "source_sha256": "066359157fbb986c64d6c96bc820bb6af17288c611d190be192f7fb7128cf6b8",
+  "as_of": "2025-12-31",
+  "case_id": "helixmith-2025-separate-cash-contract-v1",
+  "purpose": "development",
+  "review_status": "source_checked_by_agent_not_independent_review",
+  "rechecked_on": "2026-11-20",
+  "basis": "separate",
+  "locator": "III. 재무에 관한 사항 / 4. 재무제표 / 4-1. 재무상태표 / 현금및현금성자산 / 제30기",
+  "raw_value": "31,653,154,838",
+  "unit": "원",
+  "amount_krw": "31653154838",
+  "context_file": "separate-balance-context.txt",
+  "context_sha256": "6f7b0429f92d6e238cf833cd32a1627abd8f16f56ced8505d1578e1752c012c4",
+  "limitations": [
+    "에이전트가 같은 KIND 문서 해시를 재확인하고 원문을 대조한 개발용 계약 사례입니다. 추출기 평가·독립 검증·미사용 검증용 사례가 아닙니다.",
+    "기존 연결 정답을 바꾸지 않고 별도 재무상태표의 값을 새 사례로 추가했습니다."
+  ]
+}
