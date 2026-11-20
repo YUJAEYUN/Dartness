@@ -1,14 +1,42 @@
 {
-  "generatedAt": "2026-11-20T02:09:38.863Z",
+  "generatedAt": "2026-11-20T04:51:47.373Z",
   "repository": "https://github.com/YUJAEYUN/Dartness",
   "limited": false,
   "issues": [
     {
+      "number": 20,
+      "title": "배포 시 작업 상태 스냅샷이 갱신되지 않는 문제 수정",
+      "state": "open",
+      "url": "https://github.com/YUJAEYUN/Dartness/issues/20",
+      "updatedAt": "2026-11-20T04:50:13Z"
+    },
+    {
+      "number": 19,
+      "title": "선정된 재무상태표 HTML 구간에서 현금 금액 추출",
+      "state": "open",
+      "url": "https://github.com/YUJAEYUN/Dartness/issues/19",
+      "updatedAt": "2026-11-20T04:48:33Z"
+    },
+    {
+      "number": 17,
+      "title": "현금 조회 계약 v1과 공시 기반 계약 테스트 준비",
+      "state": "closed",
+      "url": "https://github.com/YUJAEYUN/Dartness/issues/17",
+      "updatedAt": "2026-11-20T04:47:07Z"
+    },
+    {
+      "number": 15,
+      "title": "현금 조회 범위 확정과 다섯 개발 원칙 반영",
+      "state": "closed",
+      "url": "https://github.com/YUJAEYUN/Dartness/issues/15",
+      "updatedAt": "2026-11-20T04:38:22Z"
+    },
+    {
       "number": 13,
       "title": "React와 shadcn/ui로 조회용 작업 관리 화면 구현",
-      "state": "open",
+      "state": "closed",
       "url": "https://github.com/YUJAEYUN/Dartness/issues/13",
-      "updatedAt": "2026-11-20T02:04:04Z"
+      "updatedAt": "2026-11-20T04:41:08Z"
     },
     {
       "number": 11,
@@ -55,6 +83,27 @@
   ],
   "pulls": [
     {
+      "number": 18,
+      "title": "현금 조회 계약 v1과 별도·연결 검증 사례 추가",
+      "state": "merged",
+      "url": "https://github.com/YUJAEYUN/Dartness/pull/18",
+      "updatedAt": "2026-11-20T04:46:49Z"
+    },
+    {
+      "number": 16,
+      "title": "현금 조회 범위 확정과 다섯 개발 원칙 연결",
+      "state": "merged",
+      "url": "https://github.com/YUJAEYUN/Dartness/pull/16",
+      "updatedAt": "2026-11-20T04:38:39Z"
+    },
+    {
+      "number": 14,
+      "title": "조회용 작업 관리 화면과 UI 필수 검사 추가",
+      "state": "merged",
+      "url": "https://github.com/YUJAEYUN/Dartness/pull/14",
+      "updatedAt": "2026-11-20T02:13:04Z"
+    },
+    {
       "number": 12,
       "title": "합의한 위임 정책과 작업 관리 화면 설계 정리",
       "state": "merged",
@@ -99,84 +148,84 @@
   ],
   "runs": [
     {
+      "number": 44676668916,
+      "title": "Check docs",
+      "state": "completed",
+      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44676668916",
+      "updatedAt": "2026-11-20T04:47:06Z",
+      "conclusion": "success"
+    },
+    {
+      "number": 44676668948,
+      "title": "Check code",
+      "state": "completed",
+      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44676668948",
+      "updatedAt": "2026-11-20T04:47:12Z",
+      "conclusion": "success"
+    },
+    {
+      "number": 44675711257,
+      "title": "Check docs",
+      "state": "completed",
+      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44675711257",
+      "updatedAt": "2026-11-20T04:38:16Z",
+      "conclusion": "success"
+    },
+    {
+      "number": 44675711352,
+      "title": "Check code",
+      "state": "completed",
+      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44675711352",
+      "updatedAt": "2026-11-20T04:38:27Z",
+      "conclusion": "success"
+    },
+    {
+      "number": 44659184704,
+      "title": "Check docs",
+      "state": "completed",
+      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44659184704",
+      "updatedAt": "2026-11-20T02:13:30Z",
+      "conclusion": "success"
+    },
+    {
+      "number": 44659184705,
+      "title": "Check code",
+      "state": "completed",
+      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44659184705",
+      "updatedAt": "2026-11-20T02:13:31Z",
+      "conclusion": "success"
+    },
+    {
       "number": 44658015254,
       "title": "Check code",
       "state": "completed",
-      "conclusion": "success",
       "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44658015254",
-      "updatedAt": "2026-11-20T02:03:30Z"
+      "updatedAt": "2026-11-20T02:03:30Z",
+      "conclusion": "success"
     },
     {
       "number": 44658015202,
       "title": "Check docs",
       "state": "completed",
-      "conclusion": "success",
       "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44658015202",
-      "updatedAt": "2026-11-20T02:03:33Z"
+      "updatedAt": "2026-11-20T02:03:33Z",
+      "conclusion": "success"
     },
     {
       "number": 44657573850,
       "title": "Check docs",
       "state": "completed",
-      "conclusion": "success",
       "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44657573850",
-      "updatedAt": "2026-11-20T01:59:57Z"
+      "updatedAt": "2026-11-20T01:59:57Z",
+      "conclusion": "success"
     },
     {
       "number": 44657573801,
       "title": "Check code",
       "state": "completed",
-      "conclusion": "success",
       "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44657573801",
-      "updatedAt": "2026-11-20T02:00:00Z"
-    },
-    {
-      "number": 44656915792,
-      "title": "Check docs",
-      "state": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44656915792",
-      "updatedAt": "2026-11-20T01:54:21Z"
-    },
-    {
-      "number": 44656915854,
-      "title": "Check code",
-      "state": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44656915854",
-      "updatedAt": "2026-11-20T01:54:12Z"
-    },
-    {
-      "number": 44469356185,
-      "title": "Check code",
-      "state": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44469356185",
-      "updatedAt": "2026-11-19T06:03:33Z"
-    },
-    {
-      "number": 44469356384,
-      "title": "Check docs",
-      "state": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44469356384",
-      "updatedAt": "2026-11-19T06:03:30Z"
-    },
-    {
-      "number": 44467437762,
-      "title": "Check docs",
-      "state": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44467437762",
-      "updatedAt": "2026-11-19T05:46:37Z"
-    },
-    {
-      "number": 44465690212,
-      "title": "Check docs",
-      "state": "completed",
-      "conclusion": "success",
-      "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/44465690212",
-      "updatedAt": "2026-11-19T05:31:25Z"
+      "updatedAt": "2026-11-20T02:00:00Z",
+      "conclusion": "success"
     }
   ]
 }
