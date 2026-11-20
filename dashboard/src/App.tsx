@@ -15,17 +15,27 @@ import {
   isStale,
   parseSnapshot,
   repository,
+  sourceBase,
   type Item,
   type Snapshot,
 } from "./data";
 import "./App.css";
+import { ProjectStatus } from "./ProjectStatus";
 const docs = [
   ["시스템 상태", "system-status.md", "처리 흐름의 구현 상태와 다음 작업"],
   ["요구사항", "requirements.md", "조회·출력에서 지켜야 할 기준"],
   ["에이전트 위임 범위", "delegation.md", "자동으로 처리할 일과 확인할 일"],
   ["테스트 기준", "testing.md", "정답과 근거를 확인하는 방법"],
-  ["개발 원칙과 평가", "engineering-principles.md", "다섯 원칙과 실행 결과를 확인하는 방법"],
-  ["현금 조회 계약", "cash-query-contract.md", "확정한 범위와 구현 전에 확인할 항목"],
+  [
+    "개발 원칙과 평가",
+    "engineering-principles.md",
+    "다섯 원칙과 실행 결과를 확인하는 방법",
+  ],
+  [
+    "현금 조회 계약",
+    "cash-query-contract.md",
+    "확정한 범위와 구현 전에 확인할 항목",
+  ],
   ["구조와 판단 경계", "architecture.md", "코드와 에이전트의 역할"],
 ];
 const date = (value: string) =>
@@ -133,8 +143,17 @@ export default function App() {
             <LayoutDashboard size={18} />
             한눈에 보기
           </a>
+          <a href="#system">
+            <GitBranch size={18} />
+            전체 구현 상태
+          </a>
+          <a href="#next">
+            <BookOpen size={18} />
+            다음 작업
+          </a>
           <a href="#decisions">
-            <CircleHelp size={18} />최근 결정
+            <CircleHelp size={18} />
+            아직 정하지 않은 것
           </a>
           <a href="#progress">
             <GitBranch size={18} />
@@ -192,8 +211,8 @@ export default function App() {
           </span>
         </div>
         <p className="notice">
-          Vercel 빌드 때 갱신합니다. 실시간 화면은 아니며, 다시 읽기는 저장된 자료만 불러옵니다. 최신
-          상태와 답변은 GitHub에서 확인하세요.
+          Vercel 빌드 때 갱신합니다. 실시간 화면은 아니며, 다시 읽기는 저장된
+          자료만 불러옵니다. 최신 상태와 답변은 GitHub에서 확인하세요.
         </p>
         {error && (
           <div role="alert" className="alert">
@@ -212,36 +231,7 @@ export default function App() {
             최근 100건까지만 조회했습니다. 전체 작업은 GitHub에서 확인하세요.
           </div>
         )}
-        <section id="decisions" className="decision">
-          <div className="section-title">
-            <h2>
-              <CircleHelp size={21} />최근 결정
-            </h2>
-            <span className="badge success">결정 완료</span>
-          </div>
-          <h3>현금 조회는 법인 자체를 기본으로 봅니다</h3>
-          <p>
-            법인 자체의 금액과 자회사를 포함한 그룹 전체의 금액은 다를 수
-            있습니다.
-          </p>
-          <div className="recommendation">
-            <span className="recommend-label">확정한 기준</span>
-            <strong>법인 자체를 기본으로, 그룹 전체는 선택할 수 있게</strong>
-            <p>
-              별도·개별 재무제표를 기본으로 사용합니다. 연결은 선택할 수 있습니다.
-              확인하지 못한 금액을 0원이나 연결 금액으로 대신 채우지 않고,
-              API 누락·재무제표 없음·요청 시점 자료 없음·추출 실패를 구분해 기록합니다.
-            </p>
-          </div>
-          <footer>
-            <span>2026. 11. 20. 합의 · 조회 추출기는 아직 미구현</span>
-            <Button asChild>
-              <a href={`${repository}/blob/main/docs/requirements.md#cash-scope`}>
-                확정한 기준 확인
-              </a>
-            </Button>
-          </footer>
-        </section>
+        <ProjectStatus />
         <div className="search">
           <label htmlFor="search">작업 찾기</label>
           <input
@@ -350,7 +340,7 @@ export default function App() {
             {docs.map(([title, file, description]) => (
               <a
                 key={file}
-                href={`${repository}/blob/main/docs/${file}`}
+                href={`${sourceBase}/docs/${file}`}
                 className="doc-card"
               >
                 <BookOpen size={20} />

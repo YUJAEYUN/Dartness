@@ -1,0 +1,145 @@
+{
+  "source": "docs/system-status.md",
+  "sourceSha256": "dc901dc77ee14c3b90a841906b323167e2a0fe89a637f40b903ca4586ddde685",
+  "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class B,C,D partial\n    class A,G,H,I todo",
+  "stages": [
+    {
+      "id": "A",
+      "name": "조회 조건 입력",
+      "status": "미구현",
+      "evidence": "[요구사항](requirements.md)",
+      "missing": "템플릿 형식, 입력 검증"
+    },
+    {
+      "id": "B",
+      "name": "법인·공시 찾기",
+      "status": "일부",
+      "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md)",
+      "missing": "고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택"
+    },
+    {
+      "id": "C",
+      "name": "원문 수집",
+      "status": "일부",
+      "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md)",
+      "missing": "수동 실행 1건만 수집. 여러 법인 수집, 캐시"
+    },
+    {
+      "id": "D",
+      "name": "현금 행·열 추출",
+      "status": "일부",
+      "evidence": "src/dartness/cash_table.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md)",
+      "missing": "선정된 단순 재무상태표 구간만 지원. 절 자동 선정·다른 법인 서식·주석 추출"
+    },
+    {
+      "id": "E",
+      "name": "단위 정규화",
+      "status": "구현",
+      "evidence": "src/dartness/amounts.py, tests/test_amounts.py, [금액 단위 처리](amounts.md)",
+      "missing": "대시·괄호 음수 등 지원하지 않는 표기"
+    },
+    {
+      "id": "F",
+      "name": "계약 검증",
+      "status": "구현",
+      "evidence": "src/dartness/cash_contract.py, tests/test_cash_contract.py, [현금 계약](cash-query-contract.md)",
+      "missing": "외부 JSON 입력, 근거의 사실 확인"
+    },
+    {
+      "id": "G",
+      "name": "합계·차이 판정",
+      "status": "미구현",
+      "evidence": "[정확성과 근거](requirements.md#accuracy)",
+      "missing": "자동 차이 판정. 표시 기준만 합의됨"
+    },
+    {
+      "id": "H",
+      "name": "조건 비교",
+      "status": "미구현",
+      "evidence": "[현금 계약](cash-query-contract.md)",
+      "missing": "금액 조건 비교 방식, 결과 포함 정책"
+    },
+    {
+      "id": "I",
+      "name": "엑셀 결과",
+      "status": "미구현",
+      "evidence": "[결과물 예시](output-example.md)",
+      "missing": "열 배치, 파일 생성"
+    }
+  ],
+  "next": [
+    {
+      "group": "지금",
+      "task": "현금 행·열 추출 (이슈 #19)",
+      "status": "선정된 구간의 첫 구현 완료, 확장 범위 미정"
+    },
+    {
+      "group": "다음",
+      "task": "다른 법인·서식의 실제 사례와 별도 검증용 공시 확보",
+      "status": "제안"
+    },
+    {
+      "group": "다음",
+      "task": "법인·공시 찾기를 임의 법인으로 확장",
+      "status": "제안"
+    },
+    {
+      "group": "나중",
+      "task": "합계·차이 판정, 조건 비교, 엑셀 결과",
+      "status": "제안"
+    },
+    {
+      "group": "나중",
+      "task": "PR마다 LLM이 문서와 코드를 대조하는 참고 리뷰",
+      "status": "보류. API 키·비용 결정 필요"
+    }
+  ],
+  "decisions": [
+    {
+      "question": "기본 조회 시점(기준일 기본값)",
+      "affected": "A, D"
+    },
+    {
+      "question": "정정 공시가 있을 때 어느 문서를 쓸지",
+      "affected": "B, C"
+    },
+    {
+      "question": "확인 불가·불일치 결과를 결과표에 넣을지",
+      "affected": "H, I"
+    },
+    {
+      "question": "반올림 허용 범위",
+      "affected": "G"
+    },
+    {
+      "question": "엑셀 열과 메모 배치",
+      "affected": "I"
+    },
+    {
+      "question": "원문 캐시 저장 방식과 보관 기간",
+      "affected": "C"
+    }
+  ],
+  "rules": [
+    {
+      "id": "AMOUNT-001",
+      "description": "단위를 확인할 수 없는 금액은 확인 필요",
+      "evidence": "[금액 예시](amounts.md), tests/test_amounts.py"
+    },
+    {
+      "id": "CASH-001",
+      "description": "별도·개별 미확인 시 연결 금액으로 대체 금지",
+      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py"
+    },
+    {
+      "id": "CASH-002",
+      "description": "확인 불가 금액을 0원으로 대체 금지",
+      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py"
+    },
+    {
+      "id": "CASH-003",
+      "description": "요청 시점이 아닌 금액으로 대체 표시 금지",
+      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py"
+    }
+  ]
+}

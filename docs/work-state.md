@@ -10,13 +10,13 @@ main에 다음 기능이 있습니다.
 - 실제 DART 공시 1건 수집 검사: [수동 검사와 범위](dart-live-check.md)
 - 현금 조회 Python 계약 v1과 헬릭스미스 개발용 사례: [계약](cash-query-contract.md), [사례](cases/helixmith-cash.md)
 - 선정된 단순 HTML 구간의 현금 행·기간 열 추출: [지원 범위](cash-table-extraction.md)
-- 조회용 관리 화면(Vercel 빌드 때 GitHub 공개 상태 갱신): [관리 화면](management-screen.md)
+- docs의 처리 흐름·상태·미결 질문·다음 작업과 GitHub 상태를 모은 관리 화면: [관리 화면](management-screen.md)
 
 처리 흐름의 단계별 구현 상태와 다음·나중 작업은 [시스템 상태](system-status.md)에 있습니다. 확정한 기준은 원본 문서에 있습니다. 위임 범위는 [위임 정책](delegation.md), 현금 조회 범위는 [요구사항](requirements.md#cash-scope), 개발 원칙은 [개발 원칙](engineering-principles.md)을 봅니다.
 
 ## 진행 중인 작업
 
-- 이슈 #19의 첫 지원 범위 구현과 검증을 마쳤습니다. 검사·병합 근거는 해당 이슈·PR에서 확인합니다. 추가 구현 범위는 아직 확정하지 않았습니다.
+- 이슈 #29: docs 기반 PO 대시보드와 동기화 검사를 연결했습니다. 검사·병합 결과는 해당 이슈·PR에서 확인합니다. DART 기능의 추가 구현 범위는 아직 확정하지 않았습니다.
 
 ## 다음에 정할 것
 

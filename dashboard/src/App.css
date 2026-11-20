@@ -423,3 +423,19 @@ summary {
     white-space: nowrap;
   }
 }
+.flowchart { overflow-x: auto; min-height: 120px; padding: 20px 0; }
+.flowchart svg { display: block; min-width: 920px; width: 100%; height: auto; }
+.legend { display: flex; gap: 10px; flex-wrap: wrap; }
+.stage-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stage-button { text-align: left; border: 1px solid #d8e0e9; border-radius: 8px; padding: 14px; background: #f3f4f6; color: #374151; font-size: .9rem; }
+.stage-button strong, .stage-button span { display: block; }
+.stage-button span { margin-top: 8px; font-size: .875rem; }
+.stage-button.state-구현 { background: #d1fae5; border-color: #059669; color: #064e3b; }
+.stage-button.state-일부 { background: #fef3c7; border-color: #d97706; color: #78350f; }
+.stage-button[aria-pressed=true] { outline: 2px solid #087e8b; outline-offset: 2px; }
+.stage-detail { margin: 22px 0 18px; border-top: 1px solid #e2e8f0; padding-top: 20px; }
+.stage-detail h3 { font-size: 1.1rem; }
+.source-evidence { font-size: .875rem; overflow-wrap: anywhere; line-height: 1.8; }
+.source-evidence a { color: #087e8b; text-decoration: underline; }
+.next-task { margin: 12px 0 0; font-weight: 500; }
+@media(max-width:700px) { .stage-list { grid-template-columns: 1fr 1fr; } }
