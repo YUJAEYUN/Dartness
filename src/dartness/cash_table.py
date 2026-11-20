@@ -142,6 +142,8 @@ def extract_cash_table(
             return review("period_unavailable", "명시된 기간에 요청한 기준일이 없습니다")
         if len(labels) != 1 or not rows or not all(cell.header for cell in rows[0]):
             raise ValueError("기간이나 머리글이 모호합니다")
+        if any(cell.header for row in rows[1:] for cell in row):
+            raise ValueError("여러 머리글 구간은 지원하지 않습니다")
         header = [_compact(cell.text) for cell in rows[0]]
         if len(header) < 2 or header[0] or len(set(header)) != len(header):
             raise ValueError("머리글 구조가 모호하거나 중복됩니다")

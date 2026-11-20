@@ -208,3 +208,20 @@ def test_check_time_must_include_timezone_even_on_success_path() -> None:
             evidence(),
             datetime(2026, 11, 20),
         )
+
+
+def test_repeated_header_cannot_redefine_the_column_mapping() -> None:
+    html = section()
+    header = re.search(r"<TR>\s*<TH[^>]*>.*?</TR>", html, re.DOTALL)
+    assert header is not None
+    # Modified source: a second header may change the meaning of subsequent columns.
+    html = html.replace(header[0], header[0] + header[0])
+    result = extract_cash_table(
+        CashQuery("00359395", date(2025, 12, 31)),
+        html,
+        "separate",
+        evidence(),
+        CHECKED_AT,
+    )
+    assert isinstance(result, CashNeedsReview)
+    assert result.reason == "extraction_failed" and "여러 머리글" in result.detail
