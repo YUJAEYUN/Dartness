@@ -106,6 +106,9 @@ describe("올인원 조회 유형 원본", () => {
       ),
     ).toThrow("구현 상태");
   });
+  it("객체의 기본 속성 이름을 구현 상태로 받아들이지 않는다", () => {
+    expect(() => readQueryTypes(catalog.replace("| 현금및현금성자산 금액 | 일부 |", "| 현금및현금성자산 금액 | toString |"))).toThrow("구현 상태");
+  });
   it("원본에서 유형을 삭제하면 생성 화면 데이터도 달라진다", () => {
     const changed = catalog
       .split("\n")

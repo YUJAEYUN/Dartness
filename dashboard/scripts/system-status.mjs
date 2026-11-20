@@ -51,7 +51,7 @@ function checkReferences(text, fileExists) {
 export function readQueryTypes(text) {
   const types = table(text, "query-types", 7).map(
     ([id, name, status, input, result, evidence, unresolved]) => {
-      if (!/^[a-z]+(?:-[a-z]+)*$/.test(id) || !classes[status])
+      if (!/^[a-z]+(?:-[a-z]+)*$/.test(id) || !Object.hasOwn(classes, status))
         throw new Error("조회 유형 ID·구현 상태를 확인하세요");
       return { id, name, status, input, result, evidence, unresolved };
     },
@@ -76,7 +76,7 @@ export function generateSystemStatus(
     throw new Error("지원하는 조회용 흐름도만 사용하세요");
   const stages = table(text, "stages", 5).map(
     ([id, name, status, evidence, missing]) => {
-      if (!/^[A-Z]$/.test(id) || !classes[status])
+      if (!/^[A-Z]$/.test(id) || !Object.hasOwn(classes, status))
         throw new Error(`잘못된 단계 ID·상태: ${id} ${status}`);
       checkReferences(evidence, fileExists);
       if (
