@@ -7,9 +7,10 @@ from dataclasses import asdict, replace
 from datetime import UTC, date, datetime
 from decimal import Decimal
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 import pytest
+from doc_examples import DocExample, check_example, load_examples
 
 from dartness.amounts import AmountInput
 from dartness.cash_contract import (
@@ -182,3 +183,37 @@ def test_separate_source_case_keeps_own_value_and_evidence() -> None:
     assert result.amount_krw == Decimal("31653154838")
     assert result.amount_krw != value().amount_krw
     assert result.query.scope == "standalone"
+
+
+def separate_evidence() -> CashEvidence:
+    folder = FIXTURE.parent
+    case = json.loads((folder / "separate-contract-v1.json").read_text())
+    context = (folder / case["context_file"]).read_text()
+    return CashEvidence(case["source_url"], case["source_sha256"], case["locator"], context)
+
+
+def run_documented_case(data: dict[str, Any]) -> CashValue | CashNeedsReview:
+    query = CashQuery("00359395", date.fromisoformat(data["as_of"]), data["scope"])
+    if data["kind"] == "needs_review":
+        return CashNeedsReview(
+            query,
+            data["reason"],
+            datetime(2026, 11, 20, tzinfo=UTC),
+            "문서 예시",
+            "문서 예시의 확인 불가 사례",
+            "원문을 확인합니다",
+        )
+    sources = {"helixmith-consolidated": evidence, "helixmith-separate": separate_evidence}
+    return CashValue(
+        query,
+        data["basis"],
+        date.fromisoformat(data["result_as_of"]),
+        AmountInput(data["raw_value"], data["unit"]),
+        Decimal(data["amount_krw"]),
+        sources[data["evidence"]](),
+    )
+
+
+@pytest.mark.parametrize("example", load_examples("cash-contract"), ids=lambda example: example.id)
+def test_documented_cash_examples(example: DocExample) -> None:
+    check_example(example, run_documented_case)

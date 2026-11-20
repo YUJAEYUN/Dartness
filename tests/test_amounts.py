@@ -1,8 +1,7 @@
-import json
 from decimal import Decimal, localcontext
-from pathlib import Path
 
 import pytest
+from doc_examples import DocExample, check_example, load_examples
 
 from dartness.amounts import AmountInput, AmountNeedsReview, NormalizedAmount, normalize_krw_amount
 
@@ -62,22 +61,9 @@ def test_conversion_does_not_round_under_a_small_decimal_context() -> None:
     assert result.amount_krw == Decimal("123456789012345678901234567890125")
 
 
-def test_documented_examples_match_actual_behavior() -> None:
-    document = (Path(__file__).parents[1] / "docs" / "amounts.md").read_text()
-    example = document.split("```json\n", 1)[1].split("```", 1)[0]
-    rows: list[dict[str, str | None]] = json.loads(example)
-    assert len(rows) >= 6
-    for row in rows:
-        raw = row["raw_value"]
-        unit = row["unit"]
-        assert isinstance(raw, str)
-        assert unit is None or isinstance(unit, str)
-        result = normalize_krw_amount(AmountInput(raw, unit))
-        if "expected_krw" in row:
-            expected = row["expected_krw"]
-            assert isinstance(expected, str)
-            assert isinstance(result, NormalizedAmount)
-            assert result.amount_krw == Decimal(expected)
-        else:
-            assert isinstance(result, AmountNeedsReview)
-            assert result.reason == row["expected_reason"]
+@pytest.mark.parametrize("example", load_examples("amounts"), ids=lambda example: example.id)
+def test_documented_examples_match_actual_behavior(example: DocExample) -> None:
+    check_example(
+        example,
+        lambda data: normalize_krw_amount(AmountInput(data["raw_value"], data["unit"])),
+    )

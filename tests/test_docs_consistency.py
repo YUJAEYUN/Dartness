@@ -1,12 +1,15 @@
 """Mechanical checks for references written in human-readable docs.
 
-These checks only confirm that referenced paths and rule IDs exist and that
-docs/work-state.md keeps its agreed shape. They do not establish that the
+These checks confirm that referenced paths and rule IDs exist, that every rule ID
+has an example or test, that every documented example is executed by a test, and
+that docs/work-state.md keeps its agreed shape. They do not establish that the
 prose and the implementation mean the same thing.
 """
 
 import re
 from pathlib import Path
+
+from doc_examples import all_examples
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -20,7 +23,9 @@ GENERATED_PATHS = {"dashboard/dist"}
 
 RULE_ID_PATTERN = re.compile(r"\b[A-Z]{2,}-\d{3}\b")
 NON_RULE_TOKENS = {"SHA-256"}
-RULE_DEFINITION_PATTERN = re.compile(r'<a id="([a-z]+-\d{3})"></a>\s*\n규칙 \*\*([A-Z]+-\d{3})\*\*')
+RULE_DEFINITION_PATTERN = re.compile(
+    r'<a id="([a-z]+-\d{3})"></a>\s*\n규칙 \*\*([A-Z]+-\d{3})\*\*( \(미구현\))?'
+)
 
 WORK_STATE_HEADINGS = [
     "## 현재 상태",
@@ -53,11 +58,24 @@ def test_documented_repository_paths_exist() -> None:
     assert missing == []
 
 
-def _defined_rule_ids() -> set[str]:
+def _rule_definitions() -> dict[str, bool]:
+    """Map each defined rule ID to whether it is marked unimplemented."""
     text = (ROOT / "docs" / "consistency.md").read_text(encoding="utf-8")
     definitions = RULE_DEFINITION_PATTERN.findall(text)
-    assert all(anchor == rule.lower() for anchor, rule in definitions)
-    return {rule for _, rule in definitions}
+    assert all(anchor == rule.lower() for anchor, rule, _ in definitions)
+    return {rule: bool(unimplemented) for _, rule, unimplemented in definitions}
+
+
+def _defined_rule_ids() -> set[str]:
+    return set(_rule_definitions())
+
+
+def _test_sources() -> dict[str, str]:
+    return {
+        path.name: path.read_text(encoding="utf-8")
+        for path in sorted((ROOT / "tests").glob("test_*.py"))
+        if path.name != Path(__file__).name
+    }
 
 
 def test_used_rule_ids_are_defined() -> None:
@@ -78,3 +96,32 @@ def test_work_state_keeps_current_state_format() -> None:
     text = (ROOT / "docs" / "work-state.md").read_text(encoding="utf-8")
     headings = [line for line in text.splitlines() if line.startswith("## ")]
     assert headings == WORK_STATE_HEADINGS
+
+
+def test_documented_examples_are_executed_by_tests() -> None:
+    sources = "\n".join(_test_sources().values())
+    blocks = sorted({example.block for example in all_examples()})
+    assert blocks, "docs/amounts.md and docs/cash-query-contract.md hold examples"
+    unread = [block for block in blocks if f'load_examples("{block}")' not in sources]
+    assert unread == []
+
+
+def test_example_rules_are_defined() -> None:
+    defined = _defined_rule_ids()
+    undefined = [
+        f"{example.document} {example.id}: {example.rule}"
+        for example in all_examples()
+        if example.rule is not None and example.rule not in defined
+    ]
+    assert undefined == []
+
+
+def test_implemented_rules_have_an_example_or_test() -> None:
+    covered = {example.rule for example in all_examples() if example.rule is not None}
+    sources = "\n".join(_test_sources().values())
+    uncovered = [
+        rule
+        for rule, unimplemented in sorted(_rule_definitions().items())
+        if not unimplemented and rule not in covered and rule not in sources
+    ]
+    assert uncovered == []

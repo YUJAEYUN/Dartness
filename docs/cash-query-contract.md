@@ -48,6 +48,53 @@ standalone은 separate·individual만, consolidated는 consolidated만 허용합
 
 status=value는 계약 형식의 통과를 뜻합니다. 원문에서 그 값이 실제 존재하는지, 해시·위치·문맥이 올바른지는 별도 원문 검증이 필요합니다. 생성자가 사실 검증을 수행하거나 허위 근거를 자동 탐지하지 않습니다. 명시적 원문 0원은 허용하지만 확인 불가 상태에는 금액 필드가 없습니다.
 
+<a id="examples"></a>
+## 규칙별 실행 예시
+
+아래 예시는 tests/test_cash_contract.py가 읽어 계약 생성 결과와 비교합니다. 작성 규칙은 [문서 예시 테스트](testing.md#doc-examples)를 따릅니다. 규칙 원문은 [현금 조회 범위](requirements.md#cash-scope)입니다.
+
+real-dev 금액은 헬릭스미스 개발용 사례에서 원문으로 먼저 확인한 값입니다(tests/fixtures/cash/helixmith-2025). evidence는 테스트가 넣을 개발용 근거를 고릅니다. modified는 실제 값을 다른 요청에 넣어 대체를 시도한 사례이고, synthetic은 실제 공시와 무관한 합성 사례입니다. 예시는 계약이 잘못된 대체를 거절하는지 확인할 뿐, 추출 정확도를 보여주지 않습니다.
+
+<!-- dartness-example: cash-contract -->
+```json
+[
+  {"id": "cash-consolidated-request-keeps-consolidated", "source": "real-dev",
+   "input": {"kind": "value", "scope": "consolidated", "as_of": "2025-12-31",
+             "basis": "consolidated", "result_as_of": "2025-12-31",
+             "raw_value": "31,827,123,947", "unit": "원", "amount_krw": "31827123947",
+             "evidence": "helixmith-consolidated"},
+   "expect": {"status": "value", "basis": "consolidated", "amount_krw": "31827123947"}},
+  {"id": "cash-standalone-keeps-separate", "source": "real-dev",
+   "input": {"kind": "value", "scope": "standalone", "as_of": "2025-12-31",
+             "basis": "separate", "result_as_of": "2025-12-31",
+             "raw_value": "31,653,154,838", "unit": "원", "amount_krw": "31653154838",
+             "evidence": "helixmith-separate"},
+   "expect": {"status": "value", "basis": "separate", "amount_krw": "31653154838"}},
+  {"id": "cash-standalone-rejects-consolidated", "rule": "CASH-001", "source": "modified",
+   "input": {"kind": "value", "scope": "standalone", "as_of": "2025-12-31",
+             "basis": "consolidated", "result_as_of": "2025-12-31",
+             "raw_value": "31,827,123,947", "unit": "원", "amount_krw": "31827123947",
+             "evidence": "helixmith-consolidated"},
+   "expect": {"error": "ValueError", "message": "financial basis must match"}},
+  {"id": "cash-unconfirmed-has-no-amount", "rule": "CASH-002", "source": "synthetic",
+   "input": {"kind": "needs_review", "scope": "standalone", "as_of": "2025-12-31",
+             "reason": "basis_unavailable"},
+   "expect": {"status": "needs_review", "reason": "basis_unavailable", "amount_krw": null}},
+  {"id": "cash-dash-is-not-zero", "rule": "CASH-002", "source": "synthetic",
+   "input": {"kind": "value", "scope": "standalone", "as_of": "2025-12-31",
+             "basis": "separate", "result_as_of": "2025-12-31",
+             "raw_value": "-", "unit": "원", "amount_krw": "0",
+             "evidence": "helixmith-separate"},
+   "expect": {"error": "ValueError", "message": "exact normalization"}},
+  {"id": "cash-other-period-rejected", "rule": "CASH-003", "source": "modified",
+   "input": {"kind": "value", "scope": "consolidated", "as_of": "2025-12-31",
+             "basis": "consolidated", "result_as_of": "2024-12-31",
+             "raw_value": "31,827,123,947", "unit": "원", "amount_krw": "31827123947",
+             "evidence": "helixmith-consolidated"},
+   "expect": {"error": "ValueError", "message": "financial date must match"}}
+]
+```
+
 ## 계약 검증의 실제 범위
 
 tests/test_cash_contract.py는 기존 연결 재무상태표와 새 별도 재무상태표 개발용 값을 사용합니다. 확인한 KIND 전체 원문 해시는 기존 기록과 같았습니다. 해당 값은 원문에서 먼저 읽었으며 계약 생성자의 출력으로 정답을 만들지 않았습니다. 개별재무제표 허용·API 누락·통신 장애·단위 제거 등은 명시적으로 합성한 경계 사례입니다. 실제 공시에서 그런 장애가 있었다는 뜻이 아닙니다.

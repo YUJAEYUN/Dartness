@@ -23,16 +23,29 @@ normalized는 단위 변환 성공이지 공시 사실의 검증 완료가 아�
 
 ## 실행 예시와 테스트 데이터
 
-아래 예시는 테스트가 문서에서 읽어 실제 결과와 비교합니다. expected_krw는 사람이 지정한 정답이며 코드 출력으로 갱신하지 않습니다.
+아래 예시는 테스트가 문서에서 읽어 실제 결과와 비교합니다. 작성 규칙은 [문서 예시 테스트](testing.md#doc-examples)를 따릅니다. amount_krw는 사람이 지정한 정답이며 코드 출력으로 갱신하지 않습니다.
 
+<!-- dartness-example: amounts -->
 ```json
 [
-  {"raw_value": "56,000,000", "unit": "천원", "expected_krw": "56000000000"},
-  {"raw_value": "560", "unit": "억원", "expected_krw": "56000000000"},
-  {"raw_value": "0.125", "unit": "백만원", "expected_krw": "125000"},
-  {"raw_value": "560", "unit": null, "expected_reason": "missing_unit"},
-  {"raw_value": "560", "unit": "USD", "expected_reason": "unsupported_unit"},
-  {"raw_value": "-", "unit": "천원", "expected_reason": "invalid_number"}
+  {"id": "amount-thousand-won", "source": "synthetic",
+   "input": {"raw_value": "56,000,000", "unit": "천원"},
+   "expect": {"status": "normalized", "amount_krw": "56000000000"}},
+  {"id": "amount-hundred-million-won", "source": "synthetic",
+   "input": {"raw_value": "560", "unit": "억원"},
+   "expect": {"status": "normalized", "amount_krw": "56000000000"}},
+  {"id": "amount-decimal-million-won", "source": "synthetic",
+   "input": {"raw_value": "0.125", "unit": "백만원"},
+   "expect": {"status": "normalized", "amount_krw": "125000"}},
+  {"id": "amount-missing-unit", "rule": "AMOUNT-001", "source": "synthetic",
+   "input": {"raw_value": "560", "unit": null},
+   "expect": {"status": "needs_review", "reason": "missing_unit", "amount_krw": null}},
+  {"id": "amount-unsupported-unit", "source": "synthetic",
+   "input": {"raw_value": "560", "unit": "USD"},
+   "expect": {"status": "needs_review", "reason": "unsupported_unit", "amount_krw": null}},
+  {"id": "amount-dash-is-not-zero", "source": "synthetic",
+   "input": {"raw_value": "-", "unit": "천원"},
+   "expect": {"status": "needs_review", "reason": "invalid_number", "amount_krw": null}}
 ]
 ```
 
