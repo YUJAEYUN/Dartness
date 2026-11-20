@@ -48,6 +48,7 @@ nav:
   - 합의한 요구사항: requirements.md
   - 에이전트 개발 원칙: engineering-principles.md
   - 현금 조회 계약 초안: cash-query-contract.md
+  - 현금 표 추출: cash-table-extraction.md
   - 구조와 판단 경계: architecture.md
   - 결과물 예시: output-example.md
   - 문서 운영과 메모리: documentation.md
