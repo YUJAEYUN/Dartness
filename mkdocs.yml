@@ -38,6 +38,8 @@ validation:
     unrecognized_links: warn
 nav:
   - 시작: index.md
+  - 에이전트 위임 범위: delegation.md
+  - 관리 화면 설계: management-screen.md
   - DART 실제 수집 검사: dart-live-check.md
   - 테스트 작성 방법: testing.md
   - 실제 공시 사례: cases/helixmith-cash.md

@@ -24,3 +24,7 @@
 
 - Do not introduce third-party DART MCP servers, skills, or dedicated API wrappers. Use official OpenDART endpoints directly; see docs/dart-live-check.md. This does not prohibit general-purpose development libraries.
 - Before extraction work, read docs/testing.md. Derive expected answers from source evidence, not implementation output. Mark real, modified, development, and held-out cases honestly; draft fixtures are not verified extraction tests.
+
+- Follow docs/delegation.md: the user authorized routine work through merge after required checks pass. Ask only for requirements/selection/judgment changes, existing expected-answer changes, check weakening, permissions, new dependencies/costs, or uncertain/repeated-failure cases.
+- Check the full diff against approved docs, verify the current head and latest base checks, and merge with an expected-head SHA. Never bypass protection or treat passing CI as semantic approval.
+- Keep issue checklists/body and PR status current; verify merged branches are removed. Do not enable a standing bot or broaden this delegation policy without user approval.
