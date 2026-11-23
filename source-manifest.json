@@ -1,0 +1,117 @@
+{
+  "purpose": "complete public main-report PDFs and XBRL bundles for issue 64; not the OpenDART document.xml archive",
+  "downloads": [
+    {
+      "version": "original",
+      "type": "pdf",
+      "url": "https://dart.fss.or.kr/pdf/download/pdf.do?rcp_no=20260318001192&dcm_no=11140821",
+      "observed_at": "2026-11-23T06:17:21.766104+00:00",
+      "bytes": 2229244,
+      "sha256": "e02855fea4ca6b6210aa4faeae347b28c0288a954f98fe09d145b6042a25aa01",
+      "format_verified": true,
+      "physical_pages": 811
+    },
+    {
+      "version": "original",
+      "type": "xbrl",
+      "url": "https://opendart.fss.or.kr/cmm/downloadIfrs.do?rcp_no=20260318001192&dcm_no=11140821&lang=ko",
+      "observed_at": "2026-11-23T06:17:32.011354+00:00",
+      "bytes": 1177489,
+      "sha256": "1d8e4fe816d3136abfe10ae333a8929ee3f08d65b875286b0bae69b1097da09d",
+      "format_verified": true,
+      "members": [
+        {
+          "name": "entity01205842_2025-12-31.xbrl",
+          "bytes": 7452606,
+          "sha256": "48d1ab1001c80e26b423465a199dce7e08ee33646a880641073636b6d86f9e13"
+        },
+        {
+          "name": "entity01205842_2025-12-31.xsd",
+          "bytes": 620284,
+          "sha256": "ba0238ffc030ae5d876ae100b9195ffde8249a5264a219529597b2aeb303729e"
+        },
+        {
+          "name": "entity01205842_2025-12-31_def.xml",
+          "bytes": 6357093,
+          "sha256": "f1641a4af89e1ab9d871d1922b83f463591fbbf00a142bd6949bc9e002934084"
+        },
+        {
+          "name": "entity01205842_2025-12-31_cal.xml",
+          "bytes": 142471,
+          "sha256": "a5cca1345a538d84d208c416b8d08cfbb1646ccf37fd0c465d58f62a48032b67"
+        },
+        {
+          "name": "entity01205842_2025-12-31_pre.xml",
+          "bytes": 4496338,
+          "sha256": "2d368fa6fcd69a3fa51f4bdd3d9e2990935e5975ae3f21f4a301a404830fe745"
+        },
+        {
+          "name": "entity01205842_2025-12-31_lab-ko.xml",
+          "bytes": 5369843,
+          "sha256": "c8aa05c220edfd006268c183689a1ccdb6f6e4e8486805ec4dd049858e382225"
+        },
+        {
+          "name": "entity01205842_2025-12-31_lab-en.xml",
+          "bytes": 5436481,
+          "sha256": "d76c1f5a69003c4c9743bae42193c5a803cfd937ce58cf6de06f5255306326da"
+        }
+      ]
+    },
+    {
+      "version": "correction",
+      "type": "pdf",
+      "url": "https://dart.fss.or.kr/pdf/download/pdf.do?rcp_no=20260602000456&dcm_no=11416776",
+      "observed_at": "2026-11-23T06:17:21.843570+00:00",
+      "bytes": 2302539,
+      "sha256": "3d35fda006f11f91fc7b7f902a706ee3462c8293e3228977ca49aaedab835fda",
+      "format_verified": true,
+      "physical_pages": 810
+    },
+    {
+      "version": "correction",
+      "type": "xbrl",
+      "url": "https://opendart.fss.or.kr/cmm/downloadIfrs.do?rcp_no=20260602000456&dcm_no=11416776&lang=ko",
+      "observed_at": "2026-11-23T06:17:27.930639+00:00",
+      "bytes": 1109231,
+      "sha256": "a2b904343e105a163cb2daba55578388a97d85e465a3475cd468221257d52fc5",
+      "format_verified": true,
+      "members": [
+        {
+          "name": "entity01205842_2025-12-31.xbrl",
+          "bytes": 7260328,
+          "sha256": "36583bb377bc3e23250f292ad61b13feaa5fe97fc633ffca8c5cf4a4d1f460b7"
+        },
+        {
+          "name": "entity01205842_2025-12-31.xsd",
+          "bytes": 600509,
+          "sha256": "780ca7966e3c87ab9ec12ed7f603053c6231626cd703500987b63fb3a6df0046"
+        },
+        {
+          "name": "entity01205842_2025-12-31_def.xml",
+          "bytes": 6255262,
+          "sha256": "30b7f04b11e0b7f8c20922643512772f1edf2abc2692f081220e66b92eb39d43"
+        },
+        {
+          "name": "entity01205842_2025-12-31_cal.xml",
+          "bytes": 142471,
+          "sha256": "a5cca1345a538d84d208c416b8d08cfbb1646ccf37fd0c465d58f62a48032b67"
+        },
+        {
+          "name": "entity01205842_2025-12-31_pre.xml",
+          "bytes": 4424869,
+          "sha256": "cf2b7dd1531d4562bed8a223e094f4bce8b196c32fcd9a7d70b82c59528ea0fa"
+        },
+        {
+          "name": "entity01205842_2025-12-31_lab-ko.xml",
+          "bytes": 5198679,
+          "sha256": "ef2b4d41b7dba5a1965ce80c2a5b40715eaaaa0cd7d3cb45ae74ba0e283d5a49"
+        },
+        {
+          "name": "entity01205842_2025-12-31_lab-en.xml",
+          "bytes": 5264550,
+          "sha256": "421787edcfa8accba53c374b6622b62100065c63b5d7b8ed2947865df16600d4"
+        }
+      ]
+    }
+  ]
+}
