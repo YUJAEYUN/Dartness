@@ -23,7 +23,7 @@ function checkInline(text, where) {
   if (/<|!\[/.test(text))
     throw new Error(`${where}: HTML과 이미지는 화면에 표시하지 않습니다`);
   for (const [, target] of text.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)) {
-    const relativeDoc = /^\.\.\/[a-z0-9-]+\.md(?:#[^)\s]+)?$/.test(target);
+    const relativeDoc = /^\.\.\/(?:[a-z0-9-]+\/)?[a-z0-9-]+\.md(?:#[^)\s]+)?$/.test(target);
     if (!relativeDoc && !target.startsWith(repositoryUrl))
       throw new Error(`${where}: 지원하지 않는 링크입니다: ${target}`);
   }
