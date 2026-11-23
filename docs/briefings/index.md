@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#48 조회 시점과 허용 개월](0048-query-time-options.md) | 명세 |
 | [#46 공통 조회 정책](0046-common-query-policy.md) | 명세 |
 | [#45 현금 표 추출 첫 평가](0045-cash-table-evaluation.md) | 평가 |
 | [#43 평가용 여러 법인 공시 수집](0043-evaluation-collection.md) | 평가 도구 |
