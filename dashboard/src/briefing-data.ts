@@ -29,7 +29,7 @@ export const briefings = data.briefings as Briefing[];
 
 // Links were restricted to docs pages and this repository by the generator.
 export function linkTarget(target: string): string | null {
-  const doc = /^\.\.\/([a-z0-9-]+\.md(?:#\S+)?)$/.exec(target);
+  const doc = /^\.\.\/((?:[a-z0-9-]+\/)?[a-z0-9-]+\.md(?:#\S+)?)$/.exec(target);
   if (doc) return `${sourceBase}/docs/${doc[1]}`;
   return target.startsWith(`${repository}/`) ? target : null;
 }

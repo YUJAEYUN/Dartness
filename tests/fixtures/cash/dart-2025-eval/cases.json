@@ -1,0 +1,307 @@
+{
+  "purpose": "held-out evaluation for issue #31; answers read from DART originals before running the extractor",
+  "collected_by": "Collect DART filings run 45094721526",
+  "data_branch": "data/dart-filings-45094721526",
+  "business_year": 2025,
+  "status": "held_out_first_run",
+  "review_status": "source_checked_by_agent_and_matched_opendart_api_not_independent_human_review",
+  "cases": [
+    {
+      "id": "000720-consolidated",
+      "corp_name": "현대건설",
+      "corp_code": "00164478",
+      "stock_code": "000720",
+      "rcept_no": "20260318001395",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001395",
+      "document": "20260318001395.xml",
+      "document_sha256": "5eb4a648a62a2fb014915eee14065b94007fe797c8d298f3dd94fa31a567f661",
+      "section_file": "000720-consolidated.xml",
+      "section_sha256": "2530a6d4ee6d9f4afe155d2bb28ff694e6299ab1a0c52fc5e7894180826759bc",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산",
+        "raw_value": "4,812,659",
+        "unit": "백만원",
+        "amount_krw": "4812659000000"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "4812659000000"
+      }
+    },
+    {
+      "id": "000720-separate",
+      "corp_name": "현대건설",
+      "corp_code": "00164478",
+      "stock_code": "000720",
+      "rcept_no": "20260318001395",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001395",
+      "document": "20260318001395.xml",
+      "document_sha256": "5eb4a648a62a2fb014915eee14065b94007fe797c8d298f3dd94fa31a567f661",
+      "section_file": "000720-separate.xml",
+      "section_sha256": "6e1913b849efed5145c5aad10d28f619f3da6fadc648c6f69e1d16353ffc1c3d",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "separate",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산",
+        "raw_value": "2,880,624",
+        "unit": "백만원",
+        "amount_krw": "2880624000000"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "2880624000000"
+      }
+    },
+    {
+      "id": "004370-consolidated",
+      "corp_name": "농심",
+      "corp_code": "00108241",
+      "stock_code": "004370",
+      "rcept_no": "20260311003892",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311003892",
+      "document": "20260311003892.xml",
+      "document_sha256": "cceb2bba0eda594a5812123559dd8ddcbe03de3d48be24148e7447d291a7d393",
+      "section_file": "004370-consolidated.xml",
+      "section_sha256": "d3c050a1984aa708095b91fcabc7693e6e2402b6346f4c52907a99ddeea314ef",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산",
+        "raw_value": "253,539,960,716",
+        "unit": "원",
+        "amount_krw": "253539960716"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "253539960716"
+      }
+    },
+    {
+      "id": "004370-separate",
+      "corp_name": "농심",
+      "corp_code": "00108241",
+      "stock_code": "004370",
+      "rcept_no": "20260311003892",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311003892",
+      "document": "20260311003892.xml",
+      "document_sha256": "cceb2bba0eda594a5812123559dd8ddcbe03de3d48be24148e7447d291a7d393",
+      "section_file": "004370-separate.xml",
+      "section_sha256": "6fb4735973586cfec447de42e0f132e91ea3385f76f9bc6f242c520ba4e67f09",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "separate",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산",
+        "raw_value": "42,019,308,405",
+        "unit": "원",
+        "amount_krw": "42019308405"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "42019308405"
+      }
+    },
+    {
+      "id": "005930-consolidated",
+      "corp_name": "삼성전자",
+      "corp_code": "00126380",
+      "stock_code": "005930",
+      "rcept_no": "20260310002820",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260310002820",
+      "document": "20260310002820.xml",
+      "document_sha256": "107f3645e46dcd5af1ba7613d5480304c1ceaa98a89ac3a70fd113d23365d163",
+      "section_file": "005930-consolidated.xml",
+      "section_sha256": "cba6f6bc8757272e3bc26502d4f5665e6d9e4c91c1f8a5b0fb6eb48a3e4492dd",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산 (주4,29)",
+        "raw_value": "57,856,378",
+        "unit": "백만원",
+        "amount_krw": "57856378000000"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "57856378000000"
+      }
+    },
+    {
+      "id": "005930-separate",
+      "corp_name": "삼성전자",
+      "corp_code": "00126380",
+      "stock_code": "005930",
+      "rcept_no": "20260310002820",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260310002820",
+      "document": "20260310002820.xml",
+      "document_sha256": "107f3645e46dcd5af1ba7613d5480304c1ceaa98a89ac3a70fd113d23365d163",
+      "section_file": "005930-separate.xml",
+      "section_sha256": "06305dcb0fa6e8da1f12944ef40c6ce8aa0ae76a57b7054aeb96ed68e874126f",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "separate",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산 (주4,28)",
+        "raw_value": "12,581,632",
+        "unit": "백만원",
+        "amount_krw": "12581632000000"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "12581632000000"
+      }
+    },
+    {
+      "id": "035720-consolidated",
+      "corp_name": "카카오",
+      "corp_code": "00258801",
+      "stock_code": "035720",
+      "rcept_no": "20260318001423",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423",
+      "document": "20260318001423.xml",
+      "document_sha256": "6559beab680e1212bf00d71b5556467215b359b676cb26d2b13b9239168303eb",
+      "section_file": "035720-consolidated.xml",
+      "section_sha256": "9732e073773a28409308b8ec4a23b07177aec0d841649b9f87af466fca01d2d7",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산",
+        "raw_value": "6,373,784,263,399",
+        "unit": "원",
+        "amount_krw": "6373784263399"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "6373784263399"
+      }
+    },
+    {
+      "id": "035720-separate",
+      "corp_name": "카카오",
+      "corp_code": "00258801",
+      "stock_code": "035720",
+      "rcept_no": "20260318001423",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423",
+      "document": "20260318001423.xml",
+      "document_sha256": "6559beab680e1212bf00d71b5556467215b359b676cb26d2b13b9239168303eb",
+      "section_file": "035720-separate.xml",
+      "section_sha256": "62c2b59880d164ce832cf3af9b5e4dfef82d4d9389b2466075f2293c0b2dc08a",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "separate",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산",
+        "raw_value": "2,109,188,905,337",
+        "unit": "원",
+        "amount_krw": "2109188905337"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "2109188905337"
+      }
+    },
+    {
+      "id": "058470-separate",
+      "corp_name": "리노공업",
+      "corp_code": "00369657",
+      "stock_code": "058470",
+      "rcept_no": "20260318000182",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000182",
+      "document": "20260318000182.xml",
+      "document_sha256": "046d7819ee2a3101925ea13ea47c6bc188e117157b9d271614120880a6f2c5b5",
+      "section_file": "058470-separate.xml",
+      "section_sha256": "a2ad2d23e232ece52a4f7b811187ada185409be07d851f1b39b2317d046f43d4",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "individual",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산",
+        "raw_value": "85,202,812,409",
+        "unit": "원",
+        "amount_krw": "85202812409"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "85202812409"
+      }
+    },
+    {
+      "id": "068270-consolidated",
+      "corp_name": "셀트리온",
+      "corp_code": "00413046",
+      "stock_code": "068270",
+      "rcept_no": "20260316001415",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316001415",
+      "document": "20260316001415.xml",
+      "document_sha256": "6d4022a2087f9766ea453f42618630c7141d1dfb5992342c1fc5a8fabc3ff91b",
+      "section_file": "068270-consolidated.xml",
+      "section_sha256": "866b90785f67afdc2e637e60bf977100e567a458aaf36b0e54f2721cbcf80b24",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산 (주4,5,6,7)",
+        "raw_value": "1,119,206,211,717",
+        "unit": "원",
+        "amount_krw": "1119206211717"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "1119206211717"
+      }
+    },
+    {
+      "id": "068270-separate",
+      "corp_name": "셀트리온",
+      "corp_code": "00413046",
+      "stock_code": "068270",
+      "rcept_no": "20260316001415",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316001415",
+      "document": "20260316001415.xml",
+      "document_sha256": "6d4022a2087f9766ea453f42618630c7141d1dfb5992342c1fc5a8fabc3ff91b",
+      "section_file": "068270-separate.xml",
+      "section_sha256": "9078d81e2a4bc9297424d7c6995228cfef94d6d7dec5a82f97f35f9b432676a8",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "separate",
+      "as_of": "2025-12-31",
+      "expected": {
+        "label": "　　현금및현금성자산 (주4,5,6,7)",
+        "raw_value": "633,669,425,901",
+        "unit": "원",
+        "amount_krw": "633669425901"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "633669425901"
+      }
+    }
+  ]
+}
