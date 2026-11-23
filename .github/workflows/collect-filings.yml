@@ -1,0 +1,50 @@
+name: Collect DART filings
+# Manual evaluation source collection (issue #31, docs/dart-live-check.md).
+# Saves originals to a separate data branch that is never merged into main.
+on:
+  workflow_dispatch:
+    inputs:
+      stock_codes:
+        description: '종목코드 (쉼표로 구분, 최대 8개)'
+        required: true
+        default: '005930,004370,068270,035720,000720,058470'
+      business_year:
+        description: '사업연도 (사업보고서 YYYY.12)'
+        required: true
+        default: '2025'
+permissions:
+  contents: read
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect filings with the repository OpenDART key
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          STOCK_CODES: ${{ inputs.stock_codes }}
+          BUSINESS_YEAR: ${{ inputs.business_year }}
+          OUTPUT_DIR: ${{ runner.temp }}/filings
+          PYTHONPATH: src
+        run: python -m dartness.dart_collect
+      - name: Push to a data branch
+        env:
+          FILINGS: ${{ runner.temp }}/filings
+        run: |
+          branch="data/dart-filings-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan "$branch"
+          git rm -rq --cached .
+          git clean -fdxq
+          cp -R "$FILINGS"/. .
+          git add -A
+          git commit -qm "DART filings for evaluation (run ${GITHUB_RUN_ID})"
+          git push origin "HEAD:refs/heads/$branch"
+          echo "Pushed $branch"
