@@ -40,6 +40,7 @@ nav:
   - 시작: index.md
   - 시스템 상태: system-status.md
   - 작업 브리핑:
+      - "#66 12월이 아닌 결산 법인 평가": briefings/0066-non-december-evaluation.md
       - "#65 정정 전체 자료와 정답": briefings/0065-correction-case.md
       - "#63 12월이 아닌 결산 법인 수집": briefings/0063-fiscal-month-collection.md
       - "#62 원본·정정공시 조사": briefings/0062-correction-linking.md
@@ -64,6 +65,7 @@ nav:
   - 평가 기록:
       - 현금 표 추출 첫 평가: evaluations/cash-table-dart-2025.md
       - 현금 표 추출 두 번째 평가: evaluations/cash-table-dart-2025-second.md
+      - 현금 표 추출 세 번째 평가: evaluations/cash-table-dart-2025-third.md
   - 실제 공시 사례: cases/helixmith-cash.md
   - HD건설기계 원본·정정: cases/hd-construction-correction.md
   - 금액 단위 처리: amounts.md

@@ -1,0 +1,866 @@
+<TABLE ACLASS="NORMAL" AFIXTABLE="Y" WIDTH="600" BORDER="0">
+
+<COLGROUP WIDTH="600">
+<COL WIDTH="600"></COL>
+</COLGROUP>
+
+<TBODY>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="31">
+
+<TE ENG="Consolidated Statement Of FinancialPosition" ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="591" HEIGHT="24" AUPDATECONT="N">
+<P USERMARK="F-12 B">연결 재무상태표</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="FY 2024              03/31/2025 Current" ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="591" HEIGHT="23" AUPDATECONT="N">
+<P>제 14 기          2025.03.31 현재</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="FY 2023              03/31/2024 Current" ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="591" HEIGHT="23" AUPDATECONT="N">
+<P>제 13 기          2024.03.31 현재</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="FY 2022              03/31/2023 Current" ALIGN="CENTER" VALIGN="MIDDLE" WIDTH="591" HEIGHT="23" AUPDATECONT="N">
+<P>제 12 기          2023.03.31 현재</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="(Unit : thousand, JPY)" ALIGN="RIGHT" VALIGN="BOTTOM" WIDTH="591" HEIGHT="23" AUPDATECONT="N">
+<P>(단위 : 천, JPY)</P>
+</TE>
+</TR>
+</TBODY>
+</TABLE>
+
+<TABLE ACLASS="NORMAL" AFIXTABLE="Y" WIDTH="600" BORDER="1" FRAME="BORDER" RULES="ALL">
+
+<COLGROUP WIDTH="600">
+<COL WIDTH="320"></COL>
+<COL WIDTH="98"></COL>
+<COL WIDTH="96"></COL>
+<COL WIDTH="86"></COL>
+</COLGROUP>
+
+<THEAD>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+<TH VALIGN="MIDDLE" AUPDATECONT="N" ACOPYCOL="Y" ADELETECOL="Y" AMOVECOL="N" WIDTH="311" HEIGHT="23">　</TH>
+
+<TH VALIGN="MIDDLE" AUPDATECONT="N" ACOPYCOL="Y" ADELETECOL="Y" AMOVECOL="N" WIDTH="89" ENG="FY 2024" HEIGHT="23">
+<P>제 14 기</P>
+</TH>
+
+<TH VALIGN="MIDDLE" AUPDATECONT="N" ACOPYCOL="Y" ADELETECOL="Y" AMOVECOL="N" WIDTH="87" ENG="FY 2023" HEIGHT="23">
+<P>제 13 기</P>
+</TH>
+
+<TH VALIGN="MIDDLE" AUPDATECONT="N" ACOPYCOL="Y" ADELETECOL="Y" AMOVECOL="N" WIDTH="77" ENG="FY 2022" HEIGHT="23">
+<P>제 12 기</P>
+</TH>
+</TR>
+</THEAD>
+
+<TBODY>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="Assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>자산</P>
+</TE>
+<TE ACODE="ifrs-full_AssetsAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">　</TE>
+<TE ACODE="ifrs-full_AssetsAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">　</TE>
+<TE ACODE="ifrs-full_AssetsAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">　</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Non-current assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　비유동자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>7,430,480</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>8,830,712</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>9,122,050</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Property, plant and equipment" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　유형자산-순액</P>
+</TE>
+
+<TE ACODE="ifrs-full_PropertyPlantAndEquipment" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>572,715</P>
+</TE>
+
+<TE ACODE="ifrs-full_PropertyPlantAndEquipment" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>748,135</P>
+</TE>
+
+<TE ACODE="ifrs-full_PropertyPlantAndEquipment" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>979,827</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Intangible assets other than goodwill" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　무형자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_IntangibleAssetsOtherThanGoodwill" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>5,541,362</P>
+</TE>
+
+<TE ACODE="ifrs-full_IntangibleAssetsOtherThanGoodwill" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>5,496,849</P>
+</TE>
+
+<TE ACODE="ifrs-full_IntangibleAssetsOtherThanGoodwill" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>4,314,951</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Non-current factoring receivables" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　비유동팩토링채권</P>
+</TE>
+
+<TE ACODE="entity00938688_NonCurrentFactoringReceivablesOfNoncurrentAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>28,713</P>
+</TE>
+
+<TE ACODE="entity00938688_NonCurrentFactoringReceivablesOfNoncurrentAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>106,398</P>
+</TE>
+
+<TE ACODE="entity00938688_NonCurrentFactoringReceivablesOfNoncurrentAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>1,585,476</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Investments accounted for using equity method" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　지분법적용 투자지분</P>
+</TE>
+
+<TE ACODE="ifrs-full_InvestmentAccountedForUsingEquityMethod" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>0</P>
+</TE>
+
+<TE ACODE="ifrs-full_InvestmentAccountedForUsingEquityMethod" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>936,649</P>
+</TE>
+
+<TE ACODE="ifrs-full_InvestmentAccountedForUsingEquityMethod" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>849,065</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Deferred tax assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　이연법인세자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_DeferredTaxAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>778,841</P>
+</TE>
+
+<TE ACODE="ifrs-full_DeferredTaxAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>640,829</P>
+</TE>
+
+<TE ACODE="ifrs-full_DeferredTaxAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>487,460</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Other non-current financial assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타비유동금융자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentFinancialAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>492,538</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentFinancialAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>877,820</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentFinancialAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>895,590</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Other non-current assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타비유동자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>16,311</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>24,032</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>9,681</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Current assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　유동자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>26,366,168</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>35,438,811</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>38,677,641</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Current inventories" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　재고자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_Inventories" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>2,420</P>
+</TE>
+
+<TE ACODE="ifrs-full_Inventories" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>5,445</P>
+</TE>
+
+<TE ACODE="ifrs-full_Inventories" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>1,029</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Trade and other current receivables" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　매출채권 및 기타채권</P>
+</TE>
+
+<TE ACODE="ifrs-full_TradeAndOtherCurrentReceivables" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>442,477</P>
+</TE>
+
+<TE ACODE="ifrs-full_TradeAndOtherCurrentReceivables" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>512,561</P>
+</TE>
+
+<TE ACODE="ifrs-full_TradeAndOtherCurrentReceivables" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>686,532</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Current factoring receivables" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　유동팩토링채권</P>
+</TE>
+
+<TE ACODE="entity00938688_CurrentFactoringReceivablesOfCurrentAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>1,118,678</P>
+</TE>
+
+<TE ACODE="entity00938688_CurrentFactoringReceivablesOfCurrentAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>5,752,367</P>
+</TE>
+
+<TE ACODE="entity00938688_CurrentFactoringReceivablesOfCurrentAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>16,308,463</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Current tax assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　당기법인세자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentTaxAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>12,634</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentTaxAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>15,887</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentTaxAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>264,278</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Other current financial assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타유동금융자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentFinancialAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>414,942</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentFinancialAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>1,755,503</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentFinancialAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>668,469</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Other current assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타유동자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentAssets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>480,340</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentAssets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>413,538</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentAssets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>431,971</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Cash and cash equivalents" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　현금및현금성자산</P>
+</TE>
+
+<TE ACODE="ifrs-full_CashAndCashEquivalents" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>23,894,677</P>
+</TE>
+
+<TE ACODE="ifrs-full_CashAndCashEquivalents" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>26,983,510</P>
+</TE>
+
+<TE ACODE="ifrs-full_CashAndCashEquivalents" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>20,316,899</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Total assets" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　자산총계</P>
+</TE>
+
+<TE ACODE="ifrs-full_Assets" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>33,796,648</P>
+</TE>
+
+<TE ACODE="ifrs-full_Assets" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>44,269,523</P>
+</TE>
+
+<TE ACODE="ifrs-full_Assets" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>47,799,691</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="Liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>부채</P>
+</TE>
+<TE ACODE="ifrs-full_LiabilitiesAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">　</TE>
+<TE ACODE="ifrs-full_LiabilitiesAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">　</TE>
+<TE ACODE="ifrs-full_LiabilitiesAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">　</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Non-current liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　비유동부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentLiabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>3,645,377</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentLiabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>10,234,064</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentLiabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>8,589,371</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Non-current portion of non-current loans received" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　장기차입금</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentPortionOfNoncurrentLoansReceived" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>884,641</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentPortionOfNoncurrentLoansReceived" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>3,883,139</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentPortionOfNoncurrentLoansReceived" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>4,208,664</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Bonds issued, nominal value" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　사채</P>
+</TE>
+
+<TE ACODE="dart_BondsIssuedNominalValue" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>2,506,073</P>
+</TE>
+
+<TE ACODE="dart_BondsIssuedNominalValue" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>5,826,400</P>
+</TE>
+
+<TE ACODE="dart_BondsIssuedNominalValue" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>3,559,400</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Non-current provisions" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　비유동충당부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentProvisions" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>145,565</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentProvisions" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>131,145</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncurrentProvisions" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>110,428</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Other non-current financial liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타비유동금융부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentFinancialLiabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>109,098</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentFinancialLiabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>393,380</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherNoncurrentFinancialLiabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>710,879</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Current liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　유동부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentLiabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>25,811,347</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentLiabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>29,583,072</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentLiabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>34,410,304</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Current loans received and current portion of non-current loans received" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　유동성차입금</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentLoansReceivedAndCurrentPortionOfNoncurrentLoansReceived" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>5,999,214</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentLoansReceivedAndCurrentPortionOfNoncurrentLoansReceived" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>6,070,276</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentLoansReceivedAndCurrentPortionOfNoncurrentLoansReceived" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>15,130,771</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Current portion of bonds" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　유동성사채</P>
+</TE>
+
+<TE ACODE="dart_CurrentPortionOfBonds" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>3,539,972</P>
+</TE>
+
+<TE ACODE="dart_CurrentPortionOfBonds" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>886,898</P>
+</TE>
+
+<TE ACODE="dart_CurrentPortionOfBonds" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>3,682,251</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Trade and other current payables" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　매입채무 및 기타채무</P>
+</TE>
+
+<TE ACODE="ifrs-full_TradeAndOtherCurrentPayables" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>15,267,364</P>
+</TE>
+
+<TE ACODE="ifrs-full_TradeAndOtherCurrentPayables" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>21,359,878</P>
+</TE>
+
+<TE ACODE="ifrs-full_TradeAndOtherCurrentPayables" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>14,280,710</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Current tax liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　당기법인세부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentTaxLiabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>236,036</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentTaxLiabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>33,236</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentTaxLiabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>13,168</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Current provisions" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　유동충당부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentProvisions" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>102,961</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentProvisions" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>93,253</P>
+</TE>
+
+<TE ACODE="ifrs-full_CurrentProvisions" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>90,181</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Other current financial liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타유동금융부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentFinancialLiabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>303,202</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentFinancialLiabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>336,650</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentFinancialLiabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>324,234</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Other current liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타 유동부채</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentLiabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>362,598</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentLiabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>802,881</P>
+</TE>
+
+<TE ACODE="ifrs-full_OtherCurrentLiabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>888,989</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Total liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　부채총계</P>
+</TE>
+
+<TE ACODE="ifrs-full_Liabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>29,456,724</P>
+</TE>
+
+<TE ACODE="ifrs-full_Liabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>39,817,136</P>
+</TE>
+
+<TE ACODE="ifrs-full_Liabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>42,999,675</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="Equity" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>자본</P>
+</TE>
+<TE ACODE="ifrs-full_EquityAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">　</TE>
+<TE ACODE="ifrs-full_EquityAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">　</TE>
+<TE ACODE="ifrs-full_EquityAbstract" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">　</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Equity attributable to owners of parent" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　지배기업의 소유주에게 귀속되는 자본</P>
+</TE>
+
+<TE ACODE="ifrs-full_EquityAttributableToOwnersOfParent" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>4,339,924</P>
+</TE>
+
+<TE ACODE="ifrs-full_EquityAttributableToOwnersOfParent" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>4,452,387</P>
+</TE>
+
+<TE ACODE="ifrs-full_EquityAttributableToOwnersOfParent" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>4,788,657</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Issued capital" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　자본금</P>
+</TE>
+
+<TE ACODE="ifrs-full_IssuedCapital" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>1,454,101</P>
+</TE>
+
+<TE ACODE="ifrs-full_IssuedCapital" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>1,454,101</P>
+</TE>
+
+<TE ACODE="ifrs-full_IssuedCapital" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>1,454,101</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Capital surplus" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타불입자본</P>
+</TE>
+
+<TE ACODE="dart_CapitalSurplus" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>1,001,346</P>
+</TE>
+
+<TE ACODE="dart_CapitalSurplus" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>1,001,346</P>
+</TE>
+
+<TE ACODE="dart_CapitalSurplus" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>1,011,099</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Retained earnings" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　이익잉여금</P>
+</TE>
+
+<TE ACODE="ifrs-full_RetainedEarnings" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>2,260,773</P>
+</TE>
+
+<TE ACODE="ifrs-full_RetainedEarnings" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>2,239,071</P>
+</TE>
+
+<TE ACODE="ifrs-full_RetainedEarnings" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>2,625,572</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Treasury shares" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　자기주식</P>
+</TE>
+
+<TE ACODE="ifrs-full_TreasuryShares" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>(362,227)</P>
+</TE>
+
+<TE ACODE="ifrs-full_TreasuryShares" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>(325,660)</P>
+</TE>
+
+<TE ACODE="ifrs-full_TreasuryShares" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>(325,660)</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　　Elements of other stockholder's equity" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　　기타자본구성요소</P>
+</TE>
+
+<TE ACODE="dart_ElementsOfOtherStockholdersEquity" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>(14,069)</P>
+</TE>
+
+<TE ACODE="dart_ElementsOfOtherStockholdersEquity" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>83,529</P>
+</TE>
+
+<TE ACODE="dart_ElementsOfOtherStockholdersEquity" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>23,545</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Non-controlling interests" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　비지배지분</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncontrollingInterests" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>0</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncontrollingInterests" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>0</P>
+</TE>
+
+<TE ACODE="ifrs-full_NoncontrollingInterests" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>11,359</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="　Total equity" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>　자본총계</P>
+</TE>
+
+<TE ACODE="ifrs-full_Equity" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>4,339,924</P>
+</TE>
+
+<TE ACODE="ifrs-full_Equity" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>4,452,387</P>
+</TE>
+
+<TE ACODE="ifrs-full_Equity" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>4,800,016</P>
+</TE>
+</TR>
+
+<TR ACOPY="Y" ADELETE="Y" HEIGHT="30">
+
+<TE ENG="Total equity and liabilities" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="311" HEIGHT="23">
+<P>자본및부채총계</P>
+</TE>
+
+<TE ACODE="ifrs-full_EquityAndLiabilities" ACONTEXT="CFY2024eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="89" HEIGHT="23">
+<P>33,796,648</P>
+</TE>
+
+<TE ACODE="ifrs-full_EquityAndLiabilities" ACONTEXT="PFY2023eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="87" HEIGHT="23">
+<P>44,269,523</P>
+</TE>
+
+<TE ACODE="ifrs-full_EquityAndLiabilities" ACONTEXT="BPFY2022eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember" ADECIMAL="-3" ALIGN="RIGHT" VALIGN="MIDDLE" AUPDATECONT="N" WIDTH="77" HEIGHT="23">
+<P>47,799,691</P>
+</TE>
+</TR>
+</TBODY>
+</TABLE>

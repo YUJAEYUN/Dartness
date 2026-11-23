@@ -2,6 +2,141 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0066-non-december-evaluation.md",
+      "sha256": "f0eb724621f53716d808258d85dad4d87cf718162dff8708310e3cc6b11be86c",
+      "pr": 66,
+      "issue": 58,
+      "date": "2026-11-23",
+      "stages": [
+        "D"
+      ],
+      "title": "12월이 아닌 결산 법인으로 현금 표 추출 평가",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "12월이 아닌 결산 법인 3곳(5건)으로 현금 표 추출기를 평가했습니다. 5건 모두 정답대로 \"확인 필요\"였고 틀린 금액은 없었습니다. 다만 정답이 모두 확인 필요라, 이런 법인에서 원화 금액을 제대로 읽는지는 아직 모릅니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "D 단계의 상태는 \"일부\" 그대로입니다. 바뀐 것은 검증 근거입니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "법인",
+              "결산월",
+              "정답",
+              "결과"
+            ],
+            "rows": [
+              [
+                "신영증권 별도·연결",
+                "3월",
+                "확인 필요 (현금및예치금만 있음)",
+                "같음"
+              ],
+              [
+                "SBI핀테크솔루션즈 연결",
+                "3월",
+                "확인 필요 (엔화 공시)",
+                "같음"
+              ],
+              [
+                "JTC 별도·연결",
+                "2월",
+                "확인 필요 (엔화 공시)",
+                "같음"
+              ]
+            ]
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "3월 말·2월 말 기준일의 기간 열은 찾았습니다. 엔화 공시는 그다음 단위 단계에서 멈췄습니다.",
+              "수집기는 실제 OpenDART에서 기업개황 결산월로 `사업보고서 (2025.03)`·`(2025.02)`를 찾았습니다."
+            ]
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "후보는 에이전트가 골라 수집하고, 수집이 끝나면 평가까지 진행합니다(2026-11-23)."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "후보 7곳을 골랐고, 기업개황으로 12월 결산이 확인된 4곳은 뺐습니다.",
+              "엔화 공시의 정답을 확인 필요로 정했습니다. 이미 정한 기준(원화 단위만 지원, 통화가 포함된 단위를 원화로 해석하지 않음)을 따른 것이라 새 결정은 아닙니다.",
+              "신영증권은 두 번째 평가의 금융업 기준(이슈 #57)을 그대로 적용했습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "**원화로 공시하는 12월이 아닌 결산 비금융 법인을 더 찾을까요?** 이번 평가는 값 추출을 확인하지 못했습니다. 아는 법인이 있으면 알려 주세요.",
+              "**외화로 공시하는 법인의 현금 조회는 어떻게 할까요?** 지금은 확인 필요로 끝납니다. 환율을 적용할지, 원래 통화로 보여 줄지 정해야 합니다. 지금 필요하지 않으면 미결로 둡니다."
+            ]
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "5건의 정답을 원문에서 먼저 정하고 커밋",
+                "사람의 독립 검토"
+              ],
+              [
+                "틀린 금액 0, 엔화 숫자를 원화로 읽지 않음",
+                "12월이 아닌 결산 법인의 원화 값 추출"
+              ],
+              [
+                "3월 말·2월 말 기준일 열 선택",
+                "정정 공시, 분기보고서"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#66](https://github.com/YUJAEYUN/Dartness/pull/66) · 이슈: [#58](https://github.com/YUJAEYUN/Dartness/issues/58)",
+              "평가 기록: [세 번째 평가](../evaluations/cash-table-dart-2025-third.md)",
+              "평가 자료: `tests/fixtures/cash/dart-2025-eval-3/cases.json` · 테스트: `tests/test_cash_eval_2025_third.py`",
+              "수집 실행: [Actions 45122569805](https://github.com/YUJAEYUN/Dartness/actions/runs/45122569805)"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0065-correction-case.md",
       "sha256": "612a901376bc95a5e14635b88dbdc11c02bae70b0a9582039405bdd47c7b12a3",
       "pr": 65,
