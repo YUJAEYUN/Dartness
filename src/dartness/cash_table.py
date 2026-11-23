@@ -18,8 +18,12 @@ from dartness.cash_contract import (
 
 # DART document XML writes body cells as <TE> where HTML (e.g. KIND) uses <TD>.
 _CELL_TAGS = ("td", "te", "th")
-# An account label may carry note references, e.g. "현금및현금성자산 (주4,29)".
-_CASH_LABEL = re.compile(r"현금및현금성자산(?:\(주[0-9]+(?:,[0-9]+)*\))?")
+# An account label may carry one leading item number, e.g. "(5)", "5." or "Ⅴ."
+# (docs/cash-table-extraction.md), and note references, e.g. "현금및현금성자산 (주4,29)".
+_CASH_LABEL = re.compile(
+    r"(?:\([0-9]+\)|[0-9]+\.|[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫ]+\.)?"
+    r"현금및현금성자산(?:\(주[0-9]+(?:,[0-9]+)*\))?"
+)
 
 
 @dataclass(frozen=True)

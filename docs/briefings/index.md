@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#60 계정명 앞의 항목 번호 읽기](0060-leading-item-numbers.md) | 조회 기능 |
 | [#53 현금 표 추출 두 번째 평가](0053-cash-table-second-evaluation.md) | 평가 |
 | [#48 조회 시점과 허용 개월](0048-query-time-options.md) | 명세 |
 | [#46 공통 조회 정책](0046-common-query-policy.md) | 명세 |
