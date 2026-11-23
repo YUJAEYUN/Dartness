@@ -1,6 +1,6 @@
 {
   "policySource": "docs/common-query-contract.md",
-  "policySha256": "04dc8d7c2a399495da2636356097ca5cad420ed1019bc8d6d9c8406e4569858f",
+  "policySha256": "291db01fe65390f089ade22a46d71ec9ff692864d7af4af6ccd3336377e8bcd5",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "fefd00c9400397b5f29b8a1c5f6e66819680675cfa7bc6f586dc758100b65a33",
+  "sourceSha256": "0292145ddaeaa0d64039c854f677f2fedd250bac71ea10d581df00168dc3c8fc",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
@@ -173,8 +173,8 @@
     },
     {
       "group": "지금",
-      "task": "원본·정정 연결 근거 조사",
-      "status": "[공식 자료·실제 한 쌍·검증 계획](correction-linking.md). 연결과 현금 영향은 분리, 자동 선택은 미구현"
+      "task": "원본·정정 전체 자료와 개발용 정답",
+      "status": "[PDF·원문 XBRL·현금 두 셀 대조](cases/hd-construction-correction.md). 자동 연결·정정 선택은 미구현"
     },
     {
       "group": "다음",
