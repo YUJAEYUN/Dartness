@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "cf0df6fb555dc45b88457063db9ca2ba050076a6dbdb6191536a43b506c57dbc",
+  "sourceSha256": "d9bea6a4ccb902b8254afb8f7c6c937ffe2ce85d2cc3b23611eb344d96385ab4",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class B,C,D partial\n    class A,G,H,I todo",
   "stages": [
     {
@@ -127,7 +127,7 @@
       "name": "현금 행·열 추출",
       "status": "일부",
       "evidence": "src/dartness/cash_table.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md)",
-      "missing": "선정된 단순 재무상태표 구간만 지원. DART 원문 XML의 TE 셀과 계정명 주석 번호 미지원(첫 평가에서 DART 원문 11건 중 0건 추출, 틀린 금액 0건). 절 자동 선정·주석 추출"
+      "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인이며, 고친 뒤 새 법인으로 한 검증은 아직 없음. 절 자동 선정·주석 추출"
     },
     {
       "id": "E",

@@ -16,6 +16,11 @@ from dartness.cash_contract import (
     ReviewReason,
 )
 
+# DART document XML writes body cells as <TE> where HTML (e.g. KIND) uses <TD>.
+_CELL_TAGS = ("td", "te", "th")
+# An account label may carry note references, e.g. "현금및현금성자산 (주4,29)".
+_CASH_LABEL = re.compile(r"현금및현금성자산(?:\(주[0-9]+(?:,[0-9]+)*\))?")
+
 
 @dataclass(frozen=True)
 class _Cell:
@@ -44,7 +49,7 @@ class _Tables(HTMLParser):
             if self.table is None or self.row is not None:
                 raise ValueError("행의 경계가 불명확합니다")
             self.row = []
-        elif tag in ("td", "th"):
+        elif tag in _CELL_TAGS:
             if self.row is None or self.parts is not None:
                 raise ValueError("셀의 경계가 불명확합니다")
             if any(k in ("rowspan", "colspan") and v != "1" for k, v in attrs):
@@ -52,7 +57,7 @@ class _Tables(HTMLParser):
             self.parts, self.cell_tag = [], tag
 
     def handle_endtag(self, tag: str) -> None:
-        if tag in ("td", "th"):
+        if tag in _CELL_TAGS:
             if self.parts is None or self.row is None or tag != self.cell_tag:
                 raise ValueError("셀의 끝이 불명확합니다")
             self.row.append(_Cell("".join(self.parts).strip(), tag == "th"))
@@ -153,7 +158,7 @@ def extract_cash_table(
         targets = [
             (i, row)
             for i, row in enumerate(rows, 1)
-            if row and _compact(row[0].text) == "현금및현금성자산"
+            if row and _CASH_LABEL.fullmatch(_compact(row[0].text))
         ]
         if len(targets) != 1:
             raise ValueError("현금 행이 없거나 중복됩니다")

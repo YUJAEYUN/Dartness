@@ -1,7 +1,8 @@
-"""Held-out DART 2025 annual reports (issue #31): provenance and the no-wrong-amount guarantee.
+"""DART 2025 annual reports from the issue #31 evaluation: provenance and extraction results.
 
 Answers were read from the originals before the extractor ran and matched OpenDART figures.
-These tests do not fix how many cases succeed, so improving the extractor keeps them green.
+The first run was held out. The extractor was then fixed for these cases (TE cells, note
+references), so they are development cases now and every original section must extract.
 """
 
 import hashlib
@@ -65,3 +66,18 @@ def test_extractor_never_returns_a_wrong_amount(case: dict[str, Any], condition:
         assert result.basis == case["basis"] and result.as_of == query.as_of
     else:
         assert isinstance(result, CashNeedsReview) and not hasattr(result, "amount_krw")
+
+
+@pytest.mark.parametrize("case", CASES, ids=lambda case: case["id"])
+def test_development_cases_extract_from_the_original_text(case: dict[str, Any]) -> None:
+    evidence = CashEvidence(
+        case["source_url"], case["document_sha256"], case["section_locator"], "DART 원문 XML"
+    )
+    query = CashQuery(case["corp_code"], date.fromisoformat(case["as_of"]), case["scope"])
+    result = extract_cash_table(
+        query, section(case), case["basis"], evidence, datetime(2026, 11, 23, tzinfo=UTC)
+    )
+    assert isinstance(result, CashValue)
+    assert result.amount_krw == Decimal(case["expected"]["amount_krw"])
+    assert result.raw_amount.raw_value == case["expected"]["raw_value"]
+    assert result.raw_amount.unit == case["expected"]["unit"]

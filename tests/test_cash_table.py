@@ -336,3 +336,35 @@ def test_amount_table_with_only_the_requested_period_column() -> None:
     result = extract_cash_table(query, html[:start] + amounts, "separate", evidence(), CHECKED_AT)
     assert isinstance(result, CashValue) and result.amount_krw == Decimal("31653154838")
     assert result.evidence.locator.endswith("]/td[2]")
+
+
+def test_dart_document_cells_are_read_like_html_cells() -> None:
+    # Modified input: DART document XML writes body cells as <TE> (issue #31 evaluation).
+    html = re.sub(r"(</?)TD\b", r"\1TE", section())
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, html, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue) and result.amount_krw == Decimal("31653154838")
+
+
+@pytest.mark.parametrize("label", ["현금및현금성자산 (주4,29)", "현금및현금성자산(주5)"])
+def test_cash_label_may_carry_note_references(label: str) -> None:
+    html = section().replace(">　　현금및현금성자산</TD>", f">　　{label}</TD>")
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, html, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue) and result.amount_krw == Decimal("31653154838")
+
+
+@pytest.mark.parametrize(
+    "label",
+    [
+        "현금및현금성자산 (주)",
+        "현금및현금성자산 등",
+        "현금및현금성자산 (주4) 외",
+        "(주4)현금및현금성자산",
+    ],
+)
+def test_other_labels_are_not_treated_as_cash(label: str) -> None:
+    html = section().replace(">　　현금및현금성자산</TD>", f">　　{label}</TD>")
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, html, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashNeedsReview) and "현금 행이 없거나 중복" in result.detail
