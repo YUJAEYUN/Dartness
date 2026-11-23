@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#62 원본·정정공시 조사](0062-correction-linking.md) | 조사·명세 |
 | [#60 계정명 앞의 목차 기호 읽기](0060-leading-item-numbers.md) | 조회 기능 |
 | [#53 현금 표 추출 두 번째 평가](0053-cash-table-second-evaluation.md) | 평가 |
 | [#48 조회 시점과 허용 개월](0048-query-time-options.md) | 명세 |

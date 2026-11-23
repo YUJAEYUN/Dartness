@@ -1,6 +1,6 @@
 {
   "policySource": "docs/common-query-contract.md",
-  "policySha256": "d8e9f46121638ea734c7bc3f6fc10947ee5b897db12a3ff20e5b02d43d997bb6",
+  "policySha256": "04dc8d7c2a399495da2636356097ca5cad420ed1019bc8d6d9c8406e4569858f",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "c4d2840b37375335c12dac828970d2d1f4a00198e2bea2763c3ebdf5b09c1082",
+  "sourceSha256": "b434b56b42de430c0be6a632bad4aee3ba5d577f6533abda4b9e4b5498789dae",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
@@ -113,7 +113,7 @@
       "name": "법인·공시 찾기",
       "status": "일부",
       "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md)",
-      "missing": "고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택"
+      "missing": "고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택([연결 조사](correction-linking.md)는 완료, 실행 코드 없음)"
     },
     {
       "id": "C",
@@ -170,6 +170,11 @@
       "group": "지금",
       "task": "공통 입력·날짜와 공시 후보 계약 v1",
       "status": "[계약](common-query-contract.md), 후보 범위 일치·출처 보존·복수 후보 보류. 실제 수집·추출 연결은 미구현"
+    },
+    {
+      "group": "지금",
+      "task": "원본·정정 연결 근거 조사",
+      "status": "[공식 자료·실제 한 쌍·검증 계획](correction-linking.md). 연결과 현금 영향은 분리, 자동 선택은 미구현"
     },
     {
       "group": "다음",

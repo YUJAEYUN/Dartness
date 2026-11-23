@@ -40,6 +40,7 @@ nav:
   - 시작: index.md
   - 시스템 상태: system-status.md
   - 작업 브리핑:
+      - "#62 원본·정정공시 조사": briefings/0062-correction-linking.md
       - "#60 계정명 앞의 목차 기호 읽기": briefings/0060-leading-item-numbers.md
       - "#54 공시 후보의 범위와 근거": briefings/0054-disclosure-candidates.md
       - "#53 현금 표 추출 두 번째 평가": briefings/0053-cash-table-second-evaluation.md
@@ -66,6 +67,7 @@ nav:
   - 합의한 요구사항: requirements.md
   - 올인원 조회 유형: query-types.md
   - 공통 조회·출력 계약: common-query-contract.md
+  - 원본·정정공시 조사: correction-linking.md
   - 에이전트 개발 원칙: engineering-principles.md
   - 현금 조회 계약 초안: cash-query-contract.md
   - 현금 표 추출: cash-table-extraction.md
