@@ -3,7 +3,7 @@
   "collected_by": "Collect DART filings run 45094721526",
   "data_branch": "data/dart-filings-45094721526",
   "business_year": 2025,
-  "status": "held_out_first_run",
+  "status": "development_after_fix",
   "review_status": "source_checked_by_agent_and_matched_opendart_api_not_independent_human_review",
   "cases": [
     {
@@ -302,6 +302,18 @@
         "account_id": "ifrs-full_CashAndCashEquivalents",
         "thstrm_amount": "633669425901"
       }
+    }
+  ],
+  "status_history": [
+    {
+      "date": "2026-11-23",
+      "status": "held_out_first_run",
+      "note": "첫 실행: 원문 0/11, TE만 바꾼 변형 7/11, 틀린 금액 0 (PR #45)"
+    },
+    {
+      "date": "2026-11-23",
+      "status": "development_after_fix",
+      "note": "이 사례를 보고 TE 셀과 계정명 주석 번호를 지원하도록 추출기를 고쳤으므로 개발용으로 전환"
     }
   ]
 }
