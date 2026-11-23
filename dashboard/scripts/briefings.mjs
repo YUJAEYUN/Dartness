@@ -93,11 +93,11 @@ export function parseBlocks(body, where) {
 
 export function parseBriefing(file, text, stageIds) {
   const meta =
-    /^---\npr: (\d+)\nissue: (\d+|null)\nmerged: (\d{4}-\d{2}-\d{2})\nstages: \[([A-Z, ]*)\]\n---\n\n# (.+)\n/.exec(
+    /^---\npr: (\d+)\nissue: (\d+|null)\ndate: (\d{4}-\d{2}-\d{2})\nstages: \[([A-Z, ]*)\]\n---\n\n# (.+)\n/.exec(
       text,
     );
   if (!meta) throw new Error(`${file}: 메타데이터와 제목을 확인하세요`);
-  const [header, pr, issue, merged, stageText, title] = meta;
+  const [header, pr, issue, date, stageText, title] = meta;
   if (!file.startsWith(`${pr.padStart(4, "0")}-`))
     throw new Error(`${file}: 파일 이름과 PR 번호가 다릅니다`);
   const stages = stageText.split(",").map((s) => s.trim()).filter(Boolean);
@@ -119,7 +119,7 @@ export function parseBriefing(file, text, stageIds) {
     sha256: createHash("sha256").update(text).digest("hex"),
     pr: Number(pr),
     issue: issue === "null" ? null : Number(issue),
-    merged,
+    date,
     stages,
     title,
     sections: body,

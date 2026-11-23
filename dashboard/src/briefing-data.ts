@@ -19,7 +19,7 @@ export type Briefing = {
   sha256: string;
   pr: number;
   issue: number | null;
-  merged: string;
+  date: string;
   stages: string[];
   title: string;
   sections: Record<SectionKey, Block[]>;
