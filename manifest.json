@@ -1,0 +1,325 @@
+{
+  "purpose": "evaluation source collection for issue #31; no extraction performed",
+  "collected_at": "2026-11-23T01:37:55.027680+00:00",
+  "business_year": 2025,
+  "report_name": "사업보고서 (2025.12)",
+  "request_count": 25,
+  "companies": [
+    {
+      "stock_code": "005930",
+      "corp_code": "00126380",
+      "corp_name": "삼성전자",
+      "rcept_no": "20260310002820",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260310002820",
+      "zip_sha256": "56aec6645106e1438845e6c583777e551915fec10c5eba0df0fad00679c918b4",
+      "documents": [
+        {
+          "name": "20260310002820.xml",
+          "bytes": 8266498,
+          "sha256": "107f3645e46dcd5af1ba7613d5480304c1ceaa98a89ac3a70fd113d23365d163"
+        },
+        {
+          "name": "20260310002820_00760.xml",
+          "bytes": 636365,
+          "sha256": "a9c54c3a826c919b98fcbf05384a54d66a55b8a7ef319c69d3d93a58631d5763"
+        },
+        {
+          "name": "20260310002820_00761.xml",
+          "bytes": 768891,
+          "sha256": "d31bac56ff210dfc52fc0b4d8457116371a21dd5203364e6367a8f5cf64dc60c"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260310002820",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 57 기",
+              "thstrm_amount": "12581632000000",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260310002820",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 57 기",
+              "thstrm_amount": "57856378000000",
+              "currency": "KRW"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "004370",
+      "corp_code": "00108241",
+      "corp_name": "농심",
+      "rcept_no": "20260311003892",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311003892",
+      "zip_sha256": "82e643b2c77984746d96f3e9acb1e98d74d0668ed4a335445765ffbad8b45871",
+      "documents": [
+        {
+          "name": "20260311003892.xml",
+          "bytes": 5532280,
+          "sha256": "cceb2bba0eda594a5812123559dd8ddcbe03de3d48be24148e7447d291a7d393"
+        },
+        {
+          "name": "20260311003892_00760.xml",
+          "bytes": 647525,
+          "sha256": "c565e059fced240a7dd5c5d29f56923e2c11cebcad3badb01820e19e4e46c769"
+        },
+        {
+          "name": "20260311003892_00761.xml",
+          "bytes": 713305,
+          "sha256": "c9a966462dc894106ea41d6e874c52e8df0d3e20932b4832a69dd0f15d6207d9"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260311003892",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 62 기",
+              "thstrm_amount": "42019308405",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260311003892",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 62 기",
+              "thstrm_amount": "253539960716",
+              "currency": "KRW"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "068270",
+      "corp_code": "00413046",
+      "corp_name": "셀트리온",
+      "rcept_no": "20260316001415",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260316001415",
+      "zip_sha256": "d1434ebe89bbbf9ffc9519b18d49e57053c4fd80cf305ec2dfef346275afdb1d",
+      "documents": [
+        {
+          "name": "20260316001415.xml",
+          "bytes": 9316347,
+          "sha256": "6d4022a2087f9766ea453f42618630c7141d1dfb5992342c1fc5a8fabc3ff91b"
+        },
+        {
+          "name": "20260316001415_00760.xml",
+          "bytes": 849361,
+          "sha256": "41747cd64db4f638c8f38e3e05bd1e6862fcc0c8ac22a3f18f3f8b6c7975c540"
+        },
+        {
+          "name": "20260316001415_00761.xml",
+          "bytes": 947899,
+          "sha256": "f459a72e3a161026d5baae2de34a6fce47360ad6a88c8d3fb50ccd9aec0af7a0"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260316001415",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 35 기",
+              "thstrm_amount": "633669425901",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260316001415",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 35 기",
+              "thstrm_amount": "1119206211717",
+              "currency": "KRW"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "035720",
+      "corp_code": "00258801",
+      "corp_name": "카카오",
+      "rcept_no": "20260318001423",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001423",
+      "zip_sha256": "ed14dd19bedb0ffa574a1021bdd222ecc27ebabc92263b84a7a05e7add82385a",
+      "documents": [
+        {
+          "name": "20260318001423.xml",
+          "bytes": 14374736,
+          "sha256": "6559beab680e1212bf00d71b5556467215b359b676cb26d2b13b9239168303eb"
+        },
+        {
+          "name": "20260318001423_00760.xml",
+          "bytes": 1010369,
+          "sha256": "3c6cf6a228641db5ba3c12916aa1270c174768a393a908e899e93d654dc92faa"
+        },
+        {
+          "name": "20260318001423_00761.xml",
+          "bytes": 1808333,
+          "sha256": "5d1a8ec2f34ad268010150651f9d79774e667da5cf967e08bdf92478754eb0ca"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318001423",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 31 기",
+              "thstrm_amount": "2109188905337",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318001423",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 31 기",
+              "thstrm_amount": "6373784263399",
+              "currency": "KRW"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "000720",
+      "corp_code": "00164478",
+      "corp_name": "현대건설",
+      "rcept_no": "20260318001395",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001395",
+      "zip_sha256": "f9d8d82b17f6149629f486ce12dc49bd04c309996d105429ca0703a6ec84c267",
+      "documents": [
+        {
+          "name": "20260318001395.xml",
+          "bytes": 13978173,
+          "sha256": "5eb4a648a62a2fb014915eee14065b94007fe797c8d298f3dd94fa31a567f661"
+        },
+        {
+          "name": "20260318001395_00760.xml",
+          "bytes": 954314,
+          "sha256": "f49f1d2857a131257cc807c7cb0f4a32b977c243f61116e7a132c5ac5a6fc625"
+        },
+        {
+          "name": "20260318001395_00761.xml",
+          "bytes": 1122320,
+          "sha256": "77384e20c8197550e3f37f49b48e0401459618c7df30687a2f0a92c7eaf29fb9"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318001395",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 76 기",
+              "thstrm_amount": "2880624000000",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318001395",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 76 기",
+              "thstrm_amount": "4812659000000",
+              "currency": "KRW"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "058470",
+      "corp_code": "00369657",
+      "corp_name": "리노공업",
+      "rcept_no": "20260318000182",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000182",
+      "zip_sha256": "a802351a09110af5328919c65a605c913e355aa8a0520a3e418af57bd28d3af7",
+      "documents": [
+        {
+          "name": "20260318000182.xml",
+          "bytes": 1967059,
+          "sha256": "046d7819ee2a3101925ea13ea47c6bc188e117157b9d271614120880a6f2c5b5"
+        },
+        {
+          "name": "20260318000182_00760.xml",
+          "bytes": 413150,
+          "sha256": "0bdd93b939ce5dd2d2350afe572aa81936f00cc3e07f901c1e171718a5f2d89e"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318000182",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 30 기",
+              "thstrm_amount": "85202812409",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_data"
+        }
+      ],
+      "status": "collected"
+    }
+  ]
+}
