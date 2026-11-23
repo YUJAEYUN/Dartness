@@ -35,7 +35,7 @@ flowchart LR
 | ID | 단계 | 상태 | 근거 | 아직 없는 것 |
 |---|---|---|---|---|
 | A | 조회 조건 입력 | 일부 | [공통 계약 v1](common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py, src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py | 공통 입력·기간·후보 키 일치·날짜와 근거 보존만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음 |
-| B | 법인·공시 찾기 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md) | 고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택 |
+| B | 법인·공시 찾기 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md) | 고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택([연결 조사](correction-linking.md)는 완료, 실행 코드 없음) |
 | C | 원문 수집 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md) | 수동 실행 1건만 수집. 여러 법인 수집, 캐시 |
 | D | 현금 행·열 추출 | 일부 | src/dartness/cash_table.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md) | 선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 계정명 앞 항목 번호, 금융업 현금 기준, 절 자동 선정·주석 추출 |
 | E | 단위 정규화 | 구현 | src/dartness/amounts.py, tests/test_amounts.py, [금액 단위 처리](amounts.md) | 대시·괄호 음수 등 지원하지 않는 표기 |
@@ -52,6 +52,7 @@ flowchart LR
 | 구분 | 작업 | 상태 |
 |---|---|---|
 | 지금 | 공통 입력·날짜와 공시 후보 계약 v1 | [계약](common-query-contract.md), 후보 범위 일치·출처 보존·복수 후보 보류. 실제 수집·추출 연결은 미구현 |
+| 지금 | 원본·정정 연결 근거 조사 | [공식 자료·실제 한 쌍·검증 계획](correction-linking.md). 연결과 현금 영향은 분리, 자동 선택은 미구현 |
 | 다음 | 유형별 미결 질문 하나를 정하고 실행 계약·실제 공시 사례 준비 | 제안 |
 | 다음 | 두 번째 평가의 미추출 원인(계정명 앞 항목 번호)과 금융업 현금 기준 결정 (이슈 #31) | 검증용 9건 평가 완료, 추출기 확장과 금융업 기준은 사용자 판단 필요 |
 | 다음 | 법인·공시 찾기를 임의 법인으로 확장 | 제안 |

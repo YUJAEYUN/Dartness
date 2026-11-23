@@ -1,0 +1,60 @@
+{
+  "classification": "real-dev research observation; not an extraction or correction-resolution test",
+  "observed_at": "2026-11-23T05:35:05.627459+00:00",
+  "corp_code": "01205842",
+  "observed_viewer_name": "HD건설기계",
+  "report_type": "사업보고서",
+  "period": {
+    "start": "2025-01-01",
+    "end": "2025-12-31",
+    "evidence": "original_cover"
+  },
+  "original_receipt": "20260318001192",
+  "original_submission_date": "2026-03-18",
+  "correction_receipt": "20260602000456",
+  "correction_submission_date": "2026-06-02",
+  "errata_target_first_submission_date": "2026-03-18",
+  "observed_changed_section": "Ⅲ. 재무에 관한 사항 / 3. 연결재무제표 주석 / 1. 연결대상기업의 개요(연결)",
+  "observed_change": {
+    "reason": "기재방식의 변경",
+    "before": "디테일 태깅",
+    "after": "블록 태깅"
+  },
+  "cash_change_assessment": "not verified; errata alone is not proof that cash changed or remained unchanged",
+  "sources": {
+    "original_viewer": {
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001192",
+      "response_sha256": "ff7a10a375ea388fd0ca29ddf019df48c1b87c74663460dcc1d559677063e407",
+      "bytes": 121448,
+      "retained_file": null
+    },
+    "correction_viewer": {
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000456",
+      "response_sha256": "d0d976784f0f7d03d0fceda4390a1fa12c2daa8cb5715765d2273988a754d130",
+      "bytes": 122146,
+      "retained_file": null
+    },
+    "original_cover": {
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001192&dcmNo=11140821&eleId=1&offset=957&length=4547&dtd=dart4.xsd",
+      "response_sha256": "ab3b92bbdf50b0e541e40065f35d0eac25cadbfad4682a0148d9450f2fdc5e28",
+      "bytes": 4815,
+      "retained_file": null
+    },
+    "correction_errata": {
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260602000456&dcmNo=11416776&eleId=1&offset=1015&length=3210&dtd=dart4.xsd",
+      "response_sha256": "00440640607aa37856da1ecc9659ced77c0c62129fe3213bffce38514a95c615",
+      "bytes": 2702,
+      "retained_file": "hd-construction-20260602-errata.html.gz",
+      "retained_encoding": "gzip",
+      "retained_sha256": "ae0e946ecf75af1596df83e7ac86f9d19cac75f53b86573f558efa204313f00d"
+    }
+  },
+  "hash_scope": "Hashes identify the retrieved viewer pages or bounded sections, not complete OpenDART XML/ZIP reports. Viewer HTML routes are observed web interfaces, not a documented OpenDART relation API.",
+  "unverified": [
+    "complete revised report contents",
+    "cash amounts and financial-scope impact",
+    "full XML/ZIP hashes",
+    "general support for other report or correction types",
+    "withdrawal and multi-revision chains"
+  ]
+}
