@@ -1,6 +1,6 @@
 {
   "policySource": "docs/common-query-contract.md",
-  "policySha256": "e7fc9666212a80b6173e2d8a04ae08ff924b50f76b4754a1c758035e77243b2b",
+  "policySha256": "d8e9f46121638ea734c7bc3f6fc10947ee5b897db12a3ff20e5b02d43d997bb6",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -98,15 +98,15 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "ed5f2dc86096103b9b3336362fb3bbc776950de8aec7ae124a86b05e1bc396d9",
+  "sourceSha256": "47706db28df43a178af4ee71f531c344a7fcf1c7f4fda09c44a58fb315c27544",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
       "id": "A",
       "name": "조회 조건 입력",
       "status": "일부",
-      "evidence": "[공통 계약 v1](common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py",
-      "missing": "금액·보유 조회의 공통 입력·달력 기간·날짜 후보 선택만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음"
+      "evidence": "[공통 계약 v1](common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py, src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py",
+      "missing": "공통 입력·기간·후보 키 일치·날짜와 근거 보존만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음"
     },
     {
       "id": "B",
@@ -168,8 +168,8 @@
   "next": [
     {
       "group": "지금",
-      "task": "공통 입력·날짜 선택 계약 v1",
-      "status": "[계약](common-query-contract.md), 한국 실행일·달력 개월·이전 날짜 표시. 공시 수집·추출 연결은 미구현"
+      "task": "공통 입력·날짜와 공시 후보 계약 v1",
+      "status": "[계약](common-query-contract.md), 후보 범위 일치·출처 보존·복수 후보 보류. 실제 수집·추출 연결은 미구현"
     },
     {
       "group": "다음",

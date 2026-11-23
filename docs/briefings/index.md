@@ -11,6 +11,7 @@
 | [#53 현금 표 추출 두 번째 평가](0053-cash-table-second-evaluation.md) | 평가 |
 | [#48 조회 시점과 허용 개월](0048-query-time-options.md) | 명세 |
 | [#46 공통 조회 정책](0046-common-query-policy.md) | 명세 |
+| [#54 공시 후보의 범위와 근거](0054-disclosure-candidates.md) | 조회 기반 |
 | [#51 조회 입력과 날짜 선택](0051-query-contract.md) | 조회 기반 |
 | [#49 DART 원문 표 칸과 주석 번호 읽기](0049-dart-cells-and-note-labels.md) | 조회 기능 |
 | [#45 현금 표 추출 첫 평가](0045-cash-table-evaluation.md) | 평가 |
