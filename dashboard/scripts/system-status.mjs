@@ -5,6 +5,7 @@ import { resolve, relative } from "node:path";
 
 export const root = fileURLToPath(new URL("../../", import.meta.url));
 export const sourcePath = "docs/system-status.md";
+export const policyPath = "docs/common-query-contract.md";
 export const catalogPath = "docs/query-types.md";
 export const outputPath = "dashboard/src/generated/system-status.json";
 const classes = { 구현: "done", 일부: "partial", 미구현: "todo" };
@@ -61,10 +62,22 @@ export function readQueryTypes(text) {
   return types;
 }
 
+export function readQueryPolicy(text) {
+  const rows = table(text, "query-policy", 3).map(([id, label, value]) => {
+    if (!/^[a-z]+(?:-[a-z]+)*$/.test(id))
+      throw new Error("잘못된 공통 정책 ID입니다");
+    return { id, label, value };
+  });
+  if (new Set(rows.map((r) => r.id)).size !== rows.length)
+    throw new Error("중복 공통 정책입니다");
+  return rows;
+}
+
 export function generateSystemStatus(
   text,
   fileExists = existsSync,
   catalogText = readFileSync(resolve(root, catalogPath), "utf8"),
+  policyText = readFileSync(resolve(root, policyPath), "utf8"),
 ) {
   const diagrams = [...text.matchAll(/```mermaid\n([\s\S]*?)\n```/g)];
   if (diagrams.length !== 1) throw new Error("흐름도는 하나여야 합니다");
@@ -129,6 +142,9 @@ export function generateSystemStatus(
     return { id, description, evidence };
   });
   return {
+    policySource: policyPath,
+    policySha256: createHash("sha256").update(policyText).digest("hex"),
+    queryPolicy: readQueryPolicy(policyText),
     catalogSource: catalogPath,
     catalogSha256: createHash("sha256").update(catalogText).digest("hex"),
     queryTypes: readQueryTypes(catalogText),

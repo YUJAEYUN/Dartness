@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#46 공통 조회 정책](0046-common-query-policy.md) | 명세 |
 | [#45 현금 표 추출 첫 평가](0045-cash-table-evaluation.md) | 평가 |
 | [#43 평가용 여러 법인 공시 수집](0043-evaluation-collection.md) | 평가 도구 |
 | [#28 재무상태표에서 현금 금액 읽기](0028-cash-table.md) | 조회 기능 |
@@ -23,6 +24,7 @@
 - 명세 PR: 아래 문서 중 하나를 바꾼 PR
     - docs/requirements.md
     - docs/query-types.md
+    - docs/common-query-contract.md
     - docs/cash-query-contract.md
     - docs/cash-table-extraction.md
     - docs/amounts.md

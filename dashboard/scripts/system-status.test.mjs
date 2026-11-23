@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import {
   generateSystemStatus,
   readQueryTypes,
+  readQueryPolicy,
   serializeStatus,
   root,
   sourcePath,
@@ -69,9 +70,11 @@ describe("docs와 PO 화면의 동기화", () => {
     ).toThrow("단계 ID");
   });
   it("원문 변경을 원본 해시와 생성 결과에 반영한다", () => {
-    const changed = source.replace(
-      "기본 조회 시점(기준일 기본값)",
-      "조회 시점 선택",
+    const question = generateSystemStatus(source).decisions[0].question;
+    const changedQuestion = `${question} (검토)`;
+    const changed = source.replace(`| ${question} |`, `| ${changedQuestion} |`);
+    expect(generateSystemStatus(changed).decisions[0].question).toBe(
+      changedQuestion,
     );
     expect(generateSystemStatus(changed).sourceSha256).not.toBe(
       generateSystemStatus(source).sourceSha256,
@@ -91,7 +94,9 @@ describe("올인원 조회 유형 원본", () => {
       "share-compensation",
       "stock-collateral-loan",
     ]);
-    expect(types.every(t => t.input && t.result && t.evidence && t.unresolved)).toBe(true);
+    expect(
+      types.every((t) => t.input && t.result && t.evidence && t.unresolved),
+    ).toBe(true);
   });
   it("정의하지 않은 구현 상태와 중복 유형을 거절한다", () => {
     expect(() =>
@@ -107,7 +112,14 @@ describe("올인원 조회 유형 원본", () => {
     ).toThrow("구현 상태");
   });
   it("객체의 기본 속성 이름을 구현 상태로 받아들이지 않는다", () => {
-    expect(() => readQueryTypes(catalog.replace("| 현금및현금성자산 금액 | 일부 |", "| 현금및현금성자산 금액 | toString |"))).toThrow("구현 상태");
+    expect(() =>
+      readQueryTypes(
+        catalog.replace(
+          "| 현금및현금성자산 금액 | 일부 |",
+          "| 현금및현금성자산 금액 | toString |",
+        ),
+      ),
+    ).toThrow("구현 상태");
   });
   it("원본에서 유형을 삭제하면 생성 화면 데이터도 달라진다", () => {
     const changed = catalog
@@ -120,10 +132,41 @@ describe("올인원 조회 유형 원본", () => {
     expect(after.catalogSha256).not.toBe(before.catalogSha256);
   });
   it("열이나 필수 값이 누락된 유형을 거절한다", () => {
+    expect(() => readQueryTypes(catalog.replace("| cash |", "|  |"))).toThrow();
+  });
+});
+
+describe("합의한 공통 조회 정책", () => {
+  const policy = readFileSync(
+    resolve(root, "docs/common-query-contract.md"),
+    "utf8",
+  );
+  it("합의한 정책 항목을 원문에서 읽는다", () => {
+    expect(readQueryPolicy(policy).map((p) => p.id)).toEqual([
+      "query-kind",
+      "universe",
+      "time",
+      "fallback",
+      "max-age",
+      "disclosure-cutoff",
+      "corrections",
+      "export",
+      "audit",
+    ]);
+  });
+  it("중복 정책과 빈 값을 허용하지 않는다", () => {
     expect(() =>
-      readQueryTypes(
-        catalog.replace("| cash |", "|  |"),
-      ),
-    ).toThrow();
+      readQueryPolicy(policy.replace("| max-age |", "| fallback |")),
+    ).toThrow("중복");
+    expect(() =>
+      readQueryPolicy(policy.replace("| 조사 대상 |", "|  |")),
+    ).toThrow("내용");
+  });
+  it("공통 정책 원문 변경도 생성물과 해시에 반영된다", () => {
+    const changed = policy.replace("별도 시트에 추가", "검토 시트에 추가");
+    const original = generateSystemStatus(source, undefined, undefined, policy);
+    const revised = generateSystemStatus(source, undefined, undefined, changed);
+    expect(revised.policySha256).not.toBe(original.policySha256);
+    expect(revised.queryPolicy).not.toEqual(original.queryPolicy);
   });
 });

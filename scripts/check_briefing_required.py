@@ -12,6 +12,7 @@ FEATURE_PREFIXES = ("src/",)
 SPEC_PATHS = (
     "docs/requirements.md",
     "docs/query-types.md",
+    "docs/common-query-contract.md",
     "docs/cash-query-contract.md",
     "docs/cash-table-extraction.md",
     "docs/amounts.md",

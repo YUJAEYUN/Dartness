@@ -69,12 +69,7 @@ export function Flowchart({
           수 있습니다.
         </p>
       )}
-      <div
-        ref={target}
-        className="flowchart"
-        role="img"
-        aria-label={label}
-      />
+      <div ref={target} className="flowchart" role="img" aria-label={label} />
     </>
   );
 }
@@ -85,6 +80,34 @@ export function ProjectStatus() {
     status.stages.find((item) => item.id === selected) ?? status.stages[0];
   return (
     <>
+      <section id="query-policy" className="panel">
+        <div className="section-title">
+          <h2>
+            <BookOpen size={21} />
+            합의한 공통 조회 조건
+          </h2>
+          <a href={`${sourceBase}/${status.policySource}`}>계약 원본</a>
+        </div>
+        <p className="muted">
+          사용자와 합의한 정책입니다. 실제 지원 범위는 아래 구현 상태를
+          확인하세요.
+        </p>
+        <details>
+          <summary>선택한 기준 {status.queryPolicy.length}개 확인</summary>
+          <dl className="policy-grid">
+            {status.queryPolicy.map((item) => (
+              <div key={item.id}>
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </details>
+        <small>
+          원본: {status.policySource} · 원본 해시{" "}
+          {status.policySha256.slice(0, 12)}
+        </small>
+      </section>
       <section id="query-types" className="panel">
         <div className="section-title">
           <h2>
@@ -94,8 +117,9 @@ export function ProjectStatus() {
           <a href={`${sourceBase}/${status.catalogSource}`}>유형 명세</a>
         </div>
         <p className="muted">
-          사용자가 요청한 조회 유형입니다. 구현 범위는 각 카드의 상태를 확인하세요.
-          유형을 누르면 입력·결과·근거·아직 정하지 않은 기준을 펼칠 수 있습니다.
+          사용자가 요청한 조회 유형입니다. 구현 범위는 각 카드의 상태를
+          확인하세요. 유형을 누르면 입력·결과·근거·아직 정하지 않은 기준을 펼칠
+          수 있습니다.
         </p>
         <div className="query-type-list">
           {status.queryTypes.map((item) => (

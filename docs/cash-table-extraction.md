@@ -53,3 +53,7 @@ real-dev는 기존 원문 대조 값과 별도·연결 HTML 구간을 사용합�
    "expect": {"status": "needs_review", "reason": "period_unavailable", "amount_krw": null}}
 ]
 ```
+
+## 이전 자료 정책과 추출의 경계
+
+[공통 계약](common-query-contract.md)에서 허용한 이전 자료는 상위 단계가 사용자 한도와 범위를 검증해 선정합니다. 이 함수의 query.as_of는 선정된 표의 실제 기준일이며 여전히 일치하는 열만 읽습니다. 이 함수가 임의로 다른 날짜를 고르거나 이전 자료 사용 표시를 생성하는 것은 아닙니다.
