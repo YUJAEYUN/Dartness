@@ -40,6 +40,7 @@ nav:
   - 시작: index.md
   - 시스템 상태: system-status.md
   - 작업 브리핑:
+      - "#46 공통 조회 정책": briefings/0046-common-query-policy.md
       - 양식과 목록: briefings/index.md
       - "#28 현금 금액 읽기": briefings/0028-cash-table.md
       - "#43 평가용 공시 수집": briefings/0043-evaluation-collection.md
