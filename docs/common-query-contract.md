@@ -1,6 +1,6 @@
 # 공통 조회·시점·출력 계약 초안
 
-상태: 2026-11-23 사용자 선택을 정리했습니다. 아래는 합의한 정책과 입력·결과 계약의 초안이며 실행 가능한 전수 조회·공시 선택·정정 반영·엑셀 생성 엔진은 아직 없습니다. 유형별 범위는 [조회 유형](query-types.md), 구현 수준은 [시스템 상태](system-status.md)를 봅니다.
+상태: 2026-11-23 사용자 선택을 정리했습니다. 아래는 합의한 정책과 입력·결과 계약의 초안이며 Python 금액·보유 조회의 공통 입력·실행 기록·날짜 선택 계약을 구현했습니다. 전수 조회·공시 버전 선택·정정 반영·엑셀 생성 엔진은 아직 없습니다. 유형별 범위는 [조회 유형](query-types.md), 구현 수준은 [시스템 상태](system-status.md)를 봅니다.
 
 ## 선택한 정책
 
@@ -11,9 +11,9 @@
 |---|---|---|
 | query-kind | 한 번의 요청 | 한 요청에 한 조회 유형부터 지원하고 복합 조건은 이후 확장 |
 | universe | 조사 대상 | 기본은 조회 실행일 현재 코스피·코스닥·코넥스 상장법인 전체 조사 |
-| time | 요청 시점 | 금액·보유 상태는 최신 자료 또는 기준일 지정; 사건은 대상 기간을 받음 |
+| time | 요청 시점 | 금액·보유 상태는 최신 자료(한국 실행일 기준) 또는 기준일 지정; 사건은 대상 기간을 받음 |
 | fallback | 이전 자료 사용 | 최신 모드는 실행일, 기준일 지정 모드는 지정일을 상한으로 선택; 실제 날짜와 이전 자료 사용 여부 표시 |
-| max-age | 자료 경과 한도 | 정확히 일치 / 3·6·12개월 / 직접 입력 중 사용자 선택; 달력 개월·월말 보정·시작일 포함, 임의 기본값 없음 |
+| max-age | 자료 경과 한도 | 정확히 일치 / 3·6·12개월 / 직접 입력; 직접 입력은 0 이상 정수(0은 정확히 일치), 달력 개월·월말 보정·시작일 포함, 임의 기본값 없음 |
 | disclosure-cutoff | 사용할 공시 | 조회 실행일까지 공개된 공시 활용; 공시일과 자료 기준일 구분 |
 | corrections | 정정공시 | 공시 마감 이내의 최신 유효 정정을 반영하고 사용 공시·정정 여부 표시 |
 | export | 최종 엑셀 | 기본은 조건 충족을 확인한 법인만; 필요할 때 검토 내역 포함 옵션으로 확인 불가 법인·이유를 별도 시트에 추가 |
@@ -56,7 +56,7 @@
 | 2024-08-31 | 6개월 | 2024-02-29 ~ 2024-08-31 |
 | 2026-09-30 | 정확히 일치 | 2026-09-30만 |
 
-예시는 달력 규칙을 설명하는 가상 날짜이며 실제 공시 추출 정답이 아닙니다. 예를 들어 첫 행에서는 3월 30일은 허용하고 3월 29일은 허용하지 않습니다. 직접 입력의 형식·유효 범위와 실행일을 확정하는 시간대는 실행 계약에서 명시하며, API 요청 한도를 사용자 허용 개월의 상한으로 쓰지 않습니다.
+예시는 달력 규칙을 설명하는 가상 날짜이며 실제 공시 추출 정답이 아닙니다. 예를 들어 첫 행에서는 3월 30일은 허용하고 3월 29일은 허용하지 않습니다. 직접 입력은 0 이상의 정수 개월이며 0개월은 정확히 일치입니다. 소수·문자열·불리언·음수는 변환하지 않고 거절합니다. 실행일은 시간대가 있는 실행 시각을 한국 시간(Asia/Seoul)으로 바꾼 날짜입니다. API 요청 한도를 사용자 허용 개월의 상한으로 쓰지 않습니다. Python 날짜로 표현할 수 없는 허용 시작일은 계산 오류로 거절하고, 임의의 최대 개월 수나 시작일로 바꾸지 않습니다.
 
 ## 공시 검색 기간과 API 요청 범위
 
@@ -87,7 +87,7 @@
 
 사용자 요청의 기준일과, 추출할 표의 선정된 기준일을 구분합니다. 예를 들어 사용자가 2025-12-31을 요청하고 허용 범위 안에서 2025-09-30 자료를 선정했다면, 추출에 전달하는 CashQuery.as_of는 실제 표의 2025-09-30입니다. 상위 실행 기록에는 원래 요청일 2025-12-31과 대체 사용 사실을 따로 남깁니다.
 
-CashValue.as_of와 CashQuery.as_of는 여전히 같아야 합니다. 기존 다른 날짜 거절 테스트와 원문 정답은 유지합니다. 이는 실제 금액의 날짜를 바꿔 표시하지 못하게 하는 경계입니다. 상위 선택·대체 표시 기능이 없는 현재 추출 함수가 과거 자료를 자동 선택하도록 바뀐 것은 아닙니다.
+CashValue.as_of와 CashQuery.as_of는 여전히 같아야 합니다. 기존 다른 날짜 거절 테스트와 원문 정답은 유지합니다. 이는 실제 금액의 날짜를 바꿔 표시하지 못하게 하는 경계입니다. 새 날짜 선택 계약과 기존 추출 함수를 연결한 운영 엔진은 아직 없습니다. 추출 함수가 과거 자료를 자동 선택하도록 바뀐 것은 아닙니다.
 
 기존 CASH-003은 이 날짜 혼동 금지로 적용합니다. 사용자가 허용한 이전 자료 선택을 명시적으로 기록하는 것과, 다른 시점을 요청 시점의 금액으로 위장하는 것은 구분합니다.
 
@@ -102,10 +102,53 @@ CashValue.as_of와 CashQuery.as_of는 여전히 같아야 합니다. 기존 다�
 ## 아직 정할 것과 구현하지 않은 것
 
 - 실행일 현재 상장법인 목록의 수집 출처·버전·완전성 확인, 중복 종목의 법인 통합 방식
-- 직접 입력의 형식·유효 범위, 실행일 시간대, API별 제한 확인과 분할·페이지 수집 완전성 검증
+- API별 제한 확인과 분할·페이지 수집 완전성 검증
 - 최초 보고서와 정정의 연결 방법, 해당 항목이 변경되지 않은 정정·여러 동률 후보 처리
 - 사건 기간의 경계와 보상·담보대출의 구체 조회 대상
 - 유형별 자산 범위·환율·평가 기준·금액 비교·조건 판정
 - 최종 엑셀 양식과 내부 기록의 저장 방식·보관 기간
 
 평가용 수집기가 정정 전 원본을 보존하는 것은 회귀·대조 자료 수집 목적입니다. 이번 운영 결과 선택 정책과 구분하며, 그 수집기의 동작이나 기존 테스트 정답을 조용히 바꾸지 않습니다. 실제 수집·선택·판정·출력 구현은 계약과 사례를 준비한 뒤 연결합니다.
+
+## Python 공통 계약 v1
+
+이번 구현은 금액·보유 상태 조회의 **공통 부분**입니다. src/dartness/query_contract.py와 tests/test_query_contract.py가 담당합니다. 유형별 금액 조건·대상 자산·재무 범위의 입력은 아직 정의하지 않았으며 이 객체만으로 전체 조회를 실행할 수 없습니다. 사건 기간·주식보상·주식담보대출 요청을 금액 조회로 바꾸지 않습니다.
+
+| 객체·함수 | 필드·역할 |
+|---|---|
+| SnapshotRequest | query_type=cash/try-assets/us-bonds, mode=latest/as_of, 필수 max_age_months, 선택 as_of, include_review=False, contract_version=snapshot-v1 |
+| QueryRun | request, 필수 시간대 포함 executed_at, 계산된 execution_date·anchor_date·earliest_date. 모집단 날짜는 execution_date이며 공시 마감의 실행 시각도 보존 |
+| SelectedDate | run, actual_date, status=selected, 자동 계산 is_prior. 실제 날짜는 허용 구간 안이어야 함 |
+| DateNeedsReview | run, status=needs_review, reason=period_unavailable. 실제 날짜·금액 없음 |
+| select_date(run, candidates) | 같은 법인·항목·범위·통화에 맞게 준비한 날짜 후보 중 허용 구간 내 최댓값을 반환. 없으면 DateNeedsReview |
+
+모드·개월 수에는 기본값이 없습니다. latest에는 as_of를 넣지 않고, as_of 모드에는 날짜만 넣습니다(datetime·문자열은 거절). 지정 기준일이 한국 실행일보다 미래이면 아직 도래하지 않은 기준일이므로 거절합니다. include_review는 불리언만 허용합니다. executed_at을 생략하거나 시간대 없이 전달해 서버 시간대를 암묵적으로 쓰지 않습니다. 유효하지 않은 입력은 ValueError이며, 누락된 필수 생성자 인자는 Python의 TypeError입니다.
+
+실행 기록과 결과는 불변 데이터 객체입니다. 실행 기록의 날짜는 입력에서 계산하며 외부에서 별도 지정할 수 없습니다. SelectedDate를 직접 만들더라도 한도 밖 날짜는 거절합니다. 선택 결과의 is_prior는 실제 자료 날짜가 anchor_date보다 이전인지를 뜻하며 최신 모드에서도 표시합니다. 최종 출력에는 모드·계산 기준 날짜·실제 자료 날짜를 함께 사용해야 합니다.
+
+이 함수는 공시를 읽거나 문서·정정을 선택하지 않습니다. 날짜 중복은 같은 날짜로 처리하되 동일 날짜의 여러 문서 중 하나를 임의로 고르지 않습니다. 후보가 다른 법인·연결/별도·통화인지 확인하는 책임과 수집 완전성 확인은 상위 단계에 있으며 아직 연결하지 않았습니다. 날짜 선택 성공을 공시 사실·조건 충족으로 표시할 수 없습니다. 선택된 날짜만 기존 CashQuery.as_of에 전달할 수 있고 원래 요청과 실행 기록은 함께 보존해야 합니다.
+
+### 실행할 날짜 예시
+
+아래 정답은 합의한 달력 규칙에서 먼저 정한 합성 예시입니다. 공시 추출 정답이 아닙니다. 테스트가 구현 출력을 복사하지 않고 아래 날짜와 비교합니다.
+
+<!-- dartness-example: query-window -->
+```json
+[
+  {"id":"query-seoul-next-day","source":"synthetic","input":{"mode":"latest","months":6,"executed_at":"2026-08-30T15:00:00+00:00"},"expect":{"execution_date":"2026-08-31","anchor_date":"2026-08-31","earliest_date":"2026-02-28"}},
+  {"id":"query-leap-february","source":"synthetic","input":{"mode":"as_of","as_of":"2024-08-31","months":6,"executed_at":"2026-11-23T01:00:00+00:00"},"expect":{"execution_date":"2026-11-23","anchor_date":"2024-08-31","earliest_date":"2024-02-29"}},
+  {"id":"query-not-always-month-end","source":"synthetic","input":{"mode":"as_of","as_of":"2026-09-30","months":6,"executed_at":"2026-11-23T01:00:00+00:00"},"expect":{"anchor_date":"2026-09-30","earliest_date":"2026-03-30"}},
+  {"id":"query-zero-exact","source":"synthetic","input":{"mode":"as_of","as_of":"2026-09-30","months":0,"executed_at":"2026-11-23T01:00:00+00:00"},"expect":{"anchor_date":"2026-09-30","earliest_date":"2026-09-30"}},
+  {"id":"query-reject-negative","source":"synthetic","input":{"mode":"latest","months":-1,"executed_at":"2026-11-23T01:00:00+00:00"},"expect":{"error":"ValueError","message":"nonnegative integer"}}
+]
+```
+
+<!-- dartness-example: query-date-selection -->
+```json
+[
+  {"id":"query-start-included","source":"synthetic","input":{"mode":"as_of","as_of":"2026-09-30","months":6,"executed_at":"2026-11-23T01:00:00+00:00","candidates":["2026-03-29","2026-03-30","2026-10-01"]},"expect":{"status":"selected","actual_date":"2026-03-30","is_prior":"True"}},
+  {"id":"query-prefer-exact","source":"synthetic","input":{"mode":"as_of","as_of":"2026-09-30","months":6,"executed_at":"2026-11-23T01:00:00+00:00","candidates":["2026-06-30","2026-09-30","2026-09-30"]},"expect":{"status":"selected","actual_date":"2026-09-30","is_prior":"False"}},
+  {"id":"query-no-substitute","source":"synthetic","input":{"mode":"as_of","as_of":"2026-09-30","months":0,"executed_at":"2026-11-23T01:00:00+00:00","candidates":["2026-06-30"]},"expect":{"status":"needs_review","reason":"period_unavailable","actual_date":null,"amount_krw":null}},
+  {"id":"query-latest-within-window","source":"synthetic","input":{"mode":"latest","months":6,"executed_at":"2026-11-23T01:00:00+00:00","candidates":["2026-12-31","2026-06-30","2026-09-30"]},"expect":{"status":"selected","actual_date":"2026-09-30","is_prior":"True"}}
+]
+```
