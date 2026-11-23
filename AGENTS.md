@@ -13,6 +13,7 @@
 - Update the relevant source docs, wiki links, and work state when behavior or meaningful decisions change.
 
 - Follow docs/development-workflow.md: use a task branch and PR; do not push task changes directly to main.
+- Before starting, check that no open PR already claims the issue. Open a draft PR right after the first commit with exactly one `Refs #number` line; CI fails a later PR that claims the same issue.
 - Review relevant docs, wiki, and code relationships using docs/consistency.md. Record evidence and unimplemented or unverified scope; do not claim semantic consistency from a passing build.
 - Explain changes to fixtures, expected outputs, check exclusions, or CI rules separately in the PR.
 - Feature PRs (src/) and specification PRs (docs listed in docs/briefings/index.md) must add a briefing named after the four-digit PR number to the docs/briefings folder once the PR exists; CI enforces it.
