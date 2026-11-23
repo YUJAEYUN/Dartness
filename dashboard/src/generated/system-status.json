@@ -1,6 +1,6 @@
 {
   "policySource": "docs/common-query-contract.md",
-  "policySha256": "5cdd4ad71db7d47b8517f96f76ea3d2bb76467bec97b304587c8f821fc435f06",
+  "policySha256": "e7fc9666212a80b6173e2d8a04ae08ff924b50f76b4754a1c758035e77243b2b",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -15,7 +15,7 @@
     {
       "id": "time",
       "label": "요청 시점",
-      "value": "금액·보유 상태는 최신 자료 또는 기준일 지정; 사건은 대상 기간을 받음"
+      "value": "금액·보유 상태는 최신 자료(한국 실행일 기준) 또는 기준일 지정; 사건은 대상 기간을 받음"
     },
     {
       "id": "fallback",
@@ -25,7 +25,7 @@
     {
       "id": "max-age",
       "label": "자료 경과 한도",
-      "value": "정확히 일치 / 3·6·12개월 / 직접 입력 중 사용자 선택; 달력 개월·월말 보정·시작일 포함, 임의 기본값 없음"
+      "value": "정확히 일치 / 3·6·12개월 / 직접 입력; 직접 입력은 0 이상 정수(0은 정확히 일치), 달력 개월·월말 보정·시작일 포함, 임의 기본값 없음"
     },
     {
       "id": "disclosure-cutoff",
