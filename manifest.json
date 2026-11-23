@@ -1,0 +1,227 @@
+{
+  "purpose": "evaluation source collection for issue #31; no extraction performed",
+  "collected_at": "2026-11-23T04:55:22.290344+00:00",
+  "business_year": 2025,
+  "report_name": "사업보고서 (2025.12)",
+  "request_count": 21,
+  "companies": [
+    {
+      "stock_code": "105560",
+      "corp_code": "00688996",
+      "corp_name": "KB금융",
+      "rcept_no": "20260313001191",
+      "corrections": [
+        "[기재정정]사업보고서 (2025.12)",
+        "[기재정정]사업보고서 (2025.12)"
+      ],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001191",
+      "zip_sha256": "5cc0f6a6e0b9d3e2b036a50403e6658dd7c75bdf9a47884bccee065d99484239",
+      "documents": [
+        {
+          "name": "20260313001191.xml",
+          "bytes": 28255788,
+          "sha256": "ef72d7f39a6b6a24f6723600a25f1007625b97c468663cd81e75b12f7e066e0c"
+        },
+        {
+          "name": "20260313001191_00760.xml",
+          "bytes": 633438,
+          "sha256": "796da1373eca83f68790c044e282fa1281e85fe15df46cef61bc9e667db6116f"
+        },
+        {
+          "name": "20260313001191_00761.xml",
+          "bytes": 3003402,
+          "sha256": "a7d00652158d0db53f87c8ec794d307493bc27d1bccc67fa699eb6ee9d4d105e"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_cash_row",
+          "cash": []
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "000810",
+      "corp_code": "00139214",
+      "corp_name": "삼성화재해상보험",
+      "rcept_no": "20260312001399",
+      "corrections": [
+        "[첨부정정]사업보고서 (2025.12)"
+      ],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260312001399",
+      "zip_sha256": "dccef8addfce1dad09853584e186beeef74f10cf6cd6d905927121c3873b1173",
+      "documents": [
+        {
+          "name": "20260312001399.xml",
+          "bytes": 27615921,
+          "sha256": "2b04884465f98e4345478b67f5f772df57de562e548731c6d88c858c53b64217"
+        },
+        {
+          "name": "20260312001399_00760.xml",
+          "bytes": 2189850,
+          "sha256": "6f4072d24ac353592ebae29dcce788ef4318245c4c86d3de1696a1cb15e18be2"
+        },
+        {
+          "name": "20260312001399_00761.xml",
+          "bytes": 2328417,
+          "sha256": "e20f47baeab819c155d9e85441a7e56d97f691580ce077a8a990cef51c48b3e7"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_cash_row",
+          "cash": []
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "039490",
+      "corp_code": "00296290",
+      "corp_name": "키움증권",
+      "rcept_no": "20260317000838",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000838",
+      "zip_sha256": "cf4ba68d7b371dc66cddb645aa7cef523039e57cfa42e9d52144409d3bdb2a1d",
+      "documents": [
+        {
+          "name": "20260317000838.xml",
+          "bytes": 14584452,
+          "sha256": "a027fece16efcf9e7ca036b28a3a8405122b9cda63cb48bcec01312a4fd4af7b"
+        },
+        {
+          "name": "20260317000838_00760.xml",
+          "bytes": 1217827,
+          "sha256": "fe2998968b89b50f20dfb61710f8e42c31d7928d8f889131dcdbde3fdc90dea8"
+        },
+        {
+          "name": "20260317000838_00761.xml",
+          "bytes": 1477907,
+          "sha256": "de65ca406cf271a4875e0beee249a8ead1199603261238465bd4ed1628bbd026"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_cash_row",
+          "cash": []
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "023910",
+      "corp_code": "00113128",
+      "corp_name": "대한약품",
+      "rcept_no": "20260318001361",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001361",
+      "zip_sha256": "86ec3c8ec69b041bc0a9323c35b3c7d11016df5f0dee80fe987330bf0b6b4955",
+      "documents": [
+        {
+          "name": "20260318001361.xml",
+          "bytes": 1818767,
+          "sha256": "d380a256bdba8102033106f427e4a43f5657ac6afe100563d169eaad669a589b"
+        },
+        {
+          "name": "20260318001361_00760.xml",
+          "bytes": 430073,
+          "sha256": "a8319427bb47f0ff00dd429c62aad1cfd0b45f0609c3c6245bff6ae25344f982"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318001361",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 62 기",
+              "thstrm_amount": "43972786132",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_data"
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "092130",
+      "corp_code": "00634728",
+      "corp_name": "이크레더블",
+      "rcept_no": "20260318000576",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000576",
+      "zip_sha256": "66595b705d9e456056094c3fa4dab5bd04079e8a28e71acce3edd32447b3af00",
+      "documents": [
+        {
+          "name": "20260318000576.xml",
+          "bytes": 1193399,
+          "sha256": "39757649f438dad2b48fb3f273413118c6cab3e12a2daad642591985c4e9ff3d"
+        },
+        {
+          "name": "20260318000576_00760.xml",
+          "bytes": 342312,
+          "sha256": "c3485dfabffeea0087213c2d7f4ce3c70844ce964029e0df261107ead5528624"
+        },
+        {
+          "name": "20260318000576_00761.xml",
+          "bytes": 348496,
+          "sha256": "65468e526a52bdcf5b0526b445df34d4cac280a88eacfec4bdf92955e576da66"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318000576",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 26 기",
+              "thstrm_amount": "35413462705",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "cash": [
+            {
+              "rcept_no": "20260318000576",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 26 기",
+              "thstrm_amount": "38765620415",
+              "currency": "KRW"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    }
+  ]
+}
