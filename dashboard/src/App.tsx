@@ -3,6 +3,7 @@ import {
   BookOpen,
   CheckCheck,
   CircleHelp,
+  ClipboardList,
   GitBranch,
   CodeXml,
   LayoutDashboard,
@@ -21,6 +22,7 @@ import {
 } from "./data";
 import "./App.css";
 import { ProjectStatus } from "./ProjectStatus";
+import { Briefings } from "./Briefings";
 const docs = [
   ["시스템 상태", "system-status.md", "처리 흐름의 구현 상태와 다음 작업"],
   ["요구사항", "requirements.md", "조회·출력에서 지켜야 할 기준"],
@@ -159,6 +161,10 @@ export default function App() {
             <CircleHelp size={18} />
             아직 정하지 않은 것
           </a>
+          <a href="#briefings">
+            <ClipboardList size={18} />
+            작업 브리핑
+          </a>
           <a href="#progress">
             <GitBranch size={18} />
             열린 작업
@@ -236,6 +242,7 @@ export default function App() {
           </div>
         )}
         <ProjectStatus />
+        <Briefings />
         <div className="search">
           <label htmlFor="search">작업 찾기</label>
           <input

@@ -1,0 +1,502 @@
+{
+  "source": "docs/briefings",
+  "briefings": [
+    {
+      "file": "docs/briefings/0034-issue-autoclose.md",
+      "sha256": "048e6dd96fa7d5bc69c0081106f900e0200575be86e5fe4c9484b1efc7636f83",
+      "pr": 34,
+      "issue": 32,
+      "merged": "2026-11-20",
+      "stages": [],
+      "title": "이슈가 먼저 닫히지 않게 막기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "PR이 병합될 때 이슈가 자동으로 닫히지 않도록, PR 본문의 자동 종료 문구를 CI가 거절하게 됐습니다. 이제 이슈는 체크리스트를 확인한 뒤 따로 닫습니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "처리 흐름 단계의 상태는 바뀌지 않았습니다. 작업 절차를 바꾼 작업입니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "전",
+              "후"
+            ],
+            "rows": [
+              [
+                "PR 본문에 `Closes #32`를 쓰면 병합 때 이슈가 닫힘",
+                "그런 문구가 있으면 code-quality 실패. 이슈는 `Refs #32`로 연결"
+              ],
+              [
+                "이슈 #32가 체크리스트가 남은 채로 닫힘",
+                "이슈를 다시 열고, 완료 조건을 확인한 뒤 따로 닫기로 함"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "PR 본문만 고쳐도 검사가 다시 돕니다. PR 템플릿, [위임 정책](../delegation.md), [CI 설명](../ci.md)에도 같은 규칙을 적었습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "이슈 #32가 일찍 닫힌 것을 지적했고, 열어 두라고 했습니다. #32는 지금도 열려 있습니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "문서 규칙이 아니라 CI 검사로 막습니다(scripts/check_pr_policy.py).",
+              "`Closes`, `Fixes`, `Resolves`의 여러 형태와 다른 저장소·URL 형식까지 거절합니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "**이슈를 사람이나 에이전트가 직접 닫아야 합니다.** 닫는 걸 잊으면 끝난 작업이 열린 채 남습니다. 대시보드의 열린 작업 목록이 부정확해질 수 있는데, 괜찮은지 봐주세요."
+            ]
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "Python 136개(조기 종료 회귀 테스트 11개 포함), 린트·타입·문서 빌드 통과",
+                "완료 조건이 실제로 충족됐는지 자동 판단"
+              ],
+              [
+                "PR 본문의 자동 종료 문구 거절",
+                "커밋 메시지의 자동 종료 문구, GitHub에서 직접 닫기"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#34](https://github.com/YUJAEYUN/Dartness/pull/34) · 이슈: [#32](https://github.com/YUJAEYUN/Dartness/issues/32)",
+              "검사: `scripts/check_pr_policy.py` · 테스트: `tests/test_pr_policy.py`",
+              "설명: [CI와 브랜치 설정](../ci.md)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file": "docs/briefings/0033-query-types.md",
+      "sha256": "e4dc9fdf7921c414f187a023cf1066d5e8bec7ae24d35e31a294ad64c60fd14f",
+      "pr": 33,
+      "issue": 32,
+      "merged": "2026-11-20",
+      "stages": [],
+      "title": "올인원 조회 유형 명세",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "사용자가 실제로 요청한 다섯 가지 조회를 하나의 명세로 정리하고 대시보드 상단에 카드로 보여주게 됐습니다. 현금만 일부 구현됐고 나머지 네 가지는 명세 단계입니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "처리 흐름 단계의 상태는 바뀌지 않았습니다. 지금의 지도는 현금 조회 경로이며, 다른 유형의 지도는 아직 없습니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "조회 유형",
+              "상태",
+              "가장 큰 미결 질문"
+            ],
+            "rows": [
+              [
+                "현금및현금성자산 금액",
+                "일부",
+                "기준일 기본값, 정정 공시 선택"
+              ],
+              [
+                "터키 리라화(TRY) 자산",
+                "미구현",
+                "현금·예금만인지 전체 자산인지, 원화 환산 기준"
+              ],
+              [
+                "미국채권 보유 금액",
+                "미구현",
+                "국채만인지 회사채도 포함인지, 평가 기준"
+              ],
+              [
+                "주식보상과 위탁 증권사",
+                "미구현",
+                "제도 존재와 실제 부여·지급의 구분, 증권사의 역할"
+              ],
+              [
+                "주식담보대출 관련 법인",
+                "미구현",
+                "법인 차입과 주요주주 개인 차입 중 무엇인지"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "모든 유형이 거칠 공통 흐름도 설계로 적었습니다: 유형 확인, 입력 검증, 수집, 근거 탐색, 판정, 출력. 이 흐름을 실행하는 코드는 없습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "조회할 다섯 가지 유형. 실제 요청 사례에서 왔습니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "미결 기준은 기본값으로 채우지 않고 미결로 남깁니다.",
+              "공통 책임(수집, 원문 보존, 표 읽기, 실패 기록)과 유형별 책임(근거, 판정)을 나눴습니다.",
+              "다른 법인 현금 평가(이슈 #31)를 보류하는 순서로 적었습니다. PR에는 누가 보류를 정했는지 기록이 없습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "**미결 질문 중 무엇부터 정할까요?** 명세에 따르면 다음 작업은 한 유형의 미결 질문 하나를 정하는 것입니다.",
+              "**이슈 #31 보류가 의도한 것인가요?** 다른 법인으로 현금 추출을 평가하는 일은 결과 정확도를 확인할 유일한 경로입니다."
+            ]
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "Python 125개, UI 27개 테스트와 린트·타입·빌드 통과",
+                "새 유형의 공시 추출 정확도 (추출기가 없음)"
+              ],
+              [
+                "브라우저에서 유형 카드 5개, 미결·미구현 표시",
+                "여러 조건을 조합한 조회의 설계"
+              ],
+              [
+                "정의하지 않은 상태 값이 카드에 들어가면 실패 (검토 중 발견한 버그를 테스트로 재현하고 수정)",
+                ""
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#33](https://github.com/YUJAEYUN/Dartness/pull/33) · 이슈: [#32](https://github.com/YUJAEYUN/Dartness/issues/32)",
+              "명세: [조회 유형](../query-types.md)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file": "docs/briefings/0030-dashboard-sync.md",
+      "sha256": "5bbe8d4eccf781c7930838b0416a527c36ee9ebc21d0fe350dc4f268eb5e5ddc",
+      "pr": 30,
+      "issue": 29,
+      "merged": "2026-11-20",
+      "stages": [],
+      "title": "docs에서 대시보드 상태 만들기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "대시보드 첫 화면이 docs/system-status.md를 읽어 처리 흐름 지도, 단계별 상태, 미결 질문, 다음 작업을 보여주게 됐습니다. 화면 문구를 따로 고치지 않아도 docs를 고치면 화면이 따라옵니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "처리 흐름 단계의 상태는 바뀌지 않았습니다. 조회 기능이 아니라 상태를 보여주는 화면 작업입니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "전",
+              "후"
+            ],
+            "rows": [
+              [
+                "대시보드는 GitHub 이슈·PR·CI 목록만 표시",
+                "첫 화면에 처리 흐름 지도와 단계별 상태·근거, 미결 질문, 지금·다음·나중 표시"
+              ],
+              [
+                "현금 결정 카드를 화면 코드에 직접 적어 둠",
+                "직접 적은 카드를 지우고 docs에서 생성"
+              ],
+              [
+                "docs와 화면이 달라져도 알 수 없음",
+                "docs와 생성된 화면 자료가 다르면 필수 CI 실패"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "단계를 누르면 그 단계의 남은 범위와 근거가 나옵니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "상태의 원본은 docs에 둡니다(PR #27에서 선택).",
+              "대시보드에서 흐름도를 직접 보고 싶다고 요청했습니다. 그래서 Mermaid 패키지를 추가했습니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "생성된 화면 자료(dashboard/src/generated/system-status.json)를 저장소에 커밋하고, CI가 원본과 비교합니다.",
+              "\"구현\" 단계에는 코드와 테스트 근거가 둘 다 있어야 합니다. 없으면 CI가 실패합니다.",
+              "화면에 원본 문서의 해시를 표시하고, 링크를 배포한 커밋에 고정합니다.",
+              "로컬 pre-commit 훅을 만들었습니다. 체크아웃마다 따로 설치해야 합니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "**docs 상태를 바꿀 때마다 생성 명령을 직접 돌려야 합니다.** dashboard에서 `npm run docs:generate`를 실행하고 결과를 함께 커밋해야 하며, 잊으면 CI가 실패합니다. 이 부담이 괜찮은지 봐주세요.",
+              "**\"구현\"으로 표시하려면 테스트 근거가 필수라는 기준이 맞나요?** 이 기준은 이슈에 없었고 구현 중에 생겼습니다."
+            ]
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "Python 125개, UI 22개 테스트와 린트·타입·빌드 통과",
+                "상태 판단 자체가 맞는지"
+              ],
+              [
+                "브라우저(headless Chromium)에서 지도, 단계 9개, 미결 6개 표시",
+                "모바일 화면 (사용자와 합의해 보류)"
+              ],
+              [
+                "원본과 생성물이 다르면 CI 실패",
+                "훅을 설치하지 않은 환경의 로컬 확인"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#30](https://github.com/YUJAEYUN/Dartness/pull/30) · 이슈: [#29](https://github.com/YUJAEYUN/Dartness/issues/29)",
+              "생성기: `dashboard/scripts/system-status.mjs` · 테스트: `dashboard/scripts/system-status.test.mjs`",
+              "설명: [관리 화면](../management-screen.md), [시스템 상태](../system-status.md)"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "file": "docs/briefings/0028-cash-table.md",
+      "sha256": "cad6b148db027f282f85c9ea100b8daaefbe05101fd3c766c7db5e597cbfe92e",
+      "pr": 28,
+      "issue": 19,
+      "merged": "2026-11-20",
+      "stages": [
+        "D"
+      ],
+      "title": "재무상태표에서 현금 금액 읽기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "미리 골라 둔 재무상태표 HTML에서 현금 금액을 읽어 계약 형식으로 돌려줄 수 있게 됐습니다. 아직 헬릭스미스 한 곳의 서식만 확인했습니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "D 단계가 미구현에서 **일부**로 바뀌었습니다. 앞 단계(C)가 표를 골라 주는 것은 아직 사람이 해야 합니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "입력",
+              "결과"
+            ],
+            "rows": [
+              [
+                "헬릭스미스 별도 재무상태표, 2025-12-31 요청",
+                "31,653,154,838원"
+              ],
+              [
+                "헬릭스미스 연결 재무상태표, 2025-12-31 요청",
+                "31,827,123,947원"
+              ],
+              [
+                "단위가 지워진 표",
+                "확인 필요 (금액 없음)"
+              ],
+              [
+                "별도 요청에 연결 표를 넣음",
+                "확인 필요 (연결 금액으로 대체 안 함)"
+              ],
+              [
+                "표에 없는 날짜 요청",
+                "확인 필요 (전기 금액으로 대체 안 함)"
+              ]
+            ]
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "이슈 #19에서 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "미리 골라 둔 구간만 입력으로 받습니다. 보고서 전체에서 표를 찾는 일은 하지 않습니다.",
+              "날짜·단위·행이 모호하면 금액을 추정하지 않고 확인 필요로 둡니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것 (이슈에 없던 것)"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "표 제목이 요청 범위와 맞아야 합니다. 연결 요청에는 \"연결 재무상태표\" 제목이 있어야 합니다.",
+              "구간 크기는 256KiB까지, 표는 두 개까지만 받습니다.",
+              "병합 셀(rowspan·colspan)은 받지 않습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "**병합 셀을 거절하는 것이 맞나요?** 다른 법인 서식에 병합 셀이 흔하면, 대부분이 확인 필요로 떨어질 수 있습니다.",
+              "**표 제목으로 범위를 확인하는 방식이 괜찮나요?** 제목 표기가 법인마다 다르면 정상 표도 거절될 수 있습니다."
+            ]
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "실제 원문 두 구간에서 기존 정답과 같은 금액",
+                "다른 법인·다른 서식"
+              ],
+              [
+                "전기 열을 첫 숫자로 잘못 읽지 않음",
+                "보고서에서 표를 자동으로 찾기"
+              ],
+              [
+                "단위·기간 누락, 중복 행, 병합 셀에서 금액이 나오지 않음",
+                "주석 표, XBRL, PDF"
+              ],
+              [
+                "Python 125개 테스트, 타입·린트·문서 빌드 통과",
+                "정정 공시 선택"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#28](https://github.com/YUJAEYUN/Dartness/pull/28) · 이슈: [#19](https://github.com/YUJAEYUN/Dartness/issues/19)",
+              "코드: `src/dartness/cash_table.py` · 테스트: `tests/test_cash_table.py`",
+              "지원 범위: [재무상태표에서 현금 읽기](../cash-table-extraction.md)",
+              "원문 발췌: `tests/fixtures/cash/helixmith-2025/balance-sections.json`"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
