@@ -156,3 +156,51 @@ def test_system_status_lists_every_rule() -> None:
     text = (ROOT / "docs" / "system-status.md").read_text(encoding="utf-8")
     listed = {row[0] for row in _status_table(text, "rules")}
     assert listed == _defined_rule_ids()
+
+
+BRIEFING_HEADINGS = [
+    "## 한 줄 요약",
+    "## 지도에서의 위치",
+    "## 무엇이 달라졌나",
+    "## 누가 무엇을 정했나",
+    "## 확인해 주세요",
+    "## 확인한 것과 못 한 것",
+    "## 근거",
+]
+BRIEFING_META = re.compile(
+    r"\A---\npr: (\d+)\nissue: (\d+|null)\nmerged: (\d{4}-\d{2}-\d{2})\n"
+    r"stages: \[([A-Z, ]*)\]\n---\n"
+)
+
+
+def _briefings() -> list[Path]:
+    paths = sorted((ROOT / "docs" / "briefings").glob("[0-9][0-9][0-9][0-9]-*.md"))
+    assert paths, "docs/briefings holds at least one briefing"
+    return paths
+
+
+def test_briefings_keep_the_agreed_format() -> None:
+    status = (ROOT / "docs" / "system-status.md").read_text(encoding="utf-8")
+    stage_ids = {row[0] for row in _status_table(status, "stages")}
+    for path in _briefings():
+        text = path.read_text(encoding="utf-8")
+        meta = BRIEFING_META.match(text)
+        assert meta, f"{path.name}: metadata"
+        pr, _, _, stages_text = meta.groups()
+        assert path.name.startswith(f"{int(pr):04d}-"), f"{path.name}: file name and pr"
+        stages = {stage.strip() for stage in stages_text.split(",") if stage.strip()}
+        assert stages <= stage_ids, f"{path.name}: unknown stages {stages - stage_ids}"
+        headings = [line for line in text.splitlines() if line.startswith("## ")]
+        assert headings == BRIEFING_HEADINGS, f"{path.name}: headings"
+        highlighted = {
+            node
+            for ids in re.findall(r"^\s*class ([A-Z,]+) changed$", text, re.MULTILINE)
+            for node in ids.split(",")
+        }
+        assert highlighted == stages, f"{path.name}: map highlight and stages"
+
+
+def test_briefing_index_lists_every_briefing() -> None:
+    index = (ROOT / "docs" / "briefings" / "index.md").read_text(encoding="utf-8")
+    missing = [path.name for path in _briefings() if f"]({path.name})" not in index]
+    assert missing == []

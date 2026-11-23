@@ -29,7 +29,13 @@ function SourceText({ text }: { text: string }) {
   );
 }
 
-function Flowchart() {
+export function Flowchart({
+  diagram = status.diagram,
+  label = "조회 조건부터 엑셀 결과까지의 구현 상태. 동일한 내용이 아래 단계 목록에 있습니다.",
+}: {
+  diagram?: string;
+  label?: string;
+}) {
   const target = useRef<HTMLDivElement>(null);
   const id = useId().replace(/[^a-zA-Z0-9]/g, "");
   const [failed, setFailed] = useState(false);
@@ -44,7 +50,7 @@ function Flowchart() {
           theme: "neutral",
           flowchart: { htmlLabels: false, useMaxWidth: false },
         });
-        const { svg } = await mermaid.render(`flow${id}`, status.diagram);
+        const { svg } = await mermaid.render(`flow${id}`, diagram);
         if (active && target.current) target.current.innerHTML = svg;
       } catch {
         if (active) setFailed(true);
@@ -54,7 +60,7 @@ function Flowchart() {
     return () => {
       active = false;
     };
-  }, [id]);
+  }, [id, diagram]);
   return (
     <>
       {failed && (
@@ -67,7 +73,7 @@ function Flowchart() {
         ref={target}
         className="flowchart"
         role="img"
-        aria-label="조회 조건부터 엑셀 결과까지의 구현 상태. 동일한 내용이 아래 단계 목록에 있습니다."
+        aria-label={label}
       />
     </>
   );
