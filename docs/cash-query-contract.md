@@ -11,7 +11,7 @@
 | 근거 | 공시 접수번호·원문 URL, 절·표·행·열 또는 위치, 사용한 원문 버전 |
 | 확인 불가 | 이유, 확인한 경로·시각·원문 위치, 남은 확인 사항. 금액은 미확정이며 0원이 아님 |
 
-기본 범위는 법인 자체입니다. 기준일·조건의 기본값과 정정 공시 선택 방식, 결과 포함 정책은 아직 정하지 않았습니다. Python 내부 필드와 상태 코드는 아래 v1에 정의합니다. 외부 API·JSON 형식은 아직 정하지 않았습니다.
+기본 범위는 법인 자체입니다. 사용자 기준일·이전 자료·최신 정정·출력 정책은 [공통 계약](common-query-contract.md)에 합의했습니다. 조건 비교와 선택 엔진은 아직 없으며, 아래 CashQuery.as_of는 선정된 표의 실제 추출 대상 기준일입니다. Python 내부 필드와 상태 코드는 아래 v1에 정의합니다. 외부 API·JSON 형식은 아직 정하지 않았습니다.
 
 ## 실패와 확인 불가의 구분
 
@@ -42,7 +42,7 @@
 | CashValue | query, basis=separate/individual/consolidated, as_of, raw_amount, 정확한 Decimal amount_krw, currency=KRW, evidence, status=value |
 | CashNeedsReview | query, reason, 시간대 있는 checked_at, checked_path, detail, next_action, 선택적 evidence, status=needs_review. 금액 필드 없음 |
 
-standalone은 separate·individual만, consolidated는 consolidated만 허용합니다. 결과 기준일은 요청일과 정확히 같아야 합니다. 잘못된 타입·시점·범위·금액을 전달하면 ValueError로 거절합니다. 지원 단위와 변환은 기존 금액 모듈을 사용합니다. 금액 조건과 환율·외화는 이번 계약에 포함하지 않습니다. 조건 비교 방식을 정하거나 금액 필터를 실행하지 않습니다.
+standalone은 separate·individual만, consolidated는 consolidated만 허용합니다. 결과 기준일은 해당 추출 요청(CashQuery.as_of)의 선정 기준일과 정확히 같아야 합니다. 원래 사용자 기준일과 이전 자료 선택 기록은 상위 계약에서 별도로 보존합니다. 잘못된 타입·시점·범위·금액을 전달하면 ValueError로 거절합니다. 지원 단위와 변환은 기존 금액 모듈을 사용합니다. 금액 조건과 환율·외화는 이번 계약에 포함하지 않습니다. 조건 비교 방식을 정하거나 금액 필터를 실행하지 않습니다.
 
 확인 필요의 reason은 api_missing(API 누락, 원문 추가 확인), no_financial_statements(해당 문서에 재무제표 없음), period_unavailable(요청 시점 미확인), extraction_failed(해석·추출 실패), basis_unavailable(요청 범위 미확인), transport_error(통신 실패)입니다. 통신 실패와 자료 부재를 같은 이유로 기록하지 않습니다. 이런 결과는 금액이 없어 0원이나 조건 미충족으로 대신 표현할 수 없습니다.
 

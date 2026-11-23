@@ -145,6 +145,10 @@ export default function App() {
             <LayoutDashboard size={18} />
             한눈에 보기
           </a>
+          <a href="#query-policy">
+            <BookOpen size={18} />
+            공통 조회 조건
+          </a>
           <a href="#query-types">
             <BookOpen size={18} />
             올인원 조회 범위

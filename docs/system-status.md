@@ -51,7 +51,7 @@ flowchart LR
 <!-- system-status: next -->
 | 구분 | 작업 | 상태 |
 |---|---|---|
-| 지금 | 올인원 다섯 조회 유형의 입력·결과·근거·미결 명세 (이슈 #32) | 명세와 대시보드 범위 연결, 현금 외 추출은 미구현 |
+| 지금 | 공통 조회·시점·출력 정책 합의 | [계약 초안](common-query-contract.md)과 화면 연결, 실행 엔진은 미구현 |
 | 다음 | 유형별 미결 질문 하나를 정하고 실행 계약·실제 공시 사례 준비 | 제안 |
 | 나중 | 다른 법인 현금 사례 평가 (이슈 #31) | 범위 정리를 위해 보류 |
 | 다음 | 법인·공시 찾기를 임의 법인으로 확장 | 제안 |
@@ -65,12 +65,12 @@ flowchart LR
 <!-- system-status: decisions -->
 | 결정 | 영향받는 단계 |
 |---|---|
-| 기본 조회 시점(기준일 기본값) | A, D |
-| 정정 공시가 있을 때 어느 문서를 쓸지 | B, C |
-| 확인 불가·불일치 결과를 결과표에 넣을지 | H, I |
+| 최대 경과 기간의 단위·월말·경계 계산 방식 | A, D |
+| 정정본 연결·여러 후보의 동률 처리 | B, C |
+| 사건 기간 경계와 유형별 조회 대상 | A, D |
 | 반올림 허용 범위 | G |
 | 엑셀 열과 메모 배치 | I |
-| 원문 캐시 저장 방식과 보관 기간 | C |
+| 원문·내부 기록의 저장 방식과 보관 기간 | C |
 
 ## 규칙별 검사 현황
 
@@ -82,7 +82,7 @@ flowchart LR
 | AMOUNT-001 | 단위를 확인할 수 없는 금액은 확인 필요 | [금액 예시](amounts.md), tests/test_amounts.py |
 | CASH-001 | 별도·개별 미확인 시 연결 금액으로 대체 금지 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py |
 | CASH-002 | 확인 불가 금액을 0원으로 대체 금지 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py |
-| CASH-003 | 요청 시점이 아닌 금액으로 대체 표시 금지 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py |
+| CASH-003 | 실제 자료 날짜 혼동 금지·허용된 이전 자료는 요청/실제 날짜 표시 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py |
 
 ## 개발 기반
 

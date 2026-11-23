@@ -54,6 +54,7 @@ nav:
   - 금액 단위 처리: amounts.md
   - 합의한 요구사항: requirements.md
   - 올인원 조회 유형: query-types.md
+  - 공통 조회·출력 계약: common-query-contract.md
   - 에이전트 개발 원칙: engineering-principles.md
   - 현금 조회 계약 초안: cash-query-contract.md
   - 현금 표 추출: cash-table-extraction.md

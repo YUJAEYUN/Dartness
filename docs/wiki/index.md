@@ -18,6 +18,7 @@
 | 작업 하나를 따라가기 | [작업 브리핑 양식과 목록](../briefings/index.md), [기존 합의와의 내용 검토](../consistency.md). 형식 검사는 tests/test_docs_consistency.py |
 | 전체 진행 상황·방향 | [시스템 상태](../system-status.md). 단계별 상태를 바꾸면 지도와 표를 함께 고칩니다 |
 | 개발 원칙·실행 평가 | [다섯 개발 원칙](../engineering-principles.md), [평가 기록](../record-forms/evaluation.md) |
+| 공통 조회·시점·출력 합의 | [계약 초안](../common-query-contract.md). 전수 범위·이전 자료·정정·엑셀 옵션과 미구현 경계를 확인합니다 |
 | 올인원 조회 유형·분기 설계 | [유형별 입력·결과·근거·미결](../query-types.md), [공통/개별 책임](../architecture.md). 현금 외 모듈·라우터는 미구현 |
 | 현금 표 추출 | [선정 구간의 지원 범위](../cash-table-extraction.md). src/dartness/cash_table.py, tests/test_cash_table.py |
 | 현금 조회 범위·계약 | [확정한 범위와 CASH-001~003](../requirements.md#cash-scope), [규칙별 예시](../cash-query-contract.md#examples), [Python 계약 v1과 한계](../cash-query-contract.md). src/dartness/cash_contract.py, tests/test_cash_contract.py |

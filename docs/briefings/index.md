@@ -22,6 +22,7 @@
 - 명세 PR: 아래 문서 중 하나를 바꾼 PR
     - docs/requirements.md
     - docs/query-types.md
+    - docs/common-query-contract.md
     - docs/cash-query-contract.md
     - docs/cash-table-extraction.md
     - docs/amounts.md
