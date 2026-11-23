@@ -4,8 +4,9 @@ Answers were read from the originals and committed before the extractor ran. The
 was not changed for these cases. Financial companies have no cash-and-cash-equivalents row
 on the balance sheet, so the source-derived answer is needs_review, never another row.
 
-The test fixes provenance and "no wrong amount". It does not fix how many cases extract,
-so improving the extractor later does not break it.
+The test fixes provenance and "no wrong amount". It does not fix how many held-out cases
+extract, so improving the extractor later does not break it. A case the extractor was later
+fixed for becomes a development case and must extract (issue #56).
 """
 
 import hashlib
@@ -25,6 +26,7 @@ FOLDER = Path(__file__).parent / "fixtures/cash/dart-2025-eval-2"
 CASES: list[dict[str, Any]] = json.loads((FOLDER / "cases.json").read_text())["cases"]
 VALUE_CASES = [case for case in CASES if case["expected"]["outcome"] == "value"]
 REVIEW_CASES = [case for case in CASES if case["expected"]["outcome"] == "needs_review"]
+DEVELOPMENT_CASES = [case for case in CASES if case["case_status"] == "development_after_fix"]
 
 
 def run(case: dict[str, Any]) -> CashValue | CashNeedsReview:
@@ -81,3 +83,16 @@ def test_cash_and_due_from_banks_is_not_used_as_cash(case: dict[str, Any]) -> No
     result = run(case)
     assert isinstance(result, CashNeedsReview)
     assert result.reason == case["expected"]["reason"]
+
+
+def test_case_status_is_recorded_for_every_case() -> None:
+    assert {case["case_status"] for case in CASES} <= {"held_out", "development_after_fix"}
+    assert [case["id"] for case in DEVELOPMENT_CASES] == ["023910-separate"]
+
+
+@pytest.mark.parametrize("case", DEVELOPMENT_CASES, ids=lambda case: case["id"])
+def test_development_cases_extract_from_the_original_text(case: dict[str, Any]) -> None:
+    result = run(case)
+    assert isinstance(result, CashValue)
+    assert result.amount_krw == Decimal(case["expected"]["amount_krw"])
+    assert result.raw_amount.raw_value == case["expected"]["raw_value"]

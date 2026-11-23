@@ -5,6 +5,7 @@ from dataclasses import dataclass, replace
 from datetime import date, datetime
 from html.parser import HTMLParser
 
+from dartness.account_label import core_account_name
 from dartness.amounts import AmountInput, NormalizedAmount, normalize_krw_amount
 from dartness.cash_contract import (
     CashBasis,
@@ -18,8 +19,8 @@ from dartness.cash_contract import (
 
 # DART document XML writes body cells as <TE> where HTML (e.g. KIND) uses <TD>.
 _CELL_TAGS = ("td", "te", "th")
-# An account label may carry note references, e.g. "현금및현금성자산 (주4,29)".
-_CASH_LABEL = re.compile(r"현금및현금성자산(?:\(주[0-9]+(?:,[0-9]+)*\))?")
+# Compared after outline markers and note references are removed (account_label.py).
+_CASH_ACCOUNT = "현금및현금성자산"
 
 
 @dataclass(frozen=True)
@@ -158,7 +159,7 @@ def extract_cash_table(
         targets = [
             (i, row)
             for i, row in enumerate(rows, 1)
-            if row and _CASH_LABEL.fullmatch(_compact(row[0].text))
+            if row and core_account_name(row[0].text) == _CASH_ACCOUNT
         ]
         if len(targets) != 1:
             raise ValueError("현금 행이 없거나 중복됩니다")

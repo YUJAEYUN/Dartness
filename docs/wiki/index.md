@@ -24,7 +24,7 @@
 | 공통 날짜 입력·선택 코드 | [Python 계약 v1](../common-query-contract.md). src/dartness/query_contract.py, tests/test_query_contract.py. 날짜 선택은 원문 선정·조건 판정이 아닙니다 |
 | 공통 조회·시점·출력 합의 | [계약 초안](../common-query-contract.md). 전수 범위·최신/지정일·개월 선택지·달력 계산·분할 조회 요구·정정·엑셀 옵션과 미구현 경계를 확인합니다 |
 | 올인원 조회 유형·분기 설계 | [유형별 입력·결과·근거·미결](../query-types.md), [공통/개별 책임](../architecture.md). 현금 외 모듈·라우터는 미구현 |
-| 현금 표 추출 | [선정 구간의 지원 범위](../cash-table-extraction.md). src/dartness/cash_table.py, tests/test_cash_table.py |
+| 현금 표 추출 | [선정 구간의 지원 범위](../cash-table-extraction.md). src/dartness/cash_table.py, tests/test_cash_table.py. 계정명 정리는 src/dartness/account_label.py, tests/test_account_label.py |
 | 현금 조회 범위·계약 | [확정한 범위와 CASH-001~003](../requirements.md#cash-scope), [규칙별 예시](../cash-query-contract.md#examples), [Python 계약 v1과 한계](../cash-query-contract.md). src/dartness/cash_contract.py, tests/test_cash_contract.py |
 | 기능·데이터 계약 설계 | [요구사항](../requirements.md), [판단 경계](../architecture.md) |
 | 엑셀 양식 조정 | [출력 예시](../output-example.md) |

@@ -46,7 +46,8 @@
         "account_id": "dart_CashAndDuefromBanks",
         "thstrm_amount": "3417890771409",
         "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
-      }
+      },
+      "case_status": "held_out"
     },
     {
       "id": "000810-separate",
@@ -87,7 +88,8 @@
         "account_id": "dart_CashAndDuefromBanks",
         "thstrm_amount": "2813968885028",
         "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
-      }
+      },
+      "case_status": "held_out"
     },
     {
       "id": "023910-separate",
@@ -116,7 +118,8 @@
         "fs_div": "OFS",
         "account_id": "ifrs-full_CashAndCashEquivalents",
         "thstrm_amount": "43972786132"
-      }
+      },
+      "case_status": "development_after_fix"
     },
     {
       "id": "039490-consolidated",
@@ -155,7 +158,8 @@
         "account_id": "dart_CashAndDuefromBanks",
         "thstrm_amount": "9281509526977",
         "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
-      }
+      },
+      "case_status": "held_out"
     },
     {
       "id": "039490-separate",
@@ -194,7 +198,8 @@
         "account_id": "dart_CashAndDuefromBanks",
         "thstrm_amount": "8331660292844",
         "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
-      }
+      },
+      "case_status": "held_out"
     },
     {
       "id": "092130-consolidated",
@@ -223,7 +228,8 @@
         "fs_div": "CFS",
         "account_id": "ifrs-full_CashAndCashEquivalents",
         "thstrm_amount": "38765620415"
-      }
+      },
+      "case_status": "held_out"
     },
     {
       "id": "092130-separate",
@@ -252,7 +258,8 @@
         "fs_div": "OFS",
         "account_id": "ifrs-full_CashAndCashEquivalents",
         "thstrm_amount": "35413462705"
-      }
+      },
+      "case_status": "held_out"
     },
     {
       "id": "105560-consolidated",
@@ -294,7 +301,8 @@
         "account_id": "dart_CashAndDuefromBanks",
         "thstrm_amount": "34776877000000",
         "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
-      }
+      },
+      "case_status": "held_out"
     },
     {
       "id": "105560-separate",
@@ -336,7 +344,20 @@
         "account_id": "dart_CashAndDuefromBanks",
         "thstrm_amount": "974585000000",
         "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
-      }
+      },
+      "case_status": "held_out"
+    }
+  ],
+  "status_history": [
+    {
+      "date": "2026-11-23",
+      "status": "held_out_first_run",
+      "note": "첫 실행: 9건 중 8건 정답, 틀린 금액 0 (PR #53)"
+    },
+    {
+      "date": "2026-11-23",
+      "status": "partly_development",
+      "note": "대한약품(023910-separate)을 보고 계정명 앞 항목 번호를 허용하도록 추출기를 고쳤으므로 이 사례만 개발용으로 전환 (이슈 #56)"
     }
   ]
 }
