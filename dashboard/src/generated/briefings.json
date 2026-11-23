@@ -2,6 +2,136 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0063-fiscal-month-collection.md",
+      "sha256": "2578b1e66b9e604f86253c5040b121ce189ac1d82e1ff19e398537469f01e5ca",
+      "pr": 63,
+      "issue": 58,
+      "date": "2026-11-23",
+      "stages": [
+        "C"
+      ],
+      "title": "12월이 아닌 결산 법인의 사업보고서 수집",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "평가용 수집기가 법인마다 결산월을 OpenDART 기업개황에서 확인해 `사업보고서 (2025.03)` 같은 보고서도 받습니다. 12월 결산 법인은 지금과 똑같이 받습니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "C 단계 중 평가용 수집기(src/dartness/dart_collect.py)만 바뀌었습니다. 운영 조회 흐름은 아직 없습니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "결산월",
+              "사업연도 2025로 찾는 보고서",
+              "공시 검색 기간"
+            ],
+            "rows": [
+              [
+                "12월",
+                "`사업보고서 (2025.12)` (전과 같음)",
+                "2026-01-01 ~ 2026-12-31"
+              ],
+              [
+                "3월",
+                "`사업보고서 (2025.03)`",
+                "2025-04-01 ~ 2026-03-31"
+              ],
+              [
+                "6월",
+                "`사업보고서 (2025.06)`",
+                "2025-07-01 ~ 2026-06-30"
+              ]
+            ]
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "결산월은 기업개황 API(`company.json`)의 `acc_mt`로 확인합니다. 법인마다 요청이 1회 늘어납니다.",
+              "결산월이 없거나 이상하면 그 법인만 `invalid_fiscal_month`로 남기고 다른 법인은 계속 받습니다.",
+              "재무제표 API 응답이 받은 원문과 같은 공시인지 `matches_report`로 기록합니다."
+            ]
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "12월이 아닌 결산 법인 수집을 진행합니다(2026-11-23, 이슈 #58)."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "사업연도는 결산일이 속한 해로 정했습니다. DART 보고서 이름 `사업보고서 (YYYY.MM)`의 YYYY와 같은 뜻입니다.",
+              "검색 기간은 결산일 다음 날부터 1년입니다. 12월 결산에서는 이전 동작과 같습니다.",
+              "재무제표 API의 사업연도 의미는 12월이 아닌 결산 법인에서 확인하지 못해, 추측하지 않고 접수번호 일치 여부만 기록합니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "list",
+            "ordered": true,
+            "items": [
+              "**12월이 아닌 결산 법인 중 어디를 평가할까요?** 정답을 원문에서 먼저 정하는 검증용 평가라 대상은 사용자가 정합니다."
+            ]
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "가짜 OpenDART 응답으로 결산월 1·3·6·9·12월의 보고서 이름과 검색 기간",
+                "실제 OpenDART에서 12월이 아닌 결산 법인 수집"
+              ],
+              [
+                "결산월이 없거나 잘못되면 그 법인만 실패",
+                "재무제표 API가 12월이 아닌 결산 법인에 어떤 사업연도를 쓰는지"
+              ],
+              [
+                "12월 결산의 요청 순서·결과가 전과 같음(요청 1회 추가 제외)",
+                ""
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#63](https://github.com/YUJAEYUN/Dartness/pull/63) · 이슈: [#58](https://github.com/YUJAEYUN/Dartness/issues/58)",
+              "문서: [평가용 수집](../dart-live-check.md#evaluation-collection)",
+              "코드: `src/dartness/dart_collect.py` · 테스트: `tests/test_dart_collect.py`"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0062-correction-linking.md",
       "sha256": "57373bf6f3d167451af1c1abf1c92d390f9908c3657639b2653623161d40e538",
       "pr": 62,

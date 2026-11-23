@@ -10,7 +10,7 @@ import os
 import re
 import sys
 from collections.abc import Callable
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 from dartness.dart_smoke import CollectionError, _api_status, _xml, fetch_bytes, read_archive
@@ -57,15 +57,39 @@ def corp_codes(fetch: Fetch, wanted: list[str]) -> dict[str, tuple[str, str]]:
     }
 
 
-def annual_report(fetch: Fetch, corp_code: str, stock: str, year: int) -> tuple[str, list[str]]:
+def fiscal_month(fetch: Fetch, corp_code: str) -> str:
+    """The company's fiscal year-end month from OpenDART company.json (acc_mt), e.g. "03"."""
+    result = _json(fetch("company.json", {"corp_code": corp_code}))
+    _api_status(result.get("status"))
+    month = result.get("acc_mt")
+    if not isinstance(month, str) or not re.fullmatch(r"0[1-9]|1[0-2]", month):
+        raise CollectionError("invalid_fiscal_month")
+    return month
+
+
+def report_name(year: int, month: str) -> str:
+    """Business year means the year the fiscal year ends (docs/dart-live-check.md)."""
+    return f"사업보고서 ({year}.{month})"
+
+
+def search_window(year: int, month: str) -> tuple[date, date]:
+    """One year of filings starting the day after the fiscal year ends."""
+    start = date(year + int(month) // 12, int(month) % 12 + 1, 1)
+    return start, date(start.year + 1, start.month, 1) - timedelta(days=1)
+
+
+def annual_report(
+    fetch: Fetch, corp_code: str, stock: str, year: int, month: str
+) -> tuple[str, list[str]]:
     """Return the original annual report receipt and the names of its corrections."""
+    start, end = search_window(year, month)
     result = _json(
         fetch(
             "list.json",
             {
                 "corp_code": corp_code,
-                "bgn_de": f"{year + 1}0101",
-                "end_de": f"{year + 1}1231",
+                "bgn_de": start.strftime("%Y%m%d"),
+                "end_de": end.strftime("%Y%m%d"),
                 "pblntf_detail_ty": "A001",
                 "last_reprt_at": "N",
                 "page_count": "100",
@@ -76,7 +100,7 @@ def annual_report(fetch: Fetch, corp_code: str, stock: str, year: int) -> tuple[
     rows = result.get("list")
     if result.get("total_page") != 1 or not isinstance(rows, list):
         raise CollectionError("unexpected_pagination")
-    name = f"사업보고서 ({year}.12)"
+    name = report_name(year, month)
     mine = [r for r in rows if isinstance(r, dict) and r.get("stock_code") == stock]
     originals = [r for r in mine if r.get("report_nm") == name]
     names = [r.get("report_nm") for r in mine]
@@ -90,7 +114,7 @@ def annual_report(fetch: Fetch, corp_code: str, stock: str, year: int) -> tuple[
 
 
 def api_cash(
-    fetch: Fetch, corp_code: str, year: int, fs_div: str
+    fetch: Fetch, corp_code: str, year: int, fs_div: str, receipt: str
 ) -> tuple[bytes, dict[str, object]]:
     """OpenDART structured figures, kept only as a cross-check for source-verified answers."""
     payload = fetch(
@@ -114,7 +138,14 @@ def api_cash(
         and row.get("sj_div") == "BS"
         and "".join(str(row.get("account_nm", "")).split()) == "현금및현금성자산"
     ]
-    return payload, {"fs_div": fs_div, "status": "found" if cash else "no_cash_row", "cash": cash}
+    # Whether the API answered for the same filing; unverified for non-December fiscal years.
+    receipts = {row.get("rcept_no") for row in rows if isinstance(row, dict)}
+    return payload, {
+        "fs_div": fs_div,
+        "status": "found" if cash else "no_cash_row",
+        "matches_report": receipts == {receipt},
+        "cash": cash,
+    }
 
 
 def collect(
@@ -134,7 +165,10 @@ def collect(
         entry.update(corp_code=corp_code, corp_name=corp_name)
         try:
             requests += 1
-            receipt, corrections = annual_report(fetch, corp_code, stock, year)
+            month = fiscal_month(fetch, corp_code)
+            entry.update(fiscal_month=month, report_name=report_name(year, month))
+            requests += 1
+            receipt, corrections = annual_report(fetch, corp_code, stock, year, month)
             entry.update(rcept_no=receipt, corrections=corrections)
             entry["dart_url"] = f"https://dart.fss.or.kr/dsaf001/main.do?rcpNo={receipt}"
             requests += 1
@@ -150,7 +184,7 @@ def collect(
             entry["api_cash"] = summaries
             for fs_div in ("OFS", "CFS"):
                 requests += 1
-                raw, summary = api_cash(fetch, corp_code, year, fs_div)
+                raw, summary = api_cash(fetch, corp_code, year, fs_div, receipt)
                 files[f"{stock}/fnltt-{fs_div}.json"] = raw
                 summaries.append(summary)
             entry["status"] = "collected"
@@ -160,7 +194,7 @@ def collect(
         "purpose": "evaluation source collection for issue #31; no extraction performed",
         "collected_at": datetime.now(UTC).isoformat(),
         "business_year": year,
-        "report_name": f"사업보고서 ({year}.12)",
+        "business_year_rule": "fiscal year ending in business_year; report_name per company",
         "request_count": requests,
         "companies": companies,
     }

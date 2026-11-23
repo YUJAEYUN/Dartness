@@ -9,7 +9,7 @@ on:
         required: true
         default: '005930,004370,068270,035720,000720,058470'
       business_year:
-        description: '사업연도 (사업보고서 YYYY.12)'
+        description: '사업연도 (결산일이 속한 해, 결산월은 기업개황으로 확인)'
         required: true
         default: '2025'
 permissions:
