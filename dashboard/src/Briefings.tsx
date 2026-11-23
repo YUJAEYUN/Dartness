@@ -123,7 +123,7 @@ export function Briefings() {
                   #{item.pr} {item.title}
                 </strong>
                 <small>
-                  {item.merged} 병합 ·{" "}
+                  {item.date} ·{" "}
                   {item.stages.length
                     ? `바뀐 단계: ${item.stages.map(stageName).join(", ")}`
                     : "단계 변화 없음"}

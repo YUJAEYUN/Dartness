@@ -168,7 +168,7 @@ BRIEFING_HEADINGS = [
     "## 근거",
 ]
 BRIEFING_META = re.compile(
-    r"\A---\npr: (\d+)\nissue: (\d+|null)\nmerged: (\d{4}-\d{2}-\d{2})\n"
+    r"\A---\npr: (\d+)\nissue: (\d+|null)\ndate: (\d{4}-\d{2}-\d{2})\n"
     r"stages: \[([A-Z, ]*)\]\n---\n"
 )
 

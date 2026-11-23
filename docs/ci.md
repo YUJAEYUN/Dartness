@@ -76,3 +76,5 @@ code-quality가 UI 빌드 전에 `npm run docs:check`를 실행합니다. 시스
 ## 이슈 조기 종료 방지
 
 PR 본문의 자동 종료 문구는 scripts/check_pr_policy.py가 거절합니다. PR 편집 이벤트에도 code-quality를 다시 실행해 본문만 바꿔도 검사합니다. 이 검사는 PR 본문의 자동 종료 경로를 차단하며, 실제 완료 조건의 충족 여부까지 판단하거나 GitHub에서 사람이 직접 닫는 동작을 막지는 않습니다. 본문과 체크리스트를 먼저 확인한 뒤 별도로 종료합니다.
+
+기능·명세 PR의 작업 브리핑은 scripts/check_briefing_required.py가 확인합니다. code-quality는 이 검사를 위해 전체 이력을 받아(fetch-depth: 0) PR 기준 커밋과의 변경 파일을 비교합니다. 대상 경로와 작성 방법은 [작업 브리핑](briefings/index.md)에 있습니다. 브리핑 파일이 있는지만 확인하며, 요약이 PR과 같은 뜻인지는 확인하지 않습니다.

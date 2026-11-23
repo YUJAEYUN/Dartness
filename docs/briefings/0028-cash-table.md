@@ -1,7 +1,7 @@
 ---
 pr: 28
 issue: 19
-merged: 2026-11-20
+date: 2026-11-20
 stages: [D]
 ---
 

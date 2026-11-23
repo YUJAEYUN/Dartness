@@ -3,10 +3,10 @@
   "briefings": [
     {
       "file": "docs/briefings/0034-issue-autoclose.md",
-      "sha256": "048e6dd96fa7d5bc69c0081106f900e0200575be86e5fe4c9484b1efc7636f83",
+      "sha256": "2b5f6c87b85c8170bc5c16bab16051568283817f0b5cee6f508081c48c5ea5a7",
       "pr": 34,
       "issue": 32,
-      "merged": "2026-11-20",
+      "date": "2026-11-20",
       "stages": [],
       "title": "이슈가 먼저 닫히지 않게 막기",
       "sections": {
@@ -113,10 +113,10 @@
     },
     {
       "file": "docs/briefings/0033-query-types.md",
-      "sha256": "e4dc9fdf7921c414f187a023cf1066d5e8bec7ae24d35e31a294ad64c60fd14f",
+      "sha256": "efe360cc1b7ffd8144a8fd893acb3e0a48fa0225a054aa42d8281cb907085ba1",
       "pr": 33,
       "issue": 32,
-      "merged": "2026-11-20",
+      "date": "2026-11-20",
       "stages": [],
       "title": "올인원 조회 유형 명세",
       "sections": {
@@ -246,10 +246,10 @@
     },
     {
       "file": "docs/briefings/0030-dashboard-sync.md",
-      "sha256": "5bbe8d4eccf781c7930838b0416a527c36ee9ebc21d0fe350dc4f268eb5e5ddc",
+      "sha256": "76ccbb104a23ea1b7785eba578e619db0ddd2fba1cb7ff5a48e8ec266ebeea86",
       "pr": 30,
       "issue": 29,
-      "merged": "2026-11-20",
+      "date": "2026-11-20",
       "stages": [],
       "title": "docs에서 대시보드 상태 만들기",
       "sections": {
@@ -368,10 +368,10 @@
     },
     {
       "file": "docs/briefings/0028-cash-table.md",
-      "sha256": "cad6b148db027f282f85c9ea100b8daaefbe05101fd3c766c7db5e597cbfe92e",
+      "sha256": "18642d1c5f5b3e79ba68f23f4c2a6eb6ef0797b62e9515789ce433e73abe16d9",
       "pr": 28,
       "issue": 19,
-      "merged": "2026-11-20",
+      "date": "2026-11-20",
       "stages": [
         "D"
       ],

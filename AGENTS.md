@@ -15,6 +15,7 @@
 - Follow docs/development-workflow.md: use a task branch and PR; do not push task changes directly to main.
 - Review relevant docs, wiki, and code relationships using docs/consistency.md. Record evidence and unimplemented or unverified scope; do not claim semantic consistency from a passing build.
 - Explain changes to fixtures, expected outputs, check exclusions, or CI rules separately in the PR.
+- Feature PRs (src/) and specification PRs (docs listed in docs/briefings/index.md) must add a briefing named after the four-digit PR number to the docs/briefings folder once the PR exists; CI enforces it.
 
 - Use natural Korean familiar to developers. Prefer direct questions in templates and complete sentences over abstract labels or compressed noun lists. Explain technical terms when needed without changing their meaning.
 - Check wording with explicit examples and reader tasks. Linters can flag known wording patterns, but cannot establish that Korean is clear or natural. Do not add blanket bans or claim a readability score proves quality.
