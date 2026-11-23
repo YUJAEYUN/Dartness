@@ -1,0 +1,579 @@
+{
+  "classification": "real-dev; selected native XBRL spans joined under the source root opening tag; PDF text is derived with pdftotext -layout",
+  "source_commit": "943b6c96df7e786d505eedeec5488ed58109f166",
+  "source_branch": "data/correction-pair-64",
+  "source_browser": "https://github.com/YUJAEYUN/Dartness/tree/943b6c96df7e786d505eedeec5488ed58109f166",
+  "corp_code": "01205842",
+  "report_period": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "original_receipt": "20260318001192",
+  "correction_receipt": "20260602000456",
+  "original_submission_date": "2026-03-18",
+  "correction_submission_date": "2026-06-02",
+  "versions": {
+    "original": {
+      "pdf": {
+        "version": "original",
+        "type": "pdf",
+        "url": "https://dart.fss.or.kr/pdf/download/pdf.do?rcp_no=20260318001192&dcm_no=11140821",
+        "observed_at": "2026-11-23T06:17:21.766104+00:00",
+        "bytes": 2229244,
+        "sha256": "e02855fea4ca6b6210aa4faeae347b28c0288a954f98fe09d145b6042a25aa01",
+        "format_verified": true,
+        "physical_pages": 811
+      },
+      "xbrl_archive": {
+        "version": "original",
+        "type": "xbrl",
+        "url": "https://opendart.fss.or.kr/cmm/downloadIfrs.do?rcp_no=20260318001192&dcm_no=11140821&lang=ko",
+        "observed_at": "2026-11-23T06:17:32.011354+00:00",
+        "bytes": 1177489,
+        "sha256": "1d8e4fe816d3136abfe10ae333a8929ee3f08d65b875286b0bae69b1097da09d",
+        "format_verified": true,
+        "members": [
+          {
+            "name": "entity01205842_2025-12-31.xbrl",
+            "bytes": 7452606,
+            "sha256": "48d1ab1001c80e26b423465a199dce7e08ee33646a880641073636b6d86f9e13"
+          },
+          {
+            "name": "entity01205842_2025-12-31.xsd",
+            "bytes": 620284,
+            "sha256": "ba0238ffc030ae5d876ae100b9195ffde8249a5264a219529597b2aeb303729e"
+          },
+          {
+            "name": "entity01205842_2025-12-31_def.xml",
+            "bytes": 6357093,
+            "sha256": "f1641a4af89e1ab9d871d1922b83f463591fbbf00a142bd6949bc9e002934084"
+          },
+          {
+            "name": "entity01205842_2025-12-31_cal.xml",
+            "bytes": 142471,
+            "sha256": "a5cca1345a538d84d208c416b8d08cfbb1646ccf37fd0c465d58f62a48032b67"
+          },
+          {
+            "name": "entity01205842_2025-12-31_pre.xml",
+            "bytes": 4496338,
+            "sha256": "2d368fa6fcd69a3fa51f4bdd3d9e2990935e5975ae3f21f4a301a404830fe745"
+          },
+          {
+            "name": "entity01205842_2025-12-31_lab-ko.xml",
+            "bytes": 5369843,
+            "sha256": "c8aa05c220edfd006268c183689a1ccdb6f6e4e8486805ec4dd049858e382225"
+          },
+          {
+            "name": "entity01205842_2025-12-31_lab-en.xml",
+            "bytes": 5436481,
+            "sha256": "d76c1f5a69003c4c9743bae42193c5a803cfd937ce58cf6de06f5255306326da"
+          }
+        ]
+      },
+      "instance_member": "entity01205842_2025-12-31.xbrl",
+      "instance_sha256": "48d1ab1001c80e26b423465a199dce7e08ee33646a880641073636b6d86f9e13",
+      "excerpt": {
+        "file": "original-cash-excerpt.xml.gz",
+        "compressed_sha256": "949b50b4b525645e6b47fffe751f92fba0439a106657feba5c2d5887851dbf57",
+        "decoded_sha256": "19b1fa5a3352d126ca2f2b4b7249e27f7edfe316ae38c533568db96e79157cf4",
+        "format": "assembled native spans; not a full original XBRL document",
+        "spans": [
+          {
+            "role": "root",
+            "offset": 95,
+            "length": 1198,
+            "sha256": "7a397fe3b83d7007d6552abcf0b03d9c7e4bb29d166d40c02b2f72576187465f"
+          },
+          {
+            "role": "unit",
+            "offset": 3075335,
+            "length": 86,
+            "sha256": "6ea75edee9f0fae9915ae57275ef796082f00169dfc785aa4145d7fe5acfe0a2"
+          },
+          {
+            "role": "context",
+            "offset": 71987,
+            "length": 554,
+            "sha256": "4d3d812acf4dc08809fbb8d756b08b5ca3e6cd7228412a9206276e5f3be34afd"
+          },
+          {
+            "role": "context",
+            "offset": 161400,
+            "length": 554,
+            "sha256": "618cb1fe2b26a5bb4fa9b622e582f6a199dcf1ce17f7da3c8dd2e68a05aab0ff"
+          },
+          {
+            "role": "context",
+            "offset": 247849,
+            "length": 563,
+            "sha256": "fcfe2ef39b3331471cfe1d4ff1566369c2882de27df104d0c924b57714c64ecf"
+          },
+          {
+            "role": "context",
+            "offset": 423308,
+            "length": 562,
+            "sha256": "8363d07127cfa5c58cfc2e821601b0e05a8ef9fae23a5832d0308ccf8ac16dbb"
+          },
+          {
+            "role": "context",
+            "offset": 713790,
+            "length": 880,
+            "sha256": "486401e3db21017fdba7e3fb5aa87d0ff56731c9303a86c5438031f54dcee1b4"
+          },
+          {
+            "role": "context",
+            "offset": 734784,
+            "length": 562,
+            "sha256": "e926ec7e26b067289b9343e1dcab6f804d83af79e27f2738f2af4f5f440d28d8"
+          },
+          {
+            "role": "context",
+            "offset": 1070515,
+            "length": 872,
+            "sha256": "e6705b91a6d79edbc0d8852cf4defd7e33e77c07d86793748e167aa18f7017f9"
+          },
+          {
+            "role": "context",
+            "offset": 1987909,
+            "length": 816,
+            "sha256": "bdfac29e0c5bf8f83d7148c59dc05cb5597ce446a88a8cee977e36b90a04a558"
+          },
+          {
+            "role": "context",
+            "offset": 1988729,
+            "length": 880,
+            "sha256": "3ded709892278f78ab8735f171e90b5ddfe3069e7161a06b0afa6f377f424d50"
+          },
+          {
+            "role": "context",
+            "offset": 2348004,
+            "length": 555,
+            "sha256": "6d2750083fda231e9c63a93d865072bbe51fd032ce875648df7b58f57652a1ac"
+          },
+          {
+            "role": "context",
+            "offset": 2349418,
+            "length": 872,
+            "sha256": "7e3df2ef4666c64a4c825351b331e6cbeed9cdd37e9dcf98b25fd686b78038fb"
+          },
+          {
+            "role": "context",
+            "offset": 2545618,
+            "length": 816,
+            "sha256": "4aed91089e4e6ce6556efac99390affe85417714ffcce3eff26ce686d1bff24b"
+          },
+          {
+            "role": "context",
+            "offset": 2901250,
+            "length": 824,
+            "sha256": "9c9d377a9bde80969ddbdd6ed5c83106e49e183e5a31f01cb46da53cddae916d"
+          },
+          {
+            "role": "context",
+            "offset": 3060594,
+            "length": 824,
+            "sha256": "2554811e0d6c22706f0a423905681f85ab17ff30ef0bec798f752e721bfccdce"
+          },
+          {
+            "role": "fact",
+            "offset": 4551349,
+            "length": 311,
+            "sha256": "6f6ef07c6381ee144ecb44d77dc5e226b72bcccf201997da2e23580c1c63a03c"
+          },
+          {
+            "role": "fact",
+            "offset": 4800700,
+            "length": 339,
+            "sha256": "90d8afa27a2458d84362b071c689caa95a36d3d1eb6e6c8a28f59959b0f8e093"
+          },
+          {
+            "role": "fact",
+            "offset": 4804407,
+            "length": 214,
+            "sha256": "f8afdcedc6e8822f830e8ed36e67bcc51dd33a5ed018e0cdb897ec111d3488e4"
+          },
+          {
+            "role": "fact",
+            "offset": 4806112,
+            "length": 216,
+            "sha256": "cb7d0b10e6ec578608e76f7b0b72af6716273d73011e30711a46f95570de3ba8"
+          },
+          {
+            "role": "fact",
+            "offset": 5147168,
+            "length": 219,
+            "sha256": "514c45577840a01f89a0953783df90df8e5890a3e4ed894daa9e9f2a83cfd97e"
+          },
+          {
+            "role": "fact",
+            "offset": 5161216,
+            "length": 219,
+            "sha256": "c07e27b6c9a5887e5e36ce1e7384b65f2175c4e54f6173ddf7372f979e29e45a"
+          },
+          {
+            "role": "fact",
+            "offset": 5718750,
+            "length": 344,
+            "sha256": "27fcf959f307f07b5adb42201fe5169649919a0dea53381c5184a07224230ee1"
+          },
+          {
+            "role": "fact",
+            "offset": 5720166,
+            "length": 344,
+            "sha256": "0b4ff43b9fbcdf0673f18d48742c42a0089b111434f4c107692527834861be4b"
+          },
+          {
+            "role": "fact",
+            "offset": 5882903,
+            "length": 316,
+            "sha256": "01b1a2a9ca2b21fb5d27f9a3340e43e46c0633a5c8c419c287bd920aa92677d1"
+          },
+          {
+            "role": "fact",
+            "offset": 5883920,
+            "length": 316,
+            "sha256": "943cb31e0277fcb09f05ca6e78ada1c0c6b1ccd5b3355c3829de4c071d22e3a1"
+          },
+          {
+            "role": "fact",
+            "offset": 6244093,
+            "length": 214,
+            "sha256": "1c3f0e2cfb9c55f321d6e3978688d184c97ab791212a711b84eda5ab61ca10b9"
+          },
+          {
+            "role": "fact",
+            "offset": 6675448,
+            "length": 339,
+            "sha256": "3f19ab07649e4595ef481ff8fe18c98875516cc06cb72d7fd6e5131717f626f5"
+          },
+          {
+            "role": "fact",
+            "offset": 6791739,
+            "length": 220,
+            "sha256": "92adecc7cf7baa6dbea87c1743b52c370c4e8eb80b8c949eea3406c82e4df004"
+          },
+          {
+            "role": "fact",
+            "offset": 7220986,
+            "length": 311,
+            "sha256": "e844dc1d7ab6c855512eec8f0a28786aa294bc32e2f1384819251689d1bc3197"
+          }
+        ]
+      },
+      "pdf_text_excerpts": {
+        "consolidated": {
+          "file": "original-consolidated.txt",
+          "physical_pdf_page": 73,
+          "sha256": "d6bfe3421a09adc42277c4a6f8fdcc20cb5839ac2315e05d998d53a78773920b"
+        },
+        "separate": {
+          "file": "original-separate.txt",
+          "physical_pdf_page": 219,
+          "sha256": "4d7d7c57368d292b8c9c876db6111e938abf34c84a938c111ec23dcf0b97e7ae"
+        },
+        "cover": {
+          "file": "original-cover.txt",
+          "physical_pdf_page": 5,
+          "sha256": "396e24ec0da15109a8d75e77fe6467925ae96fd4de65dba275ced9f8f30ad461"
+        }
+      }
+    },
+    "correction": {
+      "pdf": {
+        "version": "correction",
+        "type": "pdf",
+        "url": "https://dart.fss.or.kr/pdf/download/pdf.do?rcp_no=20260602000456&dcm_no=11416776",
+        "observed_at": "2026-11-23T06:17:21.843570+00:00",
+        "bytes": 2302539,
+        "sha256": "3d35fda006f11f91fc7b7f902a706ee3462c8293e3228977ca49aaedab835fda",
+        "format_verified": true,
+        "physical_pages": 810
+      },
+      "xbrl_archive": {
+        "version": "correction",
+        "type": "xbrl",
+        "url": "https://opendart.fss.or.kr/cmm/downloadIfrs.do?rcp_no=20260602000456&dcm_no=11416776&lang=ko",
+        "observed_at": "2026-11-23T06:17:27.930639+00:00",
+        "bytes": 1109231,
+        "sha256": "a2b904343e105a163cb2daba55578388a97d85e465a3475cd468221257d52fc5",
+        "format_verified": true,
+        "members": [
+          {
+            "name": "entity01205842_2025-12-31.xbrl",
+            "bytes": 7260328,
+            "sha256": "36583bb377bc3e23250f292ad61b13feaa5fe97fc633ffca8c5cf4a4d1f460b7"
+          },
+          {
+            "name": "entity01205842_2025-12-31.xsd",
+            "bytes": 600509,
+            "sha256": "780ca7966e3c87ab9ec12ed7f603053c6231626cd703500987b63fb3a6df0046"
+          },
+          {
+            "name": "entity01205842_2025-12-31_def.xml",
+            "bytes": 6255262,
+            "sha256": "30b7f04b11e0b7f8c20922643512772f1edf2abc2692f081220e66b92eb39d43"
+          },
+          {
+            "name": "entity01205842_2025-12-31_cal.xml",
+            "bytes": 142471,
+            "sha256": "a5cca1345a538d84d208c416b8d08cfbb1646ccf37fd0c465d58f62a48032b67"
+          },
+          {
+            "name": "entity01205842_2025-12-31_pre.xml",
+            "bytes": 4424869,
+            "sha256": "cf2b7dd1531d4562bed8a223e094f4bce8b196c32fcd9a7d70b82c59528ea0fa"
+          },
+          {
+            "name": "entity01205842_2025-12-31_lab-ko.xml",
+            "bytes": 5198679,
+            "sha256": "ef2b4d41b7dba5a1965ce80c2a5b40715eaaaa0cd7d3cb45ae74ba0e283d5a49"
+          },
+          {
+            "name": "entity01205842_2025-12-31_lab-en.xml",
+            "bytes": 5264550,
+            "sha256": "421787edcfa8accba53c374b6622b62100065c63b5d7b8ed2947865df16600d4"
+          }
+        ]
+      },
+      "instance_member": "entity01205842_2025-12-31.xbrl",
+      "instance_sha256": "36583bb377bc3e23250f292ad61b13feaa5fe97fc633ffca8c5cf4a4d1f460b7",
+      "excerpt": {
+        "file": "correction-cash-excerpt.xml.gz",
+        "compressed_sha256": "2bb055858ceabc392d5b013e5008262ae7db8d4f85a109d8c5fd139442b93356",
+        "decoded_sha256": "2bb0cf4781354fe7d45d3cc4f79ee69b7163e4e92e5eb8ff8e89789e23bbad90",
+        "format": "assembled native spans; not a full original XBRL document",
+        "spans": [
+          {
+            "role": "root",
+            "offset": 95,
+            "length": 1198,
+            "sha256": "7a397fe3b83d7007d6552abcf0b03d9c7e4bb29d166d40c02b2f72576187465f"
+          },
+          {
+            "role": "unit",
+            "offset": 3009421,
+            "length": 86,
+            "sha256": "6ea75edee9f0fae9915ae57275ef796082f00169dfc785aa4145d7fe5acfe0a2"
+          },
+          {
+            "role": "context",
+            "offset": 71987,
+            "length": 554,
+            "sha256": "4d3d812acf4dc08809fbb8d756b08b5ca3e6cd7228412a9206276e5f3be34afd"
+          },
+          {
+            "role": "context",
+            "offset": 159273,
+            "length": 554,
+            "sha256": "618cb1fe2b26a5bb4fa9b622e582f6a199dcf1ce17f7da3c8dd2e68a05aab0ff"
+          },
+          {
+            "role": "context",
+            "offset": 245722,
+            "length": 563,
+            "sha256": "fcfe2ef39b3331471cfe1d4ff1566369c2882de27df104d0c924b57714c64ecf"
+          },
+          {
+            "role": "context",
+            "offset": 415970,
+            "length": 562,
+            "sha256": "8363d07127cfa5c58cfc2e821601b0e05a8ef9fae23a5832d0308ccf8ac16dbb"
+          },
+          {
+            "role": "context",
+            "offset": 699222,
+            "length": 880,
+            "sha256": "486401e3db21017fdba7e3fb5aa87d0ff56731c9303a86c5438031f54dcee1b4"
+          },
+          {
+            "role": "context",
+            "offset": 720216,
+            "length": 562,
+            "sha256": "e926ec7e26b067289b9343e1dcab6f804d83af79e27f2738f2af4f5f440d28d8"
+          },
+          {
+            "role": "context",
+            "offset": 1049652,
+            "length": 872,
+            "sha256": "e6705b91a6d79edbc0d8852cf4defd7e33e77c07d86793748e167aa18f7017f9"
+          },
+          {
+            "role": "context",
+            "offset": 1943961,
+            "length": 816,
+            "sha256": "bdfac29e0c5bf8f83d7148c59dc05cb5597ce446a88a8cee977e36b90a04a558"
+          },
+          {
+            "role": "context",
+            "offset": 1944781,
+            "length": 880,
+            "sha256": "3ded709892278f78ab8735f171e90b5ddfe3069e7161a06b0afa6f377f424d50"
+          },
+          {
+            "role": "context",
+            "offset": 2298714,
+            "length": 555,
+            "sha256": "6d2750083fda231e9c63a93d865072bbe51fd032ce875648df7b58f57652a1ac"
+          },
+          {
+            "role": "context",
+            "offset": 2300128,
+            "length": 872,
+            "sha256": "7e3df2ef4666c64a4c825351b331e6cbeed9cdd37e9dcf98b25fd686b78038fb"
+          },
+          {
+            "role": "context",
+            "offset": 2493240,
+            "length": 816,
+            "sha256": "4aed91089e4e6ce6556efac99390affe85417714ffcce3eff26ce686d1bff24b"
+          },
+          {
+            "role": "context",
+            "offset": 2838423,
+            "length": 824,
+            "sha256": "9c9d377a9bde80969ddbdd6ed5c83106e49e183e5a31f01cb46da53cddae916d"
+          },
+          {
+            "role": "context",
+            "offset": 2995708,
+            "length": 824,
+            "sha256": "2554811e0d6c22706f0a423905681f85ab17ff30ef0bec798f752e721bfccdce"
+          },
+          {
+            "role": "fact",
+            "offset": 4055878,
+            "length": 316,
+            "sha256": "01b1a2a9ca2b21fb5d27f9a3340e43e46c0633a5c8c419c287bd920aa92677d1"
+          },
+          {
+            "role": "fact",
+            "offset": 4056895,
+            "length": 316,
+            "sha256": "943cb31e0277fcb09f05ca6e78ada1c0c6b1ccd5b3355c3829de4c071d22e3a1"
+          },
+          {
+            "role": "fact",
+            "offset": 4856055,
+            "length": 339,
+            "sha256": "90d8afa27a2458d84362b071c689caa95a36d3d1eb6e6c8a28f59959b0f8e093"
+          },
+          {
+            "role": "fact",
+            "offset": 4856751,
+            "length": 339,
+            "sha256": "3f19ab07649e4595ef481ff8fe18c98875516cc06cb72d7fd6e5131717f626f5"
+          },
+          {
+            "role": "fact",
+            "offset": 4860458,
+            "length": 214,
+            "sha256": "f8afdcedc6e8822f830e8ed36e67bcc51dd33a5ed018e0cdb897ec111d3488e4"
+          },
+          {
+            "role": "fact",
+            "offset": 4865812,
+            "length": 216,
+            "sha256": "cb7d0b10e6ec578608e76f7b0b72af6716273d73011e30711a46f95570de3ba8"
+          },
+          {
+            "role": "fact",
+            "offset": 4873862,
+            "length": 214,
+            "sha256": "1c3f0e2cfb9c55f321d6e3978688d184c97ab791212a711b84eda5ab61ca10b9"
+          },
+          {
+            "role": "fact",
+            "offset": 5223695,
+            "length": 311,
+            "sha256": "e844dc1d7ab6c855512eec8f0a28786aa294bc32e2f1384819251689d1bc3197"
+          },
+          {
+            "role": "fact",
+            "offset": 5225024,
+            "length": 311,
+            "sha256": "6f6ef07c6381ee144ecb44d77dc5e226b72bcccf201997da2e23580c1c63a03c"
+          },
+          {
+            "role": "fact",
+            "offset": 5938736,
+            "length": 220,
+            "sha256": "92adecc7cf7baa6dbea87c1743b52c370c4e8eb80b8c949eea3406c82e4df004"
+          },
+          {
+            "role": "fact",
+            "offset": 5946877,
+            "length": 219,
+            "sha256": "514c45577840a01f89a0953783df90df8e5890a3e4ed894daa9e9f2a83cfd97e"
+          },
+          {
+            "role": "fact",
+            "offset": 5960925,
+            "length": 219,
+            "sha256": "c07e27b6c9a5887e5e36ce1e7384b65f2175c4e54f6173ddf7372f979e29e45a"
+          },
+          {
+            "role": "fact",
+            "offset": 6308883,
+            "length": 344,
+            "sha256": "27fcf959f307f07b5adb42201fe5169649919a0dea53381c5184a07224230ee1"
+          },
+          {
+            "role": "fact",
+            "offset": 6310299,
+            "length": 344,
+            "sha256": "0b4ff43b9fbcdf0673f18d48742c42a0089b111434f4c107692527834861be4b"
+          }
+        ]
+      },
+      "pdf_text_excerpts": {
+        "consolidated": {
+          "file": "correction-consolidated.txt",
+          "physical_pdf_page": 75,
+          "sha256": "d6bfe3421a09adc42277c4a6f8fdcc20cb5839ac2315e05d998d53a78773920b"
+        },
+        "separate": {
+          "file": "correction-separate.txt",
+          "physical_pdf_page": 218,
+          "sha256": "4d7d7c57368d292b8c9c876db6111e938abf34c84a938c111ec23dcf0b97e7ae"
+        },
+        "cover": {
+          "file": "correction-cover.txt",
+          "physical_pdf_page": 7,
+          "sha256": "396e24ec0da15109a8d75e77fe6467925ae96fd4de65dba275ced9f8f30ad461"
+        },
+        "errata": {
+          "file": "correction-errata.txt",
+          "physical_pdf_page": 5,
+          "sha256": "6bbc906e7ecdaa7f5f71aed69b724871422b0f8ea32430267ad69e2d306df52f"
+        }
+      }
+    }
+  },
+  "expected": {
+    "current_cash": {
+      "consolidated": {
+        "member": "ifrs-full:ConsolidatedMember",
+        "pdf_raw_thousand_krw": "337,873,166",
+        "amount_krw": "337873166000",
+        "context_id": "CFY2025eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_ConsolidatedMember"
+      },
+      "separate": {
+        "member": "ifrs-full:SeparateMember",
+        "pdf_raw_thousand_krw": "69,787,650",
+        "amount_krw": "69787650000",
+        "context_id": "CFY2025eFY_ifrs-full_ConsolidatedAndSeparateFinancialStatementsAxis_ifrs-full_SeparateMember"
+      }
+    },
+    "cash_fact_count_per_instance": 14,
+    "current_cash_comparison": "same for the two checked current-year balance-sheet cells only",
+    "relation": "same report family, supported by prior viewer evidence and full-report cover/errata",
+    "selector_after_both_publications": "ambiguous_candidate",
+    "selector_before_correction": "original"
+  },
+  "not_verified": [
+    "general correction resolver",
+    "all report facts unchanged",
+    "all attachments or OpenDART document.xml archive equivalence",
+    "generic XBRL extraction support"
+  ]
+}
