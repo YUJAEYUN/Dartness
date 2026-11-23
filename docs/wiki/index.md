@@ -15,7 +15,7 @@
 | 여러 에이전트로 동시 작업 | [작업 흐름의 공동 작업 규칙](../development-workflow.md). 최신화·생성 파일·의미 충돌을 무엇이 강제하는지 표로 정리 |
 | 개발 작업 진행 | [작업 흐름](../development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |
-| 작업 하나를 따라가기 | [작업 브리핑 양식과 목록](../briefings/index.md). 형식 검사는 tests/test_docs_consistency.py |
+| 작업 하나를 따라가기 | [작업 브리핑 양식과 목록](../briefings/index.md), [기존 합의와의 내용 검토](../consistency.md). 형식 검사는 tests/test_docs_consistency.py |
 | 전체 진행 상황·방향 | [시스템 상태](../system-status.md). 단계별 상태를 바꾸면 지도와 표를 함께 고칩니다 |
 | 개발 원칙·실행 평가 | [다섯 개발 원칙](../engineering-principles.md), [평가 기록](../record-forms/evaluation.md) |
 | 올인원 조회 유형·분기 설계 | [유형별 입력·결과·근거·미결](../query-types.md), [공통/개별 책임](../architecture.md). 현금 외 모듈·라우터는 미구현 |
