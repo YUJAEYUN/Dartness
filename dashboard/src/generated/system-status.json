@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "152ede206c47815d6eb26adeadd55920674d625de3382d8b5d3ed59271b43253",
+  "sourceSha256": "324712a6d81eec0e834fa22abb501a4aa3494d9ff0d12dc80032fd7d190829d0",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class B,C,D partial\n    class A,G,H,I todo",
   "stages": [
     {
@@ -177,9 +177,9 @@
       "status": "제안"
     },
     {
-      "group": "나중",
-      "task": "다른 법인 현금 사례 평가 (이슈 #31)",
-      "status": "범위 정리를 위해 보류"
+      "group": "다음",
+      "task": "첫 평가의 미추출 원인에 대한 지원 범위 결정 (이슈 #31)",
+      "status": "원문 11건 평가 완료, 추출기 확장은 사용자 판단 필요"
     },
     {
       "group": "다음",
