@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#66 12월이 아닌 결산 법인 평가](0066-non-december-evaluation.md) | 평가 |
 | [#63 12월이 아닌 결산 법인 수집](0063-fiscal-month-collection.md) | 평가 도구 |
 | [#62 원본·정정공시 조사](0062-correction-linking.md) | 조사·명세 |
 | [#60 계정명 앞의 목차 기호 읽기](0060-leading-item-numbers.md) | 조회 기능 |
