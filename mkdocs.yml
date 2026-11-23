@@ -40,6 +40,7 @@ nav:
   - 시작: index.md
   - 시스템 상태: system-status.md
   - 작업 브리핑:
+      - "#63 12월이 아닌 결산 법인 수집": briefings/0063-fiscal-month-collection.md
       - "#62 원본·정정공시 조사": briefings/0062-correction-linking.md
       - "#60 계정명 앞의 목차 기호 읽기": briefings/0060-leading-item-numbers.md
       - "#54 공시 후보의 범위와 근거": briefings/0054-disclosure-candidates.md
