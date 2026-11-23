@@ -1,0 +1,189 @@
+{
+  "purpose": "held-out evaluation for issue #58: non-December fiscal year companies; answers read from DART originals before running the extractor",
+  "collected_by": "Collect DART filings run 45122569805",
+  "data_branch": "data/dart-filings-45122569805",
+  "business_year": 2025,
+  "status": "held_out_answers_fixed_before_run",
+  "review_status": "source_checked_by_agent_not_independent_human_review",
+  "extractor_commit": "1a40f4457f08645f655e2033dc3327f05405b972",
+  "excluded_december_fiscal_year": [
+    "003460",
+    "001270",
+    "001750",
+    "030210"
+  ],
+  "excluded_sections": {
+    "950110-separate": "원문에 4-1. 재무상태표(별도)가 없습니다. OpenDART 별도(OFS) 자료도 없습니다."
+  },
+  "cases": [
+    {
+      "id": "001720-consolidated",
+      "corp_name": "신영증권",
+      "corp_code": "00136721",
+      "stock_code": "001720",
+      "fiscal_month": "03",
+      "report_name": "사업보고서 (2025.03)",
+      "rcept_no": "20250612000448",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250612000448",
+      "corrections_not_used": [
+        "[기재정정]사업보고서 (2025.03)"
+      ],
+      "document": "20250612000448.xml",
+      "document_sha256": "5f5ee52ca15844fe1f953e893757f04c3c074b58eabab89864d9faba61b5ce7b",
+      "section_file": "001720-consolidated.xml",
+      "section_sha256": "6e09995b0a6757d63841bc54f36f9203a5fd0baa5224753e163d2b5d7800d420",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-03-31",
+      "case_status": "held_out",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다(이슈 #57)."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금및예치금",
+        "raw_value": "984,965,942,092",
+        "unit": "원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다(이슈 #57).",
+        "locator": "2-4. 연결 현금흐름표 / 기말현금및현금성자산 / 당기",
+        "raw_value": "346,332,892,702",
+        "unit": "원"
+      }
+    },
+    {
+      "id": "001720-separate",
+      "corp_name": "신영증권",
+      "corp_code": "00136721",
+      "stock_code": "001720",
+      "fiscal_month": "03",
+      "report_name": "사업보고서 (2025.03)",
+      "rcept_no": "20250612000448",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250612000448",
+      "corrections_not_used": [
+        "[기재정정]사업보고서 (2025.03)"
+      ],
+      "document": "20250612000448.xml",
+      "document_sha256": "5f5ee52ca15844fe1f953e893757f04c3c074b58eabab89864d9faba61b5ce7b",
+      "section_file": "001720-separate.xml",
+      "section_sha256": "7d43d28d19904799a3c53d9d7214d18c9c22e569552cb8f925e05b65b40ce08e",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "separate",
+      "as_of": "2025-03-31",
+      "case_status": "held_out",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다(이슈 #57)."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금및예치금",
+        "raw_value": "951,338,387,149",
+        "unit": "원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다(이슈 #57).",
+        "locator": "4-4. 현금흐름표 / 기말현금및현금성자산 / 당기",
+        "raw_value": "317,349,559,962",
+        "unit": "원"
+      }
+    },
+    {
+      "id": "950110-consolidated",
+      "corp_name": "SBI핀테크솔루션즈",
+      "corp_code": "00938688",
+      "stock_code": "950110",
+      "fiscal_month": "03",
+      "report_name": "사업보고서 (2025.03)",
+      "rcept_no": "20250627000295",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250627000295",
+      "corrections_not_used": [],
+      "document": "20250627000295.xml",
+      "document_sha256": "440d57df1afb33e22872cfeaeec9a9728d6f4313cf7681819df66a18f007b9ee",
+      "section_file": "950110-consolidated.xml",
+      "section_sha256": "fc4e2100e71740fbf08c42efed2f78c370e7fca0502f91e8c255de4e0d2b0822",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-03-31",
+      "case_status": "held_out",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무제표가 엔화로 공시되어 있습니다. 원화 단위만 지원하고 통화가 포함된 단위를 원화로 해석하지 않으므로(docs/amounts.md) 확인 필요입니다. 엔화 숫자를 원화 금액으로 내면 틀린 답입니다."
+      },
+      "foreign_currency_cash_row": {
+        "label": "현금및현금성자산",
+        "raw_value": "23,894,677",
+        "unit": "천, JPY",
+        "note": "원화 정답이 아닙니다. 환율·외화 처리는 미결입니다."
+      }
+    },
+    {
+      "id": "950170-consolidated",
+      "corp_name": "JTC",
+      "corp_code": "01041828",
+      "stock_code": "950170",
+      "fiscal_month": "02",
+      "report_name": "사업보고서 (2025.02)",
+      "rcept_no": "20250529000465",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250529000465",
+      "corrections_not_used": [],
+      "document": "20250529000465.xml",
+      "document_sha256": "ce04ca50ff2c352a635de5461ae1be81b6b0ac8e96969fb781749ceb0fc97d08",
+      "section_file": "950170-consolidated.xml",
+      "section_sha256": "6b4c50a5816cd4e39fa78004f80df4d523c24cfbffee5cd98a7106ea3870456e",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "basis": "consolidated",
+      "as_of": "2025-02-28",
+      "case_status": "held_out",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무제표가 엔화로 공시되어 있습니다. 원화 단위만 지원하고 통화가 포함된 단위를 원화로 해석하지 않으므로(docs/amounts.md) 확인 필요입니다. 엔화 숫자를 원화 금액으로 내면 틀린 답입니다."
+      },
+      "foreign_currency_cash_row": {
+        "label": "현금및현금성자산",
+        "raw_value": "7,461,365,038",
+        "unit": "JPY",
+        "note": "원화 정답이 아닙니다. 환율·외화 처리는 미결입니다."
+      }
+    },
+    {
+      "id": "950170-separate",
+      "corp_name": "JTC",
+      "corp_code": "01041828",
+      "stock_code": "950170",
+      "fiscal_month": "02",
+      "report_name": "사업보고서 (2025.02)",
+      "rcept_no": "20250529000465",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250529000465",
+      "corrections_not_used": [],
+      "document": "20250529000465.xml",
+      "document_sha256": "ce04ca50ff2c352a635de5461ae1be81b6b0ac8e96969fb781749ceb0fc97d08",
+      "section_file": "950170-separate.xml",
+      "section_sha256": "9fd8b9c565266605acae4a4c3566b4faf5abf5b16c527d8b44474c0459afdda9",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "basis": "separate",
+      "as_of": "2025-02-28",
+      "case_status": "held_out",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무제표가 엔화로 공시되어 있습니다. 원화 단위만 지원하고 통화가 포함된 단위를 원화로 해석하지 않으므로(docs/amounts.md) 확인 필요입니다. 엔화 숫자를 원화 금액으로 내면 틀린 답입니다."
+      },
+      "foreign_currency_cash_row": {
+        "label": "현금및현금성자산",
+        "raw_value": "7,433,860,272",
+        "unit": "JPY",
+        "note": "원화 정답이 아닙니다. 환율·외화 처리는 미결입니다."
+      }
+    }
+  ]
+}
