@@ -361,10 +361,14 @@ def test_cash_label_may_carry_note_references(label: str) -> None:
         "(12) 현금및현금성자산",
         "1.현금및현금성자산",
         "Ⅴ. 현금및현금성자산",
+        "가.현금및현금성자산",
+        "①현금및현금성자산",
+        "(a)현금및현금성자산",
+        "(5)1.현금및현금성자산",
         "(5)현금및현금성자산 (주4)",
     ],
 )
-def test_cash_label_may_carry_one_leading_item_number(label: str) -> None:
+def test_cash_label_may_carry_leading_outline_markers(label: str) -> None:
     # Issue #56: e.g. "(5)현금및현금성자산" in the 대한약품 2025 annual report.
     html = section().replace(">　　현금및현금성자산</TD>", f">　　{label}</TD>")
     query = CashQuery("00359395", date(2025, 12, 31))
@@ -379,12 +383,11 @@ def test_cash_label_may_carry_one_leading_item_number(label: str) -> None:
         "현금및현금성자산 등",
         "현금및현금성자산 (주4) 외",
         "(주4)현금및현금성자산",
-        "(5)1.현금및현금성자산",
-        "가.현금및현금성자산",
-        "①현금및현금성자산",
+        "(주)현금및현금성자산",
         "5현금및현금성자산",
-        "(a)현금및현금성자산",
         "().현금및현금성자산",
+        "제한된 현금및현금성자산",
+        "(5)제한된 현금및현금성자산",
     ],
 )
 def test_other_labels_are_not_treated_as_cash(label: str) -> None:

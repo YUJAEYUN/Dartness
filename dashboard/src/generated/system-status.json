@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "ebf0755d8a71494de4a6943e24c5b2bd235b9d5883b6bf07507aea75c922f2aa",
+  "sourceSha256": "c4d2840b37375335c12dac828970d2d1f4a00198e2bea2763c3ebdf5b09c1082",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
@@ -126,8 +126,8 @@
       "id": "D",
       "name": "현금 행·열 추출",
       "status": "일부",
-      "evidence": "src/dartness/cash_table.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md)",
-      "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 항목 번호를 지원해 대한약품 1건은 개발용. 금융업 현금 기준, 절 자동 선정·주석 추출"
+      "evidence": "src/dartness/cash_table.py, src/dartness/account_label.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md)",
+      "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 금융업 현금 기준, 절 자동 선정·주석 추출"
     },
     {
       "id": "E",
