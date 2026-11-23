@@ -7,6 +7,7 @@
 | DART 실제 수집 | [수동 검사와 범위](../dart-live-check.md) |
 | CI·브랜치 설정 | [검사와 설정 방법](../ci.md) |
 | 테스트·정답 사례 준비 | [테스트 절차](../testing.md), [실제 공시 초안](../cases/helixmith-cash.md) |
+| 테스트가 버그를 잡는지 확인 | [변이 테스트](../testing.md#mutation). 설정은 pyproject.toml의 [tool.mutmut], 대상은 src/dartness/cash_table.py |
 | 문서 예시 테스트 작성 | [작성 규칙](../testing.md#doc-examples). 로더는 tests/doc_examples.py, 연결 검사는 tests/test_docs_consistency.py |
 | 위임·병합 판단 | [합의한 위임 정책](../delegation.md) |
 | docs→화면 생성·검사 | [동기화 범위](../management-screen.md). dashboard/scripts/system-status.mjs, dashboard/src/ProjectStatus.tsx, dashboard/scripts/system-status.test.mjs |
