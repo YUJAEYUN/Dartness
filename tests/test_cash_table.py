@@ -104,6 +104,8 @@ def modified(kind: str) -> str:
     html = section()
     row = re.search(r"<TR>\s*<TD[^>]*>\s*현금및현금성자산</TD>.*?</TR>", html, re.DOTALL)
     assert row is not None
+    first_table = re.compile(r"<TABLE.*?</TABLE>", re.DOTALL)
+    short_row = re.sub(r"<TD[^>]*>[^<]*</TD>\s*</TR>", "</TR>", row[0])
     changes = {
         "missing_unit": html.replace("(단위 : 원)", ""),
         "missing_periods": html.replace(" 현재", " 시점미확인"),
@@ -119,30 +121,63 @@ def modified(kind: str) -> str:
         "invalid_date": html.replace("2025.12.31", "2025.02.31"),
         "extra_table": html + "<TABLE></TABLE>",
         "oversized": html + " " * (256 * 1024),
+        # Added after mutation testing (issue #41): each targets one guard.
+        "script": html.replace("<TABLE", "<SCRIPT></SCRIPT><TABLE", 1),
+        "duplicate_period_name": html.replace("제 29 기", "제 30 기", 1),
+        "empty_context_table": first_table.sub("<TABLE></TABLE>", html, count=1),
+        "empty_amount_table": html[: html.rindex("<TABLE")] + "<TABLE></TABLE>",
+        "short_cash_row": html.replace(row[0], short_row),
+        "style": html.replace("<TABLE", "<STYLE></STYLE><TABLE", 1),
+        "rowspan": html.replace("<TH ", '<TH rowspan="2" ', 1),
+        "row_outside_table": html.replace("<TABLE", "<TR></TR><TABLE", 1),
+        "cell_outside_row": html.replace("<TR>", "", 1),
+        "mismatched_cell_end": html.replace("</TD>", "</TH>", 1),
+        "row_end_inside_cell": html.replace("</TD>", "", 1),
+        "table_end_inside_row": html[: html.rindex("</TR>")] + html[html.rindex("</TR>") + 5 :],
+        "duplicate_cell_end": html.replace("</TD>", "</TD></TD>", 1),
+        "duplicate_row_end": html.replace("</TR>", "</TR></TR>", 1),
+        # Current behavior: a labeled corner cell (e.g. "과목") is rejected, not ignored.
+        "labeled_header_corner": html.replace(">　</TH>", ">과목</TH>", 1),
     }
     assert changes[kind] != html
     return changes[kind]
 
 
-@pytest.mark.parametrize(
-    "kind",
-    [
-        "missing_unit",
-        "missing_periods",
-        "unsupported_unit",
-        "dash",
-        "duplicate_cash",
-        "missing_cash",
-        "merged_cell",
-        "nested_table",
-        "unclosed_table",
-        "duplicate_header",
-        "duplicate_context",
-        "invalid_date",
-        "extra_table",
-        "oversized",
-    ],
-)
+# The detail names the guard that fired, so a later guard cannot hide a broken earlier one.
+FAILURES = {
+    "missing_unit": "단일 적용 단위",
+    "missing_periods": "명시한 기간",
+    "unsupported_unit": "현금 금액이나 적용 단위",
+    "dash": "현금 금액이나 적용 단위",
+    "duplicate_cash": "현금 행이 없거나 중복",
+    "missing_cash": "현금 행이 없거나 중복",
+    "merged_cell": "병합 셀",
+    "nested_table": "중첩 표",
+    "unclosed_table": "완전한 기간·단위 표와 금액 표",
+    "duplicate_header": "머리글 구조가 모호하거나 중복",
+    "duplicate_context": "기간이나 머리글이 모호",
+    "invalid_date": "day is out of range",
+    "extra_table": "두 개를 넘는 표",
+    "oversized": "구간 크기",
+    "script": "실행 코드",
+    "duplicate_period_name": "기간 이름이 중복",
+    "empty_context_table": "표 제목",
+    "empty_amount_table": "기간이나 머리글이 모호",
+    "short_cash_row": "현금 행과 머리글의 열 구조",
+    "style": "실행 코드·스타일",
+    "rowspan": "병합 셀",
+    "row_outside_table": "행의 경계",
+    "cell_outside_row": "셀의 경계",
+    "mismatched_cell_end": "셀의 끝",
+    "row_end_inside_cell": "행의 끝",
+    "table_end_inside_row": "표의 끝",
+    "labeled_header_corner": "머리글 구조가 모호하거나 중복",
+    "duplicate_cell_end": "셀의 끝",
+    "duplicate_row_end": "행의 끝",
+}
+
+
+@pytest.mark.parametrize("kind", sorted(FAILURES))
 def test_ambiguous_or_unsupported_input_does_not_produce_money(kind: str) -> None:
     result = extract_cash_table(
         CashQuery("00359395", date(2025, 12, 31)),
@@ -152,8 +187,10 @@ def test_ambiguous_or_unsupported_input_does_not_produce_money(kind: str) -> Non
         CHECKED_AT,
     )
     assert isinstance(result, CashNeedsReview)
-    assert result.reason == "extraction_failed" and result.detail
+    assert result.reason == "extraction_failed"
+    assert FAILURES[kind] in result.detail, result.detail
     assert result.next_action and result.checked_at == CHECKED_AT
+    assert result.evidence == evidence() and result.checked_path == evidence().locator
     assert not hasattr(result, "amount_krw")
 
 
@@ -225,3 +262,77 @@ def test_repeated_header_cannot_redefine_the_column_mapping() -> None:
     )
     assert isinstance(result, CashNeedsReview)
     assert result.reason == "extraction_failed" and "여러 머리글" in result.detail
+
+
+def test_header_labels_must_all_be_stated_periods() -> None:
+    # Modified source: the current-period header no longer matches any stated period,
+    # even though the requested earlier period still has its own column.
+    html = section().replace(">제 30 기</TH>", ">제 99 기</TH>")
+    query = CashQuery("00359395", date(2024, 12, 31))
+    result = extract_cash_table(query, html, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashNeedsReview)
+    assert "기간과 머리글 열을 대응" in result.detail
+
+
+def test_value_evidence_records_the_selected_cell_and_its_context() -> None:
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, section(), "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue)
+    assert result.evidence.locator.startswith(evidence().locator + " / table[2]/tr[")
+    assert result.evidence.locator.endswith("]/td[2]")
+    assert "재무상태표\n" in result.evidence.context
+    assert "(단위 : 원)" in result.evidence.context
+    assert result.evidence.context.endswith("입력 범위: separate; 선택 열: 제 30 기")
+
+
+def test_individual_statements_are_accepted_for_standalone_requests() -> None:
+    # Modified input: the separate section is passed as an individual statement.
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, section(), "individual", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue) and result.basis == "individual"
+
+
+@pytest.mark.parametrize(
+    "label",
+    ["<SPAN>현금및</SPAN>현금성자산", "현금&#48143;현금성자산"],
+    ids=["inline-tag", "character-reference"],
+)
+def test_cell_text_joins_fragments_and_decodes_references(label: str) -> None:
+    # Modified input: the label is split by markup that HTML allows inside a cell.
+    html = section().replace(">　　현금및현금성자산</TD>", f">　　{label}</TD>")
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, html, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue) and result.amount_krw == Decimal("31653154838")
+
+
+@pytest.mark.parametrize("extra,accepted", [(0, True), (1, False)])
+def test_section_size_limit_is_inclusive(extra: int, accepted: bool) -> None:
+    html = section()
+    html += " " * (256 * 1024 - len(html.encode("utf-8")) + extra)
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, html, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue) is accepted
+    if not accepted:
+        assert isinstance(result, CashNeedsReview) and "구간 크기" in result.detail
+
+
+def test_explicit_single_span_is_not_a_merged_cell() -> None:
+    html = section().replace("<TH ", '<TH colspan="1" rowspan="1" ', 1)
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, html, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue)
+
+
+def test_amount_table_with_only_the_requested_period_column() -> None:
+    # Modified input: drop the two earlier-period columns from every amount-table row.
+    html = section()
+    start = html.rindex("<TABLE")
+    amounts = re.sub(
+        r"(<T[HD][^>]*>[^<]*</T[HD]>)\s*<T[HD][^>]*>[^<]*</T[HD]>\s*<T[HD][^>]*>[^<]*</T[HD]>\s*</TR>",
+        r"\1</TR>",
+        html[start:],
+    )
+    query = CashQuery("00359395", date(2025, 12, 31))
+    result = extract_cash_table(query, html[:start] + amounts, "separate", evidence(), CHECKED_AT)
+    assert isinstance(result, CashValue) and result.amount_krw == Decimal("31653154838")
+    assert result.evidence.locator.endswith("]/td[2]")
