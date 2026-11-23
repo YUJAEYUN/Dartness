@@ -23,18 +23,18 @@ flowchart LR
     classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f
     classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4
     class E,F done
-    class B,C,D partial
-    class A,G,H,I todo
+    class A,B,C,D partial
+    class G,H,I todo
 ```
 
 ## 단계별 상태와 근거
 
-"일부"는 정해진 사례 하나만 처리할 수 있다는 뜻입니다. 구현이라고 표시해도 실제 공시 전반에서 정확하다는 뜻은 아닙니다. 개발용 사례는 헬릭스미스 한 곳뿐입니다.
+"일부"는 해당 단계의 제한된 역할·사례만 처리할 수 있다는 뜻입니다. 구현이라고 표시해도 실제 공시 전반에서 정확하다는 뜻은 아닙니다. 현금 추출의 개발용 사례 범위는 D 단계와 연결 문서를 확인합니다.
 
 <!-- system-status: stages -->
 | ID | 단계 | 상태 | 근거 | 아직 없는 것 |
 |---|---|---|---|---|
-| A | 조회 조건 입력 | 미구현 | [요구사항](requirements.md) | 템플릿 형식, 입력 검증 |
+| A | 조회 조건 입력 | 일부 | [공통 계약 v1](common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py | 금액·보유 조회의 공통 입력·달력 기간·날짜 후보 선택만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음 |
 | B | 법인·공시 찾기 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md) | 고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택 |
 | C | 원문 수집 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md) | 수동 실행 1건만 수집. 여러 법인 수집, 캐시 |
 | D | 현금 행·열 추출 | 일부 | src/dartness/cash_table.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md) | 선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인이며, 고친 뒤 새 법인으로 한 검증은 아직 없음. 절 자동 선정·주석 추출 |
@@ -51,7 +51,7 @@ flowchart LR
 <!-- system-status: next -->
 | 구분 | 작업 | 상태 |
 |---|---|---|
-| 지금 | 공통 조회·시점·출력 정책과 기간 선택지 합의 | [계약 초안](common-query-contract.md)과 화면 연결, 실행 엔진은 미구현 |
+| 지금 | 공통 입력·날짜 선택 계약 v1 | [계약](common-query-contract.md), 한국 실행일·달력 개월·이전 날짜 표시. 공시 수집·추출 연결은 미구현 |
 | 다음 | 유형별 미결 질문 하나를 정하고 실행 계약·실제 공시 사례 준비 | 제안 |
 | 다음 | 첫 평가의 미추출 원인에 대한 지원 범위 결정 (이슈 #31) | 원문 11건 평가 완료, 추출기 확장은 사용자 판단 필요 |
 | 다음 | 법인·공시 찾기를 임의 법인으로 확장 | 제안 |
@@ -65,7 +65,6 @@ flowchart LR
 <!-- system-status: decisions -->
 | 결정 | 영향받는 단계 |
 |---|---|
-| 직접 입력 개월의 유효 범위·실행일 시간대 | A, D |
 | 정정본 연결·여러 후보의 동률 처리 | B, C |
 | 사건 기간 경계와 유형별 조회 대상 | A, D |
 | 반올림 허용 범위 | G |
@@ -82,7 +81,7 @@ flowchart LR
 | AMOUNT-001 | 단위를 확인할 수 없는 금액은 확인 필요 | [금액 예시](amounts.md), tests/test_amounts.py |
 | CASH-001 | 별도·개별 미확인 시 연결 금액으로 대체 금지 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py |
 | CASH-002 | 확인 불가 금액을 0원으로 대체 금지 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py |
-| CASH-003 | 실제 자료 날짜 혼동 금지·허용된 이전 자료는 요청/실제 날짜 표시 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py |
+| CASH-003 | 실제 자료 날짜 혼동 금지·허용된 이전 자료는 요청/실제 날짜 표시 | [현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py, [날짜 예시](common-query-contract.md), tests/test_query_contract.py |
 
 ## 개발 기반
 

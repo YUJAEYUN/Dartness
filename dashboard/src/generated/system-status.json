@@ -1,6 +1,6 @@
 {
   "policySource": "docs/common-query-contract.md",
-  "policySha256": "c747498c62aafcbc0707fef9a3aebbbf92cffc2031dcb10b9e1cf9d7f130a5ea",
+  "policySha256": "5cdd4ad71db7d47b8517f96f76ea3d2bb76467bec97b304587c8f821fc435f06",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -49,7 +49,7 @@
     }
   ],
   "catalogSource": "docs/query-types.md",
-  "catalogSha256": "6b0943bc76d9b3b0104c15cb244d37b6b540181eb3baa1a6c395a1c88f9807ee",
+  "catalogSha256": "afe093ea1b832b53bc6a6573f7b996e7041d3976188c5524918e8f115fee32a1",
   "queryTypes": [
     {
       "id": "cash",
@@ -58,7 +58,7 @@
       "input": "법인·최신 자료 또는 지정 기준일·허용 기간·별도/개별 또는 연결·금액 조건",
       "result": "원문 금액·단위·통화·시점·재무 범위, 조건 판정은 구현 후 제공",
       "evidence": "재무상태표의 행·열, 적용 단위·기간 문맥과 원문 링크",
-      "unresolved": "최신/지정일·개월 선택지·최신 정정·검토 옵션은 공통 정책 합의; 선택 엔진·금액 비교는 미구현"
+      "unresolved": "최신/지정일·개월 선택지·최신 정정·검토 옵션은 공통 정책 합의; 공통 날짜 계약 구현, 공시 선택·금액 비교는 미구현"
     },
     {
       "id": "try-assets",
@@ -98,15 +98,15 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "d9bea6a4ccb902b8254afb8f7c6c937ffe2ce85d2cc3b23611eb344d96385ab4",
-  "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class B,C,D partial\n    class A,G,H,I todo",
+  "sourceSha256": "e07688c533fe297df76f849cca7561bb8868be585b09a991e1e12af2f70b9267",
+  "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
       "id": "A",
       "name": "조회 조건 입력",
-      "status": "미구현",
-      "evidence": "[요구사항](requirements.md)",
-      "missing": "템플릿 형식, 입력 검증"
+      "status": "일부",
+      "evidence": "[공통 계약 v1](common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py",
+      "missing": "금액·보유 조회의 공통 입력·달력 기간·날짜 후보 선택만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음"
     },
     {
       "id": "B",
@@ -168,8 +168,8 @@
   "next": [
     {
       "group": "지금",
-      "task": "공통 조회·시점·출력 정책과 기간 선택지 합의",
-      "status": "[계약 초안](common-query-contract.md)과 화면 연결, 실행 엔진은 미구현"
+      "task": "공통 입력·날짜 선택 계약 v1",
+      "status": "[계약](common-query-contract.md), 한국 실행일·달력 개월·이전 날짜 표시. 공시 수집·추출 연결은 미구현"
     },
     {
       "group": "다음",
@@ -198,10 +198,6 @@
     }
   ],
   "decisions": [
-    {
-      "question": "직접 입력 개월의 유효 범위·실행일 시간대",
-      "affected": "A, D"
-    },
     {
       "question": "정정본 연결·여러 후보의 동률 처리",
       "affected": "B, C"
@@ -242,7 +238,7 @@
     {
       "id": "CASH-003",
       "description": "실제 자료 날짜 혼동 금지·허용된 이전 자료는 요청/실제 날짜 표시",
-      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py"
+      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py, [날짜 예시](common-query-contract.md), tests/test_query_contract.py"
     }
   ]
 }
