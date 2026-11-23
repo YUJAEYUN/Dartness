@@ -1,0 +1,342 @@
+{
+  "purpose": "held-out evaluation for issue #31 (second set); answers read from DART originals before running the extractor",
+  "collected_by": "Collect DART filings run 45114584895",
+  "data_branch": "data/dart-filings-45114584895",
+  "business_year": 2025,
+  "status": "held_out_answers_fixed_before_run",
+  "review_status": "source_checked_by_agent_and_matched_opendart_api_not_independent_human_review",
+  "extractor_commit": "53cc8794e42f8c267be925164bc4830a4b402eda",
+  "cases": [
+    {
+      "id": "000810-consolidated",
+      "corp_name": "삼성화재해상보험",
+      "corp_code": "00139214",
+      "stock_code": "000810",
+      "rcept_no": "20260312001399",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260312001399",
+      "corrections_not_used": [
+        "[첨부정정]사업보고서 (2025.12)"
+      ],
+      "document": "20260312001399.xml",
+      "document_sha256": "2b04884465f98e4345478b67f5f772df57de562e548731c6d88c858c53b64217",
+      "section_file": "000810-consolidated.xml",
+      "section_sha256": "314681cc82e44e7d5ed7c46e230304d9781c383b563337e59f287c322b4745a0",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "as_of": "2025-12-31",
+      "basis": "consolidated",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금및예치금",
+        "raw_value": "3,417,890,771,409",
+        "unit": "원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다.",
+        "locator": "2-4. 연결 현금흐름표 / 기말의 현금및현금성자산 / 당기",
+        "raw_value": "2,019,803,576,966",
+        "unit": "원"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "dart_CashAndDuefromBanks",
+        "thstrm_amount": "3417890771409",
+        "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
+      }
+    },
+    {
+      "id": "000810-separate",
+      "corp_name": "삼성화재해상보험",
+      "corp_code": "00139214",
+      "stock_code": "000810",
+      "rcept_no": "20260312001399",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260312001399",
+      "corrections_not_used": [
+        "[첨부정정]사업보고서 (2025.12)"
+      ],
+      "document": "20260312001399.xml",
+      "document_sha256": "2b04884465f98e4345478b67f5f772df57de562e548731c6d88c858c53b64217",
+      "section_file": "000810-separate.xml",
+      "section_sha256": "1b770494183dc954b9f67f80229bd1fd81b993d921961bca4350dcc992b8e0e2",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "as_of": "2025-12-31",
+      "basis": "separate",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금및예치금",
+        "raw_value": "2,813,968,885,028",
+        "unit": "원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다.",
+        "locator": "4-4. 현금흐름표 / 기말의 현금및현금성자산 / 당기",
+        "raw_value": "1,776,484,666,081",
+        "unit": "원"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "dart_CashAndDuefromBanks",
+        "thstrm_amount": "2813968885028",
+        "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
+      }
+    },
+    {
+      "id": "023910-separate",
+      "corp_name": "대한약품",
+      "corp_code": "00113128",
+      "stock_code": "023910",
+      "rcept_no": "20260318001361",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001361",
+      "corrections_not_used": [],
+      "document": "20260318001361.xml",
+      "document_sha256": "d380a256bdba8102033106f427e4a43f5657ac6afe100563d169eaad669a589b",
+      "section_file": "023910-separate.xml",
+      "section_sha256": "eb015ca3c55cd390ea53127f2806d5bca0fe2e7d3f5dfbec07e3bd66c016339c",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "as_of": "2025-12-31",
+      "basis": "individual",
+      "expected": {
+        "outcome": "value",
+        "label": "　　(5)현금및현금성자산",
+        "raw_value": "43,972,786,132",
+        "unit": "원",
+        "amount_krw": "43972786132"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "43972786132"
+      }
+    },
+    {
+      "id": "039490-consolidated",
+      "corp_name": "키움증권",
+      "corp_code": "00296290",
+      "stock_code": "039490",
+      "rcept_no": "20260317000838",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000838",
+      "corrections_not_used": [],
+      "document": "20260317000838.xml",
+      "document_sha256": "a027fece16efcf9e7ca036b28a3a8405122b9cda63cb48bcec01312a4fd4af7b",
+      "section_file": "039490-consolidated.xml",
+      "section_sha256": "93cba33db41043aec714d1c0ef192bd84435017b020d2187afe6d9bbbb9f7cee",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "as_of": "2025-12-31",
+      "basis": "consolidated",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금및예치금 (주17)",
+        "raw_value": "9,281,509,526,977",
+        "unit": "원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다.",
+        "locator": "2-4. 연결 현금흐름표 / 기말의 현금및현금성자산 (주17) / 당기",
+        "raw_value": "2,300,464,387,751",
+        "unit": "원"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "dart_CashAndDuefromBanks",
+        "thstrm_amount": "9281509526977",
+        "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
+      }
+    },
+    {
+      "id": "039490-separate",
+      "corp_name": "키움증권",
+      "corp_code": "00296290",
+      "stock_code": "039490",
+      "rcept_no": "20260317000838",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260317000838",
+      "corrections_not_used": [],
+      "document": "20260317000838.xml",
+      "document_sha256": "a027fece16efcf9e7ca036b28a3a8405122b9cda63cb48bcec01312a4fd4af7b",
+      "section_file": "039490-separate.xml",
+      "section_sha256": "24a8252ed566cc5274bd48c71d261a8d7abd07c22ec88c1c6839aee4e849011b",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "as_of": "2025-12-31",
+      "basis": "separate",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금및예치금 (주16)",
+        "raw_value": "8,331,660,292,844",
+        "unit": "원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다.",
+        "locator": "4-4. 현금흐름표 / 기말의 현금및현금성자산 (주16) / 당기",
+        "raw_value": "1,764,811,078,166",
+        "unit": "원"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "dart_CashAndDuefromBanks",
+        "thstrm_amount": "8331660292844",
+        "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
+      }
+    },
+    {
+      "id": "092130-consolidated",
+      "corp_name": "이크레더블",
+      "corp_code": "00634728",
+      "stock_code": "092130",
+      "rcept_no": "20260318000576",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000576",
+      "corrections_not_used": [],
+      "document": "20260318000576.xml",
+      "document_sha256": "39757649f438dad2b48fb3f273413118c6cab3e12a2daad642591985c4e9ff3d",
+      "section_file": "092130-consolidated.xml",
+      "section_sha256": "f4b3fef68f43206b395de1a2b92ecd7b07a07fdd0e41915880bf65a18f3a6ff2",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "as_of": "2025-12-31",
+      "basis": "consolidated",
+      "expected": {
+        "outcome": "value",
+        "label": "　　현금및현금성자산",
+        "raw_value": "38,765,620,415",
+        "unit": "원",
+        "amount_krw": "38765620415"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "38765620415"
+      }
+    },
+    {
+      "id": "092130-separate",
+      "corp_name": "이크레더블",
+      "corp_code": "00634728",
+      "stock_code": "092130",
+      "rcept_no": "20260318000576",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000576",
+      "corrections_not_used": [],
+      "document": "20260318000576.xml",
+      "document_sha256": "39757649f438dad2b48fb3f273413118c6cab3e12a2daad642591985c4e9ff3d",
+      "section_file": "092130-separate.xml",
+      "section_sha256": "d6d72a86ae66bca22644f1e60b390e32d0148bc31bc1a15aa8605a9db94ef4a1",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "as_of": "2025-12-31",
+      "basis": "separate",
+      "expected": {
+        "outcome": "value",
+        "label": "　　현금및현금성자산",
+        "raw_value": "35,413,462,705",
+        "unit": "원",
+        "amount_krw": "35413462705"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "ifrs-full_CashAndCashEquivalents",
+        "thstrm_amount": "35413462705"
+      }
+    },
+    {
+      "id": "105560-consolidated",
+      "corp_name": "KB금융",
+      "corp_code": "00688996",
+      "stock_code": "105560",
+      "rcept_no": "20260313001191",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001191",
+      "corrections_not_used": [
+        "[기재정정]사업보고서 (2025.12)",
+        "[기재정정]사업보고서 (2025.12)"
+      ],
+      "document": "20260313001191.xml",
+      "document_sha256": "ef72d7f39a6b6a24f6723600a25f1007625b97c468663cd81e75b12f7e066e0c",
+      "section_file": "105560-consolidated.xml",
+      "section_sha256": "4d58db05024a335d48ada279c8d8fc9306893f68cf79ecffdf1a9dd46e7aa93f",
+      "section_locator": "2-1. 연결 재무상태표 / 첫 두 TABLE",
+      "scope": "consolidated",
+      "as_of": "2025-12-31",
+      "basis": "consolidated",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금 및 예치금",
+        "raw_value": "34,776,877",
+        "unit": "백만원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다.",
+        "locator": "2-4. 연결 현금흐름표 / 기말 현금 및 현금성자산 / 당기",
+        "raw_value": "29,020,564",
+        "unit": "백만원"
+      },
+      "api_cross_check": {
+        "fs_div": "CFS",
+        "account_id": "dart_CashAndDuefromBanks",
+        "thstrm_amount": "34776877000000",
+        "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
+      }
+    },
+    {
+      "id": "105560-separate",
+      "corp_name": "KB금융",
+      "corp_code": "00688996",
+      "stock_code": "105560",
+      "rcept_no": "20260313001191",
+      "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260313001191",
+      "corrections_not_used": [
+        "[기재정정]사업보고서 (2025.12)",
+        "[기재정정]사업보고서 (2025.12)"
+      ],
+      "document": "20260313001191.xml",
+      "document_sha256": "ef72d7f39a6b6a24f6723600a25f1007625b97c468663cd81e75b12f7e066e0c",
+      "section_file": "105560-separate.xml",
+      "section_sha256": "37317403cad2b1943ce3e91e26f1b92ff3b68bf77f435d3c7688a009cd2c30c7",
+      "section_locator": "4-1. 재무상태표 / 첫 두 TABLE",
+      "scope": "standalone",
+      "as_of": "2025-12-31",
+      "basis": "separate",
+      "expected": {
+        "outcome": "needs_review",
+        "reason": "extraction_failed",
+        "why": "재무상태표에 현금및현금성자산 행이 없고 현금및예치금만 있습니다. 현금및예치금은 현금및현금성자산과 금액이 다르므로 대신 쓰지 않습니다."
+      },
+      "balance_sheet_row_not_cash": {
+        "label": "현금 및 예치금",
+        "raw_value": "974,585",
+        "unit": "백만원"
+      },
+      "reference_only_cash_flow": {
+        "note": "정답이 아닌 참고값입니다. 금융업에서 이 값을 쓸지는 미결입니다.",
+        "locator": "4-4. 현금흐름표 / 기말 현금 및 현금성자산 / 당기",
+        "raw_value": "974,582",
+        "unit": "백만원"
+      },
+      "api_cross_check": {
+        "fs_div": "OFS",
+        "account_id": "dart_CashAndDuefromBanks",
+        "thstrm_amount": "974585000000",
+        "note": "API에도 재무상태표 현금및현금성자산 행이 없습니다"
+      }
+    }
+  ]
+}
