@@ -36,7 +36,7 @@ class _NoRedirect(urllib.request.HTTPRedirectHandler):
 
 
 def fetch_bytes(endpoint: str, params: dict[str, str], key: str) -> bytes:
-    if endpoint not in {"corpCode.xml", "list.json", "document.xml"}:
+    if endpoint not in {"corpCode.xml", "list.json", "document.xml", "fnlttSinglAcntAll.json"}:
         raise CollectionError("unsupported_endpoint")
     query = urllib.parse.urlencode({**params, "crtfc_key": key})
     request = urllib.request.Request(f"https://opendart.fss.or.kr/api/{endpoint}?{query}")

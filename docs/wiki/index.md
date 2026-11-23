@@ -4,7 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
-| DART 실제 수집 | [수동 검사와 범위](../dart-live-check.md) |
+| DART 실제 수집 | [수동 검사와 범위](../dart-live-check.md), [평가용 여러 법인 수집](../dart-live-check.md#evaluation-collection). 코드는 src/dartness/dart_collect.py, 워크플로는 .github/workflows/collect-filings.yml |
 | CI·브랜치 설정 | [검사와 설정 방법](../ci.md) |
 | 테스트·정답 사례 준비 | [테스트 절차](../testing.md), [실제 공시 초안](../cases/helixmith-cash.md) |
 | 테스트가 버그를 잡는지 확인 | [변이 테스트](../testing.md#mutation). 설정은 pyproject.toml의 [tool.mutmut], 대상은 src/dartness/cash_table.py |

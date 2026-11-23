@@ -59,6 +59,7 @@ tests/test_dart_smoke.py에서 가짜 응답으로 회사·보고서 일치, 페
 | corpCode.xml | crtfc_key, ZIP의 list/corp_code·corp_name·stock_code |
 | list.json | corp_code·bgn_de·end_de·pblntf_detail_ty·last_reprt_at·page_count, status·total_page·list |
 | document.xml | rcept_no, 성공 시 ZIP·실패 시 XML 상태 응답 |
+| fnlttSinglAcntAll.json | corp_code·bsns_year·reprt_code(11011 사업보고서)·fs_div(OFS 별도, CFS 연결), status(013 자료 없음)·list의 sj_div·account_nm·thstrm_nm·thstrm_amount·currency. 평가용 수집에서만 사용 |
 
 API 키의 값은 문서·테스트에 적지 않습니다. 계약·응답이 달라지면 공식 문서를 다시 확인하고 문서·코드·테스트를 함께 고칩니다. 저장한 규격을 최신이라고 영구 가정하지 않습니다.
 
@@ -76,6 +77,20 @@ API 키의 값은 문서·테스트에 적지 않습니다. 계약·응답이 �
 - [수집 기록](evidence/dart-20260320001142.json)에 ZIP·XML 해시와 크기를 보관.
 
 Actions 아티팩트를 내려받아 ZIP의 SHA-256이 기록과 같은지 확인했습니다. 키·인증키 포함 요청 URL·원문 ZIP은 Git에 저장하지 않았습니다. 인증키가 이 실행에서 사용 가능했음을 확인했지만 향후 유효성까지 보장하지 않습니다. 재무 기준일·숫자·연결/별도·정정 관계와 KIND 원문의 동등성은 이 실행에서 검증하지 않았습니다.
+
+<a id="evaluation-collection"></a>
+## 평가용 여러 법인 수집
+
+2026-11-23 사용자가 다른 법인 평가(이슈 #31)의 원문을 GitHub Actions로 받기로 했습니다. 이 세션 환경에서는 DART 웹·KIND가 자동 요청을 거절하고, Actions 결과 파일(artifact)의 내려받기 주소도 네트워크 정책에 막혀 있습니다. 그래서 수집 결과를 별도 데이터 브랜치에 저장하는 방식을 택했습니다.
+
+- **실행:** Actions의 **Collect DART filings**를 수동 실행합니다. 입력은 종목코드(최대 8개)와 사업연도입니다. 코드는 src/dartness/dart_collect.py, 테스트는 tests/test_dart_collect.py입니다.
+- **수집 내용:** 법인마다 해당 연도 사업보고서 원본(정정 전) 1건의 원문 ZIP, OpenDART 재무제표 API의 별도(OFS)·연결(CFS) 응답을 받습니다. 정정 보고서는 이름만 기록합니다. 요청 수는 1 + 법인 수 × 4회 이하이며, 요청마다 30초·32MiB 제한을 기존 수집과 같이 적용합니다.
+- **결과:** `data/dart-filings-실행번호` 브랜치에 manifest.json과 원문을 커밋합니다. 이 브랜치는 main에 병합하지 않습니다. 평가에 쓸 재무상태표 구간만 골라 테스트 사례로 옮기고, 원문 해시로 출처를 남깁니다.
+- **권한:** 이 작업에만 `contents: write`를 줍니다. 일반 PR 검사는 읽기 권한만 가집니다. 키는 저장소 비밀값으로만 쓰고, 결과에 키가 들어 있으면 저장하지 않고 실패합니다.
+
+재무제표 API 값은 원문에서 확인한 정답을 **교차 확인**하는 데만 씁니다. API 값으로 정답을 만들지 않습니다. API는 XBRL 기반이라 원문 표와 기간·범위 표기가 다를 수 있습니다. 이 수집은 원문을 받을 뿐 현금을 추출하거나 정답을 정하지 않습니다.
+
+이전 헬릭스미스 수집에서는 원문 ZIP을 Git에 저장하지 않았습니다. 이번에는 결과를 이 세션으로 가져올 다른 방법이 없어 데이터 브랜치에 저장합니다. 공개 공시 원문이며 main 이력에는 들어가지 않습니다.
 
 ## 외부 DART 도구 사용 결정
 

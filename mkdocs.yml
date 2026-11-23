@@ -42,6 +42,7 @@ nav:
   - 작업 브리핑:
       - 양식과 목록: briefings/index.md
       - "#28 현금 금액 읽기": briefings/0028-cash-table.md
+      - "#43 평가용 공시 수집": briefings/0043-evaluation-collection.md
       - "#30 대시보드 상태": briefings/0030-dashboard-sync.md
       - "#33 조회 유형 명세": briefings/0033-query-types.md
       - "#34 이슈 자동 종료 차단": briefings/0034-issue-autoclose.md
