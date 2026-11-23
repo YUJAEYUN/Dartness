@@ -1,0 +1,302 @@
+{
+  "purpose": "evaluation source collection for issue #31; no extraction performed",
+  "collected_at": "2026-11-23T06:21:33.423793+00:00",
+  "business_year": 2025,
+  "business_year_rule": "fiscal year ending in business_year; report_name per company",
+  "request_count": 36,
+  "companies": [
+    {
+      "stock_code": "001720",
+      "corp_code": "00136721",
+      "corp_name": "신영증권",
+      "fiscal_month": "03",
+      "report_name": "사업보고서 (2025.03)",
+      "rcept_no": "20250612000448",
+      "corrections": [
+        "[기재정정]사업보고서 (2025.03)"
+      ],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250612000448",
+      "zip_sha256": "30777305b52b0f561ce66e6fbcc45327f6c5e21ac37786c0a7576651382eaecb",
+      "documents": [
+        {
+          "name": "20250612000448.xml",
+          "bytes": 4344524,
+          "sha256": "5f5ee52ca15844fe1f953e893757f04c3c074b58eabab89864d9faba61b5ce7b"
+        },
+        {
+          "name": "20250612000448_00760.xml",
+          "bytes": 1008229,
+          "sha256": "a7e4130b100bb8236f53bc26883d491989868ca709a5cb4c08de34c71b5c69e5"
+        },
+        {
+          "name": "20250612000448_00761.xml",
+          "bytes": 1018388,
+          "sha256": "fc4eebe1d07d0619f1997e37ef2c8101a7f42866e92653c45ac39df91d449d1c"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "matches_report": false,
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_cash_row",
+          "matches_report": false,
+          "cash": []
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "003460",
+      "corp_code": "00145190",
+      "corp_name": "유화증권",
+      "fiscal_month": "12",
+      "report_name": "사업보고서 (2025.12)",
+      "rcept_no": "20260311004334",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260311004334",
+      "zip_sha256": "356159948b1a7c190e1340ebb536b77861268366845554426da8270bda8ea4fb",
+      "documents": [
+        {
+          "name": "20260311004334.xml",
+          "bytes": 1364020,
+          "sha256": "d28a9b32a48e819abc6da8d52800cbc6d2f2748d643caad3a5c90c47767074ae"
+        },
+        {
+          "name": "20260311004334_00760.xml",
+          "bytes": 550237,
+          "sha256": "52c8072322d051d641c1423d09875c3d4d5f028320aac8730e9c7785d2eece3f"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "matches_report": true,
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_data"
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "001270",
+      "corp_code": "00123772",
+      "corp_name": "부국증권",
+      "fiscal_month": "12",
+      "report_name": "사업보고서 (2025.12)",
+      "rcept_no": "20260319000955",
+      "corrections": [
+        "[기재정정]사업보고서 (2025.12)"
+      ],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260319000955",
+      "zip_sha256": "87449de56569eeb8555b11b1f5c5b3cc6b8d12bc8886275452f87eaa8f636c37",
+      "documents": [
+        {
+          "name": "20260319000955.xml",
+          "bytes": 4041102,
+          "sha256": "cd6707c6ab7e5b9b7cc5ee7525b02f980b28601f3594181c3b54a79fc8ce46bd"
+        },
+        {
+          "name": "20260319000955_00760.xml",
+          "bytes": 702232,
+          "sha256": "fe28f0b68e0adf7ae074f95ec8a645bf17f4e5fbe348a338dc250371c3997987"
+        },
+        {
+          "name": "20260319000955_00761.xml",
+          "bytes": 758626,
+          "sha256": "b3ecb5e91beab5c0b34823d98585d931be61863a0e9404599f40b49ab6d1ddb6"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "matches_report": false,
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_cash_row",
+          "matches_report": false,
+          "cash": []
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "001750",
+      "corp_code": "00162416",
+      "corp_name": "한양증권",
+      "fiscal_month": "12",
+      "report_name": "사업보고서 (2025.12)",
+      "rcept_no": "20260318001610",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001610",
+      "zip_sha256": "ec3fcc60a827b098a20a47f4d4e6e648d1e9989b3b363de8ba982db56b2d5d74",
+      "documents": [
+        {
+          "name": "20260318001610.xml",
+          "bytes": 2137755,
+          "sha256": "8960eb3ddd287daadd6b6e36050e69dbda4d4835622d757393b3ad94db3c9922"
+        },
+        {
+          "name": "20260318001610_00760.xml",
+          "bytes": 904258,
+          "sha256": "f45c9bde4e7720e172d59f10bc9d33712cc0221d27bad5f3c649e76678386c2d"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "matches_report": true,
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_data"
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "030210",
+      "corp_code": "00156859",
+      "corp_name": "다올투자증권",
+      "fiscal_month": "12",
+      "report_name": "사업보고서 (2025.12)",
+      "rcept_no": "20260312000604",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260312000604",
+      "zip_sha256": "9e913a93cd4ee4e62adf21cbc6385c90594cb5dd22689374537e7310663f4173",
+      "documents": [
+        {
+          "name": "20260312000604.xml",
+          "bytes": 4629360,
+          "sha256": "845e965df7823bf3d0a130b0c2d7d760f47313929fb2eebd3794a203907466a9"
+        },
+        {
+          "name": "20260312000604_00760.xml",
+          "bytes": 885241,
+          "sha256": "904382db3d4e12085d27540483b98c172bf06fe90014e4844c378fdaeb908984"
+        },
+        {
+          "name": "20260312000604_00761.xml",
+          "bytes": 1127501,
+          "sha256": "9eb38304d1a2ffb6027195db5d9a1d253f914f9eb00c194424ca1bb22ad7cda8"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_cash_row",
+          "matches_report": true,
+          "cash": []
+        },
+        {
+          "fs_div": "CFS",
+          "status": "no_cash_row",
+          "matches_report": true,
+          "cash": []
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "950110",
+      "corp_code": "00938688",
+      "corp_name": "SBI핀테크솔루션즈",
+      "fiscal_month": "03",
+      "report_name": "사업보고서 (2025.03)",
+      "rcept_no": "20250627000295",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250627000295",
+      "zip_sha256": "f6eaf271a062782c0a2efc743c7f128bf6f200cc35f6a5d5b205d7c8a0a7259e",
+      "documents": [
+        {
+          "name": "20250627000295.xml",
+          "bytes": 2128636,
+          "sha256": "440d57df1afb33e22872cfeaeec9a9728d6f4313cf7681819df66a18f007b9ee"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "no_data"
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "matches_report": true,
+          "cash": [
+            {
+              "rcept_no": "20250627000295",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 14 기",
+              "thstrm_amount": "23894677000",
+              "currency": "JPY"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    },
+    {
+      "stock_code": "950170",
+      "corp_code": "01041828",
+      "corp_name": "JTC",
+      "fiscal_month": "02",
+      "report_name": "사업보고서 (2025.02)",
+      "rcept_no": "20250529000465",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20250529000465",
+      "zip_sha256": "b3e416769570631f4649ea397456abd5535237be4297b4aeec8f69bc2c93aabe",
+      "documents": [
+        {
+          "name": "20250529000465.xml",
+          "bytes": 2060946,
+          "sha256": "ce04ca50ff2c352a635de5461ae1be81b6b0ac8e96969fb781749ceb0fc97d08"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "matches_report": true,
+          "cash": [
+            {
+              "rcept_no": "20250529000465",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 31 기",
+              "thstrm_amount": "7433860272",
+              "currency": "JPY"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "matches_report": true,
+          "cash": [
+            {
+              "rcept_no": "20250529000465",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 31 기",
+              "thstrm_amount": "7461365038",
+              "currency": "JPY"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    }
+  ]
+}
