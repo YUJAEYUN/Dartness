@@ -111,8 +111,8 @@ export function Briefings() {
         <a href={`${sourceBase}/docs/briefings/index.md`}>양식과 목록</a>
       </div>
       <p className="muted">
-        작업 하나를 따라가기 위한 요약입니다. 원본은 PR·코드·테스트이며, 다르면
-        원본이 우선합니다.
+        작업 당시의 구현은 PR·코드·테스트와 대조하는 요약입니다. 요구사항의 기준은
+        관련 docs이며, 현재 진행 상태는 시스템 상태와 이슈에서 확인합니다.
       </p>
       <div className="briefing-layout">
         <ul className="briefing-list" aria-label="브리핑 목록">
