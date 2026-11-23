@@ -2,6 +2,127 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0049-dart-cells-and-note-labels.md",
+      "sha256": "2ed48370a8a9c5df0a1064b543aa76515adfed86c25a3a41bb94ad9634f4482c",
+      "pr": 49,
+      "issue": 31,
+      "date": "2026-11-23",
+      "stages": [
+        "D"
+      ],
+      "title": "DART 원문 표 칸과 주석 번호 읽기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "현금 표 추출기가 DART 원문의 표 칸(TE 태그)과 \"현금및현금성자산 (주4,29)\" 같은 계정명을 읽게 됐습니다. 첫 평가에서 0건이던 DART 원문 추출이 11건 모두로 바뀌었고, 틀린 금액은 여전히 없습니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "D 단계가 원문 수집(C)이 받아 오는 DART 원문 형식을 읽을 수 있게 됐습니다. 상태는 \"일부\" 그대로입니다. 고칠 때 본 사례로만 확인했기 때문입니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "",
+              "전",
+              "후"
+            ],
+            "rows": [
+              [
+                "DART 원문 11건",
+                "0건 추출",
+                "11건 모두 정답"
+              ],
+              [
+                "표 칸",
+                "TD 태그만 읽음",
+                "TE 태그도 같은 방식으로 읽음"
+              ],
+              [
+                "계정명",
+                "\"현금및현금성자산\"만 인정",
+                "\"(주4,29)\"처럼 주석 번호만 붙은 이름도 인정"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "\"현금및현금성자산 등\"처럼 다른 말이 붙은 이름은 여전히 현금 행으로 보지 않습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "첫 평가 결과를 보고 추출기를 고치기로 했습니다(2026-11-23)."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "인정하는 주석 번호 형식은 \"주\"와 숫자·쉼표만 든 괄호 하나입니다. 괄호가 앞에 붙거나 뒤에 다른 말이 더 있으면 인정하지 않습니다.",
+              "평가 11건을 개발용으로 바꾸고, 11건 모두 추출돼야 한다는 회귀 테스트를 추가했습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "없음. 고칠지는 이미 정했고, 새 검증용 평가 대상은 다음 작업에서 정합니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "DART 원문 11건 정답, 틀린 금액 0건",
+                "처음 보는 법인에서의 정확도"
+              ],
+              [
+                "비슷하지만 다른 계정명 4가지 거절",
+                "금융업, 12월이 아닌 결산, 분기보고서 서식"
+              ],
+              [
+                "변이 테스트에서 새 코드의 변이 모두 잡힘",
+                "보고서 전체에서 구간 자동 찾기"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#49](https://github.com/YUJAEYUN/Dartness/pull/49) · 이슈: [#31](https://github.com/YUJAEYUN/Dartness/issues/31)",
+              "코드: `src/dartness/cash_table.py` · 테스트: `tests/test_cash_table.py`, `tests/test_cash_eval_2025.py`",
+              "설명: [지원 범위](../cash-table-extraction.md), [평가 기록](../evaluations/cash-table-dart-2025.md)"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0048-query-time-options.md",
       "sha256": "6d6529167eccfbc9e9ac57b7394fe1a42635c8a0cda332b734fd7a2cb6fcf1e6",
       "pr": 48,
