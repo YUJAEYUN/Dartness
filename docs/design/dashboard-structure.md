@@ -6,17 +6,17 @@
 
 | 위치 | 책임 |
 |---|---|
-| src/app | App과 화면 전체 스타일. 기능을 조립하고 화면 수준 상태를 관리 |
-| src/features/github-status | 공개 GitHub 상태 로딩·실패·시점·검사 결과 처리와 테스트 |
-| src/features/project-status | docs에서 생성한 시스템 상태 화면 |
-| src/features/briefings | 브리핑 화면·자료 처리·테스트 |
-| src/features/work-results | 작업 결과 화면 |
-| src/components | 여러 화면이 쓰는 Button·Flowchart |
-| src/shared | 저장소 주소·원본 기준 커밋·공통 GitHub 자료 타입/검증 연결 |
-| src/generated | docs에서 생성한 JSON. 직접 수정하지 않음 |
-| src/main.tsx·src/index.css | Vite 진입점과 전역 스타일 |
+| dashboard/src/app | App과 화면 전체 스타일. 기능을 조립하고 화면 수준 상태를 관리 |
+| dashboard/src/features/github-status | 공개 GitHub 상태 로딩·실패·시점·검사 결과 처리와 테스트 |
+| dashboard/src/features/project-status | docs에서 생성한 시스템 상태 화면 |
+| dashboard/src/features/briefings | 브리핑 화면·자료 처리·테스트 |
+| dashboard/src/features/work-results | 작업 결과 화면 |
+| dashboard/src/components | 여러 화면이 쓰는 Button·Flowchart |
+| dashboard/src/shared | 저장소 주소·원본 기준 커밋·공통 GitHub 자료 타입/검증 연결 |
+| dashboard/src/generated | docs에서 생성한 JSON. 직접 수정하지 않음 |
+| dashboard/src/main.tsx·dashboard/src/index.css | Vite 진입점과 전역 스타일 |
 
-위 표의 경로는 dashboard 기준입니다. scripts는 빌드·문서 생성·공개 조회 스크립트로 유지합니다. Root Directory dashboard, 출력 dist와 기존 명령은 바꾸지 않습니다. 기능 하나에 파일 하나뿐이어도 그 기능에 속하면 해당 폴더에 두고, 아직 필요 없는 api·hooks·types 하위 폴더는 만들지 않습니다.
+위 표의 경로는 저장소 루트 기준입니다. scripts는 빌드·문서 생성·공개 조회 스크립트로 유지합니다. Root Directory dashboard, 출력 dist와 기존 명령은 바꾸지 않습니다. 기능 하나에 파일 하나뿐이어도 그 기능에 속하면 해당 폴더에 두고, 아직 필요 없는 api·hooks·types 하위 폴더는 만들지 않습니다.
 
 ## 참조 방향
 
