@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 공통 공시 목록 수집 | [공식 제한·입출력·실패 기준](../specs/disclosure-list.md). src/dartness/disclosure_list.py, tests/test_disclosure_list.py. 모집단·정정/금액 선택은 미구현 |
 | DART 실제 수집 | [수동 검사와 범위](../guides/dart-live-check.md), [평가용 여러 법인 수집](../guides/dart-live-check.md#evaluation-collection). 코드는 src/dartness/dart_collect.py, 워크플로는 .github/workflows/collect-filings.yml |
 | 예외 처리·검사 우회 변경 | [적용 규칙·PR 비교·보고와 한계](../guides/quality-guards.md). scripts/check_quality_changes.py, dashboard/scripts/quality-markers.mjs |
 | CI·브랜치 설정 | [검사와 설정 방법](../guides/ci.md) |

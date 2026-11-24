@@ -13,6 +13,7 @@ SPEC_PATHS = (
     "docs/specs/requirements.md",
     "docs/specs/query-types.md",
     "docs/specs/common-query-contract.md",
+    "docs/specs/disclosure-list.md",
     "docs/specs/cash-query-contract.md",
     "docs/specs/cash-table-extraction.md",
     "docs/specs/amounts.md",
