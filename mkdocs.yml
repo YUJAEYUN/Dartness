@@ -63,6 +63,7 @@ nav:
       - "#34 이슈 자동 종료 차단": briefings/0034-issue-autoclose.md
   - 에이전트 위임 범위: delegation.md
   - 관리 화면 설계: management-screen.md
+  - 작업 결과 확인: work-results.md
   - DART 실제 수집 검사: dart-live-check.md
   - 테스트 작성 방법: testing.md
   - 평가 기록:
