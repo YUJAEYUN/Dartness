@@ -12,7 +12,7 @@ target-version = "py312"
 line-length = 100
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "B", "UP"]
+select = ["E", "F", "I", "B", "UP", "BLE001", "S110", "S112", "PGH003", "PGH004", "RUF100"]
 
 [tool.mypy]
 python_version = "3.12"
