@@ -1,6 +1,6 @@
 # Dartness 관리 화면
 
-사용자가 읽는 기준·실행·갱신·검사 한계는 [docs/management-screen.md](../docs/management-screen.md)를 따릅니다.
+사용자가 읽는 기준·실행·갱신·검사 한계는 [docs/design/management-screen.md](../docs/design/management-screen.md)를 따릅니다.
 
 Node.js 24: `npm ci`, `npm run dev`. 검사: `npm run lint`, `npm test`, `npm run build`.
 

@@ -10,16 +10,20 @@
 | 목적 | 문서 |
 |---|---|
 | 지금 어디까지 만들었고 다음은 무엇인가 | [시스템 상태](system-status.md) |
-| 무엇을 에이전트에게 맡기는가 | [위임 정책](delegation.md) |
-| 작업을 한곳에서 보고 싶은가 | [관리 화면](management-screen.md) |
-| 어떤 개발 원칙을 따르는가 | [다섯 개발 원칙](engineering-principles.md) |
-| 현금 조회를 어떻게 구현할 것인가 | [계약 초안](cash-query-contract.md) |
-| 어떤 조회 유형을 다루는가 | [올인원 조회 유형 명세](query-types.md) |
-| 무엇을 만들고 있는가 | [합의한 요구사항](requirements.md) |
-| 코드와 에이전트는 무엇을 맡는가 | [구조와 판단 경계](architecture.md) |
-| 결과를 어떻게 보여주는가 | [결과물 예시](output-example.md) |
-| 문서와 코드를 어떻게 맞추는가 | [문서 운영과 메모리](documentation.md) |
-| 어떻게 개발하고 검토하는가 | [개발 작업 흐름](development-workflow.md), [정합성 검토](consistency.md) |
+| 무엇을 에이전트에게 맡기는가 | [위임 정책](guides/delegation.md) |
+| 작업을 한곳에서 보고 싶은가 | [관리 화면](design/management-screen.md) |
+| 어떤 개발 원칙을 따르는가 | [다섯 개발 원칙](design/engineering-principles.md) |
+| 현금 조회를 어떻게 구현할 것인가 | [계약 초안](specs/cash-query-contract.md) |
+| 어떤 조회 유형을 다루는가 | [올인원 조회 유형 명세](specs/query-types.md) |
+| 무엇을 만들고 있는가 | [합의한 요구사항](specs/requirements.md) |
+| 코드와 에이전트는 무엇을 맡는가 | [구조와 판단 경계](design/architecture.md) |
+| 결과를 어떻게 보여주는가 | [결과물 예시](specs/output-example.md) |
+| 문서와 코드를 어떻게 맞추는가 | [문서 운영과 메모리](design/documentation.md) |
+| 어떻게 개발하고 검토하는가 | [개발 작업 흐름](guides/development-workflow.md), [정합성 검토](consistency.md) |
 | 다음 세션에서 어디부터 이어가는가 | [다음 작업](work-state.md) |
 
 `docs/`의 사람이 읽는 문서가 프로젝트 동작·설계의 기준입니다. 에이전트용 위키는 원본을 연결하며, 독립적으로 규칙을 만들지 않습니다.
+
+## 문서 찾기
+
+요구사항·계약은 [specs의 요구사항](specs/requirements.md), 구조와 설계는 [design의 아키텍처](design/architecture.md), 실행·개발 절차는 [guides의 작업 흐름](guides/development-workflow.md)에서 시작합니다. 전체 배치 기준은 [문서 운영](design/documentation.md)을 봅니다. 시스템 상태·작업 상태·결과 기록은 루트에 남기며 사례·평가·브리핑·위키의 역할은 유지합니다.

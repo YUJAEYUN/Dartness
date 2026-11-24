@@ -7,14 +7,18 @@ from pathlib import Path
 
 import pytest
 
-from scripts.check_briefing_required import SPEC_PATHS, briefing_required, check
+from scripts.check_briefing_required import LEGACY_SPEC_PATHS, SPEC_PATHS, briefing_required, check
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 @pytest.mark.parametrize(
     "changed",
-    [["src/dartness/cash_table.py"], ["docs/query-types.md"], ["README.md", "docs/amounts.md"]],
+    [
+        ["src/dartness/cash_table.py"],
+        ["docs/specs/query-types.md"],
+        ["README.md", "docs/specs/amounts.md"],
+    ],
 )
 def test_feature_or_specification_changes_require_briefing(changed: list[str]) -> None:
     assert briefing_required(changed)
@@ -22,7 +26,13 @@ def test_feature_or_specification_changes_require_briefing(changed: list[str]) -
 
 @pytest.mark.parametrize(
     "changed",
-    [[], ["docs/ci.md"], ["tests/test_amounts.py"], ["dashboard/src/App.tsx"], ["docs/src/x.md"]],
+    [
+        [],
+        ["docs/guides/ci.md"],
+        ["tests/test_amounts.py"],
+        ["dashboard/src/App.tsx"],
+        ["docs/src/x.md"],
+    ],
 )
 def test_other_changes_do_not_require_briefing(changed: list[str]) -> None:
     assert not briefing_required(changed)
@@ -63,3 +73,9 @@ def test_ci_command_reads_the_pull_request_event(tmp_path: Path) -> None:
     event.write_text(json.dumps({"pull_request": {"number": 9999}}))
     bad = subprocess.run([sys.executable, str(script), str(event)], capture_output=True, text=True)
     assert bad.returncode == 1
+
+
+@pytest.mark.parametrize("path", [*SPEC_PATHS, *LEGACY_SPEC_PATHS])
+def test_current_and_legacy_spec_paths_still_require_a_briefing(path: str, tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="브리핑"):
+        check(9999, [path], tmp_path)

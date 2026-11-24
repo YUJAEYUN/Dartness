@@ -62,5 +62,5 @@ C 단계 중 평가용 수집기(src/dartness/dart_collect.py)만 바뀌었습�
 ## 근거
 
 - PR: [#63](https://github.com/YUJAEYUN/Dartness/pull/63) · 이슈: [#58](https://github.com/YUJAEYUN/Dartness/issues/58)
-- 문서: [평가용 수집](../dart-live-check.md#evaluation-collection)
+- 문서: [평가용 수집](../guides/dart-live-check.md#evaluation-collection)
 - 코드: `src/dartness/dart_collect.py` · 테스트: `tests/test_dart_collect.py`

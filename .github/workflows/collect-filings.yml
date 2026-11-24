@@ -1,5 +1,5 @@
 name: Collect DART filings
-# Manual evaluation source collection (issue #31, docs/dart-live-check.md).
+# Manual evaluation source collection (issue #31, docs/guides/dart-live-check.md).
 # Saves originals to a separate data branch that is never merged into main.
 on:
   workflow_dispatch:

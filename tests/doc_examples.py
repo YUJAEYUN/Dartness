@@ -1,4 +1,4 @@
-"""Load executable examples written in docs/ (rules: docs/testing.md#doc-examples).
+"""Load executable examples written in docs/ (rules: docs/guides/testing.md#doc-examples).
 
 Expected values are written by people from specifications or source documents.
 Never regenerate them from implementation output.

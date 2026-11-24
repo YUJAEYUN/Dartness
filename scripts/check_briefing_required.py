@@ -10,6 +10,16 @@ ROOT = Path(__file__).resolve().parents[1]
 # Feature PRs change query code. Specification PRs change documents that define behavior.
 FEATURE_PREFIXES = ("src/",)
 SPEC_PATHS = (
+    "docs/specs/requirements.md",
+    "docs/specs/query-types.md",
+    "docs/specs/common-query-contract.md",
+    "docs/specs/cash-query-contract.md",
+    "docs/specs/cash-table-extraction.md",
+    "docs/specs/amounts.md",
+    "docs/specs/output-example.md",
+)
+# Keep legacy paths so deletion or migration cannot bypass briefing checks.
+LEGACY_SPEC_PATHS = (
     "docs/requirements.md",
     "docs/query-types.md",
     "docs/common-query-contract.md",
@@ -21,7 +31,10 @@ SPEC_PATHS = (
 
 
 def briefing_required(changed: list[str]) -> bool:
-    return any(path.startswith(FEATURE_PREFIXES) or path in SPEC_PATHS for path in changed)
+    return any(
+        path.startswith(FEATURE_PREFIXES) or path in (*SPEC_PATHS, *LEGACY_SPEC_PATHS)
+        for path in changed
+    )
 
 
 def check(pr: int, changed: list[str], root: Path = ROOT) -> None:

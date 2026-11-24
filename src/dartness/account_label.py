@@ -1,4 +1,5 @@
-"""Reduce a financial statement account label to its core name (docs/cash-table-extraction.md).
+"""Reduce a financial statement account label to its core name
+(docs/specs/cash-table-extraction.md).
 
 Statements decorate account names with outline markers in front ("(5)", "5.", "Ⅴ.", "가.",
 "①") and note references behind ("(주4,29)"). Neither changes what the account is, so they are

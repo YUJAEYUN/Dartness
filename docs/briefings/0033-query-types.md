@@ -41,7 +41,7 @@ stages: []
 
 ## 확인해 주세요
 
-1. **다섯 유형 중 어느 유형의 미결 기준부터 정할까요?** 아직 실행 계약이 없는 유형의 범위·평가·역할을 명확히 해야 다음 구현을 정할 수 있습니다. 항목은 [조회 유형 명세](../query-types.md)에 있습니다.
+1. **다섯 유형 중 어느 유형의 미결 기준부터 정할까요?** 아직 실행 계약이 없는 유형의 범위·평가·역할을 명확히 해야 다음 구현을 정할 수 있습니다. 항목은 [조회 유형 명세](../specs/query-types.md)에 있습니다.
 
 이슈 #31 보류는 [기록](https://github.com/YUJAEYUN/Dartness/issues/31)이 있는 작업 순서 조정입니다. 이미 설명한 보류를 새로운 승인 질문으로 되풀이하지 않습니다. 다른 법인 공시 평가는 중요한 검증 경로 중 하나이며, 보류했다고 정확성 검증을 마친 것은 아닙니다.
 
@@ -56,4 +56,4 @@ stages: []
 ## 근거
 
 - PR: [#33](https://github.com/YUJAEYUN/Dartness/pull/33) · 이슈: [#32](https://github.com/YUJAEYUN/Dartness/issues/32)
-- 명세: [조회 유형](../query-types.md)
+- 명세: [조회 유형](../specs/query-types.md)

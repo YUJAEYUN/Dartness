@@ -2,7 +2,7 @@
 
 Answers were read from the originals and committed before the extractor ran. 신영증권 has only
 현금및예치금 on the balance sheet; the two Japanese-listed companies report in JPY, which the
-KRW-only amount rules do not interpret (docs/amounts.md). Every answer is needs_review, so a
+KRW-only amount rules do not interpret (docs/specs/amounts.md). Every answer is needs_review, so a
 KRW amount from any of these sections is a wrong answer.
 """
 
@@ -55,7 +55,7 @@ def test_recorded_reason_for_review_is_in_the_source(case: dict[str, Any]) -> No
 
 @pytest.mark.parametrize("case", CASES, ids=lambda case: case["id"])
 def test_no_krw_amount_is_returned(case: dict[str, Any]) -> None:
-    # CASH-002 and docs/amounts.md: no substitute row, no JPY figure read as KRW.
+    # CASH-002 and docs/specs/amounts.md: no substitute row, no JPY figure read as KRW.
     result = run(case)
     assert isinstance(result, CashNeedsReview) and not hasattr(result, "amount_krw")
     assert result.reason == case["expected"]["reason"]

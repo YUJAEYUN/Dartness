@@ -1,3 +1,3 @@
 -r requirements-dev.txt
-# Manual mutation testing only (docs/testing.md); not installed by CI.
+# Manual mutation testing only (docs/guides/testing.md); not installed by CI.
 mutmut==3.8.1

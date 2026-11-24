@@ -101,7 +101,7 @@ def test_work_state_keeps_current_state_format() -> None:
 def test_documented_examples_are_executed_by_tests() -> None:
     sources = "\n".join(_test_sources().values())
     blocks = sorted({example.block for example in all_examples()})
-    assert blocks, "docs/amounts.md and docs/cash-query-contract.md hold examples"
+    assert blocks, "docs/specs/amounts.md and docs/specs/cash-query-contract.md hold examples"
     unread = [block for block in blocks if f'load_examples("{block}")' not in sources]
     assert unread == []
 

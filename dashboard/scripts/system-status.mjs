@@ -5,8 +5,8 @@ import { resolve, relative } from "node:path";
 
 export const root = fileURLToPath(new URL("../../", import.meta.url));
 export const sourcePath = "docs/system-status.md";
-export const policyPath = "docs/common-query-contract.md";
-export const catalogPath = "docs/query-types.md";
+export const policyPath = "docs/specs/common-query-contract.md";
+export const catalogPath = "docs/specs/query-types.md";
 export const outputPath = "dashboard/src/generated/system-status.json";
 const classes = { 구현: "done", 일부: "partial", 미구현: "todo" };
 

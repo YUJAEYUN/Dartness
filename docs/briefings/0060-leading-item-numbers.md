@@ -65,5 +65,5 @@ D 단계의 상태는 "일부" 그대로입니다. 읽을 수 있는 계정명 �
 ## 근거
 
 - PR: [#60](https://github.com/YUJAEYUN/Dartness/pull/60) · 이슈: [#56](https://github.com/YUJAEYUN/Dartness/issues/56)
-- 지원 범위: [현금 표 추출](../cash-table-extraction.md) · 평가 기록: [두 번째 평가](../evaluations/cash-table-dart-2025-second.md)
+- 지원 범위: [현금 표 추출](../specs/cash-table-extraction.md) · 평가 기록: [두 번째 평가](../evaluations/cash-table-dart-2025-second.md)
 - 코드: `src/dartness/account_label.py` · 테스트: `tests/test_account_label.py`, `tests/test_cash_table.py`, `tests/test_cash_eval_2025_second.py`

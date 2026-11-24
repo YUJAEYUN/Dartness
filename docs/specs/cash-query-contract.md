@@ -51,7 +51,7 @@ status=value는 계약 형식의 통과를 뜻합니다. 원문에서 그 값이
 <a id="examples"></a>
 ## 규칙별 실행 예시
 
-아래 예시는 tests/test_cash_contract.py가 읽어 계약 생성 결과와 비교합니다. 작성 규칙은 [문서 예시 테스트](testing.md#doc-examples)를 따릅니다. 규칙 원문은 [현금 조회 범위](requirements.md#cash-scope)입니다.
+아래 예시는 tests/test_cash_contract.py가 읽어 계약 생성 결과와 비교합니다. 작성 규칙은 [문서 예시 테스트](../guides/testing.md#doc-examples)를 따릅니다. 규칙 원문은 [현금 조회 범위](requirements.md#cash-scope)입니다.
 
 real-dev 금액은 헬릭스미스 개발용 사례에서 원문으로 먼저 확인한 값입니다(tests/fixtures/cash/helixmith-2025). evidence는 테스트가 넣을 개발용 근거를 고릅니다. modified는 실제 값을 다른 요청에 넣어 대체를 시도한 사례이고, synthetic은 실제 공시와 무관한 합성 사례입니다. 예시는 계약이 잘못된 대체를 거절하는지 확인할 뿐, 추출 정확도를 보여주지 않습니다.
 

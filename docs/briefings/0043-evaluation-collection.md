@@ -54,4 +54,4 @@ stages: []
 
 - PR: [#43](https://github.com/YUJAEYUN/Dartness/pull/43) · 이슈: [#31](https://github.com/YUJAEYUN/Dartness/issues/31)
 - 코드: `src/dartness/dart_collect.py` · 테스트: `tests/test_dart_collect.py`
-- 설명: [평가용 여러 법인 수집](../dart-live-check.md#evaluation-collection)
+- 설명: [평가용 여러 법인 수집](../guides/dart-live-check.md#evaluation-collection)

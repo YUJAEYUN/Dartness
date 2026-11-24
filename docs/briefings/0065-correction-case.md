@@ -60,4 +60,4 @@ stages: []
 - 원문·정답·범위: [HD건설기계 개발용 사례](../cases/hd-construction-correction.md)
 - 전체 데이터: [고정 커밋](https://github.com/YUJAEYUN/Dartness/tree/943b6c96df7e786d505eedeec5488ed58109f166)
 - 검사: tests/test_correction_case.py · 최소 증거: tests/fixtures/corrections/hd-construction-2025
-- 경계: [공통 계약](../common-query-contract.md), [정합성 기록](../consistency.md)
+- 경계: [공통 계약](../specs/common-query-contract.md), [정합성 기록](../consistency.md)

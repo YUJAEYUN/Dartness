@@ -1,4 +1,5 @@
-"""One open PR per issue, so agents do not work on the same issue (docs/development-workflow.md).
+"""One open PR per issue, so agents do not work on the same issue
+(docs/guides/development-workflow.md).
 
 A PR takes on the issue named by its single `Refs #number` line. If an earlier open PR already
 takes on the same issue, this PR fails. Only PRs that exist are seen: work done before a PR is

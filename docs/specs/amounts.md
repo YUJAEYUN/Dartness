@@ -23,7 +23,7 @@ normalized는 단위 변환 성공이지 공시 사실의 검증 완료가 아�
 
 ## 실행 예시와 테스트 데이터
 
-아래 예시는 테스트가 문서에서 읽어 실제 결과와 비교합니다. 작성 규칙은 [문서 예시 테스트](testing.md#doc-examples)를 따릅니다. amount_krw는 사람이 지정한 정답이며 코드 출력으로 갱신하지 않습니다.
+아래 예시는 테스트가 문서에서 읽어 실제 결과와 비교합니다. 작성 규칙은 [문서 예시 테스트](../guides/testing.md#doc-examples)를 따릅니다. amount_krw는 사람이 지정한 정답이며 코드 출력으로 갱신하지 않습니다.
 
 <!-- dartness-example: amounts -->
 ```json

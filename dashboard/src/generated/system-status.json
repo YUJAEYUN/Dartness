@@ -1,6 +1,6 @@
 {
-  "policySource": "docs/common-query-contract.md",
-  "policySha256": "291db01fe65390f089ade22a46d71ec9ff692864d7af4af6ccd3336377e8bcd5",
+  "policySource": "docs/specs/common-query-contract.md",
+  "policySha256": "306c9f468fda7576f3c99a4f26403f4dbad1ef6c3d88f25860aa446e898e42ae",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -48,8 +48,8 @@
       "value": "확인 불가·실패·선택 근거를 보존하고 최종 파일에 넣을지는 출력 옵션과 구분"
     }
   ],
-  "catalogSource": "docs/query-types.md",
-  "catalogSha256": "afe093ea1b832b53bc6a6573f7b996e7041d3976188c5524918e8f115fee32a1",
+  "catalogSource": "docs/specs/query-types.md",
+  "catalogSha256": "38d8f7579ec1da4fedb8bc75b3b988571a091d586c5fae255ec62b9e4ded4188",
   "queryTypes": [
     {
       "id": "cash",
@@ -98,70 +98,70 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "7a33b098f03dc70a1fdab0b5ac06b7882a37da04fbbc261ed4f4e93d68d8a9ec",
+  "sourceSha256": "56049fb6410560cf28949775710fd1e2ab2060c9f7860b7c3b0988cc9d2cd9a3",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
       "id": "A",
       "name": "조회 조건 입력",
       "status": "일부",
-      "evidence": "[공통 계약 v1](common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py, src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py",
+      "evidence": "[공통 계약 v1](specs/common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py, src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py",
       "missing": "공통 입력·기간·후보 키 일치·날짜와 근거 보존만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음"
     },
     {
       "id": "B",
       "name": "법인·공시 찾기",
       "status": "일부",
-      "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md)",
-      "missing": "고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택([연결 조사](correction-linking.md)는 완료, 실행 코드 없음)"
+      "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](guides/dart-live-check.md)",
+      "missing": "고정된 법인·공시 1건만 찾음. 임의 법인 검색, 정정 공시 선택([연결 조사](design/correction-linking.md)는 완료, 실행 코드 없음)"
     },
     {
       "id": "C",
       "name": "원문 수집",
       "status": "일부",
-      "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](dart-live-check.md)",
+      "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](guides/dart-live-check.md)",
       "missing": "수동 실행 1건만 수집. 여러 법인 수집, 캐시"
     },
     {
       "id": "D",
       "name": "현금 행·열 추출",
       "status": "일부",
-      "evidence": "src/dartness/cash_table.py, src/dartness/account_label.py, tests/test_cash_table.py, [지원 범위](cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)",
+      "evidence": "src/dartness/cash_table.py, src/dartness/account_label.py, tests/test_cash_table.py, [지원 범위](specs/cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)",
       "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 12월이 아닌 결산 3곳 5건은 정답대로 모두 확인 필요(현금및예치금·엔화). 원화 공시 12월이 아닌 결산 법인의 값 추출, 외화 공시 처리, 금융업 현금 기준, 절 자동 선정·주석 추출"
     },
     {
       "id": "E",
       "name": "단위 정규화",
       "status": "구현",
-      "evidence": "src/dartness/amounts.py, tests/test_amounts.py, [금액 단위 처리](amounts.md)",
+      "evidence": "src/dartness/amounts.py, tests/test_amounts.py, [금액 단위 처리](specs/amounts.md)",
       "missing": "대시·괄호 음수 등 지원하지 않는 표기"
     },
     {
       "id": "F",
       "name": "계약 검증",
       "status": "구현",
-      "evidence": "src/dartness/cash_contract.py, tests/test_cash_contract.py, [현금 계약](cash-query-contract.md)",
+      "evidence": "src/dartness/cash_contract.py, tests/test_cash_contract.py, [현금 계약](specs/cash-query-contract.md)",
       "missing": "외부 JSON 입력, 근거의 사실 확인"
     },
     {
       "id": "G",
       "name": "합계·차이 판정",
       "status": "미구현",
-      "evidence": "[정확성과 근거](requirements.md#accuracy)",
+      "evidence": "[정확성과 근거](specs/requirements.md#accuracy)",
       "missing": "자동 차이 판정. 표시 기준만 합의됨"
     },
     {
       "id": "H",
       "name": "조건 비교",
       "status": "미구현",
-      "evidence": "[현금 계약](cash-query-contract.md)",
+      "evidence": "[현금 계약](specs/cash-query-contract.md)",
       "missing": "금액 조건 비교 방식, 결과 포함 정책"
     },
     {
       "id": "I",
       "name": "엑셀 결과",
       "status": "미구현",
-      "evidence": "[결과물 예시](output-example.md)",
+      "evidence": "[결과물 예시](specs/output-example.md)",
       "missing": "열 배치, 파일 생성"
     }
   ],
@@ -169,7 +169,7 @@
     {
       "group": "지금",
       "task": "공통 입력·날짜와 공시 후보 계약 v1",
-      "status": "[계약](common-query-contract.md), 후보 범위 일치·출처 보존·복수 후보 보류. 실제 수집·추출 연결은 미구현"
+      "status": "[계약](specs/common-query-contract.md), 후보 범위 일치·출처 보존·복수 후보 보류. 실제 수집·추출 연결은 미구현"
     },
     {
       "group": "지금",
@@ -233,22 +233,22 @@
     {
       "id": "AMOUNT-001",
       "description": "단위를 확인할 수 없는 금액은 확인 필요",
-      "evidence": "[금액 예시](amounts.md), tests/test_amounts.py"
+      "evidence": "[금액 예시](specs/amounts.md), tests/test_amounts.py"
     },
     {
       "id": "CASH-001",
       "description": "별도·개별 미확인 시 연결 금액으로 대체 금지",
-      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py"
+      "evidence": "[현금 예시](specs/cash-query-contract.md#examples), tests/test_cash_contract.py"
     },
     {
       "id": "CASH-002",
       "description": "확인 불가 금액을 0원으로 대체 금지",
-      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py"
+      "evidence": "[현금 예시](specs/cash-query-contract.md#examples), tests/test_cash_contract.py"
     },
     {
       "id": "CASH-003",
       "description": "실제 자료 날짜 혼동 금지·허용된 이전 자료는 요청/실제 날짜 표시",
-      "evidence": "[현금 예시](cash-query-contract.md#examples), tests/test_cash_contract.py, [날짜 예시](common-query-contract.md), tests/test_query_contract.py"
+      "evidence": "[현금 예시](specs/cash-query-contract.md#examples), tests/test_cash_contract.py, [날짜 예시](specs/common-query-contract.md), tests/test_query_contract.py"
     }
   ]
 }
