@@ -173,6 +173,7 @@ def settings_changed(path: str) -> bool:
             "package-lock.json",
         }
         or path.startswith(".github/workflows/")
+        or (path.startswith("scripts/check_") and path.endswith(".py"))
         or name.startswith(("tsconfig", "vite.config.", "vitest.config.", "requirements"))
         or path in {"scripts/check_quality_changes.py", "dashboard/scripts/quality-markers.mjs"}
     )

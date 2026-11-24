@@ -141,3 +141,10 @@ def test_ci_entrypoint_fails_closed_for_bad_git_input(
     monkeypatch.setattr(sys, "argv", ["check", "--base", "missing", "--head", "missing"])
     assert main(tmp_path) == 2
     assert "정상으로 처리하지 않습니다" in capsys.readouterr().err
+
+
+def test_briefing_checker_change_is_reported_as_quality_configuration() -> None:
+    from scripts.check_quality_changes import settings_changed
+
+    assert settings_changed("scripts/check_briefing_required.py")
+    assert not settings_changed("src/dartness/disclosure_list.py")
