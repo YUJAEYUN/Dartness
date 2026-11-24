@@ -49,6 +49,7 @@ nav:
       - 결과물 예시: specs/output-example.md
   - 설계와 조사:
       - 관리 화면 설계: design/management-screen.md
+      - 대시보드 코드 배치: design/dashboard-structure.md
       - 원본·정정공시 조사: design/correction-linking.md
       - 에이전트 개발 원칙: design/engineering-principles.md
       - 구조와 판단 경계: design/architecture.md
