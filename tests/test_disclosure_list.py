@@ -267,3 +267,19 @@ def test_no_data_cannot_contradict_its_nonempty_payload() -> None:
     payload = json.dumps({"status": "013", "list": [row()]}).encode()
     with pytest.raises(CollectionError, match="inconsistent"):
         collect_list(request(), max_requests=1, fetch=lambda endpoint, params: payload)
+
+
+@pytest.mark.parametrize("stock,market", [("12345K", "Y"), ("", "E")])
+def test_six_character_stock_identifiers_and_unlisted_rows_are_preserved(
+    stock: str, market: str
+) -> None:
+    item = {**row(), "stock_code": stock, "corp_cls": market}
+    result = collect_list(request(), max_requests=1, fetch=lambda endpoint, params: page([item]))
+    assert result.items[0].stock_code == stock
+    assert result.items[0].corp_cls == market
+
+
+def test_successful_zero_count_has_an_empty_result() -> None:
+    result = collect_list(request(), max_requests=1, fetch=lambda endpoint, params: page([]))
+    assert result.items == ()
+    assert result.requests == 1

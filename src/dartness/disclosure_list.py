@@ -88,7 +88,7 @@ def _row(value: object, request: ListRequest, start: date, end: date) -> Disclos
         _text(value.get("corp_code"), pattern=r"[0-9]{8}"),
         _text(value.get("corp_name")),
         _text(value.get("corp_cls"), pattern=r"[YKNE]"),
-        _text(value.get("stock_code", ""), pattern=r"(?:[0-9]{6})?", empty=True),
+        _text(value.get("stock_code", ""), pattern=r"(?:[0-9A-Z]{6})?", empty=True),
         _text(value.get("report_nm")),
         filed_on,
         _text(value.get("flr_nm", ""), empty=True),
