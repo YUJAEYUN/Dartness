@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#73 완료 근거와 개입·문제 확인](0073-work-results.md) | 관리 화면 |
 | [#71 GitHub 조회 실패 시 저장본으로 배포](0071-build-snapshot-fallback.md) | 관리 화면 |
 | [#68 외화 공시 등을 미결로 두기](0068-deferred-foreign-currency.md) | 명세 |
 | [#70 최신 GitHub 상태 확인](0070-dashboard-live-state.md) | 관리 화면 |

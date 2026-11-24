@@ -10,8 +10,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "snapshot": "node scripts/snapshot.mjs",
-    "docs:generate": "node scripts/system-status.mjs && node scripts/briefings.mjs",
-    "docs:check": "node scripts/system-status.mjs --check && node scripts/briefings.mjs --check",
+    "docs:generate": "node scripts/system-status.mjs && node scripts/briefings.mjs && node scripts/work-results.mjs",
+    "docs:check": "node scripts/system-status.mjs --check && node scripts/briefings.mjs --check && node scripts/work-results.mjs --check",
     "hooks:install": "git config --local core.hooksPath .githooks"
   },
   "dependencies": {

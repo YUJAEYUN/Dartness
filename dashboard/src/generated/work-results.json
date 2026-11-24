@@ -1,0 +1,230 @@
+{
+  "source": "docs/work-results.md",
+  "sha256": "0bc33f9d48fa73b1f285ecb1353b1825d9d2b3696b0f3667a67662cd07b1620a",
+  "groups": [
+    {
+      "pr": 73,
+      "issue": 72,
+      "title": "완료 근거와 추가 개입·문제를 한곳에서 확인",
+      "records": []
+    },
+    {
+      "pr": 71,
+      "issue": 69,
+      "title": "GitHub 조회 장애와 사이트 배포 분리",
+      "records": [
+        {
+          "pr": 71,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "완료 조건",
+          "content": "최신 조회 실패 시 유효한 저장본만 사용, 잘못된 저장본·쓰기 오류는 실패",
+          "result": "확인됨",
+          "evidence": {
+            "label": "추가 테스트와 변경",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/71"
+          }
+        },
+        {
+          "pr": 71,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "완료 조건",
+          "content": "운영 배포 및 새 화면·최신 GitHub 조회 확인",
+          "result": "확인됨",
+          "evidence": {
+            "label": "배포 커밋과 운영 확인",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/69"
+          }
+        },
+        {
+          "pr": 71,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "사람의 개입",
+          "content": "PR 70 장애 뒤 대체 배포 정책을 승인받은 후 구현. 별도 개입 횟수·시간은 미측정",
+          "result": "있음",
+          "evidence": {
+            "label": "정책 승인 범위",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/71"
+          }
+        },
+        {
+          "pr": 71,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "병합 후 문제",
+          "content": "운영 확인에서 새 문제는 관측하지 못했으나 이후 지속 감시는 하지 않음",
+          "result": "없음",
+          "evidence": {
+            "label": "관측한 범위와 한계",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/69"
+          }
+        }
+      ]
+    },
+    {
+      "pr": 70,
+      "issue": 69,
+      "title": "관리 화면에서 최신 GitHub 상태 확인",
+      "records": [
+        {
+          "pr": 70,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "완료 조건",
+          "content": "화면 열기·버튼에서 최신 상태 조회, 실패 시 이전 자료 유지",
+          "result": "확인됨",
+          "evidence": {
+            "label": "테스트·검증 결과",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/70"
+          }
+        },
+        {
+          "pr": 70,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "완료 조건",
+          "content": "병합 직후 운영 배포 성공",
+          "result": "미충족",
+          "evidence": {
+            "label": "GitHub HTTP 403으로 배포 실패, PR 71에서 복구",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/69"
+          }
+        },
+        {
+          "pr": 70,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "사람의 개입",
+          "content": "배포 로그 제공 및 저장본 대체 배포 정책의 추가 승인 필요",
+          "result": "있음",
+          "evidence": {
+            "label": "추가 결정과 장애 기록",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/69"
+          }
+        },
+        {
+          "pr": 70,
+          "issue": 69,
+          "date": "2026-11-24",
+          "kind": "병합 후 문제",
+          "content": "배포 장애: GitHub 403으로 기존 화면 유지. PR 71에서 복구했고 DART 추출 회귀는 아님",
+          "result": "있음",
+          "evidence": {
+            "label": "장애와 복구 근거",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/69"
+          }
+        }
+      ]
+    },
+    {
+      "pr": 68,
+      "issue": 67,
+      "title": "외화 공시와 12월이 아닌 결산 값 추출을 미결로 두기",
+      "records": []
+    },
+    {
+      "pr": 66,
+      "issue": 58,
+      "title": "12월이 아닌 결산 법인으로 현금 표 추출 평가",
+      "records": []
+    },
+    {
+      "pr": 65,
+      "issue": 64,
+      "title": "정정 전체 자료와 개발용 정답 확보",
+      "records": []
+    },
+    {
+      "pr": 63,
+      "issue": 58,
+      "title": "12월이 아닌 결산 법인의 사업보고서 수집",
+      "records": []
+    },
+    {
+      "pr": 62,
+      "issue": 61,
+      "title": "원본·정정공시 연결 조사",
+      "records": []
+    },
+    {
+      "pr": 60,
+      "issue": 56,
+      "title": "계정명 앞의 목차 기호 읽기",
+      "records": []
+    },
+    {
+      "pr": 54,
+      "issue": 52,
+      "title": "공시 후보의 범위와 근거 보존",
+      "records": []
+    },
+    {
+      "pr": 53,
+      "issue": 31,
+      "title": "현금 표 추출 두 번째 평가",
+      "records": []
+    },
+    {
+      "pr": 51,
+      "issue": 50,
+      "title": "조회 입력과 날짜 선택 계약",
+      "records": []
+    },
+    {
+      "pr": 49,
+      "issue": 31,
+      "title": "DART 원문 표 칸과 주석 번호 읽기",
+      "records": []
+    },
+    {
+      "pr": 48,
+      "issue": 47,
+      "title": "조회 시점과 허용 개월 선택지",
+      "records": []
+    },
+    {
+      "pr": 46,
+      "issue": 44,
+      "title": "공통 조회 정책을 문서와 화면에 반영",
+      "records": []
+    },
+    {
+      "pr": 45,
+      "issue": 31,
+      "title": "현금 표 추출 첫 평가",
+      "records": []
+    },
+    {
+      "pr": 43,
+      "issue": 31,
+      "title": "평가용 여러 법인 공시 수집",
+      "records": []
+    },
+    {
+      "pr": 34,
+      "issue": 32,
+      "title": "이슈가 먼저 닫히지 않게 막기",
+      "records": []
+    },
+    {
+      "pr": 33,
+      "issue": 32,
+      "title": "올인원 조회 유형 명세",
+      "records": []
+    },
+    {
+      "pr": 30,
+      "issue": 29,
+      "title": "docs에서 대시보드 상태 만들기",
+      "records": []
+    },
+    {
+      "pr": 28,
+      "issue": 19,
+      "title": "재무상태표에서 현금 금액 읽기",
+      "records": []
+    }
+  ]
+}

@@ -2,6 +2,107 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0073-work-results.md",
+      "sha256": "da89c3dfa28b018c7eb37a64cd5c1df243d6a49cc883dc11a031ddd82b68d870",
+      "pr": 73,
+      "issue": 72,
+      "date": "2026-11-24",
+      "stages": [],
+      "title": "완료 근거와 추가 개입·문제를 한곳에서 확인",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "작업 결과 표를 원본으로 관리 화면에 완료 조건별 근거·사람의 개입·병합 후 문제와 미기록 범위를 표시합니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "개발 결과를 확인하는 관리 화면입니다. DART 처리 단계의 구현 범위는 바뀌지 않았습니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "paragraph",
+            "text": "브리핑 목록에서 PR을 골라 결과 표를 확인할 수 있습니다. 기록한 범위와 미기록 범위를 보여 주고, 확인됨·미충족·미확인 및 있음·없음·미기록을 구분합니다. PR 70의 배포 실패와 PR 71의 복구를 첫 사례로 기록했습니다. 과거 전체 작업을 조사하거나 성공률을 계산하지 않습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "기존 이슈·PR·브리핑을 활용해 완료 근거·사람의 개입·병합 후 문제를 모읍니다.",
+              "자동 승인과 점수 시스템은 이번에 만들지 않습니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "요구사항 문서와 별도로 docs/work-results.md에 사람이 읽는 짧은 표를 두고 기존 생성·일치 검사에 연결했습니다. 브리핑 일곱 칸은 유지했습니다.",
+              "기록 단위는 PR이며 브리핑 목록을 집계 범위로 정했습니다. 같은 이슈의 여러 PR을 작업 수나 성공률로 계산하지 않습니다.",
+              "개입 횟수·시간은 추정하지 않고 기록 없는 PR을 미기록으로 남깁니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "추가 결정은 없습니다. 실제 사용에서 누락이나 반복 실패가 나타나면 필요한 항목만 보강합니다. 기존 위임 정책과 DART 기준은 유지합니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "docs 표의 상태·중복·날짜·브리핑 연결·근거 링크와 생성물 일치 검사",
+                "링크 설명이 사실인지 자동으로 판단하는 것"
+              ],
+              [
+                "미기록을 성공으로 바꾸지 않고 조건별 결과와 개입·문제를 보존",
+                "전체 과거 작업 소급 조사·개입 시간·신뢰도 점수"
+              ],
+              [
+                "기존 화면·검증·DART 정답 유지",
+                "모든 변경의 독립적인 리뷰와 지속 감시"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "배포 커밋에 고정된 기록이므로 최신 GitHub 상태와 다를 수 있습니다. 운영 확인은 이슈·PR에 남깁니다."
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#73](https://github.com/YUJAEYUN/Dartness/pull/73) · 이슈: [#72](https://github.com/YUJAEYUN/Dartness/issues/72)",
+              "기준과 사례: [작업 결과 확인](../work-results.md), [관리 화면](../management-screen.md)",
+              "구현: dashboard/scripts/work-results.mjs, dashboard/src/WorkResults.tsx",
+              "검사: dashboard/scripts/work-results.test.mjs"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0071-build-snapshot-fallback.md",
       "sha256": "3838d8605c9b43a569400761f6f710ec3d50e8ae107cfa75d6ea5f84efc155e6",
       "pr": 71,
