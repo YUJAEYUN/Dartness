@@ -50,6 +50,12 @@ jobs:
           cache-dependency-path: dashboard/package-lock.json
       - run: npm ci
         working-directory: dashboard
+      - name: Check newly added quality bypasses
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: python -m scripts.check_quality_changes --base "$BASE_SHA" --head "$HEAD_SHA"
       - run: npm run docs:check
         working-directory: dashboard
       - run: npm run lint && npm test && npm run build
