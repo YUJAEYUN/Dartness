@@ -39,7 +39,7 @@ stages: []
 
 ## 확인해 주세요
 
-없음. docs를 원본으로 두고 대시보드에서 관리하며 CI로 연결을 검사하는 방향은 이미 합의했습니다. 생성·커밋·검사는 [위임 정책](../delegation.md)에 따라 작업 중인 에이전트가 수행하며, 사람이 매번 생성 명령을 실행하도록 요구한 것이 아닙니다.
+없음. docs를 원본으로 두고 대시보드에서 관리하며 CI로 연결을 검사하는 방향은 이미 합의했습니다. 생성·커밋·검사는 [위임 정책](../guides/delegation.md)에 따라 작업 중인 에이전트가 수행하며, 사람이 매번 생성 명령을 실행하도록 요구한 것이 아닙니다.
 
 생성 파일 커밋·근거 파일 검사·로컬 훅은 그 방향을 구현한 방식입니다. 실제 사용에서 문제가 생기면 검증 근거와 함께 개선하며 이미 합의한 방향을 반복해서 묻지 않습니다.
 
@@ -55,4 +55,4 @@ stages: []
 
 - PR: [#30](https://github.com/YUJAEYUN/Dartness/pull/30) · 이슈: [#29](https://github.com/YUJAEYUN/Dartness/issues/29)
 - 생성기: `dashboard/scripts/system-status.mjs` · 테스트: `dashboard/scripts/system-status.test.mjs`
-- 설명: [관리 화면](../management-screen.md), [시스템 상태](../system-status.md)
+- 설명: [관리 화면](../design/management-screen.md), [시스템 상태](../system-status.md)

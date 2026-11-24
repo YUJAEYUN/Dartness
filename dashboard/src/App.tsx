@@ -19,20 +19,20 @@ import { Briefings } from "./Briefings";
 import { WorkResults } from "./WorkResults";
 const docs = [
   ["시스템 상태", "system-status.md", "처리 흐름의 구현 상태와 다음 작업"],
-  ["요구사항", "requirements.md", "조회·출력에서 지켜야 할 기준"],
-  ["에이전트 위임 범위", "delegation.md", "자동으로 처리할 일과 확인할 일"],
-  ["테스트 기준", "testing.md", "정답과 근거를 확인하는 방법"],
+  ["요구사항", "specs/requirements.md", "조회·출력에서 지켜야 할 기준"],
+  ["에이전트 위임 범위", "guides/delegation.md", "자동으로 처리할 일과 확인할 일"],
+  ["테스트 기준", "guides/testing.md", "정답과 근거를 확인하는 방법"],
   [
     "개발 원칙과 평가",
-    "engineering-principles.md",
+    "design/engineering-principles.md",
     "다섯 원칙과 실행 결과를 확인하는 방법",
   ],
   [
     "현금 조회 계약",
-    "cash-query-contract.md",
+    "specs/cash-query-contract.md",
     "확정한 범위와 구현 전에 확인할 항목",
   ],
-  ["구조와 판단 경계", "architecture.md", "코드와 에이전트의 역할"],
+  ["구조와 판단 경계", "design/architecture.md", "코드와 에이전트의 역할"],
 ];
 const date = (value: string) =>
   new Intl.DateTimeFormat("ko-KR", {

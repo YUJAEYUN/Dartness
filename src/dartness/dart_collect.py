@@ -68,7 +68,7 @@ def fiscal_month(fetch: Fetch, corp_code: str) -> str:
 
 
 def report_name(year: int, month: str) -> str:
-    """Business year means the year the fiscal year ends (docs/dart-live-check.md)."""
+    """Business year means the year the fiscal year ends (docs/guides/dart-live-check.md)."""
     return f"사업보고서 ({year}.{month})"
 
 

@@ -58,6 +58,6 @@ stages: []
 ## 근거
 
 - PR: [#70](https://github.com/YUJAEYUN/Dartness/pull/70) · 이슈: [#69](https://github.com/YUJAEYUN/Dartness/issues/69)
-- 동작 기준: [관리 화면](../management-screen.md), [개발 원칙](../engineering-principles.md), [정합성 기록](../consistency.md)
+- 동작 기준: [관리 화면](../design/management-screen.md), [개발 원칙](../design/engineering-principles.md), [정합성 기록](../consistency.md)
 - 공통 조회: dashboard/scripts/github-snapshot.mjs · 로더: dashboard/src/snapshot-loader.ts · 화면: dashboard/src/App.tsx
 - 검사: dashboard/src/snapshot-loader.test.ts, dashboard/scripts/github-snapshot.test.mjs

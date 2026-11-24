@@ -56,5 +56,5 @@ stages: []
 ## 근거
 
 - PR: [#62](https://github.com/YUJAEYUN/Dartness/pull/62) · 이슈: [#61](https://github.com/YUJAEYUN/Dartness/issues/61)
-- 공식 출처·실제 원문 링크·관찰 기록: [원본·정정공시 조사](../correction-linking.md)
-- 현재 경계: [공통 계약](../common-query-contract.md), [정합성 검토](../consistency.md), [시스템 상태](../system-status.md)
+- 공식 출처·실제 원문 링크·관찰 기록: [원본·정정공시 조사](../design/correction-linking.md)
+- 현재 경계: [공통 계약](../specs/common-query-contract.md), [정합성 검토](../consistency.md), [시스템 상태](../system-status.md)

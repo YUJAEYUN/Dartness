@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#75 문서 폴더 정리](0075-docs-layout.md) | 문서 구조 |
 | [#73 완료 근거와 개입·문제 확인](0073-work-results.md) | 관리 화면 |
 | [#71 GitHub 조회 실패 시 저장본으로 배포](0071-build-snapshot-fallback.md) | 관리 화면 |
 | [#68 외화 공시 등을 미결로 두기](0068-deferred-foreign-currency.md) | 명세 |
@@ -36,15 +37,15 @@
 
 - 기능 PR: `src/` 아래 파일을 바꾼 PR
 - 명세 PR: 아래 문서 중 하나를 바꾼 PR
-    - docs/requirements.md
-    - docs/query-types.md
-    - docs/common-query-contract.md
-    - docs/cash-query-contract.md
-    - docs/cash-table-extraction.md
-    - docs/amounts.md
-    - docs/output-example.md
+    - docs/specs/requirements.md
+    - docs/specs/query-types.md
+    - docs/specs/common-query-contract.md
+    - docs/specs/cash-query-contract.md
+    - docs/specs/cash-table-extraction.md
+    - docs/specs/amounts.md
+    - docs/specs/output-example.md
 
-그 밖의 PR(테스트만, 대시보드, CI, 작업 절차 문서)은 필요하면 씁니다. 대상 PR이 이 폴더에 `PR번호 네 자리-주제.md` 브리핑을 추가하지 않으면 필수 검사 code-quality가 실패합니다. PR 번호는 PR을 연 뒤에 정해지므로, PR을 열고 브리핑을 같은 PR에 커밋으로 추가합니다.
+그 밖의 PR(테스트만, 대시보드, CI, 작업 절차 문서)은 필요하면 씁니다. 이동 전 명세 경로의 삭제도 검사 대상으로 유지합니다. 대상 PR이 이 폴더에 `PR번호 네 자리-주제.md` 브리핑을 추가하지 않으면 필수 검사 code-quality가 실패합니다. PR 번호는 PR을 연 뒤에 정해지므로, PR을 열고 브리핑을 같은 PR에 커밋으로 추가합니다.
 
 ## 양식
 

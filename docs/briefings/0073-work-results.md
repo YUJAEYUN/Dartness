@@ -49,6 +49,6 @@ stages: []
 ## 근거
 
 - PR: [#73](https://github.com/YUJAEYUN/Dartness/pull/73) · 이슈: [#72](https://github.com/YUJAEYUN/Dartness/issues/72)
-- 기준과 사례: [작업 결과 확인](../work-results.md), [관리 화면](../management-screen.md)
+- 기준과 사례: [작업 결과 확인](../work-results.md), [관리 화면](../design/management-screen.md)
 - 구현: dashboard/scripts/work-results.mjs, dashboard/src/WorkResults.tsx
 - 검사: dashboard/scripts/work-results.test.mjs

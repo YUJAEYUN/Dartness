@@ -67,6 +67,6 @@ A의 지원 범위가 늘었으며 상태는 일부 그대로입니다. 실제 �
 ## 근거
 
 - PR: [#54](https://github.com/YUJAEYUN/Dartness/pull/54) · 이슈: [#52](https://github.com/YUJAEYUN/Dartness/issues/52)
-- 기준: [공시 후보 계약](../common-query-contract.md), [정합성 검토](../consistency.md), [공동 작업](../development-workflow.md)
+- 기준: [공시 후보 계약](../specs/common-query-contract.md), [정합성 검토](../consistency.md), [공동 작업](../guides/development-workflow.md)
 - 코드: src/dartness/disclosure_candidate.py · 검사: tests/test_disclosure_candidate.py
 - 기존 날짜 선택: src/dartness/query_contract.py · 상태: [시스템 상태](../system-status.md)

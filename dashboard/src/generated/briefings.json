@@ -2,8 +2,134 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0075-docs-layout.md",
+      "sha256": "7773754d360337fe0252551db34a35684e57962c34f8c198ab1e597f18c86a84",
+      "pr": 75,
+      "issue": 74,
+      "date": "2026-11-24",
+      "stages": [],
+      "title": "문서를 목적별 폴더로 정리",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "루트의 문서 18개를 명세·설계·실행 방법으로 나누고 화면·생성기·검사의 참조 경로를 함께 갱신했습니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "문서 탐색과 저장소 유지보수 작업입니다. DART 처리 단계의 구현 상태는 바뀌지 않습니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "table",
+            "header": [
+              "위치",
+              "찾을 내용"
+            ],
+            "rows": [
+              [
+                "specs",
+                "요구사항·조회 계약·금액 처리·출력 기준"
+              ],
+              [
+                "design",
+                "아키텍처·화면·조사·개발 원칙·문서 운영·환경 제안"
+              ],
+              [
+                "guides",
+                "수집 실행·테스트·CI·개발 절차·위임 범위"
+              ],
+              [
+                "루트와 기존 폴더",
+                "시작·상태·작업 결과·위키·사례·평가·브리핑·양식 유지"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "새 폴더 이름이 승인 상태를 뜻하지는 않습니다. 제안·조사와 확정한 기준은 원문의 상태 표시로 구분합니다. Python·대시보드 코드 위치와 Vercel 프로젝트 설정은 그대로입니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "기존 상위 구조를 유지하면서 docs부터 정리하고 대시보드·Python 세분화는 뒤로 나눕니다.",
+              "좋은 레퍼런스에서 필요한 원칙만 가져옵니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "specs·design·guides 세 묶음으로 18개 문서를 이동했습니다. 작은 문서마다 폴더를 만들지 않았습니다.",
+              "링크·MkDocs·위키·AGENTS·화면·생성기 입력·테스트의 경로를 함께 갱신했습니다.",
+              "명세 PR 검사에는 새 경로와 예전 경로의 삭제를 모두 남겨 필수 브리핑 검사를 유지했습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "추가 결정은 없습니다. 다음 대시보드 폴더 정리는 별도 이슈에서 기능별 이동 범위와 참조 방향을 정합니다. DART 기준·정답·위임 정책은 바꾸지 않았습니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "문서 strict 빌드·원본/생성 일치·기존 Python/UI 검사",
+                "문서 위치만으로 의미 정합성이나 가독성 보증"
+              ],
+              [
+                "새 명세와 예전 삭제 경로도 브리핑 필수임을 검사",
+                "과거 외부에 공유한 모든 URL의 유지"
+              ],
+              [
+                "문서 예시 입력·기대값과 DART 동작 유지(소스 설명의 문서 경로만 갱신)",
+                "대시보드 기능별 폴더·Python 모듈 세분화"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "운영 화면의 새 문서 링크 확인은 이슈·PR에 기록합니다."
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#75](https://github.com/YUJAEYUN/Dartness/pull/75) · 이슈: [#74](https://github.com/YUJAEYUN/Dartness/issues/74)",
+              "기준: [문서 배치](../design/documentation.md), [위임 범위](../guides/delegation.md)",
+              "탐색: [위키](../wiki/index.md), [상태](../system-status.md)",
+              "경로 검사: scripts/check_briefing_required.py, tests/test_briefing_required.py"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0073-work-results.md",
-      "sha256": "da89c3dfa28b018c7eb37a64cd5c1df243d6a49cc883dc11a031ddd82b68d870",
+      "sha256": "8a3bb2d01cf908249ba096bcf9b1dd19b6ff899b80aa318f71e46a710cffac62",
       "pr": 73,
       "issue": 72,
       "date": "2026-11-24",
@@ -94,7 +220,7 @@
             "ordered": false,
             "items": [
               "PR: [#73](https://github.com/YUJAEYUN/Dartness/pull/73) · 이슈: [#72](https://github.com/YUJAEYUN/Dartness/issues/72)",
-              "기준과 사례: [작업 결과 확인](../work-results.md), [관리 화면](../management-screen.md)",
+              "기준과 사례: [작업 결과 확인](../work-results.md), [관리 화면](../design/management-screen.md)",
               "구현: dashboard/scripts/work-results.mjs, dashboard/src/WorkResults.tsx",
               "검사: dashboard/scripts/work-results.test.mjs"
             ]
@@ -104,7 +230,7 @@
     },
     {
       "file": "docs/briefings/0071-build-snapshot-fallback.md",
-      "sha256": "3838d8605c9b43a569400761f6f710ec3d50e8ae107cfa75d6ea5f84efc155e6",
+      "sha256": "7311d2d94bb0df1010684d3ca0d311dd27ebf754dabe4d8ddd8facd6546220b3",
       "pr": 71,
       "issue": 69,
       "date": "2026-11-24",
@@ -172,7 +298,7 @@
             "ordered": false,
             "items": [
               "PR: [#71](https://github.com/YUJAEYUN/Dartness/pull/71) · 이슈: [#69](https://github.com/YUJAEYUN/Dartness/issues/69)",
-              "기준: [관리 화면](../management-screen.md)",
+              "기준: [관리 화면](../design/management-screen.md)",
               "구현: dashboard/scripts/build-snapshot.mjs, dashboard/scripts/snapshot-schema.mjs",
               "검사: dashboard/scripts/build-snapshot.test.mjs, dashboard/src/data.test.ts"
             ]
@@ -182,7 +308,7 @@
     },
     {
       "file": "docs/briefings/0070-dashboard-live-state.md",
-      "sha256": "1e4aa4eaedb7b01766ddee24a155fe607d4a36da1e5c4a0c9ca7c41cd4f6a20e",
+      "sha256": "86994c3c6f536af701bbfb9526b55b3d9eaf23d5447736f0285d3f950fb20b31",
       "pr": 70,
       "issue": 69,
       "date": "2026-11-24",
@@ -300,7 +426,7 @@
             "ordered": false,
             "items": [
               "PR: [#70](https://github.com/YUJAEYUN/Dartness/pull/70) · 이슈: [#69](https://github.com/YUJAEYUN/Dartness/issues/69)",
-              "동작 기준: [관리 화면](../management-screen.md), [개발 원칙](../engineering-principles.md), [정합성 기록](../consistency.md)",
+              "동작 기준: [관리 화면](../design/management-screen.md), [개발 원칙](../design/engineering-principles.md), [정합성 기록](../consistency.md)",
               "공통 조회: dashboard/scripts/github-snapshot.mjs · 로더: dashboard/src/snapshot-loader.ts · 화면: dashboard/src/App.tsx",
               "검사: dashboard/src/snapshot-loader.test.ts, dashboard/scripts/github-snapshot.test.mjs"
             ]
@@ -545,7 +671,7 @@
     },
     {
       "file": "docs/briefings/0065-correction-case.md",
-      "sha256": "6bce04fb3dfbfeb58bdebbf69692783979fa224b55977cafddad19f54764db8e",
+      "sha256": "2b84af4f176d8715ed6b1f4d83aea58523347f54dec3bb75b0a291924ef19fe0",
       "pr": 65,
       "issue": 64,
       "date": "2026-11-23",
@@ -662,7 +788,7 @@
               "원문·정답·범위: [HD건설기계 개발용 사례](../cases/hd-construction-correction.md)",
               "전체 데이터: [고정 커밋](https://github.com/YUJAEYUN/Dartness/tree/943b6c96df7e786d505eedeec5488ed58109f166)",
               "검사: tests/test_correction_case.py · 최소 증거: tests/fixtures/corrections/hd-construction-2025",
-              "경계: [공통 계약](../common-query-contract.md), [정합성 기록](../consistency.md)"
+              "경계: [공통 계약](../specs/common-query-contract.md), [정합성 기록](../consistency.md)"
             ]
           }
         ]
@@ -670,7 +796,7 @@
     },
     {
       "file": "docs/briefings/0063-fiscal-month-collection.md",
-      "sha256": "2578b1e66b9e604f86253c5040b121ce189ac1d82e1ff19e398537469f01e5ca",
+      "sha256": "b4937e7335e5001955fdcfe0ba2c23229cd16d1e770ddba75fffb0730bbf9a24",
       "pr": 63,
       "issue": 58,
       "date": "2026-11-23",
@@ -791,7 +917,7 @@
             "ordered": false,
             "items": [
               "PR: [#63](https://github.com/YUJAEYUN/Dartness/pull/63) · 이슈: [#58](https://github.com/YUJAEYUN/Dartness/issues/58)",
-              "문서: [평가용 수집](../dart-live-check.md#evaluation-collection)",
+              "문서: [평가용 수집](../guides/dart-live-check.md#evaluation-collection)",
               "코드: `src/dartness/dart_collect.py` · 테스트: `tests/test_dart_collect.py`"
             ]
           }
@@ -800,7 +926,7 @@
     },
     {
       "file": "docs/briefings/0062-correction-linking.md",
-      "sha256": "57373bf6f3d167451af1c1abf1c92d390f9908c3657639b2653623161d40e538",
+      "sha256": "c8f9c024ba88e10ac01108c11e0ef2ef53a91646018161499bbbf67d07e51afc",
       "pr": 62,
       "issue": 61,
       "date": "2026-11-23",
@@ -913,8 +1039,8 @@
             "ordered": false,
             "items": [
               "PR: [#62](https://github.com/YUJAEYUN/Dartness/pull/62) · 이슈: [#61](https://github.com/YUJAEYUN/Dartness/issues/61)",
-              "공식 출처·실제 원문 링크·관찰 기록: [원본·정정공시 조사](../correction-linking.md)",
-              "현재 경계: [공통 계약](../common-query-contract.md), [정합성 검토](../consistency.md), [시스템 상태](../system-status.md)"
+              "공식 출처·실제 원문 링크·관찰 기록: [원본·정정공시 조사](../design/correction-linking.md)",
+              "현재 경계: [공통 계약](../specs/common-query-contract.md), [정합성 검토](../consistency.md), [시스템 상태](../system-status.md)"
             ]
           }
         ]
@@ -922,7 +1048,7 @@
     },
     {
       "file": "docs/briefings/0060-leading-item-numbers.md",
-      "sha256": "e4167e6ef8abe326c201d4c4d8b386482a49d6af66392dfe5ed265ea3da3af0b",
+      "sha256": "768ef9736a8cd3979c89497299dbb33dc4611a5cfdd8e802d1483e10338e2251",
       "pr": 60,
       "issue": 56,
       "date": "2026-11-23",
@@ -1047,7 +1173,7 @@
             "ordered": false,
             "items": [
               "PR: [#60](https://github.com/YUJAEYUN/Dartness/pull/60) · 이슈: [#56](https://github.com/YUJAEYUN/Dartness/issues/56)",
-              "지원 범위: [현금 표 추출](../cash-table-extraction.md) · 평가 기록: [두 번째 평가](../evaluations/cash-table-dart-2025-second.md)",
+              "지원 범위: [현금 표 추출](../specs/cash-table-extraction.md) · 평가 기록: [두 번째 평가](../evaluations/cash-table-dart-2025-second.md)",
               "코드: `src/dartness/account_label.py` · 테스트: `tests/test_account_label.py`, `tests/test_cash_table.py`, `tests/test_cash_eval_2025_second.py`"
             ]
           }
@@ -1056,7 +1182,7 @@
     },
     {
       "file": "docs/briefings/0054-disclosure-candidates.md",
-      "sha256": "67fcad1f8a4dce3e9d9c6a489c8d75906584b47208504480cf44486e9448eb88",
+      "sha256": "cc890763a1e9e6c8e5bc501845d0aa23227c7f4b05ca3208b3e2dc592089ca7b",
       "pr": 54,
       "issue": 52,
       "date": "2026-11-23",
@@ -1172,7 +1298,7 @@
             "ordered": false,
             "items": [
               "PR: [#54](https://github.com/YUJAEYUN/Dartness/pull/54) · 이슈: [#52](https://github.com/YUJAEYUN/Dartness/issues/52)",
-              "기준: [공시 후보 계약](../common-query-contract.md), [정합성 검토](../consistency.md), [공동 작업](../development-workflow.md)",
+              "기준: [공시 후보 계약](../specs/common-query-contract.md), [정합성 검토](../consistency.md), [공동 작업](../guides/development-workflow.md)",
               "코드: src/dartness/disclosure_candidate.py · 검사: tests/test_disclosure_candidate.py",
               "기존 날짜 선택: src/dartness/query_contract.py · 상태: [시스템 상태](../system-status.md)"
             ]
@@ -1321,7 +1447,7 @@
     },
     {
       "file": "docs/briefings/0051-query-contract.md",
-      "sha256": "0b274fb730160f7a00cef00b3beb36304e5544c930bdb81ad10d21c448fb6465",
+      "sha256": "d62fc6de1d6268aea642affac4bb20cadd2b5ef467980e54d9e00d1def3ddbc2",
       "pr": 51,
       "issue": 50,
       "date": "2026-11-23",
@@ -1436,9 +1562,9 @@
             "ordered": false,
             "items": [
               "PR: [#51](https://github.com/YUJAEYUN/Dartness/pull/51) · 이슈: [#50](https://github.com/YUJAEYUN/Dartness/issues/50)",
-              "기준: [공통 계약과 실행 예시](../common-query-contract.md), [요구사항](../requirements.md), [정합성 기록](../consistency.md)",
+              "기준: [공통 계약과 실행 예시](../specs/common-query-contract.md), [요구사항](../specs/requirements.md), [정합성 기록](../consistency.md)",
               "코드: src/dartness/query_contract.py · 검사: tests/test_query_contract.py",
-              "기존 경계: [현금 계약](../cash-query-contract.md), [시스템 상태](../system-status.md)"
+              "기존 경계: [현금 계약](../specs/cash-query-contract.md), [시스템 상태](../system-status.md)"
             ]
           }
         ]
@@ -1446,7 +1572,7 @@
     },
     {
       "file": "docs/briefings/0049-dart-cells-and-note-labels.md",
-      "sha256": "2ed48370a8a9c5df0a1064b543aa76515adfed86c25a3a41bb94ad9634f4482c",
+      "sha256": "0b67c4900f374bd1c5019fb1655e435a902315f851c19253656b7f2b9035e472",
       "pr": 49,
       "issue": 31,
       "date": "2026-11-23",
@@ -1559,7 +1685,7 @@
             "items": [
               "PR: [#49](https://github.com/YUJAEYUN/Dartness/pull/49) · 이슈: [#31](https://github.com/YUJAEYUN/Dartness/issues/31)",
               "코드: `src/dartness/cash_table.py` · 테스트: `tests/test_cash_table.py`, `tests/test_cash_eval_2025.py`",
-              "설명: [지원 범위](../cash-table-extraction.md), [평가 기록](../evaluations/cash-table-dart-2025.md)"
+              "설명: [지원 범위](../specs/cash-table-extraction.md), [평가 기록](../evaluations/cash-table-dart-2025.md)"
             ]
           }
         ]
@@ -1567,7 +1693,7 @@
     },
     {
       "file": "docs/briefings/0048-query-time-options.md",
-      "sha256": "6d6529167eccfbc9e9ac57b7394fe1a42635c8a0cda332b734fd7a2cb6fcf1e6",
+      "sha256": "faf6db4d71f1e8b276d48c4192e8fcc96cbef34277da7c6cbb1b102315b79c16",
       "pr": 48,
       "issue": 47,
       "date": "2026-11-23",
@@ -1680,7 +1806,7 @@
             "ordered": false,
             "items": [
               "PR: [#48](https://github.com/YUJAEYUN/Dartness/pull/48) · 이슈: [#47](https://github.com/YUJAEYUN/Dartness/issues/47)",
-              "원본: [공통 조회 계약](../common-query-contract.md), [요구사항](../requirements.md)",
+              "원본: [공통 조회 계약](../specs/common-query-contract.md), [요구사항](../specs/requirements.md)",
               "검토: [정합성 기록](../consistency.md), [시스템 상태](../system-status.md)",
               "화면 생성: dashboard/scripts/system-status.mjs, dashboard/src/generated/system-status.json"
             ]
@@ -1690,7 +1816,7 @@
     },
     {
       "file": "docs/briefings/0046-common-query-policy.md",
-      "sha256": "56aca61b75eb6bf1c44913f84fabea8f805ac75a90438cdbe4a3f4459fe995c3",
+      "sha256": "74ce62fee19dfb665c067335679d65d349ac757f12065cd68effc859c8edc4f5",
       "pr": 46,
       "issue": 44,
       "date": "2026-11-23",
@@ -1801,7 +1927,7 @@
             "ordered": false,
             "items": [
               "PR: [#46](https://github.com/YUJAEYUN/Dartness/pull/46) · 이슈: [#44](https://github.com/YUJAEYUN/Dartness/issues/44)",
-              "원본: [공통 계약](../common-query-contract.md), [현금 계약](../cash-query-contract.md), [정합성 검토](../consistency.md)",
+              "원본: [공통 계약](../specs/common-query-contract.md), [현금 계약](../specs/cash-query-contract.md), [정합성 검토](../consistency.md)",
               "연결: dashboard/scripts/system-status.mjs, dashboard/scripts/system-status.test.mjs, dashboard/src/ProjectStatus.tsx"
             ]
           }
@@ -1941,7 +2067,7 @@
     },
     {
       "file": "docs/briefings/0043-evaluation-collection.md",
-      "sha256": "cd5ba71137abc92e2136b5e5e028e525f65cff6a882356a7c327c14bb054c8d6",
+      "sha256": "9834cb459c19ad9337fbdd5bc373676a8f41caa53995e9849f93a1f50845701f",
       "pr": 43,
       "issue": 31,
       "date": "2026-11-23",
@@ -2055,7 +2181,7 @@
             "items": [
               "PR: [#43](https://github.com/YUJAEYUN/Dartness/pull/43) · 이슈: [#31](https://github.com/YUJAEYUN/Dartness/issues/31)",
               "코드: `src/dartness/dart_collect.py` · 테스트: `tests/test_dart_collect.py`",
-              "설명: [평가용 여러 법인 수집](../dart-live-check.md#evaluation-collection)"
+              "설명: [평가용 여러 법인 수집](../guides/dart-live-check.md#evaluation-collection)"
             ]
           }
         ]
@@ -2063,7 +2189,7 @@
     },
     {
       "file": "docs/briefings/0034-issue-autoclose.md",
-      "sha256": "4ec8aad8c7fcf013d5b653f7c486a1919cad27ab706577d40632677343a86072",
+      "sha256": "9981cb34594ed6b4c74e172cf923163dc8b4c5154acd4b3cae5e97f515935c43",
       "pr": 34,
       "issue": 32,
       "date": "2026-11-23",
@@ -2102,7 +2228,7 @@
           },
           {
             "type": "paragraph",
-            "text": "PR 본문만 고쳐도 검사가 다시 돕니다. PR 템플릿, [위임 정책](../delegation.md), [CI 설명](../ci.md)에도 같은 규칙을 적었습니다."
+            "text": "PR 본문만 고쳐도 검사가 다시 돕니다. PR 템플릿, [위임 정책](../guides/delegation.md), [CI 설명](../guides/ci.md)에도 같은 규칙을 적었습니다."
           }
         ],
         "decisions": [
@@ -2138,7 +2264,7 @@
           },
           {
             "type": "paragraph",
-            "text": "[위임 정책](../delegation.md)의 범위에서는 에이전트도 완료 근거를 확인하고 체크리스트를 먼저 갱신한 뒤 종료할 수 있습니다. 이번 #32를 열어 두기로 한 조치를 모든 이슈에 사람의 종료 승인이 필요하다는 규칙으로 확대하지 않습니다."
+            "text": "[위임 정책](../guides/delegation.md)의 범위에서는 에이전트도 완료 근거를 확인하고 체크리스트를 먼저 갱신한 뒤 종료할 수 있습니다. 이번 #32를 열어 두기로 한 조치를 모든 이슈에 사람의 종료 승인이 필요하다는 규칙으로 확대하지 않습니다."
           }
         ],
         "checked": [
@@ -2167,7 +2293,7 @@
             "items": [
               "PR: [#34](https://github.com/YUJAEYUN/Dartness/pull/34) · 이슈: [#32](https://github.com/YUJAEYUN/Dartness/issues/32)",
               "검사: `scripts/check_pr_policy.py` · 테스트: `tests/test_pr_policy.py`",
-              "설명: [CI와 브랜치 설정](../ci.md)"
+              "설명: [CI와 브랜치 설정](../guides/ci.md)"
             ]
           }
         ]
@@ -2175,7 +2301,7 @@
     },
     {
       "file": "docs/briefings/0033-query-types.md",
-      "sha256": "2064a1387ccd474ec0834ebce4ef0f4542d50552f59e7b07d6b99206d2eedf86",
+      "sha256": "f34f134bb6895835f7013b5378a219448f456cb876855085938e207955cd8f00",
       "pr": 33,
       "issue": 32,
       "date": "2026-11-23",
@@ -2268,7 +2394,7 @@
             "type": "list",
             "ordered": true,
             "items": [
-              "**다섯 유형 중 어느 유형의 미결 기준부터 정할까요?** 아직 실행 계약이 없는 유형의 범위·평가·역할을 명확히 해야 다음 구현을 정할 수 있습니다. 항목은 [조회 유형 명세](../query-types.md)에 있습니다."
+              "**다섯 유형 중 어느 유형의 미결 기준부터 정할까요?** 아직 실행 계약이 없는 유형의 범위·평가·역할을 명확히 해야 다음 구현을 정할 수 있습니다. 항목은 [조회 유형 명세](../specs/query-types.md)에 있습니다."
             ]
           },
           {
@@ -2305,7 +2431,7 @@
             "ordered": false,
             "items": [
               "PR: [#33](https://github.com/YUJAEYUN/Dartness/pull/33) · 이슈: [#32](https://github.com/YUJAEYUN/Dartness/issues/32)",
-              "명세: [조회 유형](../query-types.md)"
+              "명세: [조회 유형](../specs/query-types.md)"
             ]
           }
         ]
@@ -2313,7 +2439,7 @@
     },
     {
       "file": "docs/briefings/0030-dashboard-sync.md",
-      "sha256": "b84a9407c7526042cbf72a20919e3b38822762e76dbde626ca7ad44e1a1fc153",
+      "sha256": "72f7a6cdc633260e928ef2e0ca162adb3394aa772eb46c30ecfea41b2f462be0",
       "pr": 30,
       "issue": 29,
       "date": "2026-11-23",
@@ -2390,7 +2516,7 @@
         "confirm": [
           {
             "type": "paragraph",
-            "text": "없음. docs를 원본으로 두고 대시보드에서 관리하며 CI로 연결을 검사하는 방향은 이미 합의했습니다. 생성·커밋·검사는 [위임 정책](../delegation.md)에 따라 작업 중인 에이전트가 수행하며, 사람이 매번 생성 명령을 실행하도록 요구한 것이 아닙니다."
+            "text": "없음. docs를 원본으로 두고 대시보드에서 관리하며 CI로 연결을 검사하는 방향은 이미 합의했습니다. 생성·커밋·검사는 [위임 정책](../guides/delegation.md)에 따라 작업 중인 에이전트가 수행하며, 사람이 매번 생성 명령을 실행하도록 요구한 것이 아닙니다."
           },
           {
             "type": "paragraph",
@@ -2427,7 +2553,7 @@
             "items": [
               "PR: [#30](https://github.com/YUJAEYUN/Dartness/pull/30) · 이슈: [#29](https://github.com/YUJAEYUN/Dartness/issues/29)",
               "생성기: `dashboard/scripts/system-status.mjs` · 테스트: `dashboard/scripts/system-status.test.mjs`",
-              "설명: [관리 화면](../management-screen.md), [시스템 상태](../system-status.md)"
+              "설명: [관리 화면](../design/management-screen.md), [시스템 상태](../system-status.md)"
             ]
           }
         ]
@@ -2435,7 +2561,7 @@
     },
     {
       "file": "docs/briefings/0028-cash-table.md",
-      "sha256": "a6eaa5c462359bd8609f9cd680ce2e1f9a16c93d1fdd232362728a3669007720",
+      "sha256": "1c5082fec480dbb3bda399a9140a482b93c9e4d1e00585b64dbcdfc98ec3123d",
       "pr": 28,
       "issue": 19,
       "date": "2026-11-23",
@@ -2561,7 +2687,7 @@
             "items": [
               "PR: [#28](https://github.com/YUJAEYUN/Dartness/pull/28) · 이슈: [#19](https://github.com/YUJAEYUN/Dartness/issues/19)",
               "코드: `src/dartness/cash_table.py` · 테스트: `tests/test_cash_table.py`",
-              "지원 범위: [재무상태표에서 현금 읽기](../cash-table-extraction.md)",
+              "지원 범위: [재무상태표에서 현금 읽기](../specs/cash-table-extraction.md)",
               "원문 발췌: `tests/fixtures/cash/helixmith-2025/balance-sections.json`"
             ]
           }

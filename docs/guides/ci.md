@@ -67,17 +67,17 @@ Check code의 dart_smoke 입력을 true로 지정한 수동 실행에만 별도 
 
 ## 관리 화면 검사
 
-이슈 #13에서 기존 code-quality에 Node.js 24·npm ci·UI 린트·Vitest·TypeScript strict·Vite 빌드를 추가했습니다. package-lock.json을 사용하고 dashboard/dist/를 management-dashboard 아티팩트로 7일 보관합니다. 별도 필수 검사 설정이나 권한 확대는 없습니다. 일반 CI는 GitHub를 재조회하지 않고 저장된 스냅샷으로 빌드합니다. Vercel 빌드는 공개 API에서 새 스냅샷을 생성하고 조회 실패 시 빌드도 실패합니다. 브라우저는 같은 공개 조회 모듈을 재사용해 화면 열기/다시 확인 시 조회하며, 네트워크·호출 제한 실패 시 저장본/직전 자료를 유지합니다. 조회/대체 자료 시각과 검증 한계는 [관리 화면](management-screen.md)에 명시합니다.
+이슈 #13에서 기존 code-quality에 Node.js 24·npm ci·UI 린트·Vitest·TypeScript strict·Vite 빌드를 추가했습니다. package-lock.json을 사용하고 dashboard/dist/를 management-dashboard 아티팩트로 7일 보관합니다. 별도 필수 검사 설정이나 권한 확대는 없습니다. 일반 CI는 GitHub를 재조회하지 않고 저장된 스냅샷으로 빌드합니다. Vercel 빌드는 공개 API에서 새 스냅샷을 생성하고 조회 실패 시 빌드도 실패합니다. 브라우저는 같은 공개 조회 모듈을 재사용해 화면 열기/다시 확인 시 조회하며, 네트워크·호출 제한 실패 시 저장본/직전 자료를 유지합니다. 조회/대체 자료 시각과 검증 한계는 [관리 화면](../design/management-screen.md)에 명시합니다.
 
 ## docs와 대시보드 생성물 검사
 
-code-quality가 UI 빌드 전에 `npm run docs:check`를 실행합니다. 시스템 상태 원본과 커밋된 생성 JSON이 다르면 실패하며 빌드의 자동 재생성으로 그 실패를 숨기지 않습니다. 생성기와 경계 사례는 UI Vitest에서 실행합니다. 로컬 훅 설치와 검사 한계는 [관리 화면](management-screen.md)에 있습니다. 필수 검사 이름·권한·기존 검사·정답은 바꾸지 않았습니다.
+code-quality가 UI 빌드 전에 `npm run docs:check`를 실행합니다. 시스템 상태 원본과 커밋된 생성 JSON이 다르면 실패하며 빌드의 자동 재생성으로 그 실패를 숨기지 않습니다. 생성기와 경계 사례는 UI Vitest에서 실행합니다. 로컬 훅 설치와 검사 한계는 [관리 화면](../design/management-screen.md)에 있습니다. 필수 검사 이름·권한·기존 검사·정답은 바꾸지 않았습니다.
 
 ## 이슈 조기 종료 방지
 
 PR 본문의 자동 종료 문구는 scripts/check_pr_policy.py가 거절합니다. PR 편집 이벤트에도 code-quality를 다시 실행해 본문만 바꿔도 검사합니다. 이 검사는 PR 본문의 자동 종료 경로를 차단하며, 실제 완료 조건의 충족 여부까지 판단하거나 GitHub에서 사람이 직접 닫는 동작을 막지는 않습니다. 본문과 체크리스트를 먼저 확인한 뒤 별도로 종료합니다.
 
-기능·명세 PR의 작업 브리핑은 scripts/check_briefing_required.py가 확인합니다. code-quality는 이 검사를 위해 전체 이력을 받아(fetch-depth: 0) PR 기준 커밋과의 변경 파일을 비교합니다. 대상 경로와 작성 방법은 [작업 브리핑](briefings/index.md)에 있습니다. 브리핑 파일이 있는지만 확인하며, 요약이 PR과 같은 뜻인지는 확인하지 않습니다.
+기능·명세 PR의 작업 브리핑은 scripts/check_briefing_required.py가 확인합니다. code-quality는 이 검사를 위해 전체 이력을 받아(fetch-depth: 0) PR 기준 커밋과의 변경 파일을 비교합니다. 대상 경로와 작성 방법은 [작업 브리핑](../briefings/index.md)에 있습니다. 브리핑 파일이 있는지만 확인하며, 요약이 PR과 같은 뜻인지는 확인하지 않습니다.
 
 ## 이슈 하나에 열린 PR 하나
 
@@ -85,6 +85,6 @@ scripts/check_issue_claim.py가 PR 본문의 `Refs #번호`를 그 PR이 맡은 
 
 - 먼저 열린(번호가 더 작은) 다른 열린 PR이 같은 이슈를 맡고 있을 때. 초안 PR도 셉니다. 먼저 연 PR은 실패하지 않습니다.
 - `Refs #번호`가 서로 다른 이슈로 두 개 이상일 때. 관련 이슈는 '관련: #번호'처럼 적습니다.
-- 기능·명세 PR([작업 브리핑](briefings/index.md)의 대상)인데 `Refs #번호`가 없을 때.
+- 기능·명세 PR([작업 브리핑](../briefings/index.md)의 대상)인데 `Refs #번호`가 없을 때.
 
 열린 PR 목록을 읽기 위해 code-quality 작업에 `pull-requests: read` 권한을 주고 Actions 기본 토큰을 씁니다. 쓰기 권한은 없습니다. 먼저 연 PR이 닫혀도 뒤의 PR 검사는 자동으로 다시 돌지 않으므로, 본문을 편집하거나 push해서 다시 실행합니다. PR을 열기 전에 겹친 작업은 감지하지 못합니다. 이슈 본문에 적은 담당 에이전트와 실제 작업자가 같은지도 확인하지 않습니다.

@@ -66,5 +66,5 @@ D 단계가 미구현에서 **일부**로 바뀌었습니다. 앞 단계(C)가 �
 
 - PR: [#28](https://github.com/YUJAEYUN/Dartness/pull/28) · 이슈: [#19](https://github.com/YUJAEYUN/Dartness/issues/19)
 - 코드: `src/dartness/cash_table.py` · 테스트: `tests/test_cash_table.py`
-- 지원 범위: [재무상태표에서 현금 읽기](../cash-table-extraction.md)
+- 지원 범위: [재무상태표에서 현금 읽기](../specs/cash-table-extraction.md)
 - 원문 발췌: `tests/fixtures/cash/helixmith-2025/balance-sections.json`

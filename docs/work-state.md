@@ -6,30 +6,33 @@
 
 main에 다음 기능이 있습니다.
 
-- 공시 후보 범위 검증·날짜 선택 후 출처 보존·복수 후보 보류: [공시 후보 계약](common-query-contract.md)
-- 공통 금액·보유 입력 계약·한국 실행일·달력 기간·날짜 후보 선택: [공통 계약 v1](common-query-contract.md)
-- 원화 금액 단위 변환: [금액 단위 처리](amounts.md)
-- 실제 DART 공시 1건 수집 검사: [수동 검사와 범위](dart-live-check.md)
-- 현금 조회 Python 계약 v1과 헬릭스미스 개발용 사례: [계약](cash-query-contract.md), [사례](cases/helixmith-cash.md)
-- 선정된 단순 HTML 구간의 현금 행·기간 열 추출: [지원 범위](cash-table-extraction.md)
+- 공시 후보 범위 검증·날짜 선택 후 출처 보존·복수 후보 보류: [공시 후보 계약](specs/common-query-contract.md)
+- 공통 금액·보유 입력 계약·한국 실행일·달력 기간·날짜 후보 선택: [공통 계약 v1](specs/common-query-contract.md)
+- 원화 금액 단위 변환: [금액 단위 처리](specs/amounts.md)
+- 실제 DART 공시 1건 수집 검사: [수동 검사와 범위](guides/dart-live-check.md)
+- 현금 조회 Python 계약 v1과 헬릭스미스 개발용 사례: [계약](specs/cash-query-contract.md), [사례](cases/helixmith-cash.md)
+- 선정된 단순 HTML 구간의 현금 행·기간 열 추출: [지원 범위](specs/cash-table-extraction.md)
 - 작업별 요약·결정 주체·확인 항목을 담은 [브리핑](briefings/index.md)과 대시보드 표시
-- docs의 처리 흐름·상태·미결 질문·다음 작업과 GitHub 조회/대체 자료를 모은 관리 화면: [관리 화면](management-screen.md)
+- docs의 처리 흐름·상태·미결 질문·다음 작업과 GitHub 조회/대체 자료를 모은 관리 화면: [관리 화면](design/management-screen.md)
 
-처리 흐름의 단계별 구현 상태와 다음·나중 작업은 [시스템 상태](system-status.md)에 있습니다. 확정한 기준은 원본 문서에 있습니다. 위임 범위는 [위임 정책](delegation.md), 현금 조회 범위는 [요구사항](requirements.md#cash-scope), 개발 원칙은 [개발 원칙](engineering-principles.md)을 봅니다.
+처리 흐름의 단계별 구현 상태와 다음·나중 작업은 [시스템 상태](system-status.md)에 있습니다. 확정한 기준은 원본 문서에 있습니다. 위임 범위는 [위임 정책](guides/delegation.md), 현금 조회 범위는 [요구사항](specs/requirements.md#cash-scope), 개발 원칙은 [개발 원칙](design/engineering-principles.md)을 봅니다.
 
 ## 진행 중인 작업
 
 - 관리 화면의 GitHub 최신 조회와 검증된 저장본 대체 배포를 완료했습니다(이슈 #69). 운영 결과는 해당 이슈에서 확인합니다.
-- 이슈 #72에서 PR별 완료 근거·사람의 개입·병합 후 문제를 [작업 결과](work-results.md)와 화면에 연결합니다. 기존 위임 권한은 유지합니다.
+- PR별 완료 근거·사람의 개입·병합 후 문제를 [작업 결과](work-results.md)와 화면에 연결했습니다(이슈 #72). 기존 위임 권한은 유지합니다.
+- 이슈 #74에서 문서를 specs·design·guides로 분류하고 링크·생성기·검사 경로를 함께 갱신합니다. [배치 기준](design/documentation.md)을 따릅니다.
 
-- 정정 연결의 공식 API 정보와 실제 보고서 한 쌍을 [조사](correction-linking.md)했습니다. 전체 본문 PDF·원문 XBRL을 확보한 [개발용 정답 사례](cases/hd-construction-correction.md)에서 현재기 현금 두 셀을 대조했습니다. 동일 보고서 연결과 항목 영향은 분리하며 자동 연결·적용은 미구현입니다. 이 작업은 클로드의 수집·파서 이슈와 분리합니다.
+- 정정 연결의 공식 API 정보와 실제 보고서 한 쌍을 [조사](design/correction-linking.md)했습니다. 전체 본문 PDF·원문 XBRL을 확보한 [개발용 정답 사례](cases/hd-construction-correction.md)에서 현재기 현금 두 셀을 대조했습니다. 동일 보고서 연결과 항목 영향은 분리하며 자동 연결·적용은 미구현입니다. 이 작업은 클로드의 수집·파서 이슈와 분리합니다.
 
-- 공통 조회·시점·출력 정책을 [계약 초안](common-query-contract.md)과 대시보드에 반영했습니다. 모집단은 실행일 현재 세 시장 상장법인입니다. 최신 자료/기준일 지정·개월 선택지·달력 계산·최신 정정·출력 옵션은 합의했고 공통 입력·날짜 계약은 구현했습니다. 수집·정정·추출·출력을 연결한 실행 엔진은 아직 없습니다.
+- 공통 조회·시점·출력 정책을 [계약 초안](specs/common-query-contract.md)과 대시보드에 반영했습니다. 모집단은 실행일 현재 세 시장 상장법인입니다. 최신 자료/기준일 지정·개월 선택지·달력 계산·최신 정정·출력 옵션은 합의했고 공통 입력·날짜 계약은 구현했습니다. 수집·정정·추출·출력을 연결한 실행 엔진은 아직 없습니다.
 - 이슈 #32는 열어 둔 상태를 유지합니다. 실행 가능한 라우터나 현금 외 추출 모듈은 아직 없습니다.
 - 현금 표 추출 평가(이슈 #31, 종료): 첫 평가 6곳·11건은 추출기를 고친 뒤 개발용입니다. 처음 보는 5개 법인 9건에서 틀린 금액 0, 8건 정답(금융업 6건은 정답대로 확인 필요). 그 뒤 계정명 앞 목차 기호를 떼고 비교하게 해(이슈 #56) 대한약품 1건도 개발용이 됐습니다. [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md)
 - 12월이 아닌 결산 법인 평가(이슈 #58): 수집기가 기업개황의 결산월로 보고서를 찾습니다. 3곳 5건(신영증권, SBI핀테크솔루션즈, JTC)에서 틀린 금액 0, 모두 정답대로 확인 필요였습니다. [세 번째 평가](evaluations/cash-table-dart-2025-third.md)
 
 ## 다음에 정할 것
+
+- 대시보드 코드를 기능별로 묶는 최소 범위와 참조 방향을 정합니다. Python 모듈은 확장 필요가 나타날 때 세분화합니다.
 
 - 작업 결과 기록을 실제 작업에서 사용하고, 누락되거나 반복되는 실패가 생기면 필요한 항목·검사를 보강합니다. 아직 성공률·개입 시간·자동 승인 효과를 측정했다고 해석하지 않습니다.
 

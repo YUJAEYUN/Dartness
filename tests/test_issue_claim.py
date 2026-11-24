@@ -1,4 +1,4 @@
-"""One open PR per issue (issue #55, docs/development-workflow.md)."""
+"""One open PR per issue (issue #55, docs/guides/development-workflow.md)."""
 
 import json
 import subprocess

@@ -39,7 +39,29 @@ validation:
 nav:
   - 시작: index.md
   - 시스템 상태: system-status.md
+  - 요구사항과 계약:
+      - 금액 단위 처리: specs/amounts.md
+      - 합의한 요구사항: specs/requirements.md
+      - 올인원 조회 유형: specs/query-types.md
+      - 공통 조회·출력 계약: specs/common-query-contract.md
+      - 현금 조회 계약 초안: specs/cash-query-contract.md
+      - 현금 표 추출: specs/cash-table-extraction.md
+      - 결과물 예시: specs/output-example.md
+  - 설계와 조사:
+      - 관리 화면 설계: design/management-screen.md
+      - 원본·정정공시 조사: design/correction-linking.md
+      - 에이전트 개발 원칙: design/engineering-principles.md
+      - 구조와 판단 경계: design/architecture.md
+      - 문서 운영과 메모리: design/documentation.md
+      - 검토 중인 제안: design/development-environment-proposal.md
+  - 실행과 개발 방법:
+      - 에이전트 위임 범위: guides/delegation.md
+      - DART 실제 수집 검사: guides/dart-live-check.md
+      - 테스트 작성 방법: guides/testing.md
+      - CI와 브랜치 설정: guides/ci.md
+      - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#75 문서 폴더 정리": briefings/0075-docs-layout.md
       - "#70 최신 GitHub 상태 확인": briefings/0070-dashboard-live-state.md
       - GitHub 조회 장애와 배포: briefings/0071-build-snapshot-fallback.md
       - "#73 작업 결과 확인": briefings/0073-work-results.md
@@ -62,30 +84,13 @@ nav:
       - "#30 대시보드 상태": briefings/0030-dashboard-sync.md
       - "#33 조회 유형 명세": briefings/0033-query-types.md
       - "#34 이슈 자동 종료 차단": briefings/0034-issue-autoclose.md
-  - 에이전트 위임 범위: delegation.md
-  - 관리 화면 설계: management-screen.md
   - 작업 결과 확인: work-results.md
-  - DART 실제 수집 검사: dart-live-check.md
-  - 테스트 작성 방법: testing.md
   - 평가 기록:
       - 현금 표 추출 첫 평가: evaluations/cash-table-dart-2025.md
       - 현금 표 추출 두 번째 평가: evaluations/cash-table-dart-2025-second.md
       - 현금 표 추출 세 번째 평가: evaluations/cash-table-dart-2025-third.md
   - 실제 공시 사례: cases/helixmith-cash.md
   - HD건설기계 원본·정정: cases/hd-construction-correction.md
-  - 금액 단위 처리: amounts.md
-  - 합의한 요구사항: requirements.md
-  - 올인원 조회 유형: query-types.md
-  - 공통 조회·출력 계약: common-query-contract.md
-  - 원본·정정공시 조사: correction-linking.md
-  - 에이전트 개발 원칙: engineering-principles.md
-  - 현금 조회 계약 초안: cash-query-contract.md
-  - 현금 표 추출: cash-table-extraction.md
-  - 구조와 판단 경계: architecture.md
-  - 결과물 예시: output-example.md
-  - 문서 운영과 메모리: documentation.md
-  - CI와 브랜치 설정: ci.md
-  - 개발 작업 흐름: development-workflow.md
   - 정합성 검토: consistency.md
   - 기록 양식:
       - 실행 평가: record-forms/evaluation.md
@@ -94,4 +99,3 @@ nav:
       - 정합성 검토: record-forms/consistency-review.md
   - LLM 위키: wiki/index.md
   - 다음 작업: work-state.md
-  - 검토 중인 제안: development-environment-proposal.md

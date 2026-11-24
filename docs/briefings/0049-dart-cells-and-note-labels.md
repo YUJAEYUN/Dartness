@@ -60,4 +60,4 @@ D 단계가 원문 수집(C)이 받아 오는 DART 원문 형식을 읽을 수 �
 
 - PR: [#49](https://github.com/YUJAEYUN/Dartness/pull/49) · 이슈: [#31](https://github.com/YUJAEYUN/Dartness/issues/31)
 - 코드: `src/dartness/cash_table.py` · 테스트: `tests/test_cash_table.py`, `tests/test_cash_eval_2025.py`
-- 설명: [지원 범위](../cash-table-extraction.md), [평가 기록](../evaluations/cash-table-dart-2025.md)
+- 설명: [지원 범위](../specs/cash-table-extraction.md), [평가 기록](../evaluations/cash-table-dart-2025.md)

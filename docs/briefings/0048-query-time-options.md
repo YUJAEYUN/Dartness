@@ -56,6 +56,6 @@ stages: []
 ## 근거
 
 - PR: [#48](https://github.com/YUJAEYUN/Dartness/pull/48) · 이슈: [#47](https://github.com/YUJAEYUN/Dartness/issues/47)
-- 원본: [공통 조회 계약](../common-query-contract.md), [요구사항](../requirements.md)
+- 원본: [공통 조회 계약](../specs/common-query-contract.md), [요구사항](../specs/requirements.md)
 - 검토: [정합성 기록](../consistency.md), [시스템 상태](../system-status.md)
 - 화면 생성: dashboard/scripts/system-status.mjs, dashboard/src/generated/system-status.json

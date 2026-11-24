@@ -84,7 +84,7 @@ describe("docs와 PO 화면의 동기화", () => {
 });
 
 describe("올인원 조회 유형 원본", () => {
-  const catalog = readFileSync(resolve(root, "docs/query-types.md"), "utf8");
+  const catalog = readFileSync(resolve(root, "docs/specs/query-types.md"), "utf8");
   it("사용자가 요청한 다섯 유형과 원본 필드를 보존한다", () => {
     const types = readQueryTypes(catalog);
     expect(types.map((t) => t.id)).toEqual([
@@ -138,7 +138,7 @@ describe("올인원 조회 유형 원본", () => {
 
 describe("합의한 공통 조회 정책", () => {
   const policy = readFileSync(
-    resolve(root, "docs/common-query-contract.md"),
+    resolve(root, "docs/specs/common-query-contract.md"),
     "utf8",
   );
   it("합의한 정책 항목을 원문에서 읽는다", () => {

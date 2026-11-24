@@ -66,6 +66,6 @@ A가 미구현에서 일부로 바뀌었습니다. 금액·보유의 공통 부�
 ## 근거
 
 - PR: [#51](https://github.com/YUJAEYUN/Dartness/pull/51) · 이슈: [#50](https://github.com/YUJAEYUN/Dartness/issues/50)
-- 기준: [공통 계약과 실행 예시](../common-query-contract.md), [요구사항](../requirements.md), [정합성 기록](../consistency.md)
+- 기준: [공통 계약과 실행 예시](../specs/common-query-contract.md), [요구사항](../specs/requirements.md), [정합성 기록](../consistency.md)
 - 코드: src/dartness/query_contract.py · 검사: tests/test_query_contract.py
-- 기존 경계: [현금 계약](../cash-query-contract.md), [시스템 상태](../system-status.md)
+- 기존 경계: [현금 계약](../specs/cash-query-contract.md), [시스템 상태](../system-status.md)
