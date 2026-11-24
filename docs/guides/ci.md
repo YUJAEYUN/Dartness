@@ -88,3 +88,7 @@ scripts/check_issue_claim.py가 PR 본문의 `Refs #번호`를 그 PR이 맡은 
 - 기능·명세 PR([작업 브리핑](../briefings/index.md)의 대상)인데 `Refs #번호`가 없을 때.
 
 열린 PR 목록을 읽기 위해 code-quality 작업에 `pull-requests: read` 권한을 주고 Actions 기본 토큰을 씁니다. 쓰기 권한은 없습니다. 먼저 연 PR이 닫혀도 뒤의 PR 검사는 자동으로 다시 돌지 않으므로, 본문을 편집하거나 push해서 다시 실행합니다. PR을 열기 전에 겹친 작업은 감지하지 못합니다. 이슈 본문에 적은 담당 에이전트와 실제 작업자가 같은지도 확인하지 않습니다.
+
+## 새 검사 우회 구문 비교
+
+code-quality의 PR 검사에서 Node·기존 대시보드 의존성 설치 뒤 `python -m scripts.check_quality_changes --base "$BASE_SHA" --head "$HEAD_SHA"`를 실행합니다. 두 값은 PR 이벤트의 실제 기준/작업 SHA입니다. 새 우회는 실패(1), 읽기·분석 오류는 실패(2)이며 결과를 로그와 Actions 요약에 남깁니다. 설정 변경 보고가 승인이라는 뜻은 아닙니다. 기존 Ruff 규칙과 [예외 처리·우회 기준](quality-guards.md)을 함께 적용하며 기존 테스트 정답은 유지합니다.
