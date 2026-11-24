@@ -15,6 +15,7 @@
 | 대시보드 코드 배치·참조 방향 | [기능별 폴더와 검사 범위](../design/dashboard-structure.md). dashboard/scripts/architecture.mjs, dashboard/scripts/architecture.test.mjs |
 | 관리 화면 구현·갱신 | [첫 화면·실행·데이터 원본·검사 한계](../design/management-screen.md). dashboard/src/app/App.tsx, dashboard/src/features/github-status/data.ts, dashboard/src/features/github-status/data.test.ts, dashboard/scripts/snapshot.mjs, dashboard/scripts/build-snapshot.mjs (빌드 실패 시 저장본 검증), dashboard/scripts/snapshot-schema.mjs (화면·빌드 공통 검증), dashboard/scripts/github-snapshot.mjs (빌드·브라우저 공통 공개 조회), dashboard/src/features/github-status/snapshot-loader.ts, dashboard/src/features/github-status/snapshot-loader.test.ts (실패·취소·대체 자료) |
 | 여러 에이전트로 동시 작업 | [작업 흐름의 공동 작업 규칙](../guides/development-workflow.md). 최신화·생성 파일·의미 충돌을 무엇이 강제하는지 표로 정리 |
+| 에이전트 지침 변경·경로 검토 | [지침 보존 대조와 대표 작업](../design/agent-entrypoint.md). AGENTS.md는 진입점이며 정책 원본은 연결한 docs |
 | 개발 작업 진행 | [작업 흐름](../guides/development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |
 | 작업 완료 근거·개입·문제 확인 | [기록 기준과 실행 표](../work-results.md). dashboard/scripts/work-results.mjs가 docs 원본에서 화면 데이터를 생성합니다. dashboard/src/features/work-results/WorkResults.tsx와 dashboard/scripts/work-results.test.mjs를 함께 확인하고 미기록은 성공으로 세지 않습니다 |
