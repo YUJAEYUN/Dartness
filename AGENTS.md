@@ -24,12 +24,13 @@ The wiki routes tasks to source docs; it is not a second rulebook. Native agent 
 
 ## Verify
 
-Use Python 3.12 and Node.js 24. Install existing dependencies from requirements-dev.txt, requirements-docs.txt, and dashboard/package-lock.json as needed. Follow docs/guides/ci.md for required checks; do not claim a check passed without running it.
+Use Python 3.12 and Node.js 24. Install existing dependencies as needed with `python -m pip install -r requirements-dev.txt -r requirements-docs.txt` and `npm --prefix dashboard ci` (dashboard/package-lock.json). Follow docs/guides/ci.md for required checks; do not claim a check passed without running it.
 
 - Python: `python -m ruff check .`, `python -m ruff format --check .`, `python -m mypy`, `python -m pytest -q`.
 - Docs: `python -m mkdocs build --strict`.
 - Dashboard: `npm --prefix dashboard run docs:check`, `npm --prefix dashboard run lint`, `npm --prefix dashboard test`, `npm --prefix dashboard run build`.
-- After changing generated document sources, run `npm --prefix dashboard run docs:generate` and commit the generated files. Review related source docs, wiki links, and work state together.
+- After changing generated document sources, run `npm --prefix dashboard run docs:generate` and commit the generated files.
+- When behavior or meaningful decisions change, update the relevant source docs, wiki links, and work state. Review their consistency with code.
 
 Passing builds/tests do not establish semantic consistency, diagram correctness, or DART extraction accuracy. Amount normalization is not disclosure extraction or fact validation.
 
