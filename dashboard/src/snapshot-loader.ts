@@ -1,11 +1,9 @@
 import { collectSnapshot } from "../scripts/github-snapshot.mjs";
 import { parseSnapshot, type Snapshot } from "./data";
 
-export type SnapshotState = {
-  snapshot: Snapshot | null;
-  source: "github" | "saved" | null;
-  error: string;
-};
+export type SnapshotState =
+  | { snapshot: Snapshot; source: "github" | "saved"; error: string }
+  | { snapshot: null; source: null; error: string };
 
 function joinedSignal(external: AbortSignal | undefined, timeout: AbortSignal) {
   return external ? AbortSignal.any([external, timeout]) : timeout;
