@@ -40,7 +40,7 @@ Passing builds/tests do not establish semantic consistency, diagram correctness,
 - Derive expected answers from source evidence, never implementation output. Distinguish real, modified, development, and held-out cases honestly; draft fixtures are not verified extraction tests.
 - Do not introduce third-party DART MCP servers, skills, or dedicated API wrappers. Use official OpenDART endpoints directly. General-purpose development libraries are not prohibited, but new dependencies still require approval.
 - Never commit credentials, internal client lists, team mappings, or private query outputs.
-- Write human-facing docs/explanations in concise, natural Korean familiar to developers. Agent-only instructions and identifiers use English. Prefer direct questions and complete sentences; explain necessary technical terms. Check wording with examples and reader tasks. Linters can flag known patterns, but do not add blanket wording bans or claim a readability score proves quality.
+- Write human-facing documents and explanations in concise, natural Korean familiar to developers. Agent-only instructions and identifiers use English. Prefer direct questions and complete sentences; explain necessary technical terms. Check wording with examples and reader tasks. Linters can flag known patterns, but do not add blanket wording bans or claim a readability score proves quality.
 
 ## Decide and finish
 
