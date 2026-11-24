@@ -92,7 +92,7 @@ flowchart LR
 | 코드 검사(린트·타입·테스트) | 필수 CI | .github/workflows/code.yml |
 | 문서 빌드 | 필수 CI | .github/workflows/docs.yml |
 | 문서 경로·규칙·예시 연결 검사 | pytest 안에서 실행 | tests/test_docs_consistency.py |
-| 관리 화면 | 배포됨, docs의 시스템 상태와 GitHub 작업 상태 표시 | [관리 화면](management-screen.md) |
+| 관리 화면 | 배포됨, docs의 배포 기준 상태와 최신 GitHub 조회/대체 자료 표시 | [관리 화면](management-screen.md) |
 
 ## 이 문서를 갱신할 때
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   BookOpen,
   CheckCheck,
@@ -11,15 +11,8 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import { Button } from "./components/ui/button";
-import {
-  failedRuns,
-  isStale,
-  parseSnapshot,
-  repository,
-  sourceBase,
-  type Item,
-  type Snapshot,
-} from "./data";
+import { failedRuns, isStale, repository, sourceBase, type Item } from "./data";
+import { loadSnapshot, type SnapshotState } from "./snapshot-loader";
 import "./App.css";
 import { ProjectStatus } from "./ProjectStatus";
 import { Briefings } from "./Briefings";
@@ -79,57 +72,45 @@ function Rows({ items, empty }: { items: Item[]; empty: string }) {
   );
 }
 export default function App() {
-  const [snapshot, setSnapshot] = useState<Snapshot | null>(null);
-  const [error, setError] = useState("");
+  const [view, setView] = useState<SnapshotState>({
+    snapshot: null,
+    source: null,
+    error: "",
+  });
+  const previous = useRef<SnapshotState | null>(null);
   const [loading, setLoading] = useState(true);
+  const [refreshKey, setRefreshKey] = useState(0);
   const [search, setSearch] = useState("");
-  async function load() {
+  const { snapshot, error, source } = view;
+  function load() {
     setLoading(true);
-    setError("");
-    try {
-      const response = await fetch(
-        `${import.meta.env.BASE_URL}data/snapshot.json`,
-        { cache: "no-store" },
-      );
-      if (!response.ok) throw new Error("상태 자료를 불러오지 못했습니다.");
-      setSnapshot(parseSnapshot(await response.json()));
-    } catch (cause) {
-      setError(
-        cause instanceof Error
-          ? cause.message
-          : "상태 자료를 불러오지 못했습니다.",
-      );
-    } finally {
-      setLoading(false);
-    }
+    setRefreshKey((key) => key + 1);
   }
   useEffect(() => {
     let active = true;
-    async function initialLoad() {
-      try {
-        const response = await fetch(
-          `${import.meta.env.BASE_URL}data/snapshot.json`,
-          { cache: "no-store" },
-        );
-        if (!response.ok) throw new Error("상태 자료를 불러오지 못했습니다.");
-        const data = parseSnapshot(await response.json());
-        if (active) setSnapshot(data);
-      } catch (cause) {
+    const controller = new AbortController();
+    void loadSnapshot(previous.current, fetch, controller.signal)
+      .then((next) => {
+        if (active) {
+          previous.current = next;
+          setView(next);
+        }
+      })
+      .catch((cause: unknown) => {
         if (active)
-          setError(
-            cause instanceof Error
-              ? cause.message
-              : "상태 자료를 불러오지 못했습니다.",
-          );
-      } finally {
+          setView((current) => ({
+            ...current,
+            error: cause instanceof Error ? cause.message : "상태 조회 오류",
+          }));
+      })
+      .finally(() => {
         if (active) setLoading(false);
-      }
-    }
-    void initialLoad();
+      });
     return () => {
       active = false;
+      controller.abort();
     };
-  }, []);
+  }, [refreshKey]);
   const matching = (item: Item) =>
     item.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
     String(item.number).includes(search);
@@ -207,17 +188,19 @@ export default function App() {
               결정할 일과 작업 결과를 한곳에서 확인하세요.
             </p>
           </div>
-          <Button
-            variant="outline"
-            onClick={() => void load()}
-            disabled={loading}
-          >
+          <Button variant="outline" onClick={load} disabled={loading}>
             <RefreshCw size={16} />
-            {loading ? "불러오는 중" : "저장된 상태 다시 읽기"}
+            {loading ? "불러오는 중" : "GitHub 상태 다시 확인"}
           </Button>
         </header>
         <div className="snapshot-info">
-          <span>배포 시 저장한 GitHub 상태</span>
+          <span>
+            {source === "github"
+              ? "GitHub에서 마지막으로 확인한 상태"
+              : source === "saved"
+                ? "배포 저장본 · 대체 자료"
+                : "GitHub 상태 조회"}
+          </span>
           <span>
             {snapshot
               ? `${date(snapshot.generatedAt)} 기준 · 한국 시간`
@@ -225,12 +208,17 @@ export default function App() {
           </span>
         </div>
         <p className="notice">
-          Vercel 빌드 때 갱신합니다. 실시간 화면은 아니며, 다시 읽기는 저장된
-          자료만 불러옵니다. 최신 상태와 답변은 GitHub에서 확인하세요.
+          화면을 열거나 다시 확인할 때 공개 GitHub 상태를 조회합니다. 이후
+          변경은 자동 추적하지 않습니다. 정책·구현 상태·브리핑은 배포된 문서
+          기준입니다.
         </p>
         {error && (
           <div role="alert" className="alert">
-            {error} {snapshot && "아래는 이전에 불러온 자료입니다."}{" "}
+            {error}{" "}
+            {snapshot &&
+              (source === "saved"
+                ? "아래는 배포에 저장된 대체 자료입니다."
+                : "아래는 마지막 정상 조회 자료입니다.")}{" "}
             <a href={repository}>GitHub에서 확인</a>
           </div>
         )}
