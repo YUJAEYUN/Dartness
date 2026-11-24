@@ -16,6 +16,7 @@
 | 여러 에이전트로 동시 작업 | [작업 흐름의 공동 작업 규칙](../development-workflow.md). 최신화·생성 파일·의미 충돌을 무엇이 강제하는지 표로 정리 |
 | 개발 작업 진행 | [작업 흐름](../development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |
+| 작업 완료 근거·개입·문제 확인 | [기록 기준과 실행 표](../work-results.md). dashboard/scripts/work-results.mjs가 docs 원본에서 화면 데이터를 생성합니다. dashboard/src/WorkResults.tsx와 dashboard/scripts/work-results.test.mjs를 함께 확인하고 미기록은 성공으로 세지 않습니다 |
 | 작업 하나를 따라가기 | [작업 브리핑 양식과 목록](../briefings/index.md), [기존 합의와의 내용 검토](../consistency.md). 형식 검사는 tests/test_docs_consistency.py |
 | 전체 진행 상황·방향 | [시스템 상태](../system-status.md). 단계별 상태를 바꾸면 지도와 표를 함께 고칩니다 |
 | 개발 원칙·실행 평가 | [다섯 개발 원칙](../engineering-principles.md), [평가 기록](../record-forms/evaluation.md) |
