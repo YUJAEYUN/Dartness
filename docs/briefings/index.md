@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#71 GitHub 조회 실패 시 저장본으로 배포](0071-build-snapshot-fallback.md) | 관리 화면 |
 | [#68 외화 공시 등을 미결로 두기](0068-deferred-foreign-currency.md) | 명세 |
 | [#70 최신 GitHub 상태 확인](0070-dashboard-live-state.md) | 관리 화면 |
 | [#66 12월이 아닌 결산 법인 평가](0066-non-december-evaluation.md) | 평가 |

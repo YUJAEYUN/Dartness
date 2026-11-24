@@ -41,6 +41,7 @@ nav:
   - 시스템 상태: system-status.md
   - 작업 브리핑:
       - "#70 최신 GitHub 상태 확인": briefings/0070-dashboard-live-state.md
+      - GitHub 조회 장애와 배포: briefings/0071-build-snapshot-fallback.md
       - "#68 외화 공시 등을 미결로 두기": briefings/0068-deferred-foreign-currency.md
       - "#66 12월이 아닌 결산 법인 평가": briefings/0066-non-december-evaluation.md
       - "#65 정정 전체 자료와 정답": briefings/0065-correction-case.md
