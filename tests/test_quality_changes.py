@@ -89,11 +89,15 @@ def test_git_comparison_keeps_moved_exceptions_and_finds_new_ones(tmp_path: Path
     old.rename(new)
     new.write_text(new.read_text() + "y = 1 # type: ignore[misc]\n")
     (tmp_path / "pyproject.toml").write_text("# setting change\n")
+    (tmp_path / "dashboard").mkdir()
+    (tmp_path / "dashboard/vitest.config.ts").write_text(
+        "export default { test: { exclude: [] } };\n"
+    )
     head = commit(tmp_path)
     assert ("tests/original.py", "tests/moved.py") in changed_pairs(base, head, tmp_path)
     findings, settings = compare(base, head, tmp_path)
     assert [(path, marker.kind) for path, marker in findings] == [("tests/moved.py", "검사 무시")]
-    assert settings == ["pyproject.toml"]
+    assert settings == ["dashboard/vitest.config.ts", "pyproject.toml"]
 
 
 def test_marker_counts_ignore_line_numbers() -> None:

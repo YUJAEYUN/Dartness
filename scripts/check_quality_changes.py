@@ -154,10 +154,26 @@ def added(before: list[Marker], after: list[Marker]) -> list[Marker]:
 
 
 def settings_changed(path: str) -> bool:
+    name = path.rsplit("/", 1)[-1]
     return (
-        path in {"pyproject.toml", "dashboard/.oxlintrc.json", "dashboard/package.json"}
+        name
+        in {
+            "pyproject.toml",
+            "pytest.ini",
+            "mypy.ini",
+            "setup.cfg",
+            "tox.ini",
+            "ruff.toml",
+            ".ruff.toml",
+            ".oxlintrc.json",
+            ".oxlintignore",
+            ".gitignore",
+            ".gitattributes",
+            "package.json",
+            "package-lock.json",
+        }
         or path.startswith(".github/workflows/")
-        or path.startswith("dashboard/tsconfig")
+        or name.startswith(("tsconfig", "vite.config.", "vitest.config.", "requirements"))
         or path in {"scripts/check_quality_changes.py", "dashboard/scripts/quality-markers.mjs"}
     )
 
