@@ -2,6 +2,108 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0077-dashboard-features.md",
+      "sha256": "138c2a6b51d2027c4c6f811517e8c9537200bcb0f80ceba0372e28ab1d0ae61c",
+      "pr": 77,
+      "issue": 76,
+      "date": "2026-11-24",
+      "stages": [],
+      "title": "대시보드 파일을 기능별로 모으기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "화면 조립·개별 기능·공통 UI·공통 자료를 나누고 기존 테스트에서 참조 방향을 검사합니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "관리 화면 코드 정리입니다. DART 처리 단계·도메인 기준·화면 디자인은 바뀌지 않았습니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "paragraph",
+            "text": "app은 화면을 조립하고 features는 GitHub 현황·시스템 상태·브리핑·작업 결과를 맡습니다. components의 흐름도와 shared의 저장소 주소·자료 계약을 함께 사용해 기능끼리 직접 참조하지 않습니다. 테스트는 해당 기능 옆에 둡니다. scripts·generated·Vercel 루트와 출력 경로는 유지합니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "docs 다음으로 대시보드 코드를 기능별로 정리합니다.",
+              "기존 구조를 활용하고 동작을 유지합니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "브리핑과 시스템 상태가 쓰는 Flowchart를 공통 UI로 분리하고 기본 흐름도는 호출하는 화면에서 전달했습니다.",
+              "기능 간 참조·공통 모듈의 역참조·허용하지 않은 src 밖 상대 참조를 기존 Vitest에서 검사합니다.",
+              "TypeScript 7에 예전 JavaScript 파서 API가 없어 기존 Vite가 제공하는 Oxc 파서를 사용했습니다. 새 의존성은 추가하지 않았습니다.",
+              "빌드와 브라우저가 공유하던 공개 조회·자료 검증 두 연결은 명시적으로 유지했습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "추가 결정은 없습니다. 이번 정리는 Python 기능 세분화나 새 기능 구현이 아닙니다. AGENTS.md 운영 방향 검토는 이번 작업을 마친 뒤 별도로 진행합니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "기존 조회·대체 자료·표시 테스트 유지, 실제 src의 참조 경로 검사",
+                "모든 순환 참조와 좋은 추상화의 자동 판정"
+              ],
+              [
+                "타입 import·재내보내기·동적 import도 경계 검사, 계산형 경로 거절",
+                "코드 배치만으로 도메인 정확성 보증"
+              ],
+              [
+                "문서·위키·브리핑·타입 선언의 경로 갱신",
+                "모든 모바일 화면·디자인 검토"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "운영 화면과 실제 조회 확인은 이슈·PR에 남깁니다."
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#77](https://github.com/YUJAEYUN/Dartness/pull/77) · 이슈: [#76](https://github.com/YUJAEYUN/Dartness/issues/76)",
+              "기준: [대시보드 코드 배치](../design/dashboard-structure.md)",
+              "검사: dashboard/scripts/architecture.mjs, dashboard/scripts/architecture.test.mjs",
+              "조립: dashboard/src/app/App.tsx · 공통 흐름도: dashboard/src/components/Flowchart.tsx"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0075-docs-layout.md",
       "sha256": "7773754d360337fe0252551db34a35684e57962c34f8c198ab1e597f18c86a84",
       "pr": 75,
@@ -129,7 +231,7 @@
     },
     {
       "file": "docs/briefings/0073-work-results.md",
-      "sha256": "8a3bb2d01cf908249ba096bcf9b1dd19b6ff899b80aa318f71e46a710cffac62",
+      "sha256": "558d03c5c7cd73aa30f8c29f32f657a2339b1060cfde74639fd883b84bd31889",
       "pr": 73,
       "issue": 72,
       "date": "2026-11-24",
@@ -221,7 +323,7 @@
             "items": [
               "PR: [#73](https://github.com/YUJAEYUN/Dartness/pull/73) · 이슈: [#72](https://github.com/YUJAEYUN/Dartness/issues/72)",
               "기준과 사례: [작업 결과 확인](../work-results.md), [관리 화면](../design/management-screen.md)",
-              "구현: dashboard/scripts/work-results.mjs, dashboard/src/WorkResults.tsx",
+              "구현: dashboard/scripts/work-results.mjs, dashboard/src/features/work-results/WorkResults.tsx",
               "검사: dashboard/scripts/work-results.test.mjs"
             ]
           }
@@ -230,7 +332,7 @@
     },
     {
       "file": "docs/briefings/0071-build-snapshot-fallback.md",
-      "sha256": "7311d2d94bb0df1010684d3ca0d311dd27ebf754dabe4d8ddd8facd6546220b3",
+      "sha256": "143a1beb113eb3131854d6cf363b4e20019e29c5701f3a775a43ee00d865bb15",
       "pr": 71,
       "issue": 69,
       "date": "2026-11-24",
@@ -300,7 +402,7 @@
               "PR: [#71](https://github.com/YUJAEYUN/Dartness/pull/71) · 이슈: [#69](https://github.com/YUJAEYUN/Dartness/issues/69)",
               "기준: [관리 화면](../design/management-screen.md)",
               "구현: dashboard/scripts/build-snapshot.mjs, dashboard/scripts/snapshot-schema.mjs",
-              "검사: dashboard/scripts/build-snapshot.test.mjs, dashboard/src/data.test.ts"
+              "검사: dashboard/scripts/build-snapshot.test.mjs, dashboard/src/features/github-status/data.test.ts"
             ]
           }
         ]
@@ -308,7 +410,7 @@
     },
     {
       "file": "docs/briefings/0070-dashboard-live-state.md",
-      "sha256": "86994c3c6f536af701bbfb9526b55b3d9eaf23d5447736f0285d3f950fb20b31",
+      "sha256": "d94c6a8fca972f7bbde1b865a7450b1f225d2f2986de12b5dbf091aff698ffb0",
       "pr": 70,
       "issue": 69,
       "date": "2026-11-24",
@@ -427,8 +529,8 @@
             "items": [
               "PR: [#70](https://github.com/YUJAEYUN/Dartness/pull/70) · 이슈: [#69](https://github.com/YUJAEYUN/Dartness/issues/69)",
               "동작 기준: [관리 화면](../design/management-screen.md), [개발 원칙](../design/engineering-principles.md), [정합성 기록](../consistency.md)",
-              "공통 조회: dashboard/scripts/github-snapshot.mjs · 로더: dashboard/src/snapshot-loader.ts · 화면: dashboard/src/App.tsx",
-              "검사: dashboard/src/snapshot-loader.test.ts, dashboard/scripts/github-snapshot.test.mjs"
+              "공통 조회: dashboard/scripts/github-snapshot.mjs · 로더: dashboard/src/features/github-status/snapshot-loader.ts · 화면: dashboard/src/app/App.tsx",
+              "검사: dashboard/src/features/github-status/snapshot-loader.test.ts, dashboard/scripts/github-snapshot.test.mjs"
             ]
           }
         ]
@@ -1816,7 +1918,7 @@
     },
     {
       "file": "docs/briefings/0046-common-query-policy.md",
-      "sha256": "74ce62fee19dfb665c067335679d65d349ac757f12065cd68effc859c8edc4f5",
+      "sha256": "393fd0999539c0a8cbf5d91a3966431aa8b5d67c768e349d44fab7415457edc6",
       "pr": 46,
       "issue": 44,
       "date": "2026-11-23",
@@ -1928,7 +2030,7 @@
             "items": [
               "PR: [#46](https://github.com/YUJAEYUN/Dartness/pull/46) · 이슈: [#44](https://github.com/YUJAEYUN/Dartness/issues/44)",
               "원본: [공통 계약](../specs/common-query-contract.md), [현금 계약](../specs/cash-query-contract.md), [정합성 검토](../consistency.md)",
-              "연결: dashboard/scripts/system-status.mjs, dashboard/scripts/system-status.test.mjs, dashboard/src/ProjectStatus.tsx"
+              "연결: dashboard/scripts/system-status.mjs, dashboard/scripts/system-status.test.mjs, dashboard/src/features/project-status/ProjectStatus.tsx"
             ]
           }
         ]

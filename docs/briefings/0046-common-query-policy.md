@@ -57,4 +57,4 @@ stages: []
 
 - PR: [#46](https://github.com/YUJAEYUN/Dartness/pull/46) · 이슈: [#44](https://github.com/YUJAEYUN/Dartness/issues/44)
 - 원본: [공통 계약](../specs/common-query-contract.md), [현금 계약](../specs/cash-query-contract.md), [정합성 검토](../consistency.md)
-- 연결: dashboard/scripts/system-status.mjs, dashboard/scripts/system-status.test.mjs, dashboard/src/ProjectStatus.tsx
+- 연결: dashboard/scripts/system-status.mjs, dashboard/scripts/system-status.test.mjs, dashboard/src/features/project-status/ProjectStatus.tsx

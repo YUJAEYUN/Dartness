@@ -1,4 +1,4 @@
-import { collectSnapshot } from "../scripts/github-snapshot.mjs";
+import { collectSnapshot } from "../../../scripts/github-snapshot.mjs";
 import { parseSnapshot, type Snapshot } from "./data";
 
 export type SnapshotState =

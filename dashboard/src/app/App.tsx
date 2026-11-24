@@ -10,13 +10,15 @@ import {
   RefreshCw,
   ShieldAlert,
 } from "lucide-react";
-import { Button } from "./components/ui/button";
-import { failedRuns, isStale, repository, sourceBase, type Item } from "./data";
-import { loadSnapshot, type SnapshotState } from "./snapshot-loader";
+import { Button } from "../components/ui/button";
+import { failedRuns, isStale } from "../features/github-status/data";
+import { repository, sourceBase } from "../shared/repository";
+import type { Item } from "../shared/snapshot";
+import { loadSnapshot, type SnapshotState } from "../features/github-status/snapshot-loader";
 import "./App.css";
-import { ProjectStatus } from "./ProjectStatus";
-import { Briefings } from "./Briefings";
-import { WorkResults } from "./WorkResults";
+import { ProjectStatus } from "../features/project-status/ProjectStatus";
+import { Briefings } from "../features/briefings/Briefings";
+import { WorkResults } from "../features/work-results/WorkResults";
 const docs = [
   ["시스템 상태", "system-status.md", "처리 흐름의 구현 상태와 다음 작업"],
   ["요구사항", "specs/requirements.md", "조회·출력에서 지켜야 할 기준"],

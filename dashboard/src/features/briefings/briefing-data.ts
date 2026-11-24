@@ -1,5 +1,5 @@
-import data from "./generated/briefings.json";
-import { repository, sourceBase } from "./data";
+import data from "../../generated/briefings.json";
+import { repository, sourceBase } from "../../shared/repository";
 
 export type Block =
   | { type: "paragraph"; text: string }

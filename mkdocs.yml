@@ -62,6 +62,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#77 대시보드 기능별 폴더": briefings/0077-dashboard-features.md
       - "#75 문서 폴더 정리": briefings/0075-docs-layout.md
       - "#70 최신 GitHub 상태 확인": briefings/0070-dashboard-live-state.md
       - GitHub 조회 장애와 배포: briefings/0071-build-snapshot-fallback.md
