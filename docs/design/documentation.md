@@ -85,3 +85,7 @@ GitHub Pages 게시 워크플로는 수동 실행입니다. 저장소 Settings �
 관련 문서는 상대 링크로 연결하고 본문 내용을 다른 폴더에 복제하지 않습니다. 새 폴더는 역할이 다른 문서 묶음이 생겼을 때 추가하며 문서 하나마다 폴더를 만들지 않습니다. Python·대시보드 기능별 폴더 정리는 후속으로 분리합니다. 문서를 옮길 때 링크·탐색·생성기 입력·명세 변경 검사 경로를 함께 바꾸고 생성 파일은 원본에서 다시 만듭니다.
 
 참고: [Python Packaging](https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/), [Bulletproof React](https://github.com/alan2207/bulletproof-react/blob/master/docs/project-structure.md), [Diátaxis](https://diataxis.fr/). 이 자료들의 전체 구조나 도구를 그대로 도입하지 않습니다.
+
+## 에이전트 지침의 진입점
+
+AGENTS.md는 시작·작업별 문서·검증·승인·마무리를 안내합니다. 상세 절차와 정책은 기존 원본에 남기고 [지침 보존 대조와 대표 작업 경로](agent-entrypoint.md)로 누락을 검토합니다. 파일 자체가 실행기나 권한 장치인 것은 아니며 줄 수나 링크 검사만으로 에이전트 효과를 판단하지 않습니다.
