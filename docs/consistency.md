@@ -222,3 +222,7 @@ PDF 재무상태표 현재기 행과 원문 XBRL context의 법인·일자·연�
 ## 예외 처리와 새 검사 우회
 
 2026-11-24 이슈 #80에서 Ruff 예외/무시 규칙과 PR base/head 비교를 추가했습니다. tests/test_exception_lint.py의 실제 반례에서 구체 예외 후 pass/continue를 기본 옵션이 놓치는 것을 확인해 check-typed-exception을 켰습니다. Python tokenize/AST와 기존 Vite의 Oxc 파서로 문자열·별칭·재배치·읽기 실패를 구분하며 tests/test_quality_changes.py와 dashboard/scripts/quality-markers.test.mjs로 검증합니다. 기존 음성 테스트 예외·정답·코드 동작은 유지하고 의존성·권한은 추가하지 않았습니다. 검사 설정 변경도 실행 요약에 표시하지만 사람 승인을 자동 인증하거나 기존 정답/테스트 약화 전체를 보호하지는 않습니다.
+
+## 공통 공시 목록의 수집 완전성과 범위
+
+2026-11-24 이슈 #82에서 공식 list.json의 법인코드 없는 3개월 제한·페이지 최대 100건·정정 포함 N을 확인하고 src/dartness/disclosure_list.py와 tests/test_disclosure_list.py에 월 분할·모든 페이지·응답/총 건수·범위·중복/충돌·예산·부분 실패 검사를 추가했습니다. 합성 공식 필드 사례이며 새 코드의 실제 API 호출·전수·자산/금액 정확성 검증은 아닙니다. 기존 평가용 수집기와 정답·선택 정책을 유지하고 B 단계는 일부로 남깁니다. #32 완료 종료·#57 보류는 사용자 최신 결정과 대조했습니다.
