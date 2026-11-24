@@ -111,7 +111,7 @@ docs/specs/common-query-contract.md의 query-policy 표를 같은 생성기로 �
 
 ## 최신 GitHub 상태 조회 — 변경 기준
 
-2026-11-24 사용자와 합의했습니다. 화면을 열거나 다시 확인을 누르면 기존 공개 GitHub 조회 모듈(dashboard/scripts/github-snapshot.mjs)로 이슈·PR·검사 상태를 함께 조회합니다. 브라우저 로더는 dashboard/src/snapshot-loader.ts, 실패·취소 경계 검사는 dashboard/src/snapshot-loader.test.ts입니다. 성공하면 GitHub 조회 자료와 그 시각을 표시합니다. 로그인·토큰·새 서버·상시 폴링은 추가하지 않습니다.
+2026-11-24 사용자와 합의했습니다. 화면을 열거나 다시 확인을 누르면 기존 공개 GitHub 조회 모듈(dashboard/scripts/github-snapshot.mjs)로 이슈·PR·검사 상태를 함께 조회합니다. 브라우저 로더는 dashboard/src/features/github-status/snapshot-loader.ts, 실패·취소 경계 검사는 dashboard/src/features/github-status/snapshot-loader.test.ts입니다. 성공하면 GitHub 조회 자료와 그 시각을 표시합니다. 로그인·토큰·새 서버·상시 폴링은 추가하지 않습니다.
 
 | 상황 | 기대 동작 |
 |---|---|
@@ -131,3 +131,7 @@ docs/specs/common-query-contract.md의 query-policy 표를 같은 생성기로 �
 ## 작업 결과 모아 보기
 
 2026-11-24 사용자와 합의했습니다. [작업 결과 확인](../work-results.md)의 실행 기록 표를 생성해 화면에서 PR별 완료 조건·근거·사람의 개입·병합 후 문제를 봅니다. 브리핑이 있는 PR 중 기록한 범위를 표시하고 기록 없는 PR을 성공으로 세지 않습니다. 결과는 배포 커밋의 기록이며 실시간 GitHub 상태와 구분합니다. 성공률·점수·자동 승인·개입 시간 추정은 추가하지 않습니다. 기존 docs 생성/일치 검사와 테스트를 사용합니다.
+
+## 기능별 코드 배치
+
+화면 코드는 [대시보드 코드 배치](dashboard-structure.md)를 따릅니다. 기존 테스트를 기능 옆으로 옮기고 공통 흐름도·저장소 주소·자료 계약을 분리했습니다. 기존 npm test에서 실제 src의 import 경계를 검사하며 화면 동작·Vercel 설정·DART 기준은 유지합니다.

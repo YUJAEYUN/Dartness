@@ -11,12 +11,13 @@
 | 테스트가 버그를 잡는지 확인 | [변이 테스트](../guides/testing.md#mutation). 설정은 pyproject.toml의 [tool.mutmut], 대상은 src/dartness/cash_table.py |
 | 문서 예시 테스트 작성 | [작성 규칙](../guides/testing.md#doc-examples). 로더는 tests/doc_examples.py, 연결 검사는 tests/test_docs_consistency.py |
 | 위임·병합 판단 | [합의한 위임 정책](../guides/delegation.md) |
-| docs→화면 생성·검사 | [동기화 범위](../design/management-screen.md). dashboard/scripts/system-status.mjs, dashboard/src/ProjectStatus.tsx, dashboard/scripts/system-status.test.mjs |
-| 관리 화면 구현·갱신 | [첫 화면·실행·데이터 원본·검사 한계](../design/management-screen.md). dashboard/src/App.tsx, dashboard/src/data.ts, dashboard/src/data.test.ts, dashboard/scripts/snapshot.mjs, dashboard/scripts/build-snapshot.mjs (빌드 실패 시 저장본 검증), dashboard/scripts/snapshot-schema.mjs (화면·빌드 공통 검증), dashboard/scripts/github-snapshot.mjs (빌드·브라우저 공통 공개 조회), dashboard/src/snapshot-loader.ts, dashboard/src/snapshot-loader.test.ts (실패·취소·대체 자료) |
+| docs→화면 생성·검사 | [동기화 범위](../design/management-screen.md). dashboard/scripts/system-status.mjs, dashboard/src/features/project-status/ProjectStatus.tsx, dashboard/scripts/system-status.test.mjs |
+| 대시보드 코드 배치·참조 방향 | [기능별 폴더와 검사 범위](../design/dashboard-structure.md). dashboard/scripts/architecture.mjs, dashboard/scripts/architecture.test.mjs |
+| 관리 화면 구현·갱신 | [첫 화면·실행·데이터 원본·검사 한계](../design/management-screen.md). dashboard/src/app/App.tsx, dashboard/src/features/github-status/data.ts, dashboard/src/features/github-status/data.test.ts, dashboard/scripts/snapshot.mjs, dashboard/scripts/build-snapshot.mjs (빌드 실패 시 저장본 검증), dashboard/scripts/snapshot-schema.mjs (화면·빌드 공통 검증), dashboard/scripts/github-snapshot.mjs (빌드·브라우저 공통 공개 조회), dashboard/src/features/github-status/snapshot-loader.ts, dashboard/src/features/github-status/snapshot-loader.test.ts (실패·취소·대체 자료) |
 | 여러 에이전트로 동시 작업 | [작업 흐름의 공동 작업 규칙](../guides/development-workflow.md). 최신화·생성 파일·의미 충돌을 무엇이 강제하는지 표로 정리 |
 | 개발 작업 진행 | [작업 흐름](../guides/development-workflow.md), [정합성 검토](../consistency.md) |
 | 세션 이어가기 | [다음 작업](../work-state.md) |
-| 작업 완료 근거·개입·문제 확인 | [기록 기준과 실행 표](../work-results.md). dashboard/scripts/work-results.mjs가 docs 원본에서 화면 데이터를 생성합니다. dashboard/src/WorkResults.tsx와 dashboard/scripts/work-results.test.mjs를 함께 확인하고 미기록은 성공으로 세지 않습니다 |
+| 작업 완료 근거·개입·문제 확인 | [기록 기준과 실행 표](../work-results.md). dashboard/scripts/work-results.mjs가 docs 원본에서 화면 데이터를 생성합니다. dashboard/src/features/work-results/WorkResults.tsx와 dashboard/scripts/work-results.test.mjs를 함께 확인하고 미기록은 성공으로 세지 않습니다 |
 | 작업 하나를 따라가기 | [작업 브리핑 양식과 목록](../briefings/index.md), [기존 합의와의 내용 검토](../consistency.md). 형식 검사는 tests/test_docs_consistency.py |
 | 전체 진행 상황·방향 | [시스템 상태](../system-status.md). 단계별 상태를 바꾸면 지도와 표를 함께 고칩니다 |
 | 개발 원칙·실행 평가 | [다섯 개발 원칙](../design/engineering-principles.md), [평가 기록](../record-forms/evaluation.md) |

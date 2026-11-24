@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ClipboardList } from "lucide-react";
-import data from "./generated/work-results.json";
-import { sourceBase } from "./data";
+import data from "../../generated/work-results.json";
+import { sourceBase } from "../../shared/repository";
 
 export function WorkResults() {
   const [selected, setSelected] = useState(

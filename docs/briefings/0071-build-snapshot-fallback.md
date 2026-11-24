@@ -43,4 +43,4 @@ GitHub 최신 상태 조회가 실패해도 유효한 저장본이 있으면 사
 - PR: [#71](https://github.com/YUJAEYUN/Dartness/pull/71) · 이슈: [#69](https://github.com/YUJAEYUN/Dartness/issues/69)
 - 기준: [관리 화면](../design/management-screen.md)
 - 구현: dashboard/scripts/build-snapshot.mjs, dashboard/scripts/snapshot-schema.mjs
-- 검사: dashboard/scripts/build-snapshot.test.mjs, dashboard/src/data.test.ts
+- 검사: dashboard/scripts/build-snapshot.test.mjs, dashboard/src/features/github-status/data.test.ts

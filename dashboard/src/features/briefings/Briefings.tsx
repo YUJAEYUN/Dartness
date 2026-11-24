@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { ClipboardList } from "lucide-react";
-import status from "./generated/system-status.json";
-import { sourceBase } from "./data";
+import status from "../../generated/system-status.json";
+import { sourceBase } from "../../shared/repository";
 import {
   briefings,
   highlightDiagram,
   linkTarget,
   type Block,
 } from "./briefing-data";
-import { Flowchart } from "./ProjectStatus";
+import { Flowchart } from "../../components/Flowchart";
 
 function Inline({ text }: { text: string }) {
   const parts = text.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\))/g);

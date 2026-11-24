@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#77 대시보드 기능별 폴더](0077-dashboard-features.md) | 코드 구조 |
 | [#75 문서 폴더 정리](0075-docs-layout.md) | 문서 구조 |
 | [#73 완료 근거와 개입·문제 확인](0073-work-results.md) | 관리 화면 |
 | [#71 GitHub 조회 실패 시 저장본으로 배포](0071-build-snapshot-fallback.md) | 관리 화면 |

@@ -30,7 +30,7 @@ def test_feature_or_specification_changes_require_briefing(changed: list[str]) -
         [],
         ["docs/guides/ci.md"],
         ["tests/test_amounts.py"],
-        ["dashboard/src/App.tsx"],
+        ["dashboard/src/app/App.tsx"],
         ["docs/src/x.md"],
     ],
 )

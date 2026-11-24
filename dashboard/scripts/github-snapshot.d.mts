@@ -1,4 +1,4 @@
-import type { Snapshot } from "../src/data.ts";
+import type { Snapshot } from "../src/shared/snapshot.ts";
 
 export function refreshOnBuild(
   env: Record<string, string | undefined>,
