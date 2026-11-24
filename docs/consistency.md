@@ -218,3 +218,7 @@ PDF 재무상태표 현재기 행과 원문 XBRL context의 법인·일자·연�
 ## AGENTS.md 작업 진입점 재배치
 
 2026-11-24 이슈 #78에서 기존 지침을 시작·작업 문서·검증·승인·마무리 순으로 재배치했습니다. docs/design/agent-entrypoint.md의 주제별 보존 표와 여섯 작업의 문서·검사·승인 경로를 기존 원본과 수동 대조했습니다. 외부 DART 전용 도구 금지·원문 기반 정답·검사 완화 승인·최신 main/현재 head CI·기대 SHA·이슈 완료 확인·위임 경계는 유지합니다. Python/대시보드/DART 동작·기존 정답·CI·권한·의존성은 바꾸지 않았습니다. 같은 에이전트의 수동 판독이며 독립 A/B 효과·실제 세션의 지침 로드·행동 준수를 증명하지 않습니다.
+
+## 예외 처리와 새 검사 우회
+
+2026-11-24 이슈 #80에서 Ruff 예외/무시 규칙과 PR base/head 비교를 추가했습니다. tests/test_exception_lint.py의 실제 반례에서 구체 예외 후 pass/continue를 기본 옵션이 놓치는 것을 확인해 check-typed-exception을 켰습니다. Python tokenize/AST와 기존 Vite의 Oxc 파서로 문자열·별칭·재배치·읽기 실패를 구분하며 tests/test_quality_changes.py와 dashboard/scripts/quality-markers.test.mjs로 검증합니다. 기존 음성 테스트 예외·정답·코드 동작은 유지하고 의존성·권한은 추가하지 않았습니다. 검사 설정 변경도 실행 요약에 표시하지만 사람 승인을 자동 인증하거나 기존 정답/테스트 약화 전체를 보호하지는 않습니다.

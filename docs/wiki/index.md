@@ -5,6 +5,7 @@
 | 작업 | 먼저 읽을 문서 |
 |---|---|
 | DART 실제 수집 | [수동 검사와 범위](../guides/dart-live-check.md), [평가용 여러 법인 수집](../guides/dart-live-check.md#evaluation-collection). 코드는 src/dartness/dart_collect.py, 워크플로는 .github/workflows/collect-filings.yml |
+| 예외 처리·검사 우회 변경 | [적용 규칙·PR 비교·보고와 한계](../guides/quality-guards.md). scripts/check_quality_changes.py, dashboard/scripts/quality-markers.mjs |
 | CI·브랜치 설정 | [검사와 설정 방법](../guides/ci.md) |
 | 다른 법인 평가 결과 | [현금 표 추출 첫 평가와 수정 결과](../evaluations/cash-table-dart-2025.md). 자료는 tests/fixtures/cash/dart-2025-eval(현재 개발용), 테스트는 tests/test_cash_eval_2025.py. [두 번째 평가(검증용 5개 법인)](../evaluations/cash-table-dart-2025-second.md)의 자료는 tests/fixtures/cash/dart-2025-eval-2, 테스트는 tests/test_cash_eval_2025_second.py. [세 번째 평가(12월이 아닌 결산)](../evaluations/cash-table-dart-2025-third.md)는 tests/fixtures/cash/dart-2025-eval-3, tests/test_cash_eval_2025_third.py |
 | 테스트·정답 사례 준비 | [테스트 절차](../guides/testing.md), [실제 공시 초안](../cases/helixmith-cash.md) |
