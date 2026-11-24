@@ -46,12 +46,14 @@ export async function collectSnapshot(fetchImpl = fetch, now = new Date()) {
       {
         headers: { Accept: "application/vnd.github+json" },
         signal: AbortSignal.timeout(15000),
+        cache: "no-store",
+        credentials: "omit",
         redirect: "error",
       },
     );
     if (!response.ok)
       throw new Error(
-        `GitHub 공개 상태 조회 실패 (HTTP ${response.status}). 이전 배포를 유지합니다.`,
+        `GitHub 공개 상태 조회 실패 (HTTP ${response.status}).`,
       );
     return response.json();
   }

@@ -9,6 +9,7 @@
 | 브리핑 | 종류 |
 |---|---|
 | [#68 외화 공시 등을 미결로 두기](0068-deferred-foreign-currency.md) | 명세 |
+| [#70 최신 GitHub 상태 확인](0070-dashboard-live-state.md) | 관리 화면 |
 | [#66 12월이 아닌 결산 법인 평가](0066-non-december-evaluation.md) | 평가 |
 | [#63 12월이 아닌 결산 법인 수집](0063-fiscal-month-collection.md) | 평가 도구 |
 | [#65 정정 전체 자료와 정답](0065-correction-case.md) | 개발용 사례 |
