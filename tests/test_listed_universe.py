@@ -301,3 +301,29 @@ def test_naive_execution_time_is_not_assigned_a_server_timezone() -> None:
         collect_universe(
             EXECUTED.replace(tzinfo=None), max_requests=4, fetch=FakeDart(), clock=lambda: NOW
         )
+
+
+def test_clock_reversing_within_the_same_day_stops_before_profile_io() -> None:
+    fetch = FakeDart()
+    times = iter([NOW, EXECUTED])
+    with pytest.raises(CollectionError, match="clock_reversed"):
+        collect_universe(EXECUTED, max_requests=4, fetch=fetch, clock=lambda: next(times))
+    assert len(fetch.calls) == 1
+
+
+def test_shared_budget_stops_listing_before_a_second_page() -> None:
+    fetch = FakeDart()
+    fetch.filings = json.dumps(
+        {
+            "status": "000",
+            "page_no": 1,
+            "page_count": 100,
+            "total_count": 101,
+            "total_page": 2,
+            "list": [filing("00000001", index) for index in range(100)],
+        }
+    ).encode()
+    with pytest.raises(CollectionError, match="budget"):
+        collect_listed_filings(EXECUTED, search(), max_requests=5, fetch=fetch, clock=lambda: NOW)
+    assert len(fetch.calls) == 5
+    assert [endpoint for endpoint, _ in fetch.calls].count("list.json") == 1
