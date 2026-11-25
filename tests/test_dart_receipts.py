@@ -85,3 +85,20 @@ def test_exact_mode_uses_registered_key_without_stock_lookup_or_financial_api(
     assert dart_collect.main() == 0
     assert calls == ["document.xml", "document.xml"]
     assert (tmp_path / A / "document.zip").exists()
+
+
+@pytest.mark.parametrize("mode", ["annual", "unknown"])
+def test_receipt_mode_must_be_explicit_before_any_request(
+    mode: str, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv("DART_API_KEY", KEY)
+    monkeypatch.setenv("COLLECTION_MODE", mode)
+    monkeypatch.setenv("RECEIPT_NUMBERS", A)
+    monkeypatch.setenv("OUTPUT_DIR", str(tmp_path))
+
+    def fetch(endpoint: str, params: dict[str, str], key: str) -> bytes:
+        raise AssertionError("no API request is allowed for an ambiguous mode")
+
+    monkeypatch.setattr(dart_collect, "fetch_bytes", fetch)
+    assert dart_collect.main() == 1
+    assert not list(tmp_path.iterdir())
