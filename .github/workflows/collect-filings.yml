@@ -4,6 +4,15 @@ name: Collect DART filings
 on:
   workflow_dispatch:
     inputs:
+      collection_mode:
+        description: '수집 방식: 기존 연간 평가 자료 또는 지정 접수번호 원문'
+        type: choice
+        options: [annual, exact_receipts]
+        default: annual
+      receipt_numbers:
+        description: 'exact_receipts에서만 사용: 접수번호 쉼표 구분, 최대 2건'
+        required: false
+        default: ''
       stock_codes:
         description: '종목코드 (쉼표로 구분, 최대 8개)'
         required: true
@@ -28,6 +37,8 @@ jobs:
       - name: Collect filings with the repository OpenDART key
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          COLLECTION_MODE: ${{ inputs.collection_mode }}
+          RECEIPT_NUMBERS: ${{ inputs.receipt_numbers }}
           STOCK_CODES: ${{ inputs.stock_codes }}
           BUSINESS_YEAR: ${{ inputs.business_year }}
           OUTPUT_DIR: ${{ runner.temp }}/filings
