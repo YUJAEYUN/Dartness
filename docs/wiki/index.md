@@ -4,7 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
-| 상장법인 실제 연결 검증 | [실행 한도·결과·미확인 범위](../guides/listed-live-check.md). src/dartness/listed_live_check.py, tests/test_listed_live_check.py. 사전 점검 5회 성공, 결과 파일 대조·전체 실행은 대기 |
+| 상장법인 실제 연결 검증 | [실행 한도·결과·미확인 범위](../guides/listed-live-check.md). src/dartness/listed_live_check.py, tests/test_listed_live_check.py. 사전 점검 5회 성공, 후보 4,021개 확인 후 전체 실행 진행 중 |
 | 실행일 상장법인·공시 연결 | [공식 원천·통합·예산·관측 한계](../specs/listed-universe.md). src/dartness/listed_universe.py, tests/test_listed_universe.py. 실제 전수/거래소 대조·정정/금액 판정은 미검증 |
 | 공통 공시 목록 수집 | [공식 제한·입출력·실패 기준](../specs/disclosure-list.md). src/dartness/disclosure_list.py, tests/test_disclosure_list.py. 모집단·정정/금액 선택은 미구현 |
 | DART 실제 수집 | [수동 검사와 범위](../guides/dart-live-check.md), [평가용 여러 법인 수집](../guides/dart-live-check.md#evaluation-collection). 코드는 src/dartness/dart_collect.py, 워크플로는 .github/workflows/collect-filings.yml |
