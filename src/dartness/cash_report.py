@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 import re
+from dataclasses import replace
 from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
@@ -14,9 +15,11 @@ from dartness.cash_contract import (
     CashEvidence,
     CashQuery,
     CashScope,
+    CashValue,
 )
 from dartness.cash_report_result import CashReportResult
 from dartness.cash_table import extract_cash_table
+from dartness.cash_viewer import fetch_dart_viewer, verify_cash_viewer
 from dartness.cash_workbook import write_cash_report_workbook
 from dartness.dart_smoke import CollectionError, read_archive
 from dartness.disclosure_list import Disclosure
@@ -86,7 +89,11 @@ def main() -> int:
     parser.add_argument("--minimum-krw", type=Decimal, required=True)
     parser.add_argument("--checked-at", type=datetime.fromisoformat, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--viewer-main", type=Path)
+    parser.add_argument("--viewer-section", type=Path)
     args = parser.parse_args()
+    if (args.viewer_main is None) != (args.viewer_section is None):
+        parser.error("--viewer-main and --viewer-section must be supplied together")
     if args.output.suffix.lower() != ".json":
         parser.error("--output must be a JSON path; XLSX is saved alongside it")
     scope: CashScope = "consolidated" if args.basis == "consolidated" else "standalone"
@@ -101,10 +108,37 @@ def main() -> int:
         args.archive.read_bytes(),
         args.checked_at,
     )
+    viewer_main: Path | None = args.viewer_main
+    viewer_section: Path | None = args.viewer_section
+    if result.status == "document_match" and isinstance(result.value, CashValue):
+        try:
+            main_page = (
+                viewer_main.read_bytes()
+                if viewer_main is not None
+                else fetch_dart_viewer(disclosure.source_url)
+            )
+
+            def fetch_section(url: str) -> bytes:
+                if viewer_section is not None:
+                    return viewer_section.read_bytes()
+                return fetch_dart_viewer(url)
+
+            link = verify_cash_viewer(result.value, main_page, fetch_section, args.checked_at)
+            result = replace(result, viewer_link=link)
+        except (ValueError, OSError) as error:
+            # Link failure never changes the cash value/condition; explicitly mark the fallback.
+            failure = str(error) if isinstance(error, ValueError) else "viewer_file_error"
+            result = replace(result, viewer_link_failure=failure)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result.to_dict(), ensure_ascii=False, indent=2) + "\n")
     write_cash_report_workbook(result, args.output.with_suffix(".xlsx"))
     print(f"Specified report checkpoint: {result.status}; latest correction not verified")
+    if result.status == "document_match":
+        print(
+            "Table link: verified"
+            if result.viewer_link
+            else f"Table link: unverified ({result.viewer_link_failure})"
+        )
     return 2 if result.status == "needs_review" else 0
 
 

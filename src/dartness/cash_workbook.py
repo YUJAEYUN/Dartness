@@ -70,7 +70,10 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
     if result.status == "document_match" and isinstance(value, CashValue):
         amount = _numeric_eok(value.amount_krw)
         _text(sheet, 3, 1, result.disclosure.corp_name)
-        sheet.cell(3, 1).hyperlink = Hyperlink(ref="A3", target=value.evidence.source_url)
+        if result.viewer_link is not None and result.viewer_link.value != value:
+            raise ValueError("viewer_link_value_mismatch")
+        target = result.viewer_link.url if result.viewer_link else value.evidence.source_url
+        sheet.cell(3, 1).hyperlink = Hyperlink(ref="A3", target=target)
         sheet.cell(3, 2, amount)
         # Display rounding never participates in condition comparison.
         sheet.cell(3, 2).number_format = "#,##0.00"
@@ -85,7 +88,12 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
             f"정확한 원화 금액: {value.amount_krw:,}원\n공시일: {result.disclosure.filed_on}\n"
             f"접수번호: {result.disclosure.receipt}\n"
             "표시는 억원 단위 소수 둘째 자리이며 조건은 정확한 원화 값으로 비교했습니다.\n"
-            "법인명 링크에서 원문을 확인하세요. 이 미리보기의 재무 범위는 입력 기준입니다.",
+            + (
+                "법인명 링크: 금액·기준일·단위를 대조한 재무상태표 구간입니다.\n"
+                if result.viewer_link
+                else "표 바로가기 미확인: 법인명 링크는 공시 전체를 엽니다.\n"
+            )
+            + "이 미리보기의 재무 범위는 입력 기준입니다.",
             "Dartness",
         )
         sheet.auto_filter.ref = "A2:C3"

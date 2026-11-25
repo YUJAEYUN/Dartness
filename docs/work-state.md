@@ -12,6 +12,7 @@
 - 실제 현금 추출 평가의 범위·개발용 전환은 [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)를 봅니다.
 
 - [지정 공시 실행](specs/cash-report-slice.md)의 원문 구역 선정·현금 검증·조건 비교·세 열 엑셀/근거 JSON 구현과 검사를 마쳤습니다(이슈 #92 / PR #93). 최종 병합·배포 근거는 이슈에서 확인하며 전수·최신 유효 정정 완료와 구분합니다.
+- 법인명 근거 링크는 [문서별 재무상태표 구간 대조](specs/cash-report-slice.md#table-link)를 지원합니다. 대한약품 개발용 사례를 확인했고, 모든 법인 서식의 호환성은 미검증입니다. 확인 실패는 원래 공시 링크와 미확인 상태를 유지합니다.
 - 코드 경로는 src/dartness/report_section.py, src/dartness/cash_report.py, src/dartness/cash_report_result.py, src/dartness/cash_workbook.py이고 검사는 tests/test_cash_report.py, tests/test_cash_workbook.py입니다. 사용자 승인으로 openpyxl·타입 스텁을 추가했고 기존 정답·엄격한 타입/CI 검사는 유지합니다.
 
 ## 진행 중인 작업

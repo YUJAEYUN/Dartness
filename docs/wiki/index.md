@@ -38,7 +38,7 @@
 | 현금 표 추출 | [선정 구간의 지원 범위](../specs/cash-table-extraction.md). src/dartness/cash_table.py, tests/test_cash_table.py. 계정명 정리는 src/dartness/account_label.py, tests/test_account_label.py |
 | 현금 조회 범위·계약 | [확정한 범위와 CASH-001~003](../specs/requirements.md#cash-scope), [규칙별 예시](../specs/cash-query-contract.md#examples), [Python 계약 v1과 한계](../specs/cash-query-contract.md). src/dartness/cash_contract.py, tests/test_cash_contract.py |
 | 기능·데이터 계약 설계 | [요구사항](../specs/requirements.md), [판단 경계](../design/architecture.md) |
-| 엑셀 양식 조정 | [출력 예시](../specs/output-example.md) |
+| 엑셀 양식·근거 표 바로가기 | [출력 예시](../specs/output-example.md), [구간 대조 기준](../specs/cash-report-slice.md#table-link). src/dartness/cash_viewer.py는 문서별 목차·뷰어 표를 대조하고 src/dartness/cash_workbook.py가 확인된 구간 링크를 사용합니다. tests/test_cash_viewer.py. 직접 연결 실패는 메모/JSON에 표시하며 현금 조건을 바꾸지 않습니다 |
 | 문서·메모리 운영 | [운영 기준](../design/documentation.md). 문서 경로·규칙 ID·작업 상태 형식 검사는 tests/test_docs_consistency.py |
 | 기술 후보 검토 | [초기 추천안](../design/development-environment-proposal.md) |
 

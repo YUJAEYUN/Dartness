@@ -1,0 +1,20 @@
+{
+  "classification": "real_development",
+  "receipt": "20260318001361",
+  "corp_code": "00113128",
+  "observed_at": "2026-11-25T07:44:25.133776+00:00",
+  "main_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001361",
+  "balance_url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260318001361&dcmNo=11142143&eleId=22&offset=260290&length=32187&dtd=dart4.xsd",
+  "files": {
+    "main": {
+      "response_sha256": "7bdcf1ee7f3122be915f26a8934957e559645a66317d7777ed9311068eeb69fb",
+      "gzip_sha256": "53b5848d6eb6b1216d349866021961d8028f98dc6597b4f86421842c5e195aa5"
+    },
+    "balance": {
+      "response_sha256": "cb502c8ec2c640bb836a1e867ede5ebb38ba41be906009f1718c2d80a7f9dafb",
+      "gzip_sha256": "abc7c0179d11ee0a6c7ffc5c805c126bc6ed88f9ea5444e90d8f0b023384daa1"
+    }
+  },
+  "expected_amount_krw": "43972786132",
+  "expected_answer_origin": "Existing report-slice source answer, unchanged; rendered 2025.12.31 / unit KRW / cash row manually compared. Viewer response hashes are not full XML hashes."
+}
