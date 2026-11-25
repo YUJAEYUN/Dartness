@@ -3,6 +3,12 @@
   "sha256": "0bc33f9d48fa73b1f285ecb1353b1825d9d2b3696b0f3667a67662cd07b1620a",
   "groups": [
     {
+      "pr": 87,
+      "issue": 86,
+      "title": "상장법인 연결을 실제 API로 확인하기",
+      "records": []
+    },
+    {
       "pr": 85,
       "issue": 84,
       "title": "실행일 상장법인과 공시 목록 연결",

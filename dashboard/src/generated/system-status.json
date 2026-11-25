@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "74924adfeabdfb9f4954e8e40e77636712d5644f40d9e06818870843b4d5ab7d",
+  "sourceSha256": "2c20aec7b22a193c97da1d48bb81bc3c9c179301b0e3db806fdb227e7644fea3",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
@@ -113,7 +113,7 @@
       "name": "법인·공시 찾기",
       "status": "일부",
       "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md)",
-      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. 실제 전수·거래소 명부 대조·원천 갱신 지연 검증·보고서 의미/정정 선택 미구현"
+      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 사전 점검](guides/listed-live-check.md) 5회 호출 성공, 결과 파일 대조·전체 실행 대기. 거래소 명부 대조·원천 갱신 지연 검증·보고서 의미/정정 선택 미구현"
     },
     {
       "id": "C",

@@ -254,6 +254,22 @@ def main() -> int:
             f"Live check: {report.get('status')} / requests {report.get('requests_attempted')}",
             flush=True,
         )
+        summary_fields = (
+            "status",
+            "requests_attempted",
+            "responses_received",
+            "candidate_count",
+            "listing_total_pages",
+            "estimated_full_requests",
+            "company_count",
+            "matched_filing_count",
+            "error_code",
+        )
+        print(
+            "Live check summary: "
+            + json.dumps({field: report[field] for field in summary_fields if field in report}),
+            flush=True,
+        )
 
     def save_registry(body: bytes) -> None:
         if key and key.encode() in body:

@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#87 상장법인 실제 연결 검증](0087-listed-live-check.md) | 실제 API 검사 |
 | [#85 실행일 상장법인 연결](0085-listed-universe.md) | 공통 수집 |
 | [#83 공통 공시 목록 수집](0083-disclosure-list.md) | 공통 수집 |
 | [#81 예외 처리·새 우회 검사](0081-quality-guards.md) | 품질 검사 |

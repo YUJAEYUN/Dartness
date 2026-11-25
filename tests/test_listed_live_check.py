@@ -102,3 +102,21 @@ def test_missing_key_writes_failure_without_network_or_secret(
     assert main() == 1
     report = json.loads((tmp_path / "work/listed-live-check/report.json").read_text())
     assert report["status"] == "failed"
+
+
+def test_console_summary_keeps_estimate_but_omits_company_details(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    result = run_check("probe", 20, EXECUTED, fetch=FakeDart(), clock=lambda: NOW)
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("DART_API_KEY", "x" * 40)
+    monkeypatch.setattr("dartness.listed_live_check.run_check", lambda *args, **kwargs: result)
+    assert main() == 0
+    output = capsys.readouterr().out
+    summary = json.loads(output.split("Live check summary: ")[1])
+    assert summary["candidate_count"] == 3
+    assert summary["estimated_full_requests"] == 5
+    assert summary["status"] == "probe_only"
+    assert "profile_samples" not in output
+    assert "00000001" not in output
+    assert "x" * 40 not in output
