@@ -32,3 +32,7 @@
 | 71 | 69 | 2026-11-24 | 완료 조건 | 운영 배포 및 새 화면·최신 GitHub 조회 확인 | 확인됨 | [배포 커밋과 운영 확인](https://github.com/YUJAEYUN/Dartness/issues/69) |
 | 71 | 69 | 2026-11-24 | 사람의 개입 | PR 70 장애 뒤 대체 배포 정책을 승인받은 후 구현. 별도 개입 횟수·시간은 미측정 | 있음 | [정책 승인 범위](https://github.com/YUJAEYUN/Dartness/pull/71) |
 | 71 | 69 | 2026-11-24 | 병합 후 문제 | 운영 확인에서 새 문제는 관측하지 못했으나 이후 지속 감시는 하지 않음 | 없음 | [관측한 범위와 한계](https://github.com/YUJAEYUN/Dartness/issues/69) |
+| 87 | 86 | 2026-11-25 | 완료 조건 | 한도 내 실제 전체 연결과 결과 파일·등록 ZIP 해시·중복·날짜·출처 대조 | 확인됨 | [실제 전체 실행](https://github.com/YUJAEYUN/Dartness/actions/runs/45529060769) |
+| 87 | 86 | 2026-11-25 | 완료 조건 | 최종 병합·운영 반영 | 미확인 | [최종 근거 기록](https://github.com/YUJAEYUN/Dartness/issues/86) |
+| 87 | 86 | 2026-11-25 | 사람의 개입 | 사전 점검 결과 파일을 사용자가 첨부. 전체 결과는 GitHub 연결 도구로 확보. 개입 시간 미측정 | 있음 | [진행 기록](https://github.com/YUJAEYUN/Dartness/issues/86) |
+| 87 | 86 | 2026-11-25 | 병합 후 문제 | 병합 전 기록으로 이후 문제는 아직 확인 전 | 미기록 | [작업 PR](https://github.com/YUJAEYUN/Dartness/pull/87) |
