@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "de02f5971a78902330a3f76d7d15410df54676f8b801c89fe7a43e3170f1c9e8",
+  "sourceSha256": "f0904d2cce40c8ef65d1d8b0ebb4587e4dc8e6d57e3758f2614f185d249d5d17",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
@@ -112,8 +112,8 @@
       "id": "B",
       "name": "법인·공시 찾기",
       "status": "일부",
-      "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md), [정정 근거 계약](specs/correction-evidence.md), src/dartness/correction_evidence.py, tests/test_correction_evidence.py",
-      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 보고서 의미/정정 선택 미구현"
+      "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md), [정정 근거 계약](specs/correction-evidence.md), src/dartness/correction_evidence.py, tests/test_correction_evidence.py, [현금 셀 비교](specs/correction-cash-comparison.md), src/dartness/correction_cash.py, tests/test_correction_cash.py",
+      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. 보고서 의미/정정 선택 미구현"
     },
     {
       "id": "C",

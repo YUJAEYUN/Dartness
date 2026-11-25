@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 정정 전후 현금 셀 비교 | [출처·범위·두 값 비교와 한계](../specs/correction-cash-comparison.md). src/dartness/correction_cash.py, tests/test_correction_cash.py. 원화 현금 입력 비교이며 의미 추출·최신본 적용은 미구현 |
 | 원본·정정 연결 근거 입력 | [수집 후보·전체 원문/뷰어 해시·마감 대조](../specs/correction-evidence.md). src/dartness/correction_evidence.py, tests/test_correction_evidence.py. 준비된 메타데이터 검사이며 의미 검증·자동 최신본 선택은 아님 |
 | 상장법인 실제 연결 검증 | [실행 한도·결과·미확인 범위](../guides/listed-live-check.md). src/dartness/listed_live_check.py, tests/test_listed_live_check.py. 실제 4,029회 호출·상장법인 2,770개·공시 365건 연결 및 결과 파일 대조 완료 |
 | 실행일 상장법인·공시 연결 | [공식 원천·통합·예산·관측 한계](../specs/listed-universe.md). src/dartness/listed_universe.py, tests/test_listed_universe.py. 전날 하루 실제 연결은 위 검증 기록 참조. 거래소 대조·정정/금액 판정은 미검증 |

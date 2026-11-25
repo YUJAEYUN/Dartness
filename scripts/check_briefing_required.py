@@ -16,6 +16,7 @@ SPEC_PATHS = (
     "docs/specs/disclosure-list.md",
     "docs/specs/listed-universe.md",
     "docs/specs/correction-evidence.md",
+    "docs/specs/correction-cash-comparison.md",
     "docs/specs/cash-query-contract.md",
     "docs/specs/cash-table-extraction.md",
     "docs/specs/amounts.md",

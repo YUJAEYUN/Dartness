@@ -3,6 +3,12 @@
   "sha256": "7f182f7c1430184aae04c759c7e665093d0d91927868efe55d961081ef7dce1f",
   "groups": [
     {
+      "pr": 91,
+      "issue": 90,
+      "title": "정정 전후 현금 셀 비교",
+      "records": []
+    },
+    {
       "pr": 89,
       "issue": 88,
       "title": "원본·정정 연결 근거 대조",
