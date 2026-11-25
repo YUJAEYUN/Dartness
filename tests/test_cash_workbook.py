@@ -34,20 +34,20 @@ def test_three_columns_keep_amount_date_basis_and_accessible_source(
     assert book.sheetnames == ["지정 공시 확인"]
     sheet = book[book.sheetnames[0]]
     assert sheet.max_column == 3
-    assert [sheet.cell(4, i).value for i in range(1, 4)] == [
+    assert [sheet.cell(2, i).value for i in range(1, 4)] == [
         "법인명",
         "현금및현금성자산(억원)",
         "조회 기준",
     ]
-    assert sheet["A5"].value == "대한약품"
-    assert sheet["A5"].hyperlink is not None
-    assert sheet["A5"].hyperlink.target == D.source_url
-    assert sheet["B5"].data_type == "n"
-    assert Decimal(str(sheet["B5"].value)) == Decimal("439.72786132")
-    assert sheet["C5"].value == "2025.12.31\n법인 자체(개별)"
-    assert sheet["B5"].comment is not None
-    assert "43,972,786,132" in sheet["B5"].comment.text and "단위: 원" in sheet["B5"].comment.text
-    assert "개발용" in str(sheet["A2"].value)
+    assert sheet["A3"].value == "대한약품"
+    assert sheet["A3"].hyperlink is not None
+    assert sheet["A3"].hyperlink.target == D.source_url
+    assert sheet["B3"].data_type == "n"
+    assert Decimal(str(sheet["B3"].value)) == Decimal("439.72786132")
+    assert sheet["C3"].value == "2025.12.31 · 법인 자체(개별)"
+    assert sheet["B3"].comment is not None
+    assert "43,972,786,132" in sheet["B3"].comment.text and "단위: 원" in sheet["B3"].comment.text
+    assert "개발용" in str(sheet["A1"].value)
     assert "SHA" not in " ".join(str(cell.value) for row in sheet for cell in row)
     assert result.to_dict() == before
 
@@ -67,12 +67,12 @@ def test_nonmatching_or_unknown_companies_are_not_exported_as_leads(
     path = tmp_path / "result.xlsx"
     write_cash_report_workbook(result, path)
     sheet = load_workbook(path).worksheets[0]
-    assert sheet["B5"].value is None
+    assert sheet["B3"].value is None
     assert "대한약품" not in [cell.value for row in sheet for cell in row]
     if kind == "review":
-        assert "확인 필요" in str(sheet["A5"].value)
+        assert "확인 필요" in str(sheet["A3"].value)
     else:
-        assert "조건 충족 금액이 확인되지" in str(sheet["A5"].value)
+        assert "조건 충족 금액이 확인되지" in str(sheet["A3"].value)
 
 
 def test_company_text_is_not_an_executable_formula(tmp_path: Path) -> None:
@@ -86,7 +86,7 @@ def test_company_text_is_not_an_executable_formula(tmp_path: Path) -> None:
     )
     path = tmp_path / "result.xlsx"
     write_cash_report_workbook(result, path)
-    cell = load_workbook(path).worksheets[0]["A5"]
+    cell = load_workbook(path).worksheets[0]["A3"]
     assert cell.data_type == "s" and str(cell.value).startswith("=HYPERLINK")
     with zipfile.ZipFile(path) as archive:
         root = ET.fromstring(archive.read("xl/worksheets/sheet1.xml"))
@@ -114,7 +114,7 @@ def test_fake_match_status_cannot_bypass_exact_condition(tmp_path: Path) -> None
     path = tmp_path / "result.xlsx"
     write_cash_report_workbook(result, path)
     sheet = load_workbook(path).worksheets[0]
-    assert sheet["B5"].value is None and "대한약품" not in str(sheet["A5"].value)
+    assert sheet["B3"].value is None and "대한약품" not in str(sheet["A3"].value)
 
 
 def cli_args(tmp_path: Path, output: Path) -> list[str]:
@@ -155,7 +155,7 @@ def test_cli_writes_audit_json_and_simple_workbook_together(
     assert record["amount_krw"] == "43972786132" and record["latest_correction_verified"] is False
     assert record["document_sha256"] and record["locator"]
     sheet = load_workbook(output.with_suffix(".xlsx")).worksheets[0]
-    assert sheet["A5"].value == "대한약품" and sheet["B5"].data_type == "n"
+    assert sheet["A3"].value == "대한약품" and sheet["B3"].data_type == "n"
 
 
 def test_wrong_cli_output_extension_does_not_overwrite_file(
