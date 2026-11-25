@@ -1,5 +1,6 @@
 """Workbook behavior and evidence accessibility; not an Excel desktop rendering test."""
 
+import gzip
 import json
 import sys
 import zipfile
@@ -120,6 +121,11 @@ def test_fake_match_status_cannot_bypass_exact_condition(tmp_path: Path) -> None
 def cli_args(tmp_path: Path, output: Path) -> list[str]:
     archive = tmp_path / "source.zip"
     archive.write_bytes(ARCHIVE)
+    fixtures = Path(__file__).parent / "fixtures/cash/report-viewer"
+    for name in ("main", "balance"):
+        (tmp_path / f"{name}.html").write_bytes(
+            gzip.decompress((fixtures / f"{name}.html.gz").read_bytes())
+        )
     return [
         "cash_report",
         "--archive",
@@ -142,6 +148,10 @@ def cli_args(tmp_path: Path, output: Path) -> list[str]:
         NOW.isoformat(),
         "--output",
         str(output),
+        "--viewer-main",
+        str(tmp_path / "main.html"),
+        "--viewer-section",
+        str(tmp_path / "balance.html"),
     ]
 
 
@@ -172,3 +182,40 @@ def test_wrong_cli_output_extension_does_not_overwrite_file(
 def test_writer_requires_xlsx_extension(tmp_path: Path, result: CashReportResult) -> None:
     with pytest.raises(ValueError, match="xlsx_output_required"):
         write_cash_report_workbook(result, tmp_path / "wrong.json")
+
+
+@pytest.mark.parametrize("failed", [False, True])
+def test_cli_fetches_direct_link_by_default_and_marks_failure(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, failed: bool
+) -> None:
+    output = tmp_path / "result.json"
+    args = cli_args(tmp_path, output)
+    args = args[: args.index("--viewer-main")]
+    calls: list[str] = []
+
+    def fetch(url: str) -> bytes:
+        calls.append(url)
+        if failed:
+            raise ValueError("viewer_transport_error")
+        name = "main" if "/dsaf001/" in url else "balance"
+        return (tmp_path / f"{name}.html").read_bytes()
+
+    monkeypatch.setattr("dartness.cash_report.fetch_dart_viewer", fetch)
+    monkeypatch.setattr(sys, "argv", args)
+    assert main() == 0
+    record = json.loads(output.read_text())
+    sheet = load_workbook(output.with_suffix(".xlsx")).worksheets[0]
+    assert sheet["A3"].hyperlink is not None and sheet["B3"].comment is not None
+    assert calls[0] == D.source_url
+    assert record["amount_krw"] == "43972786132" and sheet["B3"].value == 439.72786132
+    if failed:
+        assert len(calls) == 1
+        assert record["table_link"]["status"] == "unverified"
+        assert record["table_link"]["failure"] == "viewer_transport_error"
+        assert sheet["A3"].hyperlink.target == D.source_url
+        assert "표 바로가기 미확인" in sheet["B3"].comment.text
+    else:
+        assert len(calls) == 2
+        assert record["table_link"]["status"] == "verified_table_section"
+        assert sheet["A3"].hyperlink.target == record["table_link"]["url"]
+        assert "/report/viewer.do?" in calls[1]

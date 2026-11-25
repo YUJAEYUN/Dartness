@@ -6,6 +6,7 @@ from decimal import Decimal
 from typing import Literal
 
 from dartness.cash_contract import CashBasis, CashNeedsReview, CashQuery, CashResult, CashValue
+from dartness.cash_viewer import CashViewerLink
 from dartness.disclosure_list import Disclosure
 from dartness.report_section import ReportSection
 
@@ -21,6 +22,8 @@ class CashReportResult:
     section: ReportSection | None
     value: CashResult | None
     failure: str | None
+    viewer_link: CashViewerLink | None = None
+    viewer_link_failure: str | None = None
     status: Literal["document_match", "document_non_match", "needs_review"] = field(init=False)
 
     def __post_init__(self) -> None:
@@ -55,6 +58,9 @@ class CashReportResult:
             "requested_currency": "KRW",
             "currency": "KRW" if value else None,
             "source_url": self.disclosure.source_url,
+            "table_link": self.viewer_link.to_dict()
+            if self.viewer_link
+            else {"status": "unverified", "failure": self.viewer_link_failure},
             "document_sha256": self.document_sha256,
             "section_sha256": self.section.sha256 if self.section else None,
             "locator": value.evidence.locator
