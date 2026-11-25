@@ -70,6 +70,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#97 참고 파일과 같은 엑셀 배치": briefings/0097-workbook-reference-layout.md
       - "#96 엑셀 왼쪽 정렬·10포인트": briefings/0096-workbook-style.md
       - "#93 M1 지정 공시 현금 실행": briefings/0093-cash-report-slice.md
       - "#91 정정 전후 현금 비교": briefings/0091-correction-cash-comparison.md

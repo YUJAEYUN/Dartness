@@ -5,6 +5,7 @@ import math
 from dataclasses import replace
 from decimal import Decimal
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from openpyxl import Workbook
 from openpyxl.comments import Comment
@@ -60,8 +61,8 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
         sheet,
         1,
         1,
-        f"{result.checked_at:%Y-%m-%d} 조회 | {minimum}억원 이상 | "
-        "지정 공시 1건·개발용(최신정정 미확인)",
+        f"{result.checked_at.astimezone(ZoneInfo('Asia/Seoul')):%Y-%m-%d} 조회 | {minimum}억원 이상 | "
+        "지정 공시 1건·개발용(전수/최신정정 미확인)",
     )
     for column, title in enumerate(("법인명", "현금및현금성자산(억원)", "조회 기준"), 1):
         _text(sheet, 2, column, title)
