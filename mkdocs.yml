@@ -61,6 +61,7 @@ nav:
   - 실행과 개발 방법:
       - 에이전트 위임 범위: guides/delegation.md
       - DART 실제 수집 검사: guides/dart-live-check.md
+      - 상장법인 실제 연결 검증: guides/listed-live-check.md
       - 테스트 작성 방법: guides/testing.md
       - 예외 처리와 검사 우회: guides/quality-guards.md
       - CI와 브랜치 설정: guides/ci.md
