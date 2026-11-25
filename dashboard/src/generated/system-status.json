@@ -1,6 +1,6 @@
 {
   "policySource": "docs/specs/common-query-contract.md",
-  "policySha256": "d1f1f4a59270432f886dcf54a9c248592cf66ac9a0739d6cd975bca59a9eec1f",
+  "policySha256": "85954db98ab8024e98417cf9cb39e53ac8c18c3bfdbbc03a210fc32734a102d4",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "93b399f7c1e83cec9f198d03eb1fd555f33d1736c8e835f4061f9aeba399c726",
+  "sourceSha256": "74924adfeabdfb9f4954e8e40e77636712d5644f40d9e06818870843b4d5ab7d",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
   "stages": [
     {
@@ -112,8 +112,8 @@
       "id": "B",
       "name": "법인·공시 찾기",
       "status": "일부",
-      "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/dart_smoke.py, tests/test_dart_smoke.py",
-      "missing": "제출일 범위·필터의 월 분할/모든 페이지 목록만 수집. 실행일 현재 상장법인 모집단·보고서 의미 판정·정정 연결/선택([조사](design/correction-linking.md)) 미구현"
+      "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md)",
+      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. 실제 전수·거래소 명부 대조·원천 갱신 지연 검증·보고서 의미/정정 선택 미구현"
     },
     {
       "id": "C",
@@ -183,7 +183,7 @@
     },
     {
       "group": "다음",
-      "task": "실행일 현재 상장법인 모집단의 공식 원천 확인·공시 목록 수집 연결",
+      "task": "모집단/공시 연결의 실제 API 운영 검증과 원문 후보·정정 계약 연결",
       "status": "제안"
     },
     {
