@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#85 실행일 상장법인 연결](0085-listed-universe.md) | 공통 수집 |
 | [#83 공통 공시 목록 수집](0083-disclosure-list.md) | 공통 수집 |
 | [#81 예외 처리·새 우회 검사](0081-quality-guards.md) | 품질 검사 |
 | [#79 에이전트 작업 진입점](0079-agent-entrypoint.md) | 개발 지침 |
@@ -45,6 +46,7 @@
     - docs/specs/query-types.md
     - docs/specs/common-query-contract.md
     - docs/specs/disclosure-list.md
+    - docs/specs/listed-universe.md
     - docs/specs/cash-query-contract.md
     - docs/specs/cash-table-extraction.md
     - docs/specs/amounts.md

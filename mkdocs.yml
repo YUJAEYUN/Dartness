@@ -45,6 +45,7 @@ nav:
       - 올인원 조회 유형: specs/query-types.md
       - 공통 조회·출력 계약: specs/common-query-contract.md
       - 공통 공시 목록 수집: specs/disclosure-list.md
+      - 실행일 상장법인 연결: specs/listed-universe.md
       - 현금 조회 계약 초안: specs/cash-query-contract.md
       - 현금 표 추출: specs/cash-table-extraction.md
       - 결과물 예시: specs/output-example.md
@@ -65,6 +66,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#85 실행일 상장법인 연결": briefings/0085-listed-universe.md
       - "#83 공통 공시 목록 수집": briefings/0083-disclosure-list.md
       - "#81 예외 처리·새 우회 검사": briefings/0081-quality-guards.md
       - "#79 에이전트 작업 진입점": briefings/0079-agent-entrypoint.md
