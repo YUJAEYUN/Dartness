@@ -105,26 +105,26 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
     sheet.column_dimensions["B"].width = 31
     sheet.column_dimensions["C"].width = 30
     sheet.freeze_panes = "A5"
-    sheet.sheet_view.showGridLines = False
+    sheet.sheet_view.showGridLines = True
     sheet.print_options.horizontalCentered = True
     sheet.print_area = "A1:C5"
     for row in sheet:
         for cell in row:
-            cell.font = Font(name="맑은 고딕", size=14, color="17365D")
-            cell.alignment = Alignment(vertical="center", wrap_text=True)
+            cell.font = Font(name="맑은 고딕", size=10, color="17365D")
+            cell.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
     sheet.row_dimensions[1].height = 36
     sheet.row_dimensions[2].height = 38
     sheet.row_dimensions[3].height = 34
     sheet.row_dimensions[4].height = 32
     sheet.row_dimensions[5].height = 42
-    sheet.cell(1, 1).font = Font(name="맑은 고딕", size=20, bold=True, color="087E8B")
-    sheet.cell(2, 1).font = Font(name="맑은 고딕", size=11, color="666666")
-    sheet.cell(3, 1).font = Font(name="맑은 고딕", size=11, color="666666")
+    sheet.cell(1, 1).font = Font(name="맑은 고딕", size=10, bold=True, color="087E8B")
+    sheet.cell(2, 1).font = Font(name="맑은 고딕", size=10, color="666666")
+    sheet.cell(3, 1).font = Font(name="맑은 고딕", size=10, color="666666")
     for cell in sheet[4]:
-        cell.font = Font(name="맑은 고딕", size=13, bold=True, color="FFFFFF")
+        cell.font = Font(name="맑은 고딕", size=10, bold=True, color="FFFFFF")
         cell.fill = PatternFill("solid", fgColor="087E8B")
     if sheet.cell(5, 1).hyperlink is not None:
-        sheet.cell(5, 1).font = Font(name="맑은 고딕", size=14, color="0563C1", underline="single")
+        sheet.cell(5, 1).font = Font(name="맑은 고딕", size=10, color="0563C1", underline="single")
     buffer = io.BytesIO()
     book.save(buffer)
     output.parent.mkdir(parents=True, exist_ok=True)

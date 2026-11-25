@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#96 엑셀 왼쪽 정렬·10포인트](0096-workbook-style.md) | 출력 서식 |
 | [#93 M1 지정 공시 현금 실행](0093-cash-report-slice.md) | 원문 실행 연결 |
 | [#91 정정 전후 현금 비교](0091-correction-cash-comparison.md) | 정정 셀 비교 |
 | [#89 원본·정정 근거 대조](0089-correction-evidence.md) | 공통 수집 계약 |
