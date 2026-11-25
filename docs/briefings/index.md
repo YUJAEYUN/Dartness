@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#102 실제 본문 관계·정정표 대조](0102-correction-web-observation.md) | 정정 근거 관측 |
 | [#100 실제 공시 기간 후보·기준일 선택](0100-cash-report-candidates.md) | 현금 요청 실행 연결 |
 | [#99 근거 재무상태표 바로 열기](0099-cash-table-link.md) | 근거 접근 |
 | [#97 참고 파일과 같은 엑셀 배치](0097-workbook-reference-layout.md) | 출력 서식 |

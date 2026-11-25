@@ -1,0 +1,47 @@
+{
+  "classification": "real-dev; existing 2026-11-23 observations, not a fresh/latest-history check",
+  "observed_at": "2026-11-23T05:35:05.627459+00:00",
+  "research_source": "docs/research/hd-construction-correction.json",
+  "sources": {
+    "original_viewer": {
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318001192",
+      "response_sha256": "ff7a10a375ea388fd0ca29ddf019df48c1b87c74663460dcc1d559677063e407",
+      "bytes": 121448,
+      "retained_file": null,
+      "stored_file": "original_viewer.html.gz",
+      "stored_gzip_sha256": "6ca18918bbc3b4de8f2adde6cca01aba3f4c86bf5d8afea061adebb9989b427d"
+    },
+    "correction_viewer": {
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000456",
+      "response_sha256": "d0d976784f0f7d03d0fceda4390a1fa12c2daa8cb5715765d2273988a754d130",
+      "bytes": 122146,
+      "retained_file": null,
+      "stored_file": "correction_viewer.html.gz",
+      "stored_gzip_sha256": "6c238ed92d9a43b401f191bdb9bbc1aa28c04c2da5d4e8cc1306f0ff84f49848"
+    },
+    "correction_errata": {
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20260602000456&dcmNo=11416776&eleId=1&offset=1015&length=3210&dtd=dart4.xsd",
+      "response_sha256": "00440640607aa37856da1ecc9659ced77c0c62129fe3213bffce38514a95c615",
+      "bytes": 2702,
+      "retained_file": "hd-construction-20260602-errata.html.gz",
+      "retained_encoding": "gzip",
+      "retained_sha256": "ae0e946ecf75af1596df83e7ac86f9d19cac75f53b86573f558efa204313f00d",
+      "stored_file": "correction_errata.html.gz",
+      "stored_gzip_sha256": "ae0e946ecf75af1596df83e7ac86f9d19cac75f53b86573f558efa204313f00d"
+    }
+  },
+  "expected": {
+    "corp_code": "01205842",
+    "original_receipt": "20260318001192",
+    "correction_receipt": "20260602000456",
+    "original_filed_on": "2026-03-18",
+    "correction_filed_on": "2026-06-02",
+    "report_kind": "사업보고서",
+    "first_submitted_on": "2026-03-18",
+    "changed_item": "Ⅲ. 재무에 관한 사항 / 3. 연결재무제표 주석 / 1. 연결대상기업의 개요(연결)",
+    "reason": "기재방식의 변경",
+    "before": "디테일 태깅",
+    "after": "블록 태깅"
+  },
+  "review": "Existing raw bytes and manually fixed research answers reused; no new source answers generated from parser output. Body family only, not attachments/doc combined selection. No latest validity or cash impact established."
+}
