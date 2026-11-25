@@ -23,3 +23,15 @@ CashValue가 나오면 정확한 amount_krw >= min_amount_krw를 비교합니다
 ## 실행·출력 준비
 
 첫 실행은 저장된 공개 원문을 사용해 API 호출 없이 확인합니다. 결과 JSON과 사람이 읽는 엑셀 미리보기는 제품 최종 양식과 구분합니다. 정식 엑셀 작성 의존성이 현재 프로젝트에 없으므로 범용 라이브러리 도입이 필요해지면 기존 위임 정책에 따라 사용자 승인을 받은 뒤 의존성/CI에 연결합니다. 승인 전에는 수집·표 선정·금액 검증 경로를 먼저 검증하며 완료 처리하지 않습니다.
+
+## 재현 명령과 엑셀 의존성 제안
+
+개발자 체크포인트 실행 예시입니다. 실제 checked-at은 시간대가 있는 실제 확인 시각을 입력하며, 아래 날짜는 고정 재현용입니다. 사용자용 최종 입력 UI를 CLI로 확정한 것은 아닙니다.
+
+```bash
+PYTHONPATH=src python -m dartness.cash_report --archive tests/fixtures/cash/report-slice/023910.zip --corp-code 00113128 --company-name 대한약품 --receipt 20260318001361 --published-on 2026-03-18 --as-of 2025-12-31 --basis individual --minimum-krw 50000000000 --checked-at 2026-11-25T00:00:00+09:00 --output work/cash-report/result.json
+```
+
+원문 ZIP SHA-256과 출처는 tests/fixtures/cash/report-slice/origin.json에 있습니다. 비슷한 다른 파일로 대체하지 않습니다. JSON은 지정 공시 비교이며 최종 법인 목록이 아닙니다.
+
+2026-11-25 PyPI 메타데이터에서 openpyxl 3.1.5(MIT, Python 3.8 이상)와 types-openpyxl 3.1.5.20261122(Python 3.10 이상)를 확인했습니다. 작업 환경에 이미 있던 openpyxl로 미리보기 파일 생성·재열기·숫자 셀·근거 링크·수식 없음만 확인했습니다. 프로젝트 의존성으로 추가하지 않았으며 Excel 데스크톱 렌더링 확인은 아닙니다. 정식 작성 기능에 두 패키지를 고정 추가하는 것이 제안이고 승인 전에는 requirements·CI를 바꾸지 않습니다. 타입 스텁은 기존 mypy strict를 유지하기 위한 개발 의존성입니다.

@@ -1,0 +1,11 @@
+{
+  "classification": "real-dev; complete stored public OpenDART archive, unchanged",
+  "source_commit": "29fedba13ceeb32066f3f3258a5f8632806f854a",
+  "source_path": "023910/document.zip",
+  "source_url": "https://github.com/YUJAEYUN/Dartness/blob/29fedba13ceeb32066f3f3258a5f8632806f854a/023910/document.zip",
+  "archive_sha256": "86ec3c8ec69b041bc0a9323c35b3c7d11016df5f0dee80fe987330bf0b6b4955",
+  "main_document": "20260318001361.xml",
+  "main_document_sha256": "d380a256bdba8102033106f427e4a43f5657ac6afe100563d169eaad669a589b",
+  "answer_source": "tests/fixtures/cash/dart-2025-eval-2/cases.json / 023910-separate",
+  "note": "Already development material after account-label fix. Attachment remains in ZIP to test that it is not substituted. No additional DART call. Not a held-out E2E accuracy evaluation."
+}
