@@ -2,6 +2,104 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0087-listed-live-check.md",
+      "sha256": "7b694bffbce772ec9bf685e29b41caef066acbfb9b60a4e874803b2dc89f5c0e",
+      "pr": 87,
+      "issue": 86,
+      "date": "2026-11-25",
+      "stages": [
+        "B"
+      ],
+      "title": "상장법인 연결을 실제 API로 확인하기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "정해둔 호출 한도 안에서 실제 OpenDART 연결을 확인하는 수동 검사를 추가했습니다. 실제 4,029회 호출로 상장법인 2,770개와 전날 공시 365건의 연결을 확인했습니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "B 단계의 실제 연결을 확인하는 작업입니다. 이번 기간의 실제 연결은 확인했고 보고서 의미·정정 선택은 남아 있어 일부 상태를 유지합니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "paragraph",
+            "text": "일반 PR에서는 실제 API를 호출하지 않습니다. 수동 실행에서 사전 점검과 전체 연결을 구분하고 요청 수·원천 해시·실패 단계·진행 기록을 보존합니다. 중간 실패나 한도 초과를 성공으로 표시하지 않습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "기존 시크릿으로 실제 DART 연결 검증을 이어갑니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "사전 점검 최대 20회 후 예상 규모를 확인하고 전체 최대 5,000회를 한 번 실행합니다. 자동 재시도는 없습니다.",
+              "전날 한국 날짜 하루를 운영 사례로 사용합니다. 사용자 조회 기간의 기본값을 바꾸지 않습니다.",
+              "내부 약 50분·Actions 60분 한도를 두고 결과 파일은 3일 보관합니다. 기업개황의 개인정보와 키는 출력하지 않습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "추가 결정은 없습니다. 전체 실행과 결과 파일 대조를 마쳤습니다. 독립 거래소 명부·재무금액·정정 판정은 후속 범위입니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "실제 전체 실행·상장법인 2,770개·공시 365건·4,029회 호출",
+                "독립 거래소 명부의 누락·갱신 지연"
+              ],
+              [
+                "결과 파일·등록 ZIP 해시·중복·날짜·출처·무공시 집합 대조",
+                "저장하지 않은 기업개황 원문 재대조"
+              ],
+              [
+                "일반 PR의 실제 호출 방지와 기존 정답 유지",
+                "독립 거래소 명부·재무금액·정정·엑셀 정확성"
+              ]
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "PR: [#87](https://github.com/YUJAEYUN/Dartness/pull/87) · 이슈: [#86](https://github.com/YUJAEYUN/Dartness/issues/86)",
+              "실제 전체 실행: [45529060769](https://github.com/YUJAEYUN/Dartness/actions/runs/45529060769)",
+              "기준·한계: [수동 검증](../guides/listed-live-check.md), [상장법인 연결](../specs/listed-universe.md)",
+              "구현: src/dartness/listed_live_check.py · 검사: tests/test_listed_live_check.py"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0085-listed-universe.md",
       "sha256": "e7610303b74e4461a2aa1593f2520f9fba1e3ba1828340bb83d118dae011a5e8",
       "pr": 85,

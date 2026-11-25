@@ -1,7 +1,62 @@
 {
   "source": "docs/work-results.md",
-  "sha256": "0bc33f9d48fa73b1f285ecb1353b1825d9d2b3696b0f3667a67662cd07b1620a",
+  "sha256": "7f182f7c1430184aae04c759c7e665093d0d91927868efe55d961081ef7dce1f",
   "groups": [
+    {
+      "pr": 87,
+      "issue": 86,
+      "title": "상장법인 연결을 실제 API로 확인하기",
+      "records": [
+        {
+          "pr": 87,
+          "issue": 86,
+          "date": "2026-11-25",
+          "kind": "완료 조건",
+          "content": "한도 내 실제 전체 연결과 결과 파일·등록 ZIP 해시·중복·날짜·출처 대조",
+          "result": "확인됨",
+          "evidence": {
+            "label": "실제 전체 실행",
+            "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/45529060769"
+          }
+        },
+        {
+          "pr": 87,
+          "issue": 86,
+          "date": "2026-11-25",
+          "kind": "완료 조건",
+          "content": "최종 병합·운영 반영",
+          "result": "미확인",
+          "evidence": {
+            "label": "최종 근거 기록",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/86"
+          }
+        },
+        {
+          "pr": 87,
+          "issue": 86,
+          "date": "2026-11-25",
+          "kind": "사람의 개입",
+          "content": "사전 점검 결과 파일을 사용자가 첨부. 전체 결과는 GitHub 연결 도구로 확보. 개입 시간 미측정",
+          "result": "있음",
+          "evidence": {
+            "label": "진행 기록",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/86"
+          }
+        },
+        {
+          "pr": 87,
+          "issue": 86,
+          "date": "2026-11-25",
+          "kind": "병합 후 문제",
+          "content": "병합 전 기록으로 이후 문제는 아직 확인 전",
+          "result": "미기록",
+          "evidence": {
+            "label": "작업 PR",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/87"
+          }
+        }
+      ]
+    },
     {
       "pr": 85,
       "issue": 84,

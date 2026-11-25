@@ -10,6 +10,15 @@ on:
         description: 'DART 실제 공시 1건 수집 (시크릿 필요)'
         type: boolean
         default: false
+      listed_check_mode:
+        description: '상장법인 실제 연결 검증 (probe는 사전 점검, full은 전체 연결)'
+        type: choice
+        options: ['off', 'probe', 'full']
+        default: 'off'
+      listed_max_requests:
+        description: '최대 API 요청 (probe 1~20 / full 1~5000)'
+        type: string
+        default: '20'
 permissions:
   contents: read
 jobs:
@@ -86,4 +95,28 @@ jobs:
           name: dart-smoke-${{ github.run_id }}
           path: work/dart-smoke/
           if-no-files-found: error
+          retention-days: 3
+
+  listed-live-check:
+    if: github.event_name == 'workflow_dispatch' && (inputs.listed_check_mode == 'probe' || inputs.listed_check_mode == 'full')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check actual OpenDART population and filings within the requested budget
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          LISTED_CHECK_MODE: ${{ inputs.listed_check_mode }}
+          LISTED_MAX_REQUESTS: ${{ inputs.listed_max_requests }}
+          PYTHONPATH: src
+        run: python -m dartness.listed_live_check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: listed-live-check-${{ github.run_id }}
+          path: work/listed-live-check/
+          if-no-files-found: warn
           retention-days: 3
