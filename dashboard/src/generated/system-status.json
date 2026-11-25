@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "b8bd98a57b42843dc1951cd0430d1289e03f0028fb946eccdfe32590333e8223",
+  "sourceSha256": "2b55d2e0dc1841045b936515f47d1a1885ac235d6872cf78fd56ad439903369d",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D,H,I partial\n    class G todo",
   "stages": [
     {
@@ -113,7 +113,7 @@
       "name": "법인·공시 찾기",
       "status": "일부",
       "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md), [정정 근거 계약](specs/correction-evidence.md), src/dartness/correction_evidence.py, tests/test_correction_evidence.py, [현금 셀 비교](specs/correction-cash-comparison.md), src/dartness/correction_cash.py, tests/test_correction_cash.py",
-      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. [저장 원문 기간 후보](specs/cash-report-slice.md#report-candidates), src/dartness/cash_report_candidates.py에서 지원 현금 셀·기간·단위 근거 연결. 범용 보고서 의미/유효 정정 선택 미구현"
+      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. [저장 원문 기간 후보](specs/cash-report-slice.md#report-candidates), src/dartness/cash_report_candidates.py에서 지원 현금 셀·기간·단위 근거 연결. [실제 웹 근거 관측](specs/correction-evidence.md#viewer-observation), src/dartness/correction_observation.py에서 본문 관계/정정표 읽기 연결. 범용 보고서 의미/전체 원문 바인딩/유효 정정 선택 미구현"
     },
     {
       "id": "C",
@@ -182,8 +182,13 @@
       "status": "지원 저장 사업보고서의 실제 기간/현금 근거를 공통 계약에 연결. 미확인 범위/정정·읽기 실패는 보류하며 전수 자격은 아님"
     },
     {
+      "group": "지금",
+      "task": "실제 본문 관계·정정표 관측(이슈 #101 / PR #102)",
+      "status": "양쪽 본문 목록과 정정표를 직접 읽고 응답 해시/관측 시각 보존. 이슈 #101은 전체 조건이 남아 열어 둠"
+    },
+    {
       "group": "다음",
-      "task": "공시 이력·정정 관계/항목 영향 근거와 유효 정정 선택 연결",
+      "task": "관측 근거의 전체 원문·항목 영향 바인딩과 유효 정정 선택 연결",
       "status": "기존 준비 근거·두 셀 비교를 재사용. 근거 부족은 보류하고 새 선정 기준이 필요한 경우만 논의"
     },
     {

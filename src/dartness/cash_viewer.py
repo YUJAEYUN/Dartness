@@ -9,10 +9,11 @@ from dataclasses import dataclass, replace
 from datetime import datetime
 from html.parser import HTMLParser
 from typing import NoReturn
-from urllib.parse import parse_qs, urlencode, urlsplit
+from urllib.parse import parse_qs, urlsplit
 
 from dartness.cash_contract import CashBasis, CashValue
 from dartness.cash_table import extract_cash_table
+from dartness.dart_viewer import viewer_section_url
 
 _MAX_PAGE = 2 * 1024 * 1024
 _FIELDS = ("rcpNo", "dcmNo", "eleId", "offset", "length", "dtd")
@@ -57,38 +58,15 @@ def _decode(payload: bytes) -> str:
 
 
 def balance_viewer_url(main: bytes, receipt: str, corp_code: str, basis: CashBasis) -> str:
-    """Read only the observed literal node assignments; reject ambiguous/changed formats."""
     if not re.fullmatch(r"[0-9]{14}", receipt) or not re.fullmatch(r"[0-9]{8}", corp_code):
         raise ValueError("viewer_identity_required")
     if basis not in ("separate", "individual", "consolidated"):
         raise ValueError("viewer_basis_required")
-    text = _decode(main)
-    companies = re.findall(r"openCorpInfoNew\('([0-9]{8})'", text)
-    if companies != [corp_code]:
-        raise ValueError("viewer_company_mismatch")
-    candidates: list[dict[str, str]] = []
     title = "연결재무상태표" if basis == "consolidated" else "재무상태표"
-    # No eval/JS execution. A variable declaration delimits each observed TOC node.
-    for block in re.split(r"\bvar node[0-9]+\s*=\s*\{\}\s*;", text)[1:]:
-        pairs = re.findall(r'node[0-9]+\[\'(\w+)\'\]\s*=\s*"([^"\r\n]*)"\s*;', block)
-        fields = dict(pairs)
-        label = re.sub(r"^[0-9.\-\s]+", "", fields.get("text", ""))
-        if "".join(label.split()) != title:
-            continue
-        if len(fields) != len(pairs) or any(key not in fields for key in _FIELDS):
-            raise ValueError("invalid_viewer_node")
-        if fields["rcpNo"] != receipt:
-            raise ValueError("viewer_receipt_mismatch")
-        if any(not re.fullmatch(r"[0-9]{1,10}", fields[key]) for key in _FIELDS[1:-1]):
-            raise ValueError("invalid_viewer_location")
-        if int(fields["length"]) <= 0 or fields["dtd"] != "dart4.xsd":
-            raise ValueError("unsupported_viewer_location")
-        candidates.append(fields)
-    if len(candidates) != 1:
+    url = viewer_section_url(main, receipt, corp_code, title)
+    if url is None:
         raise ValueError("missing_or_ambiguous_viewer_balance_sheet")
-    return "https://dart.fss.or.kr/report/viewer.do?" + urlencode(
-        {key: candidates[0][key] for key in _FIELDS}
-    )
+    return url
 
 
 class _Tables(HTMLParser):
