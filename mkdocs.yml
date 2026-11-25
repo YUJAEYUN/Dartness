@@ -45,6 +45,7 @@ nav:
       - 올인원 조회 유형: specs/query-types.md
       - 공통 조회·출력 계약: specs/common-query-contract.md
       - 공통 공시 목록 수집: specs/disclosure-list.md
+      - 지정 공시 현금 조건 실행: specs/cash-report-slice.md
       - 정정 전후 현금 비교: specs/correction-cash-comparison.md
       - 원본·정정 근거 계약: specs/correction-evidence.md
       - 실행일 상장법인 연결: specs/listed-universe.md
@@ -69,6 +70,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#93 M1 지정 공시 현금 실행": briefings/0093-cash-report-slice.md
       - "#91 정정 전후 현금 비교": briefings/0091-correction-cash-comparison.md
       - "#89 원본·정정 근거 대조": briefings/0089-correction-evidence.md
       - "#87 상장법인 실제 연결 검증": briefings/0087-listed-live-check.md

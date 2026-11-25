@@ -35,7 +35,9 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: requirements-dev.txt
+          cache-dependency-path: |
+            requirements-dev.txt
+            requirements.txt
       - name: Check issue closure policy
         if: github.event_name == 'pull_request'
         run: python scripts/check_pr_policy.py "$GITHUB_EVENT_PATH"

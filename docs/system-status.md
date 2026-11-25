@@ -23,8 +23,8 @@ flowchart LR
     classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f
     classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4
     class E,F done
-    class A,B,C,D partial
-    class G,H,I todo
+    class A,B,C,D,H,I partial
+    class G todo
 ```
 
 ## 단계별 상태와 근거
@@ -36,26 +36,26 @@ flowchart LR
 |---|---|---|---|---|
 | A | 조회 조건 입력 | 일부 | [공통 계약 v1](specs/common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py, src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py | 공통 입력·기간·후보 키 일치·날짜와 근거 보존만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음 |
 | B | 법인·공시 찾기 | 일부 | src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md), [정정 근거 계약](specs/correction-evidence.md), src/dartness/correction_evidence.py, tests/test_correction_evidence.py, [현금 셀 비교](specs/correction-cash-comparison.md), src/dartness/correction_cash.py, tests/test_correction_cash.py | OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. 보고서 의미/정정 선택 미구현 |
-| C | 원문 수집 | 일부 | src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](guides/dart-live-check.md) | 수동 실행 1건만 수집. 여러 법인 수집, 캐시 |
-| D | 현금 행·열 추출 | 일부 | src/dartness/cash_table.py, src/dartness/account_label.py, tests/test_cash_table.py, [지원 범위](specs/cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md) | 선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 12월이 아닌 결산 3곳 5건은 정답대로 모두 확인 필요(현금및예치금·엔화). 원화 공시 12월이 아닌 결산 법인의 값 추출, 외화 공시 처리, 금융업 현금 기준, 절 자동 선정·주석 추출 |
+| C | 원문 수집 | 일부 | [지정 공시 실행](specs/cash-report-slice.md), src/dartness/report_section.py, src/dartness/cash_report.py, tests/test_cash_report.py, src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](guides/dart-live-check.md) | 수동 1건/평가용 여러 법인 수집 경로가 있음. [지정 공시 실행](specs/cash-report-slice.md)에서 명시적 구역 선정 연결 중. 제품 전수 원문 수집·캐시는 미완료 |
+| D | 현금 행·열 추출 | 일부 | src/dartness/cash_table.py, src/dartness/account_label.py, tests/test_cash_table.py, [지원 범위](specs/cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md) | 선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 12월이 아닌 결산 3곳 5건은 정답대로 모두 확인 필요(현금및예치금·엔화). 원화 공시 12월이 아닌 결산 법인의 값 추출, 외화 공시 처리, 금융업 현금 기준, 범용 절 자동 선정·주석 추출 |
 | E | 단위 정규화 | 구현 | src/dartness/amounts.py, tests/test_amounts.py, [금액 단위 처리](specs/amounts.md) | 대시·괄호 음수 등 지원하지 않는 표기 |
 | F | 계약 검증 | 구현 | src/dartness/cash_contract.py, tests/test_cash_contract.py, [현금 계약](specs/cash-query-contract.md) | 외부 JSON 입력, 근거의 사실 확인 |
 | G | 합계·차이 판정 | 미구현 | [정확성과 근거](specs/requirements.md#accuracy) | 자동 차이 판정. 표시 기준만 합의됨 |
-| H | 조건 비교 | 미구현 | [현금 계약](specs/cash-query-contract.md) | 금액 조건 비교 방식, 결과 포함 정책 |
-| I | 엑셀 결과 | 미구현 | [결과물 예시](specs/output-example.md) | 열 배치, 파일 생성 |
+| H | 조건 비교 | 일부 | [지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_report.py, tests/test_cash_report.py | 지정 공시의 정확한 원화 하한 비교만 지원. 전수·최신 정정 적용 자격·제품 결과 포함은 미완료 |
+| I | 엑셀 결과 | 일부 | [결과물 예시](specs/output-example.md), [지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_workbook.py, tests/test_cash_workbook.py | 지정 공시의 세 열 엑셀·링크·원문 메모 지원. 전수/최신 유효 정정 선정 완료 결과는 미구현 |
 
 ## 지금 · 다음 · 나중
 
-**지금**은 현재 도달한 구현 범위입니다. 열린 후속 작업은 [작업 상태](work-state.md)에서 확인합니다. **다음**과 **나중**은 에이전트의 제안이며 순서를 사용자와 아직 정하지 않았습니다.
+**지금**은 현재 도달한 구현 범위입니다. 열린 후속 작업은 [작업 상태](work-state.md)에서 확인합니다. M1 현금 조회 우선과 단일 법인 연결은 사용자와 정했습니다. 세부 구현 순서는 기존 위임 범위의 계획이며 미결 요구사항은 자동 확정하지 않습니다.
 
 <!-- system-status: next -->
 | 구분 | 작업 | 상태 |
 |---|---|---|
-| 지금 | 공통 입력·날짜와 공시 후보 계약 v1 | [계약](specs/common-query-contract.md), 후보 범위 일치·출처 보존·복수 후보 보류. 실제 수집·추출 연결은 미구현 |
-| 지금 | 원본·정정 전체 자료와 개발용 정답 | [PDF·원문 XBRL·현금 두 셀 대조](cases/hd-construction-correction.md). 자동 연결·정정 선택은 미구현 |
-| 다음 | 유형별 미결 질문 하나를 정하고 실행 계약·실제 공시 사례 준비 | 제안 |
-| 다음 | 모집단/공시 연결의 실제 API 운영 검증과 원문 후보·정정 계약 연결 | 제안 |
-| 나중 | 합계·차이 판정, 조건 비교, 엑셀 결과 | 제안 |
+| 지금 | M1 상장법인 현금 조건 조회와 근거 포함 엑셀 | 사용자 입력 금액·세 시장 전수·기존 정책 유지. [첫 실행 계약](specs/cash-report-slice.md)에 상위 Milestone 연결 |
+| 지금 | 지정 공시 한 건의 원문에서 조건 비교·결과 파일 연결 | 이슈 #92, PR #93. 명시적 지원 구역 선정·기존 추출/검증·세 열 엑셀과 근거 JSON 연결. 전수·최신본 선정 완료가 아닌 중간 체크포인트 |
+| 다음 | 실제 원문 후보 생성·기준일 자료 선택 연결(이슈 #94) | 공통 계약 유지. 원문 선정·모호한 정정의 확인 필요·실행 예산·실패 기록을 연결 |
+| 다음 | 근거 포함 엑셀과 독립 E2E 평가 | 출력 상세·수용 기준·의존성의 실제 미결만 논의. 한 법인 성공만으로 M1 완료 아님 |
+| 나중 | 나머지 네 조회 유형의 Milestone·미결 기준·실행 범위 구체화 | 제안 |
 | 나중 | 금융업 현금 기준 (이슈 #57) | 지금은 확인 필요 유지로 사용자 결정, 필요해지면 현금흐름표 기말 현금 검토 |
 | 나중 | 외화 공시 현금 조회 방식, 원화 공시 12월이 아닌 결산 법인의 값 추출 확인 (이슈 #67) | 보류. 문제가 생기면 다루기로 사용자 결정 |
 | 나중 | PR마다 LLM이 문서와 코드를 대조하는 참고 리뷰 | 보류. API 키·비용 결정 필요 |

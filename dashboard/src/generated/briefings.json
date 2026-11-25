@@ -2,6 +2,111 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0093-cash-report-slice.md",
+      "sha256": "b0fd190a5cbf556add3213ddb307226739e594c52e463704419741830a3147b8",
+      "pr": 93,
+      "issue": 92,
+      "date": "2026-11-25",
+      "stages": [
+        "C",
+        "D",
+        "H",
+        "I"
+      ],
+      "title": "M1 첫 실행: 원문에서 현금 조건 결과까지",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "지정 공시 ZIP에서 본문·법인·명시적 재무상태표 구역을 찾아 기존 추출·검증·금액 조건을 연결했습니다. 전체 법인·최신 유효 정정·최종 엑셀 완료로 표시하지 않습니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "C·D·H·I의 지정 공시 경로를 연결합니다. 제품 전수·최신본 선정은 여전히 후속입니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "paragraph",
+            "text": "표를 손으로 잘라 전달하는 대신 전체 ZIP에서 지정 접수번호 본문과 명시적 BS_S/BS_C 구역을 찾습니다. 대한약품 개발용 원문에서 43,972,786,132원을 읽어 500억원 미충족·400억원 충족을 확인했습니다. 법인명·금액·기준의 세 열 엑셀과 근거 JSON을 함께 만듭니다. 법인명은 공시 링크, 금액 메모는 원문 숫자·단위·정확한 원화 값입니다. 제품 최종 선정으로 섞지 않습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "label",
+            "text": "사용자가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "올인원 비전을 유지하며 현금 조회를 첫 Milestone으로 진행합니다. 기존 기준으로 자율 실행하고 필요한 결정만 질문합니다.",
+              "openpyxl·타입 스텁 추가를 승인했습니다. 기본 결과는 법인명·금액·조회 기준 중심이며 원문 근거는 쉽게 대조할 수 있게 합니다."
+            ]
+          },
+          {
+            "type": "label",
+            "text": "구현 중 에이전트가 정한 것"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "첫 지원은 UTF-8 사업보고서의 명시적 재무상태표 태그입니다. 원문 자동 보정이나 첨부 대체는 하지 않습니다. basis는 상위 단계가 확인해 입력합니다.",
+              "전체 ZIP 한 건을 개발용 회귀 자료로 추가했습니다. 기존 공개 데이터 브랜치의 변경 없는 파일이며 저장 크기는 약 208KB입니다. 전체 원문에서 구간을 찾는 검사를 위해 필요합니다.",
+              "문서의 오래된 진행/다음 표현을 실제 GitHub 완료 근거에 맞춰 정리하고 M1과 첫 이슈를 연결했습니다. 새 오케스트레이터는 없습니다."
+            ]
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "추가 결정은 없습니다. 사용자가 openpyxl·타입 스텁 추가와 간결한 기본 표 방향을 승인했습니다. 미완료인 전수·최신 정정 선택을 파일 작성 완료와 구분합니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "table",
+            "header": [
+              "확인한 것",
+              "못 한 것"
+            ],
+            "rows": [
+              [
+                "기존 전체 ZIP의 본문/법인·현금 구역 자동 선정·원문 정답·금액 조건",
+                "전수·최신 유효 정정·모든 사업보고서 형식"
+              ],
+              [
+                "다른 법인/첨부/연결 대체·중복·단위/날짜 누락·경계값 실패",
+                "별도/개별 의미의 자동 판정·기업 자체 오류·주석 합계"
+              ],
+              [
+                "지정 공시 엑셀/JSON·숫자 셀·공시 링크·수식 실행/정밀도 손실 방지",
+                "제품 전수 결과·독립 미사용 E2E 평가"
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "본 사례는 이미 계정명 수정에 사용한 개발용입니다. 실제 새 법인에서 정확도를 검증한 것으로 표시하지 않습니다."
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "[M1](https://github.com/YUJAEYUN/Dartness/milestone/1), [이슈 #92](https://github.com/YUJAEYUN/Dartness/issues/92), [PR #93](https://github.com/YUJAEYUN/Dartness/pull/93)",
+              "[실행 계약](../specs/cash-report-slice.md), [기존 현금 추출](../specs/cash-table-extraction.md)",
+              "구현: src/dartness/report_section.py, src/dartness/cash_report.py · 검사: tests/test_cash_report.py"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0091-correction-cash-comparison.md",
       "sha256": "9c76f0e9523912a9e37cc23c64b4ba35e8c14fad15bc35b813561e16b7417fc5",
       "pr": 91,

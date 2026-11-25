@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#93 M1 지정 공시 현금 실행](0093-cash-report-slice.md) | 원문 실행 연결 |
 | [#91 정정 전후 현금 비교](0091-correction-cash-comparison.md) | 정정 셀 비교 |
 | [#89 원본·정정 근거 대조](0089-correction-evidence.md) | 공통 수집 계약 |
 | [#87 상장법인 실제 연결 검증](0087-listed-live-check.md) | 실제 API 검사 |
@@ -52,6 +53,7 @@
     - docs/specs/listed-universe.md
     - docs/specs/correction-evidence.md
     - docs/specs/correction-cash-comparison.md
+    - docs/specs/cash-report-slice.md
     - docs/specs/cash-query-contract.md
     - docs/specs/cash-table-extraction.md
     - docs/specs/amounts.md

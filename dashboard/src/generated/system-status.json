@@ -98,8 +98,8 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "f0904d2cce40c8ef65d1d8b0ebb4587e4dc8e6d57e3758f2614f185d249d5d17",
-  "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D partial\n    class G,H,I todo",
+  "sourceSha256": "00eb872dbd1e4ee876a11f1c5dad861c1c83aa35b9a3b81efae2ef73d84d2552",
+  "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D,H,I partial\n    class G todo",
   "stages": [
     {
       "id": "A",
@@ -119,15 +119,15 @@
       "id": "C",
       "name": "원문 수집",
       "status": "일부",
-      "evidence": "src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](guides/dart-live-check.md)",
-      "missing": "수동 실행 1건만 수집. 여러 법인 수집, 캐시"
+      "evidence": "[지정 공시 실행](specs/cash-report-slice.md), src/dartness/report_section.py, src/dartness/cash_report.py, tests/test_cash_report.py, src/dartness/dart_smoke.py, tests/test_dart_smoke.py, [수집 검사](guides/dart-live-check.md)",
+      "missing": "수동 1건/평가용 여러 법인 수집 경로가 있음. [지정 공시 실행](specs/cash-report-slice.md)에서 명시적 구역 선정 연결 중. 제품 전수 원문 수집·캐시는 미완료"
     },
     {
       "id": "D",
       "name": "현금 행·열 추출",
       "status": "일부",
       "evidence": "src/dartness/cash_table.py, src/dartness/account_label.py, tests/test_cash_table.py, [지원 범위](specs/cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)",
-      "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 12월이 아닌 결산 3곳 5건은 정답대로 모두 확인 필요(현금및예치금·엔화). 원화 공시 12월이 아닌 결산 법인의 값 추출, 외화 공시 처리, 금융업 현금 기준, 절 자동 선정·주석 추출"
+      "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 12월이 아닌 결산 3곳 5건은 정답대로 모두 확인 필요(현금및예치금·엔화). 원화 공시 12월이 아닌 결산 법인의 값 추출, 외화 공시 처리, 금융업 현금 기준, 범용 절 자동 선정·주석 추출"
     },
     {
       "id": "E",
@@ -153,42 +153,42 @@
     {
       "id": "H",
       "name": "조건 비교",
-      "status": "미구현",
-      "evidence": "[현금 계약](specs/cash-query-contract.md)",
-      "missing": "금액 조건 비교 방식, 결과 포함 정책"
+      "status": "일부",
+      "evidence": "[지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_report.py, tests/test_cash_report.py",
+      "missing": "지정 공시의 정확한 원화 하한 비교만 지원. 전수·최신 정정 적용 자격·제품 결과 포함은 미완료"
     },
     {
       "id": "I",
       "name": "엑셀 결과",
-      "status": "미구현",
-      "evidence": "[결과물 예시](specs/output-example.md)",
-      "missing": "열 배치, 파일 생성"
+      "status": "일부",
+      "evidence": "[결과물 예시](specs/output-example.md), [지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_workbook.py, tests/test_cash_workbook.py",
+      "missing": "지정 공시의 세 열 엑셀·링크·원문 메모 지원. 전수/최신 유효 정정 선정 완료 결과는 미구현"
     }
   ],
   "next": [
     {
       "group": "지금",
-      "task": "공통 입력·날짜와 공시 후보 계약 v1",
-      "status": "[계약](specs/common-query-contract.md), 후보 범위 일치·출처 보존·복수 후보 보류. 실제 수집·추출 연결은 미구현"
+      "task": "M1 상장법인 현금 조건 조회와 근거 포함 엑셀",
+      "status": "사용자 입력 금액·세 시장 전수·기존 정책 유지. [첫 실행 계약](specs/cash-report-slice.md)에 상위 Milestone 연결"
     },
     {
       "group": "지금",
-      "task": "원본·정정 전체 자료와 개발용 정답",
-      "status": "[PDF·원문 XBRL·현금 두 셀 대조](cases/hd-construction-correction.md). 자동 연결·정정 선택은 미구현"
+      "task": "지정 공시 한 건의 원문에서 조건 비교·결과 파일 연결",
+      "status": "이슈 #92, PR #93. 명시적 지원 구역 선정·기존 추출/검증·세 열 엑셀과 근거 JSON 연결. 전수·최신본 선정 완료가 아닌 중간 체크포인트"
     },
     {
       "group": "다음",
-      "task": "유형별 미결 질문 하나를 정하고 실행 계약·실제 공시 사례 준비",
-      "status": "제안"
+      "task": "실제 원문 후보 생성·기준일 자료 선택 연결(이슈 #94)",
+      "status": "공통 계약 유지. 원문 선정·모호한 정정의 확인 필요·실행 예산·실패 기록을 연결"
     },
     {
       "group": "다음",
-      "task": "모집단/공시 연결의 실제 API 운영 검증과 원문 후보·정정 계약 연결",
-      "status": "제안"
+      "task": "근거 포함 엑셀과 독립 E2E 평가",
+      "status": "출력 상세·수용 기준·의존성의 실제 미결만 논의. 한 법인 성공만으로 M1 완료 아님"
     },
     {
       "group": "나중",
-      "task": "합계·차이 판정, 조건 비교, 엑셀 결과",
+      "task": "나머지 네 조회 유형의 Milestone·미결 기준·실행 범위 구체화",
       "status": "제안"
     },
     {
