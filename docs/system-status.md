@@ -23,8 +23,8 @@ flowchart LR
     classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f
     classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4
     class E,F done
-    class A,B,C,D,H partial
-    class G,I todo
+    class A,B,C,D,H,I partial
+    class G todo
 ```
 
 ## 단계별 상태와 근거
@@ -42,7 +42,7 @@ flowchart LR
 | F | 계약 검증 | 구현 | src/dartness/cash_contract.py, tests/test_cash_contract.py, [현금 계약](specs/cash-query-contract.md) | 외부 JSON 입력, 근거의 사실 확인 |
 | G | 합계·차이 판정 | 미구현 | [정확성과 근거](specs/requirements.md#accuracy) | 자동 차이 판정. 표시 기준만 합의됨 |
 | H | 조건 비교 | 일부 | [지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_report.py, tests/test_cash_report.py | 지정 공시의 정확한 원화 하한 비교만 지원. 전수·최신 정정 적용 자격·제품 결과 포함은 미완료 |
-| I | 엑셀 결과 | 미구현 | [결과물 예시](specs/output-example.md) | 열 배치, 파일 생성 |
+| I | 엑셀 결과 | 일부 | [결과물 예시](specs/output-example.md), [지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_workbook.py, tests/test_cash_workbook.py | 지정 공시의 세 열 엑셀·링크·원문 메모 지원. 전수/최신 유효 정정 선정 완료 결과는 미구현 |
 
 ## 지금 · 다음 · 나중
 
@@ -52,8 +52,8 @@ flowchart LR
 | 구분 | 작업 | 상태 |
 |---|---|---|
 | 지금 | M1 상장법인 현금 조건 조회와 근거 포함 엑셀 | 사용자 입력 금액·세 시장 전수·기존 정책 유지. [첫 실행 계약](specs/cash-report-slice.md)에 상위 Milestone 연결 |
-| 지금 | 지정 공시 한 건의 원문에서 조건 비교·결과 파일 연결 | 이슈 #92, PR #93. 명시적 지원 구역 선정과 기존 추출/검증 재사용. 전수·최신본 선정 완료가 아닌 중간 체크포인트 |
-| 다음 | 실제 자료 기준일·최신 유효 정정·전수 실행 연결 | 공통 계약 유지. 원문 선정·모호한 정정의 확인 필요·실행 예산·실패 기록을 연결 |
+| 지금 | 지정 공시 한 건의 원문에서 조건 비교·결과 파일 연결 | 이슈 #92, PR #93. 명시적 지원 구역 선정·기존 추출/검증·세 열 엑셀과 근거 JSON 연결. 전수·최신본 선정 완료가 아닌 중간 체크포인트 |
+| 다음 | 실제 원문 후보 생성·기준일 자료 선택 연결(이슈 #94) | 공통 계약 유지. 원문 선정·모호한 정정의 확인 필요·실행 예산·실패 기록을 연결 |
 | 다음 | 근거 포함 엑셀과 독립 E2E 평가 | 출력 상세·수용 기준·의존성의 실제 미결만 논의. 한 법인 성공만으로 M1 완료 아님 |
 | 나중 | 나머지 네 조회 유형의 Milestone·미결 기준·실행 범위 구체화 | 제안 |
 | 나중 | 금융업 현금 기준 (이슈 #57) | 지금은 확인 필요 유지로 사용자 결정, 필요해지면 현금흐름표 기말 현금 검토 |
