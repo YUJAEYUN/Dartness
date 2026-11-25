@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#100 실제 공시 기간 후보·기준일 선택](0100-cash-report-candidates.md) | 현금 요청 실행 연결 |
 | [#99 근거 재무상태표 바로 열기](0099-cash-table-link.md) | 근거 접근 |
 | [#97 참고 파일과 같은 엑셀 배치](0097-workbook-reference-layout.md) | 출력 서식 |
 | [#96 엑셀 왼쪽 정렬·10포인트](0096-workbook-style.md) | 출력 서식 |

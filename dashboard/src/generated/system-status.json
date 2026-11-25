@@ -1,6 +1,6 @@
 {
   "policySource": "docs/specs/common-query-contract.md",
-  "policySha256": "85954db98ab8024e98417cf9cb39e53ac8c18c3bfdbbc03a210fc32734a102d4",
+  "policySha256": "41c592662303d2c3892bfc84d6a1b36e27af299297e262a35464bbc7146f1463",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "00eb872dbd1e4ee876a11f1c5dad861c1c83aa35b9a3b81efae2ef73d84d2552",
+  "sourceSha256": "b8bd98a57b42843dc1951cd0430d1289e03f0028fb946eccdfe32590333e8223",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D,H,I partial\n    class G todo",
   "stages": [
     {
@@ -106,14 +106,14 @@
       "name": "조회 조건 입력",
       "status": "일부",
       "evidence": "[공통 계약 v1](specs/common-query-contract.md), src/dartness/query_contract.py, tests/test_query_contract.py, src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py",
-      "missing": "공통 입력·기간·후보 키 일치·날짜와 근거 보존만 지원. 유형별 조건·사건 기간·외부 입력·실행 연결 없음"
+      "missing": "[저장 현금 원문 요청 연결](specs/cash-report-slice.md#report-candidates), src/dartness/cash_snapshot.py, tests/test_cash_snapshot.py. 실제 기간 후보와 요청 날짜 선택·현금 조건/출력 연결 지원. 사건 기간·사용자 외부 입력·전수 실행은 미완료"
     },
     {
       "id": "B",
       "name": "법인·공시 찾기",
       "status": "일부",
       "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md), [정정 근거 계약](specs/correction-evidence.md), src/dartness/correction_evidence.py, tests/test_correction_evidence.py, [현금 셀 비교](specs/correction-cash-comparison.md), src/dartness/correction_cash.py, tests/test_correction_cash.py",
-      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. 보고서 의미/정정 선택 미구현"
+      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. [저장 원문 기간 후보](specs/cash-report-slice.md#report-candidates), src/dartness/cash_report_candidates.py에서 지원 현금 셀·기간·단위 근거 연결. 범용 보고서 의미/유효 정정 선택 미구현"
     },
     {
       "id": "C",
@@ -127,7 +127,7 @@
       "name": "현금 행·열 추출",
       "status": "일부",
       "evidence": "src/dartness/cash_table.py, src/dartness/account_label.py, tests/test_cash_table.py, [지원 범위](specs/cash-table-extraction.md), [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)",
-      "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 12월이 아닌 결산 3곳 5건은 정답대로 모두 확인 필요(현금및예치금·엔화). 원화 공시 12월이 아닌 결산 법인의 값 추출, 외화 공시 처리, 금융업 현금 기준, 범용 절 자동 선정·주석 추출"
+      "missing": "선정된 단순 재무상태표 구간만 지원(KIND HTML과 DART 원문 XML). 개발용 사례는 헬릭스미스와 DART 2025 6개 법인. 검증용 5개 법인 9건에서 틀린 금액 0, 8건 정답. 그 뒤 계정명 앞 목차 기호를 떼고 비교해 대한약품 1건은 개발용. 12월이 아닌 결산 3곳 5건은 정답대로 모두 확인 필요(현금및예치금·엔화). [저장 원문의 기간 후보](specs/cash-report-slice.md#report-candidates)와 요청 날짜 연결 구현. 원화 공시 12월이 아닌 결산 법인의 값 추출, 외화 공시 처리, 금융업 현금 기준, 범용 절 자동 선정·주석 추출"
     },
     {
       "id": "E",
@@ -162,7 +162,7 @@
       "name": "엑셀 결과",
       "status": "일부",
       "evidence": "[결과물 예시](specs/output-example.md), [지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_workbook.py, tests/test_cash_workbook.py",
-      "missing": "지정 공시의 세 열 엑셀·링크·원문 메모 지원. 전수/최신 유효 정정 선정 완료 결과는 미구현"
+      "missing": "지정 공시/제공 원문 내 선택의 세 열 엑셀·표 구간 링크·원문 메모·요청/실제 날짜·이전 자료 표시 지원. 전수/최신 유효 정정 선정 완료 결과는 미구현"
     }
   ],
   "next": [
@@ -177,9 +177,14 @@
       "status": "이슈 #92, PR #93. 명시적 지원 구역 선정·기존 추출/검증·세 열 엑셀과 근거 JSON 연결. 전수·최신본 선정 완료가 아닌 중간 체크포인트"
     },
     {
+      "group": "지금",
+      "task": "실제 원문 후보 생성·기준일 자료 선택 연결(이슈 #94 / PR #100)",
+      "status": "지원 저장 사업보고서의 실제 기간/현금 근거를 공통 계약에 연결. 미확인 범위/정정·읽기 실패는 보류하며 전수 자격은 아님"
+    },
+    {
       "group": "다음",
-      "task": "실제 원문 후보 생성·기준일 자료 선택 연결(이슈 #94)",
-      "status": "공통 계약 유지. 원문 선정·모호한 정정의 확인 필요·실행 예산·실패 기록을 연결"
+      "task": "공시 이력·정정 관계/항목 영향 근거와 유효 정정 선택 연결",
+      "status": "기존 준비 근거·두 셀 비교를 재사용. 근거 부족은 보류하고 새 선정 기준이 필요한 경우만 논의"
     },
     {
       "group": "다음",

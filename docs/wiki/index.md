@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 저장 공시의 요청 기준일 선택 | [후보 생성·지원·보류와 실행](../specs/cash-report-slice.md#report-candidates). src/dartness/cash_report_candidates.py와 src/dartness/cash_snapshot.py가 실제 기간 열을 기존 날짜/후보 계약과 현금 실행에 연결합니다. tests/test_cash_snapshot.py. 제공 원문 묶음 안의 선택이며 전수·최신 정정·별도/개별 자동 판정은 미완료 |
 | M1 지정 공시 현금 실행 | [입력·지원 태그·범위·실패·검증](../specs/cash-report-slice.md). src/dartness/report_section.py, src/dartness/cash_report.py, tests/test_cash_report.py. 전체 지정 원문에서 구역 선정 후 조건 비교. 전수·최신 정정·최종 엑셀은 미완료 |
 | 정정 전후 현금 셀 비교 | [출처·범위·두 값 비교와 한계](../specs/correction-cash-comparison.md). src/dartness/correction_cash.py, tests/test_correction_cash.py. 원화 현금 입력 비교이며 의미 추출·최신본 적용은 미구현 |
 | 원본·정정 연결 근거 입력 | [수집 후보·전체 원문/뷰어 해시·마감 대조](../specs/correction-evidence.md). src/dartness/correction_evidence.py, tests/test_correction_evidence.py. 준비된 메타데이터 검사이며 의미 검증·자동 최신본 선택은 아님 |

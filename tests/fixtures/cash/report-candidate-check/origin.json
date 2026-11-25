@@ -1,0 +1,33 @@
+{
+  "classification": "separate_company_integration_check; existing extraction evaluation material, not unseen end-to-end data",
+  "source_commit": "29fedba13ceeb32066f3f3258a5f8632806f854a",
+  "source_path": "092130/document.zip",
+  "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260318000576",
+  "archive_sha256": "66595b705d9e456056094c3fa4dab5bd04079e8a28e71acce3edd32447b3af00",
+  "document_sha256": "39757649f438dad2b48fb3f273413118c6cab3e12a2daad642591985c4e9ff3d",
+  "corp_code": "00634728",
+  "company_name": "이크레더블",
+  "receipt": "20260318000576",
+  "published_on": "2026-03-18",
+  "basis": "separate",
+  "basis_origin": "existing source-checked evaluation record; not inferred solely from BS_S",
+  "periods": [
+    {
+      "actual_date": "2025-12-31",
+      "raw_amount": "35,413,462,705",
+      "amount_krw": "35413462705"
+    },
+    {
+      "actual_date": "2024-12-31",
+      "raw_amount": "36,902,659,848",
+      "amount_krw": "36902659848"
+    },
+    {
+      "actual_date": "2023-12-31",
+      "raw_amount": "34,643,175,246",
+      "amount_krw": "34643175246"
+    }
+  ],
+  "unit": "원",
+  "expected_answer_origin": "Current amount reused unchanged from dart-2025-eval-2/cases.json. Prior dates/cash values manually read from original BS_S group before running new candidate integration on this company. No implementation tuning to this case."
+}

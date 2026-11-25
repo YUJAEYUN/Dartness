@@ -8,6 +8,7 @@ from typing import Literal
 from dartness.cash_contract import CashBasis, CashNeedsReview, CashQuery, CashResult, CashValue
 from dartness.cash_viewer import CashViewerLink
 from dartness.disclosure_list import Disclosure
+from dartness.query_contract import QueryRun
 from dartness.report_section import ReportSection
 
 
@@ -22,11 +23,18 @@ class CashReportResult:
     section: ReportSection | None
     value: CashResult | None
     failure: str | None
+    request_run: QueryRun | None = None
     viewer_link: CashViewerLink | None = None
     viewer_link_failure: str | None = None
     status: Literal["document_match", "document_non_match", "needs_review"] = field(init=False)
 
     def __post_init__(self) -> None:
+        if self.request_run is not None:
+            run = self.request_run
+            if run.request.query_type != "cash" or run.executed_at != self.checked_at:
+                raise ValueError("cash_request_run_mismatch")
+            if not run.earliest_date <= self.query.as_of <= run.anchor_date:
+                raise ValueError("actual_date_outside_request_window")
         status: Literal["document_match", "document_non_match", "needs_review"] = "needs_review"
         if isinstance(self.value, CashValue) and self.failure is None:
             status = (
@@ -47,7 +55,13 @@ class CashReportResult:
             "company_name": self.disclosure.corp_name,
             "receipt": self.disclosure.receipt,
             "published_on": self.disclosure.filed_on.isoformat(),
-            "requested_as_of": self.query.as_of.isoformat(),
+            "requested_as_of": (
+                self.request_run.anchor_date if self.request_run else self.query.as_of
+            ).isoformat(),
+            "request_mode": self.request_run.request.mode if self.request_run else None,
+            "is_prior": self.query.as_of < self.request_run.anchor_date
+            if self.request_run
+            else False,
             "actual_as_of": value.as_of.isoformat() if value else None,
             "basis": self.basis,
             "basis_origin": "supplied_upstream",
