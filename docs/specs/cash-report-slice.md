@@ -47,3 +47,5 @@ PYTHONPATH=src python -m dartness.cash_report --archive tests/fixtures/cash/repo
 실행 책임은 src/dartness/cash_report.py, 결과 기록은 src/dartness/cash_report_result.py, 파일 작성은 src/dartness/cash_workbook.py로 나눠 순환 참조를 만들지 않습니다. 출력 테스트는 tests/test_cash_workbook.py입니다. 설치는 python -m pip install -r requirements-dev.txt로 기존 검사까지, 실행만 필요하면 requirements.txt를 사용합니다.
 
 2026-11-25 사용자 서식 요청: 제목·머리글·본문·링크를 모두 왼쪽 정렬·10포인트로 통일하고 Excel 눈금선을 표시합니다. 셀 내용·금액·근거 링크·메모를 삭제하지 않습니다.
+
+사용자의 후속 참고 양식에 맞춰 흰 바탕·상단 조회 정보 한 줄·2행 굵은 머리글·3행부터 데이터·기본 행 높이·A3 틀 고정/필터로 정리합니다. 왼쪽 정렬·10포인트·눈금선·세 열과 근거는 유지합니다. 참고 파일의 회사/팀/분류 내용은 사용하지 않습니다.
