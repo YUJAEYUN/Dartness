@@ -58,11 +58,17 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
     if "." in minimum:
         minimum = minimum.rstrip("0").rstrip(".")
     day = result.checked_at.astimezone(ZoneInfo("Asia/Seoul")).date()
+    requested = f"기준 {result.request_run.anchor_date} | " if result.request_run else ""
+    scope_note = (
+        "제공 공시 내 선택·개발용(전수/최신정정 미확인)"
+        if result.request_run
+        else "지정 공시 1건·개발용(전수/최신정정 미확인)"
+    )
     _text(
         sheet,
         1,
         1,
-        f"{day} 조회 | {minimum}억원 이상 | 지정 공시 1건·개발용(전수/최신정정 미확인)",
+        f"{day} 조회 | {requested}{minimum}억원 이상 | {scope_note}",
     )
     for column, title in enumerate(("법인명", "현금및현금성자산(억원)", "조회 기준"), 1):
         _text(sheet, 2, column, title)
@@ -82,7 +88,12 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
             "individual": "법인 자체(개별)",
             "consolidated": "그룹 전체(연결)",
         }[value.basis]
-        _text(sheet, 3, 3, f"{value.as_of:%Y.%m.%d} · {basis}")
+        prior = (
+            " · 이전 자료"
+            if result.request_run and value.as_of < result.request_run.anchor_date
+            else ""
+        )
+        _text(sheet, 3, 3, f"{value.as_of:%Y.%m.%d} · {basis}{prior}")
         sheet.cell(3, 2).comment = Comment(
             f"원문 숫자: {value.raw_amount.raw_value}\n적용 단위: {value.raw_amount.unit}\n"
             f"정확한 원화 금액: {value.amount_krw:,}원\n공시일: {result.disclosure.filed_on}\n"
@@ -118,6 +129,9 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
         for cell in row:
             cell.font = Font(name="맑은 고딕", size=10, color="000000", bold=cell.row in (1, 2))
             cell.alignment = Alignment(horizontal="left", vertical="center")
+    if result.request_run:
+        sheet.cell(1, 1).alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)
+        sheet.row_dimensions[1].height = 30
     if sheet.cell(3, 1).hyperlink is not None:
         sheet.cell(3, 1).font = Font(name="맑은 고딕", size=10, color="0563C1", underline="single")
     buffer = io.BytesIO()

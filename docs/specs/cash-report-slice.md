@@ -62,3 +62,34 @@ PYTHONPATH=src python -m dartness.cash_report --archive tests/fixtures/cash/repo
 저장 응답으로 재현하려면 `--viewer-main 목차.html --viewer-section 재무상태표.html`을 함께 지정합니다. 일반 실행은 두 인자를 생략하고 공식 뷰어를 조회합니다. 일반 PR 테스트는 저장한 공개 응답을 사용하며 실제 DART 네트워크 호출을 추가하지 않습니다.
 
 구현은 src/dartness/cash_viewer.py이며 tests/test_cash_viewer.py의 대한약품 개발용 웹 응답과 변형 실패 사례로 검사합니다. tests/fixtures/cash/report-viewer/origin.json의 관측 주소·응답 해시를 보존하며 기존 원문 금액 정답을 유지합니다. 한 보고서의 확인이며 다른 모든 서식·법인의 바로가기를 검증한 것은 아닙니다.
+
+<a id="report-candidates"></a>
+## 저장 공시의 기간 후보와 공통 요청 연결
+
+이슈 #94는 제공된 같은 법인 원문 ZIP 묶음에서 지원 재무상태표의 당기·비교기간을 읽어 기존 CandidateRequest/select_candidate에 연결합니다. 실제 법인 코드는 전체 본문과 대조하고 날짜·단위·현금 행/열은 기존 추출 검사로 확인합니다. 재무 범위는 기존 실행과 같이 상위 단계에서 확인해 전달하며 BS_S만으로 별도/개별을 자동 구분하지 않습니다. 입력으로 준 전체 범위와 판정 근거를 보존합니다.
+
+요청은 기존 QueryRun과 명시적 별도/개별/연결, 법인 코드, 정확한 원화 하한, 저장 보고서 목록입니다. 원문에서 확인한 각 기간의 현금 값과 근거로 후보를 만들고 날짜·마감·동률 처리는 기존 계약을 재사용합니다. 미래 공시는 제외 근거를 남기고 사용하지 않습니다. 동일 후보의 반복만 중복으로 취급하며 같은 날짜의 다른 원문은 보류하고 이전 날짜로 후퇴하지 않습니다.
+
+지원 구역의 모든 비교기간 열을 기존 추출기로 확인합니다. 하나라도 날짜/단위/금액을 확인하지 못하는 지원 밖 입력은 실패 기록을 남기고 묶음 전체를 확인 필요로 둡니다. 읽기 실패 보고서를 조용히 제외해 오래된 자료를 선택하지 않습니다. 이 첫 연결은 비교기간 열 하나의 오류로 전체 보고서가 보류될 수 있는 보수적인 지원 범위입니다.
+
+선택한 실제 날짜로 CashQuery를 만들고 기존 지정 공시 실행에 연결합니다. 요청 모드·요청 기준일·허용 구간·실제 날짜·이전 자료 여부는 내부 결과에 함께 보존하고, 결과 엑셀에도 요청 기준일과 이전 자료 표시를 유지합니다. 준비된 보고서 묶음 안에서의 선택이며 전수 수집 완전성이나 최신 유효 정정 확인을 뜻하지 않습니다. 정정 표시가 있는 단일 문서도 관계/유효성이 확인되지 않았으면 보류합니다. 최신 정정 확인 상태는 계속 false입니다.
+
+
+### 실행 경로와 확인 범위
+
+src/dartness/cash_report_candidates.py의 StoredCashReport는 공시 목록 메타데이터와 원문 ZIP입니다. read_cash_candidates는 명시적 구역·기간·현금 셀을 확인해 날짜별 근거를 만듭니다. src/dartness/cash_snapshot.py의 query_cash_reports는 기존 QueryRun을 받아 그 후보들을 공통 선택기에 전달하고 선택한 실제 날짜를 기존 inspect_cash_report에 연결합니다. 다른 조회 유형을 현금으로 대신 실행하지 않습니다.
+
+CashSnapshotResult는 전체 후보·입력 출처·제외·실패·선택 결과를 JSON으로 제공합니다. `run_scope=provided_reports_only`이며 공시 목록 메타데이터와 별도/개별 판정은 상위 단계가 제공했다는 사실을 표시합니다. 최종 제품의 법인 선정 자격을 증명하지 않습니다. 읽기 실패는 `source_incomplete`, 선택할 날짜가 없으면 `period_unavailable`, 동률은 `ambiguous_candidate`, 단일 정정 표시의 관계/유효성 미확인은 `correction_unresolved`입니다. 금액을 선택할 수 없으면 selected_report가 없고 엑셀 법인 행으로 출력하지 않습니다.
+
+예를 들어 상위 단계에서 확인한 `run`, `corp_code`, `basis`, `minimum_krw`, `stored_reports`를 전달하면 다음처럼 기존 출력으로 연결할 수 있습니다. 외부 입력 화면이나 새 템플릿 형식을 확정하는 예시는 아닙니다.
+
+```python
+snapshot = query_cash_reports(run, corp_code, basis, minimum_krw, stored_reports)
+audit = snapshot.to_dict()
+if snapshot.report is not None:
+    write_cash_report_workbook(snapshot.report, output_path)
+```
+
+근거 표 바로가기는 앞 절의 verify_cash_viewer로 확인한 링크를 선택 결과에 붙여 그대로 재사용합니다. 기본 제공 원문만으로 웹 목차의 위치를 추정하지 않습니다. 요청 기준일이 있는 출력은 상단에 요청 기준일을 함께 적고, 내용이 잘리지 않도록 상단만 두 줄 높이로 줄바꿈합니다. 세 열·10포인트·왼쪽 정렬은 유지합니다.
+
+검사는 tests/test_cash_snapshot.py입니다. 대한약품 2025/2024/2023년 말의 원문 현금 열은 tests/fixtures/cash/report-slice/periods.json에 대조 근거를 추가했으며 기존 당기 정답은 바꾸지 않았습니다. 이크레더블 원문은 기존 공개 수집 커밋에서 그대로 가져와 연결 로직 수정 없이 세 기간을 추가 점검했습니다(tests/fixtures/cash/report-candidate-check/origin.json). 이크레더블은 기존 추출 평가 자료이므로 완전히 새 미사용 E2E 검증이라고 부르지 않습니다. 개발용/추가 점검과 변형 실패 사례를 구분합니다.

@@ -179,3 +179,10 @@ def extract_cash_table(
         return CashValue(query, basis, query.as_of, source, normalized.amount_krw, result_evidence)
     except ValueError as error:
         return review("extraction_failed", str(error))
+
+
+def cash_table_dates(html_section: str) -> tuple[date, ...]:
+    """Discover explicit period labels only; callers must validate each cash column."""
+    context, _ = _read_section(html_section)
+    periods, _ = _periods_and_unit(context)
+    return tuple(periods.values())

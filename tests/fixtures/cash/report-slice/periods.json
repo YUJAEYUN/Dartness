@@ -1,0 +1,26 @@
+{
+  "classification": "real-dev",
+  "document_sha256": "d380a256bdba8102033106f427e4a43f5657ac6afe100563d169eaad669a589b",
+  "source": "20260318001361.xml / TABLE-GROUP {XBRL}BS_S / cash row",
+  "basis": "individual",
+  "basis_origin": "existing evaluated record; supplied upstream",
+  "unit": "원",
+  "periods": [
+    {
+      "actual_date": "2025-12-31",
+      "raw_amount": "43,972,786,132",
+      "amount_krw": "43972786132"
+    },
+    {
+      "actual_date": "2024-12-31",
+      "raw_amount": "61,302,198,358",
+      "amount_krw": "61302198358"
+    },
+    {
+      "actual_date": "2023-12-31",
+      "raw_amount": "101,501,356,836",
+      "amount_krw": "101501356836"
+    }
+  ],
+  "review": "Manually read period header and CFY/PFY/BPFY cash row before implementing candidate integration; existing current-year gold unchanged."
+}

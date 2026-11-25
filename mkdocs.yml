@@ -70,6 +70,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#100 실제 공시 기간 후보·기준일 선택": briefings/0100-cash-report-candidates.md
       - 근거 재무상태표 바로 열기: briefings/0099-cash-table-link.md
       - "#97 참고 파일과 같은 엑셀 배치": briefings/0097-workbook-reference-layout.md
       - "#96 엑셀 왼쪽 정렬·10포인트": briefings/0096-workbook-style.md
