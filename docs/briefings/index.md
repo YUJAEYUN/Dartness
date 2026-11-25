@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#89 원본·정정 근거 대조](0089-correction-evidence.md) | 공통 수집 계약 |
 | [#87 상장법인 실제 연결 검증](0087-listed-live-check.md) | 실제 API 검사 |
 | [#85 실행일 상장법인 연결](0085-listed-universe.md) | 공통 수집 |
 | [#83 공통 공시 목록 수집](0083-disclosure-list.md) | 공통 수집 |
@@ -48,6 +49,7 @@
     - docs/specs/common-query-contract.md
     - docs/specs/disclosure-list.md
     - docs/specs/listed-universe.md
+    - docs/specs/correction-evidence.md
     - docs/specs/cash-query-contract.md
     - docs/specs/cash-table-extraction.md
     - docs/specs/amounts.md
