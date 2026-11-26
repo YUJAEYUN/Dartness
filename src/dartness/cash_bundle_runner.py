@@ -102,10 +102,23 @@ def main() -> int:
             "selected_receipt": None,
             "reason": str(error),
         }
+    data["requested"] = {
+        "corp_code": args.corp_code,
+        "mode": args.mode,
+        "max_age_months": args.max_age_months,
+        "as_of": args.as_of.isoformat() if args.as_of else None,
+        "basis": args.basis,
+        "minimum_krw": str(args.minimum_krw),
+        "executed_at": args.checked_at.isoformat(),
+    }
     data["input_locations"] = {
         "history_dir": str(args.history_dir),
         "source_dirs": [str(path) for path in args.source_dir],
-        "body_files": [filename for receipt, filename, observed in args.body],
+        "body_observations": [
+            {"receipt": receipt, "file": filename, "observed_at": observed}
+            for receipt, filename, observed in args.body
+        ],
+        "table_section_file": str(args.table_section) if args.table_section else None,
         "correction_inputs": [str(path) for path in args.correction_input],
     }
     try:
@@ -114,7 +127,11 @@ def main() -> int:
             json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
         if result is not None and result.report is not None:
-            write_cash_report_workbook(result.report, args.output.with_suffix(".xlsx"))
+            write_cash_report_workbook(
+                result.report,
+                args.output.with_suffix(".xlsx"),
+                source_scope="captured_history_periodic_reports",
+            )
     except (OSError, ValueError) as error:
         print(
             f"cash replay output failed: {type(error).__name__}; no successful file pair reported"

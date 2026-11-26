@@ -129,6 +129,8 @@ def test_saved_producer_outputs_run_to_json_and_three_column_workbook(
     assert result["selected_report"]["actual_as_of"] == "2025-12-31"
     assert result["selected_report"]["table_link"]["failure"] == "table_section_not_supplied"
     sheet = load_workbook(output.with_suffix(".xlsx")).worksheets[0]
+    assert "지정 이력 내 최신 선택" in sheet["A1"].value
+    assert "전수 미완료" in sheet["A1"].value
     assert sheet.max_column == 3 and sheet["A3"].value == "HD건설기계"
     assert sheet["B3"].value == 0.000006 and sheet["A3"].hyperlink.target == b.disclosure.source_url
     assert sheet["A3"].font.sz == 10 and sheet["A3"].alignment.horizontal == "left"
@@ -191,6 +193,8 @@ def test_loader_failure_is_recorded_without_financial_row(
     result = json.loads(output.read_text())
     assert result["status"] == "needs_review" and result["selected_receipt"] is None
     assert result["reason"] == "archive_hash_mismatch" and not output.with_suffix(".xlsx").exists()
+    assert result["requested"]["minimum_krw"] == "500"
+    assert result["requested"]["as_of"] == "2025-12-31"
 
 
 def test_existing_outputs_are_preserved(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
