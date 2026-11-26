@@ -13,6 +13,7 @@ from collections.abc import Callable
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
+from dartness.dart_receipts import collect_receipts, ensure_no_credential, parse_receipts
 from dartness.dart_smoke import CollectionError, _api_status, _xml, fetch_bytes, read_archive
 
 MAX_COMPANIES = 8
@@ -207,13 +208,21 @@ def main() -> int:
         print("DART collection failed: missing_or_invalid_key")
         return 1
     try:
-        codes, year = parse_request(
-            os.environ.get("STOCK_CODES", ""), os.environ.get("BUSINESS_YEAR", "")
-        )
-        manifest, files = collect(lambda e, p: fetch_bytes(e, p, key), codes, year)
+        mode = os.environ.get("COLLECTION_MODE", "annual").strip() or "annual"
+        if mode == "exact_receipts":
+            receipts = parse_receipts(os.environ.get("RECEIPT_NUMBERS", ""))
+            manifest, files = collect_receipts(lambda e, p: fetch_bytes(e, p, key), receipts)
+        elif mode == "annual":
+            if os.environ.get("RECEIPT_NUMBERS", "").strip():
+                raise CollectionError("exact_receipt_mode_required")
+            codes, year = parse_request(
+                os.environ.get("STOCK_CODES", ""), os.environ.get("BUSINESS_YEAR", "")
+            )
+            manifest, files = collect(lambda e, p: fetch_bytes(e, p, key), codes, year)
+        else:
+            raise CollectionError("invalid_collection_mode")
         rendered = json.dumps(manifest, ensure_ascii=False, indent=2)
-        if key in rendered or any(key.encode() in data for data in files.values()):
-            raise CollectionError("credential_in_output")
+        ensure_no_credential(rendered, files, key)
         target = Path(os.environ.get("OUTPUT_DIR", "work/collect"))
         for name, data in files.items():
             (target / name).parent.mkdir(parents=True, exist_ok=True)
@@ -223,9 +232,9 @@ def main() -> int:
     except CollectionError as error:
         print(f"DART collection failed: {error}")
         return 1
-    companies = manifest["companies"]
-    assert isinstance(companies, list)
-    print(f"DART collection finished: {', '.join(str(c.get('status')) for c in companies)}")
+    entries = manifest["reports" if mode == "exact_receipts" else "companies"]
+    assert isinstance(entries, list)
+    print(f"DART collection finished: {', '.join(str(entry.get('status')) for entry in entries)}")
     return 0
 
 
