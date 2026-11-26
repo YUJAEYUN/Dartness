@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 모집단 전체의 현금 조회·통합 출력 | [모집단 검증·법인별 상태·한도·통합 엑셀](../specs/cash-survey.md). src/dartness/cash_survey.py, tests/test_cash_survey.py. 받은 모든 대상을 유지하며 실제 전수 수집 완료가 아님 |
 | 저장 수집 파일의 조회·출력 실행 | [산출물 로딩·재현 명령·파일 보호](../specs/cash-bundle-runner.md). src/dartness/collection_bundle.py, src/dartness/cash_bundle_runner.py, tests/test_collection_bundle.py. 로컬 파일만 읽고 기존 최신 선택/엑셀을 재사용하는 개발자 경로이며 전수/최종 사용자 입력 형식이 아님 |
 | 최신 공시 선택의 추가 법인 평가 | [동진쎄미켐 고정 구현 평가](../evaluations/latest-cash-dongjin-2026.md). 이력 26건/정기보고서 4개, 관련 요청 5개 일치. 코드 튜닝 없이 확인했고 전수·모든 정정 유형의 E2E는 아님 |
 | 최신 유효 현금 공시 선택 | [이력 재검사·날짜/제출일 선택·관계·미지원 범위](../specs/latest-cash-source.md). src/dartness/latest_cash.py, src/dartness/filing_history.py, tests/test_latest_cash.py. 지정 이력의 지원 정기보고서 안의 선택이며 전수/모든 정정 유형 완료가 아님 |
