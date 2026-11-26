@@ -38,7 +38,7 @@
 | 전체 진행 상황·방향 | [시스템 상태](../system-status.md). 단계별 상태를 바꾸면 지도와 표를 함께 고칩니다 |
 | 개발 원칙·실행 평가 | [다섯 개발 원칙](../design/engineering-principles.md), [평가 기록](../record-forms/evaluation.md) |
 | 정정 전체 자료·고정 정답 | [HD건설기계 개발용 사례](../cases/hd-construction-correction.md). tests/fixtures/corrections/hd-construction-2025, tests/test_correction_case.py. 전체 원문은 별도 데이터 커밋에 보존하며 기본 후보 v1은 두 후보를 보류하며 검증된 상위 최신 실행은 위 계약 참조 |
-| 원본·정정공시 연결 조사 | [공식 근거·실제 원본/정정 한 쌍·검증 계획](../design/correction-linking.md). 조사 기록이며 연결·정정 선택 코드는 미구현 |
+| 원본·정정공시 연결 조사 | [공식 근거·실제 원본/정정 한 쌍·검증 계획](../design/correction-linking.md). 초기 조사 기록이며 후속 원문 연결/지원 범위의 선택 구현은 위 최신 선택 계약 참조 |
 | 공시 후보 범위·근거 보존 | [공시 후보 계약](../specs/common-query-contract.md). src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py. 같은 날짜의 여러 후보는 보류하고 수집·현금 추출 파일과 분리합니다 |
 | 공통 날짜 입력·선택 코드 | [Python 계약 v1](../specs/common-query-contract.md). src/dartness/query_contract.py, tests/test_query_contract.py. 날짜 선택은 원문 선정·조건 판정이 아닙니다 |
 | 공통 조회·시점·출력 합의 | [계약 초안](../specs/common-query-contract.md). 전수 범위·최신/지정일·개월 선택지·달력 계산·분할 조회 요구·정정·엑셀 옵션과 미구현 경계를 확인합니다 |
