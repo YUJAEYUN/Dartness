@@ -70,6 +70,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#105 전체 유형 공시 이력 수집": briefings/0105-filing-history-collection.md
       - "#104 전체 XML 정정표·현금 셀 바인딩": briefings/0104-native-correction-binding.md
       - "#103 지정 접수번호 원문 수집": briefings/0103-exact-receipt-collection.md
       - "#102 실제 본문 관계·정정표 대조": briefings/0102-correction-web-observation.md

@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#105 전체 유형 공시 이력 수집](0105-filing-history-collection.md) | 공시 이력 수집 |
 | [#104 전체 XML 정정표·현금 셀 바인딩](0104-native-correction-binding.md) | 실제 원문 연결 |
 | [#103 지정 접수번호 원문 수집](0103-exact-receipt-collection.md) | 원문 수집 |
 | [#102 실제 본문 관계·정정표 대조](0102-correction-web-observation.md) | 정정 근거 관측 |
