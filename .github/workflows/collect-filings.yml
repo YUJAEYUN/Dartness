@@ -7,7 +7,7 @@ on:
       collection_mode:
         description: '수집 방식: 기존 연간 평가 자료 또는 지정 접수번호 원문'
         type: choice
-        options: [annual, exact_receipts, filing_history]
+        options: [annual, exact_receipts, filing_history, small_cash_e2e]
         default: annual
       receipt_numbers:
         description: 'exact_receipts에서만 사용: 접수번호 쉼표 구분, 최대 2건'
@@ -46,7 +46,21 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install existing workbook dependencies for the live sample
+        if: inputs.collection_mode == 'small_cash_e2e'
+        run: python -m pip install -r requirements.txt
+      - name: Run bounded live cash sample
+        if: inputs.collection_mode == 'small_cash_e2e'
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          STOCK_CODES: ${{ inputs.stock_codes }}
+          HISTORY_START: ${{ inputs.history_start }}
+          HISTORY_END: ${{ inputs.history_end }}
+          OUTPUT_DIR: ${{ runner.temp }}/filings
+          PYTHONPATH: src
+        run: python -m dartness.small_cash_e2e
       - name: Collect filings with the repository OpenDART key
+        if: inputs.collection_mode != 'small_cash_e2e'
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           COLLECTION_MODE: ${{ inputs.collection_mode }}
