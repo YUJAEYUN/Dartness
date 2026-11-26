@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "c35425b4d489a2ba4455c987b5ef8f46de8b11bc9c254d6f5e2707775479946d",
+  "sourceSha256": "ea3bc76a81c8d10464dc25302beefb68d6d3ce1f2c3ae4b451756daeefc5a05a",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D,H,I partial\n    class G todo",
   "stages": [
     {
@@ -200,6 +200,11 @@
       "group": "지금",
       "task": "[저장 수집 파일에서 조회·엑셀 재현](specs/cash-bundle-runner.md)(이슈 #108 / PR #109)",
       "status": "원시 응답·ZIP/멤버·경로 검증 후 기존 선택/JSON/엑셀 연결. API/웹 미호출·단일 법인 개발자 경로이며 전수는 아님"
+    },
+    {
+      "group": "지금",
+      "task": "[준비된 모집단의 일괄 현금 조회·통합 엑셀](specs/cash-survey.md)(이슈 #110 / PR #111)",
+      "status": "모든 대상을 유지하고 미처리/확인 필요를 별도 집계. 충족 법인만 통합 출력, 확인 내역은 옵션. 실제 전수 원문 확보/전체 E2E는 미완료"
     },
     {
       "group": "다음",

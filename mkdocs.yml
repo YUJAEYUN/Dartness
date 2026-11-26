@@ -50,6 +50,7 @@ nav:
       - 원본·정정 근거 계약: specs/correction-evidence.md
       - 최신 유효 현금 자료 선택: specs/latest-cash-source.md
       - 저장 수집 자료의 조회 실행: specs/cash-bundle-runner.md
+      - 모집단 현금 조회와 통합 결과: specs/cash-survey.md
       - 실행일 상장법인 연결: specs/listed-universe.md
       - 현금 조회 계약 초안: specs/cash-query-contract.md
       - 현금 표 추출: specs/cash-table-extraction.md
@@ -72,6 +73,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#111 모집단 조회와 통합 엑셀": briefings/0111-cash-survey.md
       - "#109 저장 수집 파일의 조회 실행": briefings/0109-cash-bundle-runner.md
       - Python 테스트의 미실행 분기 확인: briefings/0113-python-coverage.md
       - 최신 공시의 잘못된 입력 거절 확인: briefings/0115-latest-cash-guards.md
