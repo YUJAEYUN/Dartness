@@ -45,3 +45,8 @@ HD건설기계의 기존 공식 저장 응답(2026-11-23 관측)을 tests/fixtur
 본문 파일명은 접수번호.xml로 검증하고, ReportVersion의 문서 식별자는 기존 계약에 맞춰 접수번호로 연결합니다. 원래 파일명·해시·셀 위치·문맥은 보존합니다. 정정표 CandidateSource에는 정정 전체 XML 해시를 사용하며 웹 응답/부분 구역 해시로 대신 채우지 않습니다. 같은 사업기간·공시 마감·관계를 기존 assess_correction에 전달하고 실제 두 CashValue를 CorrectionCashComparison으로 비교합니다. 입력으로 받은 성공 상태나 준비된 금액을 그대로 신뢰하지 않습니다.
 
 결과는 지원된 두 본문의 근거/금액 대조이며 전체 이력·철회·첨부/다중 정정의 최신 유효성 판정은 아닙니다. 비교 결과·두 원문·원화 값·실패와 원래 입력 근거를 보존하되 최종 선택 접수번호는 없고 latest_correction_verified=false를 유지합니다. 기존 단순 후보 선택의 동률 보류와 원문 정답은 바꾸지 않습니다.
+
+
+실행은 src/dartness/correction_binding.py의 bind_native_correction이며 입력은 기존 CandidateRequest, 실제 날짜, 두 StoredCashReport, 세 웹 원문/주소/관측 시각입니다. 원문·웹은 다시 읽고 날짜/식별자를 검증하며 성공 상태 문자열이나 준비된 금액을 입력받지 않습니다. 사업기간/정정 구역 읽기는 src/dartness/native_report.py, 정정표 셀 읽기는 기존 correction_html.py의 명시적 native 프로필입니다. 일반 HTML 프로필과 기존 실패 기대값은 유지합니다.
+
+실제 전체 제출서류 ZIP은 수동 실행 [45727866485](https://github.com/YUJAEYUN/Dartness/actions/runs/45727866485)의 데이터 커밋 [500f2157](https://github.com/YUJAEYUN/Dartness/tree/500f2157362841b54b5d3a921dd99761c60e971f)에 보존했습니다. 지정 요청 2회·정확한 두 본문·모든 멤버 해시를 대조했습니다. tests/fixtures/corrections/hd-native-2025의 두 ZIP은 그 바이트 그대로이며 전체 문서 식별/구역 선정을 검사하기 위해 사용합니다. 기존 PDF/XBRL 자료는 다른 형식의 근거로 그대로 유지합니다. tests/test_native_correction.py는 실제 개발용과 합성/변형 실패를 구분합니다.
