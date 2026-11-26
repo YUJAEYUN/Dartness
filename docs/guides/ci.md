@@ -92,3 +92,7 @@ scripts/check_issue_claim.py가 PR 본문의 `Refs #번호`를 그 PR이 맡은 
 ## 새 검사 우회 구문 비교
 
 code-quality의 PR 검사에서 Node·기존 대시보드 의존성 설치 뒤 `python -m scripts.check_quality_changes --base "$BASE_SHA" --head "$HEAD_SHA"`를 실행합니다. 두 값은 PR 이벤트의 실제 기준/작업 SHA입니다. 새 우회는 실패(1), 읽기·분석 오류는 실패(2)이며 결과를 로그와 Actions 요약에 남깁니다. 설정 변경 보고가 승인이라는 뜻은 아닙니다. 기존 Ruff 규칙과 [예외 처리·우회 기준](quality-guards.md)을 함께 적용하며 기존 테스트 정답은 유지합니다.
+
+## Python 분기 커버리지
+
+code-quality의 전체 pytest 실행에 커버리지 측정을 연결합니다. 대상은 src/dartness 전체이며 테스트가 가져오지 않은 모듈도 포함합니다. 기존 테스트 실패는 계속 작업 실패로 처리합니다. HTML·XML·JSON을 python-coverage 아티팩트로 7일 보관하고 테스트 실패 시에도 생성된 보고서 업로드를 시도합니다. 외부 서비스·권한 확대·점수 합격선·추가 제외는 없습니다. 실행과 해석은 [테스트 가이드](testing.md#coverage)를 따릅니다.

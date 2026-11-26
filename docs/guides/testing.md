@@ -171,3 +171,18 @@ python -m mutmut results
 ## 예외 처리·검사 우회 검사
 
 [예외 처리·우회 기준](quality-guards.md)에 따라 실제 Ruff 반례와 구체 예외 처리의 허용 사례를 검사합니다. PR base/head의 새 무시·테스트 비활성 구문은 기존 테스트와 별도로 비교합니다. 예시 문자열 속 우회 이름은 실제 지시문으로 간주하지 않고, 기존 불변성·잘못된 입력 테스트의 명시적 type-ignore는 유지합니다. 모든 정답 변경이나 assert 약화를 탐지하는 검사는 아닙니다.
+
+## Python 커버리지 보고서 {#coverage}
+
+일반 code-quality는 기존 전체 pytest에 pytest-cov·Coverage.py를 연결해 src/dartness 전체의 실행 줄과 조건 분기를 측정합니다. 테스트가 가져오지 않은 모듈도 대상입니다. scripts와 대시보드는 이 Python 제품 코드 지표의 범위가 아니며 기존 검사는 계속 실행합니다.
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest -q --cov --cov-branch --cov-report=term-missing --cov-report=html:coverage-reports/html --cov-report=xml:coverage-reports/coverage.xml --cov-report=json:coverage-reports/coverage.json
+```
+
+Actions의 code-quality 로그에서 누락 줄을, python-coverage 아티팩트의 html/index.html에서 파일별 분기를 확인합니다. 보고서는 7일 보관하며 외부 커버리지 서비스로 전송하지 않습니다. 테스트가 실패해도 생성된 보고서의 업로드를 시도하지만, 실행 중단으로 보고서가 없을 수도 있습니다. 업로드 성공은 테스트 성공을 뜻하지 않습니다.
+
+첫 단계에서는 수치를 관측하며 합격선이나 새 검사 제외를 추가하지 않습니다. 미실행 분기 중 금액·단위·기간·최신본 선택에 영향을 주는 사례부터 검토합니다. 점수를 올리려고 의미 없는 테스트를 추가하지 않습니다. 높은 커버리지는 올바른 기대값이나 오류 탐지 능력을 보장하지 않습니다. 원문 기반 정답과 아래 변이 테스트를 함께 사용하며 테스트 수를 커버리지로 표현하지 않습니다.
+
+별도 세션 리뷰와 훅 확대는 이 변경에서 자동화하지 않았습니다. 기존 훅·필수 CI·브랜치 보호를 유지합니다.

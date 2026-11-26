@@ -113,3 +113,5 @@ stages: [D]     # 상태가 바뀐 처리 흐름 단계 ID. 없으면 []
 ## CI가 확인하는 것
 
 tests/test_docs_consistency.py가 메타데이터 형식, 일곱 칸의 순서, `stages`가 처리 흐름 지도에 있는 단계인지, 지도 강조와 `stages`가 같은지를 확인합니다. 문서 사이트 빌드는 목차에 없는 브리핑을 실패로 처리합니다. 필수 검사 code-quality의 `npm run docs:check`는 브리핑과 화면 데이터가 다르거나 화면에 표시할 수 없는 형식이 있으면 실패합니다. 요약 내용이 PR과 같은 뜻인지는 확인하지 못합니다.
+
+- [PR #113: Python 테스트의 미실행 분기 확인](0113-python-coverage.md)

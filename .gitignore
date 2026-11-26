@@ -12,3 +12,7 @@ CLAUDE.local.md
 
 work/
 mutants/
+
+.coverage
+.coverage.*
+coverage-reports/

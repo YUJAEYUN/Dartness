@@ -53,7 +53,21 @@ jobs:
       - run: python -m ruff check .
       - run: python -m ruff format --check .
       - run: python -m mypy
-      - run: python -m pytest -q
+      - name: Run Python tests with branch coverage
+        run: >-
+          python -m pytest -q --cov --cov-branch
+          --cov-report=term-missing
+          --cov-report=html:coverage-reports/html
+          --cov-report=xml:coverage-reports/coverage.xml
+          --cov-report=json:coverage-reports/coverage.json
+      - name: Store Python coverage reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-coverage
+          path: coverage-reports/
+          if-no-files-found: warn
+          retention-days: 7
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
