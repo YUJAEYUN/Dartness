@@ -50,6 +50,7 @@ nav:
       - 원본·정정 근거 계약: specs/correction-evidence.md
       - 최신 유효 현금 자료 선택: specs/latest-cash-source.md
       - 저장 수집 자료의 조회 실행: specs/cash-bundle-runner.md
+      - 모집단 현금 조회와 통합 결과: specs/cash-survey.md
       - 실행일 상장법인 연결: specs/listed-universe.md
       - 현금 조회 계약 초안: specs/cash-query-contract.md
       - 현금 표 추출: specs/cash-table-extraction.md
