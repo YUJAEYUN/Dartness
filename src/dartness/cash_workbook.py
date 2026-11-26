@@ -5,6 +5,7 @@ import math
 from dataclasses import replace
 from decimal import Decimal
 from pathlib import Path
+from typing import Literal
 from zoneinfo import ZoneInfo
 
 from openpyxl import Workbook
@@ -43,8 +44,19 @@ def _numeric_eok(value: Decimal) -> Decimal:
     return amount
 
 
-def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
+def write_cash_report_workbook(
+    result: CashReportResult,
+    output: Path,
+    *,
+    source_scope: Literal[
+        "specified_report", "captured_history_periodic_reports"
+    ] = "specified_report",
+) -> None:
     """Only matching, known values become rows; preserve scope limits visibly."""
+    if source_scope not in ("specified_report", "captured_history_periodic_reports"):
+        raise ValueError("supported_workbook_source_scope_required")
+    if source_scope == "captured_history_periodic_reports" and result.request_run is None:
+        raise ValueError("captured_history_request_run_required")
     if output.suffix.lower() != ".xlsx":
         raise ValueError("xlsx_output_required")
     result = replace(result)
@@ -60,7 +72,9 @@ def write_cash_report_workbook(result: CashReportResult, output: Path) -> None:
     day = result.checked_at.astimezone(ZoneInfo("Asia/Seoul")).date()
     requested = f"기준 {result.request_run.anchor_date} | " if result.request_run else ""
     scope_note = (
-        "제공 공시 내 선택·개발용(전수/최신정정 미확인)"
+        "지정 이력 내 최신 선택·개발용(전수 미완료)"
+        if source_scope == "captured_history_periodic_reports"
+        else "제공 공시 내 선택·개발용(전수/최신정정 미확인)"
         if result.request_run
         else "지정 공시 1건·개발용(전수/최신정정 미확인)"
     )

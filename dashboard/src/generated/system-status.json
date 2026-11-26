@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "35602d0b96f9727d796a48a94dc95a22cbd3132e54dc8dd9fb67015d65f0609f",
+  "sourceSha256": "c35425b4d489a2ba4455c987b5ef8f46de8b11bc9c254d6f5e2707775479946d",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D,H,I partial\n    class G todo",
   "stages": [
     {
@@ -155,14 +155,14 @@
       "name": "조건 비교",
       "status": "일부",
       "evidence": "[지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_report.py, tests/test_cash_report.py",
-      "missing": "지정 공시의 정확한 원화 하한 비교만 지원. 전수·최신 정정 적용 자격·제품 결과 포함은 미완료"
+      "missing": "지정 공시와 [지정 이력의 최신 유효 자료](specs/latest-cash-source.md)의 정확한 원화 하한을 비교합니다. [저장 파일 실행](specs/cash-bundle-runner.md)으로 연결하며 전수·모든 정정 유형·제품 전체 결과는 미완료"
     },
     {
       "id": "I",
       "name": "엑셀 결과",
       "status": "일부",
       "evidence": "[결과물 예시](specs/output-example.md), [지정 공시 실행](specs/cash-report-slice.md), src/dartness/cash_workbook.py, tests/test_cash_workbook.py",
-      "missing": "지정 공시/제공 원문 내 선택의 세 열 엑셀·표 구간 링크·원문 메모·요청/실제 날짜·이전 자료 표시 지원. 전수/최신 유효 정정 선정 완료 결과는 미구현"
+      "missing": "지정 공시/제공 원문 내 선택의 세 열 엑셀·표 구간 링크·원문 메모·요청/실제 날짜·이전 자료 표시 지원. [저장 파일 실행](specs/cash-bundle-runner.md)에서 검증된 지정 이력의 선택 결과까지 JSON/엑셀로 연결. 제품 전수 엑셀·모든 정정 유형은 미완료"
     }
   ],
   "next": [
@@ -184,17 +184,22 @@
     {
       "group": "지금",
       "task": "실제 본문 관계·정정표 관측(이슈 #101 / PR #102)",
-      "status": "양쪽 본문 목록과 정정표를 직접 읽고 응답 해시/관측 시각 보존. 이슈 #101은 전체 조건이 남아 열어 둠"
+      "status": "양쪽 본문 목록과 정정표를 직접 읽고 응답 해시/관측 시각 보존. 후속 PR #106~#107에서 지원 범위의 선택/추가 검증을 연결해 이슈 #101 완료 근거를 기록"
     },
     {
       "group": "지금",
       "task": "전체 원문·현금 셀 바인딩(이슈 #101 / PR #104)",
-      "status": "실제 두 제출서류의 기간·정정표·셀을 웹 관측 및 기존 검증에 연결. 최신본은 아직 선택하지 않음"
+      "status": "실제 두 제출서류의 기간·정정표·셀을 웹 관측 및 기존 검증에 연결. 이 바인딩은 비교를 담당하며 최신본 선택은 후속 최신 실행에서 담당"
     },
     {
       "group": "지금",
       "task": "[최신 유효 현금 자료 선택](specs/latest-cash-source.md)(이슈 #101 / PR #106)",
       "status": "이력 원시 응답·전체 원문·당기/비교열·본문 관계를 대조해 선택. 지정 이력의 지원 정기보고서 범위이며 전수·미지원 첨부/철회/다중 정정은 미완료"
+    },
+    {
+      "group": "지금",
+      "task": "[저장 수집 파일에서 조회·엑셀 재현](specs/cash-bundle-runner.md)(이슈 #108 / PR #109)",
+      "status": "원시 응답·ZIP/멤버·경로 검증 후 기존 선택/JSON/엑셀 연결. API/웹 미호출·단일 법인 개발자 경로이며 전수는 아님"
     },
     {
       "group": "다음",

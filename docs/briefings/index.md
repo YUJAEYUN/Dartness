@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#109 저장 수집 파일의 조회 실행](0109-cash-bundle-runner.md) | 실행 연결 |
 | [#107 최신 공시 선택 추가 검증](0107-latest-cash-evaluation.md) | 추가 법인 평가 |
 | [#106 최신 유효 공시에서 현금 선택](0106-latest-valid-cash.md) | 최신 원문 선택 |
 | [#105 전체 유형 공시 이력 수집](0105-filing-history-collection.md) | 공시 이력 수집 |
