@@ -1,0 +1,695 @@
+{
+  "purpose": "all-type one-company filing history; no correction or financial selection",
+  "mode": "filing_history",
+  "complete": true,
+  "started_at": "2026-11-26T00:53:08.279136+00:00",
+  "collected_at": "2026-11-26T00:53:15.157043+00:00",
+  "request_count": 9,
+  "request": {
+    "corp_code": "01205842",
+    "start": "2026-03-18",
+    "end": "2026-11-26",
+    "corp_cls": "",
+    "disclosure_type": ""
+  },
+  "items": [
+    {
+      "receipt": "20260318001192",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "사업보고서 (2025.12)",
+      "filed_on": "2026-03-18",
+      "filer_name": "HD건설기계",
+      "remarks": "정연"
+    },
+    {
+      "receipt": "20260319000350",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "[첨부정정]주요사항보고서(감자결정)",
+      "filed_on": "2026-03-19",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260326001362",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "독립이사의선임ㆍ해임또는중도퇴임에관한신고",
+      "filed_on": "2026-03-26",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260326802854",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "정기주주총회결과              ",
+      "filed_on": "2026-03-26",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260326803138",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "대표이사(대표집행임원)변경(안내공시)              ",
+      "filed_on": "2026-03-26",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260327801862",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "최대주주등소유주식변동신고서              ",
+      "filed_on": "2026-03-27",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260330001670",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "주식등의대량보유상황보고서(일반)",
+      "filed_on": "2026-03-30",
+      "filer_name": "에이치디현대사이트솔루션",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260402002254",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filed_on": "2026-04-02",
+      "filer_name": "국민연금공단",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260420800424",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-04-20",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260420800433",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-04-20",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260427800612",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "연결재무제표기준영업(잠정)실적(공정공시)              ",
+      "filed_on": "2026-04-27",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260427800842",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "타인에대한채무보증결정              ",
+      "filed_on": "2026-04-27",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260427801020",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업가치제고계획(자율공시)              ",
+      "filed_on": "2026-04-27",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260506800513",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-05-06",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260511000337",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "신탁계약에의한취득상황보고서",
+      "filed_on": "2026-05-11",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260515001530",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "동일인등출자계열회사와의상품ㆍ용역거래변경",
+      "filed_on": "2026-05-15",
+      "filer_name": "HD건설기계",
+      "remarks": "공"
+    },
+    {
+      "receipt": "20260515001815",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "분기보고서 (2026.03)",
+      "filed_on": "2026-05-15",
+      "filer_name": "HD건설기계",
+      "remarks": "정"
+    },
+    {
+      "receipt": "20260529001722",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "대규모기업집단현황공시[연1회공시및1/4분기용(개별회사)]",
+      "filed_on": "2026-05-29",
+      "filer_name": "HD건설기계",
+      "remarks": "공"
+    },
+    {
+      "receipt": "20260529801688",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업지배구조보고서공시              ",
+      "filed_on": "2026-05-29",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260601800528",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "지속가능경영보고서등관련사항(자율공시)              ",
+      "filed_on": "2026-06-01",
+      "filer_name": "HD건설기계",
+      "remarks": "유정"
+    },
+    {
+      "receipt": "20260602000456",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "[기재정정]사업보고서 (2025.12)",
+      "filed_on": "2026-06-02",
+      "filer_name": "HD건설기계",
+      "remarks": "연"
+    },
+    {
+      "receipt": "20260602000487",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "[기재정정]분기보고서 (2026.03)",
+      "filed_on": "2026-06-02",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260629800977",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-06-29",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260702000378",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filed_on": "2026-07-02",
+      "filer_name": "국민연금공단",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260703800558",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "[첨부정정]지속가능경영보고서등관련사항(자율공시)              ",
+      "filed_on": "2026-07-03",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260722800505",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-07-22",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260722800573",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-07-22",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260729800368",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "연결재무제표기준영업(잠정)실적(공정공시)              ",
+      "filed_on": "2026-07-29",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260729800852",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "[기재정정]주식소각결정              ",
+      "filed_on": "2026-07-29",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260810000659",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "주요사항보고서(자기주식취득신탁계약해지결정)",
+      "filed_on": "2026-08-10",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260811000492",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "신탁계약해지결과보고서",
+      "filed_on": "2026-08-11",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260813001098",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "지급수단별ㆍ지급기간별지급금액및분쟁조정기구에관한사항",
+      "filed_on": "2026-08-13",
+      "filer_name": "HD건설기계",
+      "remarks": "공"
+    },
+    {
+      "receipt": "20260813001129",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "동일인등출자계열회사와의상품ㆍ용역거래변경",
+      "filed_on": "2026-08-13",
+      "filer_name": "HD건설기계",
+      "remarks": "공"
+    },
+    {
+      "receipt": "20260814004300",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "반기보고서 (2026.06)",
+      "filed_on": "2026-08-14",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20260828000797",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "대규모기업집단현황공시[분기별공시(개별회사용)]",
+      "filed_on": "2026-08-28",
+      "filer_name": "HD건설기계",
+      "remarks": "공"
+    },
+    {
+      "receipt": "20260831800675",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "유상증자결정(종속회사의주요경영사항)              ",
+      "filed_on": "2026-08-31",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20260930800735",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-09-30",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20261006000238",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filed_on": "2026-10-06",
+      "filer_name": "국민연금공단",
+      "remarks": ""
+    },
+    {
+      "receipt": "20261007800221",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "단일판매ㆍ공급계약체결              ",
+      "filed_on": "2026-10-07",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20261019800425",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-10-19",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20261019800445",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "기업설명회(IR)개최(안내공시)              ",
+      "filed_on": "2026-10-19",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20261026800273",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "연결재무제표기준영업(잠정)실적(공정공시)              ",
+      "filed_on": "2026-10-26",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20261026800543",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "주식소각결정              ",
+      "filed_on": "2026-10-26",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20261105000576",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filed_on": "2026-11-06",
+      "filer_name": "안정환",
+      "remarks": ""
+    },
+    {
+      "receipt": "20261106000391",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filed_on": "2026-11-06",
+      "filer_name": "김은진",
+      "remarks": ""
+    },
+    {
+      "receipt": "20261110800183",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "단일판매ㆍ공급계약체결              ",
+      "filed_on": "2026-11-10",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    },
+    {
+      "receipt": "20261112000345",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "동일인등출자계열회사와의상품ㆍ용역거래변경",
+      "filed_on": "2026-11-12",
+      "filer_name": "HD건설기계",
+      "remarks": "공"
+    },
+    {
+      "receipt": "20261116001470",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "분기보고서 (2026.09)",
+      "filed_on": "2026-11-16",
+      "filer_name": "HD건설기계",
+      "remarks": ""
+    },
+    {
+      "receipt": "20261124000051",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "임원ㆍ주요주주특정증권등소유상황보고서",
+      "filed_on": "2026-11-24",
+      "filer_name": "문재영",
+      "remarks": ""
+    },
+    {
+      "receipt": "20261124800338",
+      "corp_code": "01205842",
+      "corp_name": "HD건설기계",
+      "corp_cls": "Y",
+      "stock_code": "267270",
+      "report_name": "최대주주등소유주식변동신고서              ",
+      "filed_on": "2026-11-24",
+      "filer_name": "HD건설기계",
+      "remarks": "유"
+    }
+  ],
+  "responses": [
+    {
+      "file": "history/response-01.json",
+      "parameters": {
+        "bgn_de": "20260318",
+        "end_de": "20260331",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "47621cce11bd1ac7c28ef5209debd71b51e0c864d039264fed766d6974ea95c8"
+    },
+    {
+      "file": "history/response-02.json",
+      "parameters": {
+        "bgn_de": "20260401",
+        "end_de": "20260430",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "be4d1113379557f000cf3f7f0e79906fae79fb3728f0939742feac0beb042ae4"
+    },
+    {
+      "file": "history/response-03.json",
+      "parameters": {
+        "bgn_de": "20260501",
+        "end_de": "20260531",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "254dd5f4ed2c3e760f72f048b88cae99a51f40f116594dbb158e703d34621350"
+    },
+    {
+      "file": "history/response-04.json",
+      "parameters": {
+        "bgn_de": "20260601",
+        "end_de": "20260630",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "62505171e0fe42a2c707adc81b38a09b359587fa13c98d1cfb1c383451e552d4"
+    },
+    {
+      "file": "history/response-05.json",
+      "parameters": {
+        "bgn_de": "20260701",
+        "end_de": "20260731",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "9e4cc9a02b0b28d6ba7dc141f8951fea2ca0c127015dfc6e8ae8f720a1f53208"
+    },
+    {
+      "file": "history/response-06.json",
+      "parameters": {
+        "bgn_de": "20260801",
+        "end_de": "20260831",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "392c88227d2693634df4d0cc65669d6cccbb99066625ab463417178356900fb7"
+    },
+    {
+      "file": "history/response-07.json",
+      "parameters": {
+        "bgn_de": "20260901",
+        "end_de": "20260930",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "93169be6e925b844417478e6164c50d1f6ac13cb21c99e9e5b913149cb821b49"
+    },
+    {
+      "file": "history/response-08.json",
+      "parameters": {
+        "bgn_de": "20261001",
+        "end_de": "20261031",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "390fd73e87f3ee78aeff8258d1e15e611374fcc00f433507004a9ba8fc960fb2"
+    },
+    {
+      "file": "history/response-09.json",
+      "parameters": {
+        "bgn_de": "20261101",
+        "end_de": "20261126",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "response_sha256": "c0cf6d346d0c546834b8dc5d1cf2ff3137872f7ceba4c01bd24bf435938381d6"
+    }
+  ]
+}
