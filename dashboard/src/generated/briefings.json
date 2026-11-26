@@ -3,7 +3,7 @@
   "briefings": [
     {
       "file": "docs/briefings/0105-filing-history-collection.md",
-      "sha256": "675aa274abeb027683c8a21b36d55e18131350778ee3eae0a85bb56bb24d9400",
+      "sha256": "26e292cc0b5b0cf737399242256ae50d5053b3518b489786f8b415ad16fb78e5",
       "pr": 105,
       "issue": 101,
       "date": "2026-11-26",
@@ -58,6 +58,14 @@
               "[수집 계약](../guides/dart-live-check.md#filing-history), [기존 목록 완전성](../specs/disclosure-list.md)",
               "src/dartness/dart_history.py · tests/test_dart_history.py"
             ]
+          },
+          {
+            "type": "paragraph",
+            "text": "[수동 수집 45731893084](https://github.com/YUJAEYUN/Dartness/actions/runs/45731893084)은 2026-11-26 한국 시각에 성공했습니다. HD건설기계(01205842)의 2026-03-18~2026-11-26 전체 유형 50건을 요청 9회로 받았습니다. 데이터 브랜치 data/dart-filings-45731893084의 고정 커밋은 37ff5a1658c4935472aac67f9a6fd021b7cdfe90입니다. 모든 저장 응답의 파라미터·해시를 확인하고 기존 목록 검사기에 재입력해 같은 50건임을 대조했습니다."
+          },
+          {
+            "type": "paragraph",
+            "text": "2025.12 사업보고서는 원본 20260318001192와 기재정정 20260602000456이 관측됐습니다. 다른 공시의 첨부정정과 2026년 분기·반기보고서도 목록에 보존했습니다. 이 결과는 이미 읽은 한 법인의 개발용 근거이며 독립 평가·최신 현금 선정·철회 영향 판정 완료가 아닙니다."
           }
         ]
       }
