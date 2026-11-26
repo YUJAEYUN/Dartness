@@ -3,6 +3,12 @@
   "sha256": "247a78df4a3152c368c867bae85e58a8d53e66783d688ab15d2b4f137f72665c",
   "groups": [
     {
+      "pr": 113,
+      "issue": 112,
+      "title": "Python 테스트의 미실행 분기 확인",
+      "records": []
+    },
+    {
       "pr": 109,
       "issue": 108,
       "title": "저장 파일과 조건만으로 조회 결과 재현",
