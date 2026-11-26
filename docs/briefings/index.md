@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#107 최신 공시 선택 추가 검증](0107-latest-cash-evaluation.md) | 추가 법인 평가 |
 | [#106 최신 유효 공시에서 현금 선택](0106-latest-valid-cash.md) | 최신 원문 선택 |
 | [#105 전체 유형 공시 이력 수집](0105-filing-history-collection.md) | 공시 이력 수집 |
 | [#104 전체 XML 정정표·현금 셀 바인딩](0104-native-correction-binding.md) | 실제 원문 연결 |

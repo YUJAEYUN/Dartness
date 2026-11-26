@@ -1,0 +1,213 @@
+{
+  "classification": "additional-company post-freeze evaluation, not full M1 E2E",
+  "plan": {
+    "prepared_at": "2026-11-26T01:26:38.679565+00:00",
+    "implementation_commit": "203c1e7383e419d5f9c5dca3a3896afdc460868b",
+    "corp_code": "00118804",
+    "company": "동진쎄미켐",
+    "stock_code": "005290",
+    "classification": "additional company not used to implement latest_cash; raw reports/expected answers inspected only after implementation freeze",
+    "requests": [
+      {
+        "mode": "as_of",
+        "as_of": "2025-12-31",
+        "max_age_months": 0
+      },
+      {
+        "mode": "latest",
+        "max_age_months": 12
+      }
+    ],
+    "basis": [
+      "separate",
+      "consolidated"
+    ],
+    "minimum_krw": "50000000000",
+    "oracle": "Read original full XML period headers, unit, cash row before running query_latest_cash; API finance values not used as oracle",
+    "pass_conditions": [
+      "latest valid receipt matches inspected official listing/body history",
+      "actual date is correct current/comparative column",
+      "raw displayed value and unit equal original source",
+      "exact normalized KRW and threshold match source answer",
+      "no code changes based on evaluation; report failures separately"
+    ],
+    "limits": "one-company captured-history periodic-report evaluation, not independent exchange universe, arbitrary disclosure types or full M1 E2E"
+  },
+  "expected_locked_at": "2026-11-26T01:29:38.097715+00:00",
+  "source_sha256": "7d597b1330887088750b3691f40d03edfa0e08a46dc3a927a691ae0089b59b05",
+  "oracle": "Explicit BS_S/BS_C header 2026.09.30 current and 2025.12.31 comparative, unit 원, cash rows read directly; API finance response not used for answer",
+  "source_commits": {
+    "annual": "b80b518c2f72476e4da326b34fe0d385d199a8bc",
+    "history": "6f092826c6902a8284b58d82ccf11e4f592579dd",
+    "first_quarter_half": "9e073ef6f6176968cd8184ebecf71a4949984130",
+    "latest_quarter": "001807812791ebfe9845b68e01ef326336934f89"
+  },
+  "result": {
+    "executed_at": "2026-11-26T01:30:22.999009+00:00",
+    "implementation_commit": "e394b317f17cad1f70c62e569198c779f4b85da5",
+    "code_changed_for_evaluation": false,
+    "company_count": 1,
+    "case_count": 5,
+    "passed": 5,
+    "history_count": 26,
+    "periodic_reports": 4,
+    "cases": [
+      {
+        "case": {
+          "mode": "as_of",
+          "actual_as_of": "2025-12-31",
+          "basis": "separate",
+          "min_amount_krw": "50000000000",
+          "selected_receipt": "20261116000630",
+          "raw_value": "119,946,105,819",
+          "unit": "원",
+          "amount_krw": "119946105819",
+          "status": "document_match"
+        },
+        "actual": {
+          "status": "document_match",
+          "reason": null,
+          "selected_receipt": "20261116000630",
+          "actual_as_of": "2025-12-31",
+          "basis": "separate",
+          "amount_krw": "119946105819",
+          "raw_value": "119,946,105,819",
+          "unit": "원"
+        },
+        "pass": true,
+        "table_link": {
+          "status": "verified_table_section",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=58&offset=2918733&length=29914&dtd=dart4.xsd",
+          "main_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+          "section_response_sha256": "5d0c23b187ad96316e81e4c0c104e0ae278dbf1563e11212d98da600e75d0dc8",
+          "verification": "same_receipt_company_basis_date_unit_amount"
+        }
+      },
+      {
+        "case": {
+          "mode": "latest",
+          "actual_as_of": "2026-09-30",
+          "basis": "separate",
+          "min_amount_krw": "50000000000",
+          "selected_receipt": "20261116000630",
+          "raw_value": "166,741,090,356",
+          "unit": "원",
+          "amount_krw": "166741090356",
+          "status": "document_match"
+        },
+        "actual": {
+          "status": "document_match",
+          "reason": null,
+          "selected_receipt": "20261116000630",
+          "actual_as_of": "2026-09-30",
+          "basis": "separate",
+          "amount_krw": "166741090356",
+          "raw_value": "166,741,090,356",
+          "unit": "원"
+        },
+        "pass": true,
+        "table_link": {
+          "status": "verified_table_section",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=58&offset=2918733&length=29914&dtd=dart4.xsd",
+          "main_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+          "section_response_sha256": "5d0c23b187ad96316e81e4c0c104e0ae278dbf1563e11212d98da600e75d0dc8",
+          "verification": "same_receipt_company_basis_date_unit_amount"
+        }
+      },
+      {
+        "case": {
+          "mode": "as_of",
+          "actual_as_of": "2025-12-31",
+          "basis": "consolidated",
+          "min_amount_krw": "50000000000",
+          "selected_receipt": "20261116000630",
+          "raw_value": "371,911,660,277",
+          "unit": "원",
+          "amount_krw": "371911660277",
+          "status": "document_match"
+        },
+        "actual": {
+          "status": "document_match",
+          "reason": null,
+          "selected_receipt": "20261116000630",
+          "actual_as_of": "2025-12-31",
+          "basis": "consolidated",
+          "amount_krw": "371911660277",
+          "raw_value": "371,911,660,277",
+          "unit": "원"
+        },
+        "pass": true,
+        "table_link": {
+          "status": "verified_table_section",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=20&offset=256315&length=33355&dtd=dart4.xsd",
+          "main_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+          "section_response_sha256": "0a078214954a78bb015ea9b00ebe0417c9749c17f71a499cc9a29dcd340a9e01",
+          "verification": "same_receipt_company_basis_date_unit_amount"
+        }
+      },
+      {
+        "case": {
+          "mode": "latest",
+          "actual_as_of": "2026-09-30",
+          "basis": "consolidated",
+          "min_amount_krw": "50000000000",
+          "selected_receipt": "20261116000630",
+          "raw_value": "469,772,998,572",
+          "unit": "원",
+          "amount_krw": "469772998572",
+          "status": "document_match"
+        },
+        "actual": {
+          "status": "document_match",
+          "reason": null,
+          "selected_receipt": "20261116000630",
+          "actual_as_of": "2026-09-30",
+          "basis": "consolidated",
+          "amount_krw": "469772998572",
+          "raw_value": "469,772,998,572",
+          "unit": "원"
+        },
+        "pass": true,
+        "table_link": {
+          "status": "verified_table_section",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=20&offset=256315&length=33355&dtd=dart4.xsd",
+          "main_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+          "section_response_sha256": "0a078214954a78bb015ea9b00ebe0417c9749c17f71a499cc9a29dcd340a9e01",
+          "verification": "same_receipt_company_basis_date_unit_amount"
+        }
+      },
+      {
+        "case": {
+          "mode": "latest",
+          "actual_as_of": "2026-09-30",
+          "basis": "separate",
+          "min_amount_krw": "200000000000",
+          "selected_receipt": "20261116000630",
+          "raw_value": "166,741,090,356",
+          "unit": "원",
+          "amount_krw": "166741090356",
+          "status": "document_non_match"
+        },
+        "actual": {
+          "status": "document_non_match",
+          "reason": null,
+          "selected_receipt": "20261116000630",
+          "actual_as_of": "2026-09-30",
+          "basis": "separate",
+          "amount_krw": "166741090356",
+          "raw_value": "166,741,090,356",
+          "unit": "원"
+        },
+        "pass": true,
+        "table_link": {
+          "status": "verified_table_section",
+          "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=58&offset=2918733&length=29914&dtd=dart4.xsd",
+          "main_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+          "section_response_sha256": "5d0c23b187ad96316e81e4c0c104e0ae278dbf1563e11212d98da600e75d0dc8",
+          "verification": "same_receipt_company_basis_date_unit_amount"
+        }
+      }
+    ],
+    "limit": "one additional company, five related requests; not full universe or full M1 independent E2E"
+  }
+}

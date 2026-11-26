@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 최신 공시 선택의 추가 법인 평가 | [동진쎄미켐 고정 구현 평가](../evaluations/latest-cash-dongjin-2026.md). 이력 26건/정기보고서 4개, 관련 요청 5개 일치. 코드 튜닝 없이 확인했고 전수·모든 정정 유형의 E2E는 아님 |
 | 최신 유효 현금 공시 선택 | [이력 재검사·날짜/제출일 선택·관계·미지원 범위](../specs/latest-cash-source.md). src/dartness/latest_cash.py, src/dartness/filing_history.py, tests/test_latest_cash.py. 지정 이력의 지원 정기보고서 안의 선택이며 전수/모든 정정 유형 완료가 아님 |
 | 저장 공시의 요청 기준일 선택 | [후보 생성·지원·보류와 실행](../specs/cash-report-slice.md#report-candidates). src/dartness/cash_report_candidates.py와 src/dartness/cash_snapshot.py가 실제 기간 열을 기존 날짜/후보 계약과 현금 실행에 연결합니다. tests/test_cash_snapshot.py. 제공 원문 묶음 안의 선택이며 전수·최신 정정·별도/개별 자동 판정은 미완료 |
 | M1 지정 공시 현금 실행 | [입력·지원 태그·범위·실패·검증](../specs/cash-report-slice.md). src/dartness/report_section.py, src/dartness/cash_report.py, tests/test_cash_report.py. 전체 지정 원문에서 구역 선정 후 조건 비교. 전수·최신 정정·최종 엑셀은 미완료 |
