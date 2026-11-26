@@ -1,0 +1,68 @@
+{
+  "purpose": "evaluation source collection for issue #31; no extraction performed",
+  "collected_at": "2026-11-26T01:24:41.089860+00:00",
+  "business_year": 2025,
+  "business_year_rule": "fiscal year ending in business_year; report_name per company",
+  "request_count": 6,
+  "companies": [
+    {
+      "stock_code": "005290",
+      "corp_code": "00118804",
+      "corp_name": "동진쎄미켐",
+      "fiscal_month": "12",
+      "report_name": "사업보고서 (2025.12)",
+      "rcept_no": "20260319000264",
+      "corrections": [],
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260319000264",
+      "zip_sha256": "5295d9d0b505f86b9c97b3f78785e861b62feb02213386d77b216c05f8e9caee",
+      "documents": [
+        {
+          "name": "20260319000264.xml",
+          "bytes": 8545000,
+          "sha256": "da1ccf658a2cbb9f84554914540fc0f570b258466d4c491273974cbf47a8a68a"
+        },
+        {
+          "name": "20260319000264_00760.xml",
+          "bytes": 928244,
+          "sha256": "6323b9409d203885999a212d3c25c6c9e3187c5439b15a8ef6e28ad7f86971cc"
+        },
+        {
+          "name": "20260319000264_00761.xml",
+          "bytes": 996037,
+          "sha256": "589d16cb03501cae5f22792b7e1536cb6dffface7d5a05710416f12ca51d83fb"
+        }
+      ],
+      "api_cash": [
+        {
+          "fs_div": "OFS",
+          "status": "found",
+          "matches_report": true,
+          "cash": [
+            {
+              "rcept_no": "20260319000264",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 53 기",
+              "thstrm_amount": "119946105819",
+              "currency": "KRW"
+            }
+          ]
+        },
+        {
+          "fs_div": "CFS",
+          "status": "found",
+          "matches_report": true,
+          "cash": [
+            {
+              "rcept_no": "20260319000264",
+              "account_id": "ifrs-full_CashAndCashEquivalents",
+              "thstrm_nm": "제 53 기",
+              "thstrm_amount": "371911660277",
+              "currency": "KRW"
+            }
+          ]
+        }
+      ],
+      "status": "collected"
+    }
+  ]
+}
