@@ -23,6 +23,7 @@
 | CI·브랜치 설정 | [검사와 설정 방법](../guides/ci.md) |
 | 다른 법인 평가 결과 | [현금 표 추출 첫 평가와 수정 결과](../evaluations/cash-table-dart-2025.md). 자료는 tests/fixtures/cash/dart-2025-eval(현재 개발용), 테스트는 tests/test_cash_eval_2025.py. [두 번째 평가(검증용 5개 법인)](../evaluations/cash-table-dart-2025-second.md)의 자료는 tests/fixtures/cash/dart-2025-eval-2, 테스트는 tests/test_cash_eval_2025_second.py. [세 번째 평가(12월이 아닌 결산)](../evaluations/cash-table-dart-2025-third.md)는 tests/fixtures/cash/dart-2025-eval-3, tests/test_cash_eval_2025_third.py |
 | 테스트·정답 사례 준비 | [테스트 절차](../guides/testing.md), [실제 공시 초안](../cases/helixmith-cash.md) |
+| 테스트가 실행하지 않은 코드 확인 | [Python 분기 커버리지](../guides/testing.md#coverage). pyproject.toml의 tool.coverage, .github/workflows/code.yml의 python-coverage 아티팩트 |
 | 테스트가 버그를 잡는지 확인 | [변이 테스트](../guides/testing.md#mutation). 설정은 pyproject.toml의 [tool.mutmut], 대상은 src/dartness/cash_table.py |
 | 문서 예시 테스트 작성 | [작성 규칙](../guides/testing.md#doc-examples). 로더는 tests/doc_examples.py, 연결 검사는 tests/test_docs_consistency.py |
 | 위임·병합 판단 | [합의한 위임 정책](../guides/delegation.md) |
