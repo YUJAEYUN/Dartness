@@ -69,7 +69,13 @@ def bundle(root: Path) -> tuple[Path, Path, Path, StoredCashReport]:
 
 
 def invoke(
-    monkeypatch: pytest.MonkeyPatch, h: Path, s: Path, main: Path, b: StoredCashReport, output: Path
+    monkeypatch: pytest.MonkeyPatch,
+    h: Path,
+    s: Path,
+    main: Path,
+    b: StoredCashReport,
+    output: Path,
+    minimum: str = "500",
 ) -> int:
     monkeypatch.setattr(
         "sys.argv",
@@ -90,7 +96,7 @@ def invoke(
             "--basis",
             "separate",
             "--minimum-krw",
-            "500",
+            minimum,
             "--checked-at",
             NOW.isoformat(),
             "--body",
@@ -264,3 +270,17 @@ def test_oversized_manifests_are_rejected_before_parsing(tmp_path: Path) -> None
     (tmp_path / "manifest.json").write_bytes(b"x" * (1024 * 1024 + 1))
     with pytest.raises(ValueError, match="collection_file_too_large"):
         load_history(tmp_path, NOW)
+
+
+def test_nonmatching_condition_is_a_successful_query_without_a_company_row(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    h, s, main, b = bundle(tmp_path)
+    output = tmp_path / "nonmatch.json"
+    assert invoke(monkeypatch, h, s, main, b, output, minimum="700") == 0
+    data = json.loads(output.read_text())
+    assert data["status"] == "document_non_match"
+    assert data["selected_receipt"] == b.disclosure.receipt
+    assert data["selected_report"]["amount_krw"] == "600"
+    sheet = load_workbook(output.with_suffix(".xlsx")).worksheets[0]
+    assert sheet["A3"].value != "HD건설기계" and sheet["B3"].value is None
