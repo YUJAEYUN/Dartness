@@ -8,7 +8,7 @@
 - 현재 제품 목표는 [M1: 상장법인 현금 조건 조회와 근거 포함 엑셀](https://github.com/YUJAEYUN/Dartness/milestone/1)입니다. 금액은 사용자 입력이며 500억원은 시범값입니다. 정책 원본은 [요구사항](specs/requirements.md), [공통 계약](specs/common-query-contract.md)입니다.
 - 모집단·공시 목록 연결은 구현했고 [실제 실행 결과](guides/listed-live-check.md)도 대조했습니다. 이는 현금 전수 조회나 독립 거래소 명부 검증 완료가 아닙니다.
 - [공통 입력·날짜·후보 선택](specs/common-query-contract.md), [금액 변환](specs/amounts.md), [현금 값 계약](specs/cash-query-contract.md), [선정 구간 추출](specs/cash-table-extraction.md)을 재사용합니다.
-- [원본·정정 근거](specs/correction-evidence.md)와 [현금 두 셀 비교](specs/correction-cash-comparison.md)는 준비된 입력의 검사입니다. [웹 본문 관계/정정표 관측](specs/correction-evidence.md#viewer-observation)을 추가했지만 [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding)을 지원하지만 전체 이력·유효 차수·최종 금액 적용은 아직 없습니다. 이슈 #86·#88·#90은 완료 종료했고 해당 근거는 이슈·브리핑에 있습니다.
+- [원본·정정 근거](specs/correction-evidence.md)와 [현금 두 셀 비교](specs/correction-cash-comparison.md)는 준비된 입력의 검사입니다. [웹 본문 관계/정정표 관측](specs/correction-evidence.md#viewer-observation)을 추가했고 [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding)을 지원하지만 전체 이력·유효 차수·최종 금액 적용은 아직 없습니다. 이슈 #86·#88·#90은 완료 종료했고 해당 근거는 이슈·브리핑에 있습니다.
 - 실제 현금 추출 평가의 범위·개발용 전환은 [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)를 봅니다.
 
 - [지정 공시 실행](specs/cash-report-slice.md)의 원문 구역 선정·현금 검증·조건 비교·세 열 엑셀/근거 JSON 구현과 검사를 마쳤습니다(이슈 #92 / PR #93). 최종 병합·배포 근거는 이슈에서 확인하며 전수·최신 유효 정정 완료와 구분합니다.
@@ -17,7 +17,7 @@
 
 ## 진행 중인 작업
 
-- 이슈 #101의 지정 수집은 PR #103으로 반영했고 실제 두 ZIP/본문 해시를 확인했습니다. PR #104에서 전체 XML의 기간·정정표·현금 셀을 기존 계약에 연결합니다. 검사·병합·배포 근거는 이슈에서 확인하며 전체 이력/최신 유효성은 미완료입니다.
+- 이슈 #101의 지정 수집은 PR #103으로 반영했고 실제 두 ZIP/본문 해시를 확인했습니다. PR #104에서 전체 XML의 기간·정정표·현금 셀을 기존 계약에 연결했습니다. PR #105는 모든 유형 공시 이력 수집이며 실제 HD건설기계 50건/응답 9개를 해시·파라미터·목록 재검사로 대조했습니다. 검사·병합·배포 근거는 이슈에서 확인하며 전체 이력/최신 유효성은 미완료입니다.
 
 - 이슈 #101은 최신 유효 정정 연결의 상위 작업으로 열어 둡니다. PR #102에서 실제 양쪽 본문 목록·정정표 관측을 연결했습니다. 나머지 완료 조건을 이슈에서 추적하며 첫 PR만으로 닫지 않습니다.
 

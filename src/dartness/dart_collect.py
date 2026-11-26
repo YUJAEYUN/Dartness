@@ -13,6 +13,7 @@ from collections.abc import Callable
 from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
+from dartness.dart_history import collect_history, parse_history_request
 from dartness.dart_receipts import collect_receipts, ensure_no_credential, parse_receipts
 from dartness.dart_smoke import CollectionError, _api_status, _xml, fetch_bytes, read_archive
 
@@ -209,7 +210,19 @@ def main() -> int:
         return 1
     try:
         mode = os.environ.get("COLLECTION_MODE", "annual").strip() or "annual"
-        if mode == "exact_receipts":
+        history_fields = tuple(
+            os.environ.get(name, "")
+            for name in ("HISTORY_CORP_CODE", "HISTORY_START", "HISTORY_END")
+        )
+        if mode != "filing_history" and any(value.strip() for value in history_fields):
+            raise CollectionError("history_mode_required")
+        if mode == "filing_history":
+            if os.environ.get("RECEIPT_NUMBERS", "").strip():
+                raise CollectionError("ambiguous_collection_modes")
+            manifest, files = collect_history(
+                lambda e, p: fetch_bytes(e, p, key), parse_history_request(*history_fields)
+            )
+        elif mode == "exact_receipts":
             receipts = parse_receipts(os.environ.get("RECEIPT_NUMBERS", ""))
             manifest, files = collect_receipts(lambda e, p: fetch_bytes(e, p, key), receipts)
         elif mode == "annual":
@@ -232,9 +245,17 @@ def main() -> int:
     except CollectionError as error:
         print(f"DART collection failed: {error}")
         return 1
-    entries = manifest["reports" if mode == "exact_receipts" else "companies"]
+    entry_field = {"filing_history": "items", "exact_receipts": "reports", "annual": "companies"}[
+        mode
+    ]
+    entries = manifest[entry_field]
     assert isinstance(entries, list)
-    print(f"DART collection finished: {', '.join(str(entry.get('status')) for entry in entries)}")
+    if mode == "filing_history":
+        print(f"DART filing history collected: {len(entries)} rows; no version selected")
+    else:
+        print(
+            f"DART collection finished: {', '.join(str(entry.get('status')) for entry in entries)}"
+        )
     return 0
 
 

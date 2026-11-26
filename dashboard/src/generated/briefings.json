@@ -2,6 +2,75 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0105-filing-history-collection.md",
+      "sha256": "26e292cc0b5b0cf737399242256ae50d5053b3518b489786f8b415ad16fb78e5",
+      "pr": 105,
+      "issue": 101,
+      "date": "2026-11-26",
+      "stages": [
+        "B",
+        "C"
+      ],
+      "title": "추가 정정·철회를 확인할 공시 이력 받기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "지정 법인의 제출일 구간에서 모든 공시 유형을 최대 10회 요청으로 수집합니다."
+          }
+        ],
+        "location": [
+          {
+            "type": "paragraph",
+            "text": "목록 수집 완전성과 최신 유효 정정 선택은 구분합니다."
+          }
+        ],
+        "changes": [
+          {
+            "type": "paragraph",
+            "text": "기존 collect_list의 정정 포함·월 분할·전체 페이지·중복/누락 검사를 재사용합니다. 법인 하나를 명시하며 유형/시장 필터로 이력을 잘라내지 않습니다. 각 응답의 파라미터·원문 바이트·해시와 수집 시각을 저장하고 실패 구간을 정상 빈 이력으로 바꾸지 않습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "paragraph",
+            "text": "사용자가 기존 기준 안의 작업을 위임했습니다. 에이전트는 최신 정정 판단에 필요한 원천을 준비하는 수집 모드만 추가했습니다. 기본 annual/exact_receipts·기존 권한/시크릿/의존성·조회/정답 기준은 유지합니다."
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "새 결정 요청은 없습니다. 실제 이력의 내용·미지원 버전·철회/첨부 영향과 최신 유효성은 수집 뒤 별도로 검증합니다. 이슈 #101은 미완료 조건이 남으면 닫지 않습니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "paragraph",
+            "text": "고정 응답으로 월 분할·정정 포함 N·유형/시장 필터 배제·예산·부분 실패·CLI 모드를 검사합니다. 일반 CI는 실제 API를 호출하지 않습니다. API 응답 완전성만으로 회사의 정정 관계나 금액을 확정하지 않습니다."
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "[PR #105](https://github.com/YUJAEYUN/Dartness/pull/105), [이슈 #101](https://github.com/YUJAEYUN/Dartness/issues/101)",
+              "[수집 계약](../guides/dart-live-check.md#filing-history), [기존 목록 완전성](../specs/disclosure-list.md)",
+              "src/dartness/dart_history.py · tests/test_dart_history.py"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "[수동 수집 45731893084](https://github.com/YUJAEYUN/Dartness/actions/runs/45731893084)은 2026-11-26 한국 시각에 성공했습니다. HD건설기계(01205842)의 2026-03-18~2026-11-26 전체 유형 50건을 요청 9회로 받았습니다. 데이터 브랜치 data/dart-filings-45731893084의 고정 커밋은 37ff5a1658c4935472aac67f9a6fd021b7cdfe90입니다. 모든 저장 응답의 파라미터·해시를 확인하고 기존 목록 검사기에 재입력해 같은 50건임을 대조했습니다."
+          },
+          {
+            "type": "paragraph",
+            "text": "2025.12 사업보고서는 원본 20260318001192와 기재정정 20260602000456이 관측됐습니다. 다른 공시의 첨부정정과 2026년 분기·반기보고서도 목록에 보존했습니다. 이 결과는 이미 읽은 한 법인의 개발용 근거이며 독립 평가·최신 현금 선정·철회 영향 판정 완료가 아닙니다."
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0104-native-correction-binding.md",
       "sha256": "04643545919bad383963c0682ce7092cf0f55ca694395a9ad1bf182c678d387a",
       "pr": 104,

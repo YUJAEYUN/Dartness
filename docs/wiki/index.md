@@ -13,6 +13,7 @@
 | 상장법인 실제 연결 검증 | [실행 한도·결과·미확인 범위](../guides/listed-live-check.md). src/dartness/listed_live_check.py, tests/test_listed_live_check.py. 실제 4,029회 호출·상장법인 2,770개·공시 365건 연결 및 결과 파일 대조 완료 |
 | 실행일 상장법인·공시 연결 | [공식 원천·통합·예산·관측 한계](../specs/listed-universe.md). src/dartness/listed_universe.py, tests/test_listed_universe.py. 전날 하루 실제 연결은 위 검증 기록 참조. 거래소 대조·정정/금액 판정은 미검증 |
 | 공통 공시 목록 수집 | [공식 제한·입출력·실패 기준](../specs/disclosure-list.md). src/dartness/disclosure_list.py, tests/test_disclosure_list.py. 모집단 연결은 상장법인 계약 참조. 정정/금액 선택은 미구현 |
+| 지정 법인 전체 유형 공시 이력 | [입력·상한·응답 보존](../guides/dart-live-check.md#filing-history). src/dartness/dart_history.py, tests/test_dart_history.py. 기존 목록 완전성을 재사용하며 관계/유효성/금액은 확정하지 않음 |
 | 지정 접수번호 전체 원문 수집 | [명시적 모드·최대 2회·원문/키 보호](../guides/dart-live-check.md#exact-receipts). src/dartness/dart_receipts.py, src/dartness/dart_collect.py, tests/test_dart_receipts.py. 원본/정정 선택 없이 지정 제출서류만 수집하며 관계·금액·전체 이력의 완전성은 판정하지 않음 |
 | DART 실제 수집 | [수동 검사와 범위](../guides/dart-live-check.md), [평가용 여러 법인 수집](../guides/dart-live-check.md#evaluation-collection). 코드는 src/dartness/dart_collect.py, 워크플로는 .github/workflows/collect-filings.yml |
 | 예외 처리·검사 우회 변경 | [적용 규칙·PR 비교·보고와 한계](../guides/quality-guards.md). scripts/check_quality_changes.py, dashboard/scripts/quality-markers.mjs |

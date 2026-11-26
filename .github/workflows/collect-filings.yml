@@ -7,10 +7,22 @@ on:
       collection_mode:
         description: '수집 방식: 기존 연간 평가 자료 또는 지정 접수번호 원문'
         type: choice
-        options: [annual, exact_receipts]
+        options: [annual, exact_receipts, filing_history]
         default: annual
       receipt_numbers:
         description: 'exact_receipts에서만 사용: 접수번호 쉼표 구분, 최대 2건'
+        required: false
+        default: ''
+      history_corp_code:
+        description: 'filing_history 전용: DART 법인 코드 8자리'
+        required: false
+        default: ''
+      history_start:
+        description: 'filing_history 전용: 공시 검색 시작일 YYYY-MM-DD'
+        required: false
+        default: ''
+      history_end:
+        description: 'filing_history 전용: 공시 검색 종료일 YYYY-MM-DD'
         required: false
         default: ''
       stock_codes:
@@ -38,6 +50,9 @@ jobs:
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           COLLECTION_MODE: ${{ inputs.collection_mode }}
+          HISTORY_CORP_CODE: ${{ inputs.history_corp_code }}
+          HISTORY_START: ${{ inputs.history_start }}
+          HISTORY_END: ${{ inputs.history_end }}
           RECEIPT_NUMBERS: ${{ inputs.receipt_numbers }}
           STOCK_CODES: ${{ inputs.stock_codes }}
           BUSINESS_YEAR: ${{ inputs.business_year }}
