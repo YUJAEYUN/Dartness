@@ -4,6 +4,8 @@
 
 ## 현재 상태
 
+- 이슈 #108 / PR #109는 [저장 수집 파일의 조회 실행](specs/cash-bundle-runner.md)입니다. 파일·해시·요약/원시 응답을 검증하고 기존 최신 선택과 JSON·세 열 엑셀까지 연결합니다. 기존 추가 법인 자료로 최신/지정일을 재현했고 새 독립 평가로 세지 않습니다. 최종 검사·병합·배포·종료 근거는 이슈에서 확인합니다.
+
 - 이슈 #101의 [최신 유효 공시 선택](specs/latest-cash-source.md)은 PR #106으로 병합했습니다. 지정 이력의 지원 정기보고서에서 실제 날짜와 최신 제출본·본문 관계를 검증합니다. 금액 일치 시 묶기 제안은 철회했고 기존 합의대로 최신 유효 공시를 사용합니다. main CI·운영 JS의 병합 SHA/브리핑을 확인했습니다.
 - PR #107은 [동진쎄미켐 추가 법인 검증](evaluations/latest-cash-dongjin-2026.md)입니다. 코드를 고정한 뒤 원문 정답을 먼저 기록했고 이력 26건·원문 4개에서 관련 요청 5개가 모두 일치했습니다. 기존 HD건설기계 개발용 대조와 구분합니다. 최종 병합·배포·완료 조건 대조 근거는 이슈 #101에서 확인합니다.
 
@@ -11,7 +13,7 @@
 - 현재 제품 목표는 [M1: 상장법인 현금 조건 조회와 근거 포함 엑셀](https://github.com/YUJAEYUN/Dartness/milestone/1)입니다. 금액은 사용자 입력이며 500억원은 시범값입니다. 정책 원본은 [요구사항](specs/requirements.md), [공통 계약](specs/common-query-contract.md)입니다.
 - 모집단·공시 목록 연결은 구현했고 [실제 실행 결과](guides/listed-live-check.md)도 대조했습니다. 이는 현금 전수 조회나 독립 거래소 명부 검증 완료가 아닙니다.
 - [공통 입력·날짜·후보 선택](specs/common-query-contract.md), [금액 변환](specs/amounts.md), [현금 값 계약](specs/cash-query-contract.md), [선정 구간 추출](specs/cash-table-extraction.md)을 재사용합니다.
-- [원본·정정 근거](specs/correction-evidence.md)와 [현금 두 셀 비교](specs/correction-cash-comparison.md)는 준비된 입력의 검사입니다. [웹 본문 관계/정정표 관측](specs/correction-evidence.md#viewer-observation)을 추가했고 [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding)을 지원하지만 전체 이력의 검증과 제한된 유효본 선택은 PR #106에서 연결합니다. 범용 유효 차수·전수 금액 적용은 아직 없습니다. 이슈 #86·#88·#90은 완료 종료했고 해당 근거는 이슈·브리핑에 있습니다.
+- [원본·정정 근거](specs/correction-evidence.md)와 [현금 두 셀 비교](specs/correction-cash-comparison.md)는 준비된 입력의 검사입니다. [웹 본문 관계/정정표 관측](specs/correction-evidence.md#viewer-observation)을 추가했고 [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding)을 지원하지만 전체 이력의 검증과 제한된 유효본 선택은 PR #106에서 연결했습니다. 범용 유효 차수·전수 금액 적용은 아직 없습니다. 이슈 #86·#88·#90은 완료 종료했고 해당 근거는 이슈·브리핑에 있습니다.
 - 실제 현금 추출 평가의 범위·개발용 전환은 [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)를 봅니다.
 
 - [지정 공시 실행](specs/cash-report-slice.md)의 원문 구역 선정·현금 검증·조건 비교·세 열 엑셀/근거 JSON 구현과 검사를 마쳤습니다(이슈 #92 / PR #93). 최종 병합·배포 근거는 이슈에서 확인하며 전수·최신 유효 정정 완료와 구분합니다.
