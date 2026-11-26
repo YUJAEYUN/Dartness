@@ -1,0 +1,63 @@
+{
+  "scope": "explicit_live_sample_not_market_universe",
+  "stocks": [
+    "005290",
+    "267270"
+  ],
+  "started_at": "2026-11-26T06:43:25.357465+00:00",
+  "finished_at": "2026-11-26T06:48:26.598599+00:00",
+  "history_start": "2026-11-01",
+  "history_end": "2026-11-26",
+  "api_requests": 7,
+  "web_requests": 4,
+  "api_limit": 20,
+  "web_limit": 6,
+  "counts": {
+    "document_match": 2
+  },
+  "all_values_verified": true,
+  "run_url": "https://github.com/YUJAEYUN/Dartness/actions/runs/45770152502",
+  "source_code": "f64ddf6f4d46a1a0bf181ab3bbae854118648c04",
+  "data_commit": "a5346864ac36a4dcc2a0ba7f549be63ed39a5afc",
+  "classification": "real-dev live E2E; already-used companies; not independent evaluation or market-wide run",
+  "response_bytes": 4691907,
+  "seconds": 301.241134,
+  "companies": [
+    {
+      "stock_code": "005290",
+      "corp_name": "(주)동진쎄미켐",
+      "status": "document_match",
+      "receipt": "20261116000630",
+      "actual_as_of": "2026-09-30",
+      "amount_krw": "166741090356",
+      "raw_amount": "166,741,090,356",
+      "unit": "원",
+      "document_sha256": "7d597b1330887088750b3691f40d03edfa0e08a46dc3a927a691ae0089b59b05",
+      "table_link": {
+        "status": "verified_table_section",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=58&offset=2918733&length=29914&dtd=dart4.xsd",
+        "main_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+        "section_response_sha256": "5d0c23b187ad96316e81e4c0c104e0ae278dbf1563e11212d98da600e75d0dc8",
+        "verification": "same_receipt_company_basis_date_unit_amount"
+      }
+    },
+    {
+      "stock_code": "267270",
+      "corp_name": "에이치디건설기계(주)",
+      "status": "document_match",
+      "receipt": "20261116001470",
+      "actual_as_of": "2026-09-30",
+      "amount_krw": "1.34070870E+11",
+      "raw_amount": "134,070,870",
+      "unit": "천원",
+      "document_sha256": "341f438db7311b58d6d9b7ae22c0fe9fcbe2508edccb73f2cf1e9d5eaf1bdbb4",
+      "table_link": {
+        "status": "verified_table_section",
+        "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001470&dcmNo=11660602&eleId=71&offset=4180851&length=33124&dtd=dart4.xsd",
+        "main_response_sha256": "02df1787028f96259cae207aa500e90d660712da7ea12f842842d2c0fdf91879",
+        "section_response_sha256": "6f9cb77da0ecc7e1b8c0c2e985cdce423d2204b46c8513ef9f5ff008d7e13dc9",
+        "verification": "same_receipt_company_basis_date_unit_amount"
+      }
+    }
+  ]
+}
