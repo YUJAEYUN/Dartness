@@ -75,6 +75,8 @@ nav:
   - 작업 브리핑:
       - "#111 모집단 조회와 통합 엑셀": briefings/0111-cash-survey.md
       - "#109 저장 수집 파일의 조회 실행": briefings/0109-cash-bundle-runner.md
+      - Python 테스트의 미실행 분기 확인: briefings/0113-python-coverage.md
+      - 최신 공시의 잘못된 입력 거절 확인: briefings/0115-latest-cash-guards.md
       - "#107 최신 공시 선택 추가 검증": briefings/0107-latest-cash-evaluation.md
       - "#106 최신 유효 공시에서 현금 선택": briefings/0106-latest-valid-cash.md
       - "#105 전체 유형 공시 이력 수집": briefings/0105-filing-history-collection.md

@@ -29,3 +29,10 @@ paths_to_mutate = ["src/dartness/cash_table.py"]
 tests_dir = ["tests/"]
 also_copy = ["src/", "docs/", "tests/"]
 pytest_add_cli_args_test_selection = ["tests/test_cash_table.py"]
+
+[tool.coverage.run]
+branch = true
+source = ["src/dartness"]
+
+[tool.coverage.report]
+show_missing = true
