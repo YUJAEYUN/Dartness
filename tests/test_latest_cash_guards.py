@@ -10,7 +10,7 @@ import pytest
 from test_latest_cash import CORP, body, history_for, request, synthetic
 
 from dartness.cash_report_candidates import StoredCashReport
-from dartness.latest_cash import query_latest_cash
+from dartness.latest_cash import BodyObservation, query_latest_cash
 
 
 def archive_with(source: StoredCashReport, before: bytes, after: bytes) -> StoredCashReport:
@@ -43,7 +43,7 @@ def test_invalid_latest_inputs_never_produce_an_amount(defect: str, reason: str)
     source = synthetic(True)
     run = request()
     listing = source.disclosure
-    proofs = (body(source),)
+    proofs: tuple[BodyObservation, ...] = (body(source),)
     if defect == "missing_main":
         output = io.BytesIO()
         with zipfile.ZipFile(output, "w") as archive:
