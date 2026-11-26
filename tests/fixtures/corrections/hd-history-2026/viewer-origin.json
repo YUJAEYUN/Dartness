@@ -1,0 +1,14 @@
+[
+  {
+    "receipt": "20261116001470",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001470",
+    "sha256": "02df1787028f96259cae207aa500e90d660712da7ea12f842842d2c0fdf91879",
+    "observed_at": "2026-11-26T01:13:27.663897+00:00"
+  },
+  {
+    "receipt": "20260814004300",
+    "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260814004300",
+    "sha256": "2fd44af1df0efa7e9e3a8d35e2c8a60e4cafe48bfe06145c143cb9290d657e45",
+    "observed_at": "2026-11-26T01:13:28.534940+00:00"
+  }
+]

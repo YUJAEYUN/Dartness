@@ -99,7 +99,10 @@ def _periods_and_unit(context: list[list[_Cell]]) -> tuple[dict[str, date], str]
     for row in context:
         for cell in row:
             text = _compact(cell.text)
-            match = re.fullmatch(r"(제[0-9]+기)([0-9]{4})\.([0-9]{2})\.([0-9]{2})현재", text)
+            match = re.fullmatch(
+                r"(제[0-9]+기(?:(?:[1-3]분기|반기)?말)?)([0-9]{4})\.([0-9]{2})\.([0-9]{2})현재",
+                text,
+            )
             if match:
                 if match[1] in periods:
                     raise ValueError("기간 이름이 중복됩니다")

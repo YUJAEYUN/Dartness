@@ -1,0 +1,17 @@
+{
+  "classification": "real-dev, already inspected; not held-out",
+  "data_commits": {
+    "history": "37ff5a1658c4935472aac67f9a6fd021b7cdfe90",
+    "annual_pair": "500f2157362841b54b5d3a921dd99761c60e971f",
+    "latest_interims": "e926fd2d4a95ee6043c506f1a0b2215e46369d96",
+    "first_quarter_pair": "799eb3f420884dd5500884adacc1d339dea7b1a1"
+  },
+  "latest_quarter_receipt": "20261116001470",
+  "source_read_values": {
+    "basis": "separate",
+    "unit": "천원",
+    "2026-09-30": "134,070,870",
+    "2025-12-31": "69,787,650"
+  },
+  "evidence": "BS_S explicit date/unit header and cash row read before using selection output; both columns retained; full native hashes in collection manifests"
+}

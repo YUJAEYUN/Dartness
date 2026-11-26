@@ -30,8 +30,9 @@ class BodyEntry:
 
 
 class _Family(HTMLParser):
-    def __init__(self) -> None:
+    def __init__(self, report_kind: str) -> None:
         super().__init__(convert_charrefs=True)
+        self.report_kind = report_kind
         self.count = 0
         self.active = False
         self.option: dict[str, str | None] | None = None
@@ -79,9 +80,9 @@ class _Family(HTMLParser):
                 label = _compact("".join(self.parts))
                 kind = data.get("title")
                 match = re.fullmatch(
-                    r"([0-9]{4})\.([0-9]{2})\.([0-9]{2})(\[정정\])?사업보고서", label
+                    r"([0-9]{4})\.([0-9]{2})\.([0-9]{2})(\[정정\])?" + self.report_kind, label
                 )
-                if match is None or kind != "사업보고서":
+                if match is None or kind != self.report_kind:
                     raise ValueError("unsupported_body_label")
                 filed = date(int(match[1]), int(match[2]), int(match[3]))
                 self.entries.append(BodyEntry(receipt, filed, kind, match[4] is not None, label))
@@ -94,8 +95,12 @@ class _Family(HTMLParser):
             self.active = False
 
 
-def read_body_history(payload: bytes, corp_code: str, receipt: str) -> tuple[BodyEntry, ...]:
-    parser = _Family()
+def read_body_history(
+    payload: bytes, corp_code: str, receipt: str, *, report_kind: str = "사업보고서"
+) -> tuple[BodyEntry, ...]:
+    if report_kind not in ("사업보고서", "반기보고서", "분기보고서"):
+        raise ValueError("unsupported_body_kind")
+    parser = _Family(report_kind)
     parser.feed(_decode(payload))
     parser.close()
     if parser.count != 1 or parser.active or not parser.entries:

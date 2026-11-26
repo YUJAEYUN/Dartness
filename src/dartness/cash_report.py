@@ -33,6 +33,8 @@ def inspect_cash_report(
     minimum_krw: Decimal,
     archive: bytes,
     checked_at: datetime,
+    *,
+    report_code: str = "11011",
 ) -> CashReportResult:
     if not isinstance(disclosure, Disclosure) or not isinstance(query, CashQuery):
         raise ValueError("disclosure_and_cash_query_required")
@@ -59,7 +61,7 @@ def inspect_cash_report(
             raise CollectionError("main_document_missing")
         document = files[main_name]
         digest = hashlib.sha256(document).hexdigest()
-        section = find_balance_section(document, query.corp_code, basis)
+        section = find_balance_section(document, query.corp_code, basis, report_code=report_code)
         evidence = CashEvidence(
             disclosure.source_url,
             digest,

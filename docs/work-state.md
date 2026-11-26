@@ -8,7 +8,7 @@
 - 현재 제품 목표는 [M1: 상장법인 현금 조건 조회와 근거 포함 엑셀](https://github.com/YUJAEYUN/Dartness/milestone/1)입니다. 금액은 사용자 입력이며 500억원은 시범값입니다. 정책 원본은 [요구사항](specs/requirements.md), [공통 계약](specs/common-query-contract.md)입니다.
 - 모집단·공시 목록 연결은 구현했고 [실제 실행 결과](guides/listed-live-check.md)도 대조했습니다. 이는 현금 전수 조회나 독립 거래소 명부 검증 완료가 아닙니다.
 - [공통 입력·날짜·후보 선택](specs/common-query-contract.md), [금액 변환](specs/amounts.md), [현금 값 계약](specs/cash-query-contract.md), [선정 구간 추출](specs/cash-table-extraction.md)을 재사용합니다.
-- [원본·정정 근거](specs/correction-evidence.md)와 [현금 두 셀 비교](specs/correction-cash-comparison.md)는 준비된 입력의 검사입니다. [웹 본문 관계/정정표 관측](specs/correction-evidence.md#viewer-observation)을 추가했고 [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding)을 지원하지만 전체 이력·유효 차수·최종 금액 적용은 아직 없습니다. 이슈 #86·#88·#90은 완료 종료했고 해당 근거는 이슈·브리핑에 있습니다.
+- [원본·정정 근거](specs/correction-evidence.md)와 [현금 두 셀 비교](specs/correction-cash-comparison.md)는 준비된 입력의 검사입니다. [웹 본문 관계/정정표 관측](specs/correction-evidence.md#viewer-observation)을 추가했고 [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding)을 지원하지만 전체 이력의 검증과 제한된 유효본 선택은 PR #106에서 연결합니다. 범용 유효 차수·전수 금액 적용은 아직 없습니다. 이슈 #86·#88·#90은 완료 종료했고 해당 근거는 이슈·브리핑에 있습니다.
 - 실제 현금 추출 평가의 범위·개발용 전환은 [첫 평가](evaluations/cash-table-dart-2025.md), [두 번째 평가](evaluations/cash-table-dart-2025-second.md), [세 번째 평가](evaluations/cash-table-dart-2025-third.md)를 봅니다.
 
 - [지정 공시 실행](specs/cash-report-slice.md)의 원문 구역 선정·현금 검증·조건 비교·세 열 엑셀/근거 JSON 구현과 검사를 마쳤습니다(이슈 #92 / PR #93). 최종 병합·배포 근거는 이슈에서 확인하며 전수·최신 유효 정정 완료와 구분합니다.
@@ -16,6 +16,8 @@
 - 코드 경로는 src/dartness/report_section.py, src/dartness/cash_report.py, src/dartness/cash_report_result.py, src/dartness/cash_workbook.py이고 검사는 tests/test_cash_report.py, tests/test_cash_workbook.py입니다. 사용자 승인으로 openpyxl·타입 스텁을 추가했고 기존 정답·엄격한 타입/CI 검사는 유지합니다.
 
 ## 진행 중인 작업
+
+- 이슈 #101 / PR #106에서 [최신 유효 현금 자료 선택](specs/latest-cash-source.md)을 연결합니다. 기존 합의대로 실제 재무 날짜를 선택한 뒤 최신 제출본을 검증하며 금액 일치 시 묶기 제안은 철회했습니다. 지원 정기보고서/지정 이력 범위이고 전수·모든 정정 유형·독립 E2E 완료가 아닙니다. 상세 검사/병합/배포 근거는 이슈에 남깁니다.
 
 - 이슈 #101의 지정 수집은 PR #103으로 반영했고 실제 두 ZIP/본문 해시를 확인했습니다. PR #104에서 전체 XML의 기간·정정표·현금 셀을 기존 계약에 연결했습니다. PR #105는 모든 유형 공시 이력 수집이며 실제 HD건설기계 50건/응답 9개를 해시·파라미터·목록 재검사로 대조했습니다. 검사·병합·배포 근거는 이슈에서 확인하며 전체 이력/최신 유효성은 미완료입니다.
 
@@ -33,7 +35,7 @@
 
 ## 알려진 한계
 
-- 새 구역 선정과 기간 후보 연결은 명시적 DART 태그가 있는 지원 사업보고서만 처리합니다. 별도/개별은 상위 단계의 확인 입력이며 자동 판정하지 않습니다. 범용 의미 추출·보고서 유형 전체·독립 명부 완전성·유효 정정 선택·전수 원문 수집·캐시·환율·합계·제품 최종 엑셀은 아직 완료하지 않았습니다.
+- 새 구역 선정과 기간 후보 연결은 명시적 DART 태그가 있는 지원 정기보고서를 처리합니다. 기존 단일/준비 입력 실행의 기본은 사업보고서이고 최신 유효 선택 실행이 분기/반기 코드를 명시해 연결합니다. 별도/개별은 상위 단계의 확인 입력이며 자동 판정하지 않습니다. 범용 의미 추출·보고서 유형 전체·독립 명부 완전성·유효 정정 선택·전수 원문 수집·캐시·환율·합계·제품 최종 엑셀은 아직 완료하지 않았습니다.
 - 원문에서 추출 가능한 입력과 최종 법인 선정 자격을 구분합니다. 지정 문서 비교는 최신 자료·정정 검증 완료가 아닙니다.
 - 기존 [품질 검사](guides/quality-guards.md)·[위임 정책](guides/delegation.md)·[작업 흐름](guides/development-workflow.md)을 유지합니다. 실행 중인 상시 봇이나 별도 오케스트레이터는 없습니다.
 - 자동 문서 검사는 경로·형식·생성물 일치를 확인하며 의미 일치는 [정합성 검토](consistency.md)가 필요합니다. 관리 화면의 상세 모바일/디자인 검사는 기존 합의대로 보류입니다.

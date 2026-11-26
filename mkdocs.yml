@@ -48,6 +48,7 @@ nav:
       - 지정 공시 현금 조건 실행: specs/cash-report-slice.md
       - 정정 전후 현금 비교: specs/correction-cash-comparison.md
       - 원본·정정 근거 계약: specs/correction-evidence.md
+      - 최신 유효 현금 자료 선택: specs/latest-cash-source.md
       - 실행일 상장법인 연결: specs/listed-universe.md
       - 현금 조회 계약 초안: specs/cash-query-contract.md
       - 현금 표 추출: specs/cash-table-extraction.md
@@ -70,6 +71,7 @@ nav:
       - CI와 브랜치 설정: guides/ci.md
       - 개발 작업 흐름: guides/development-workflow.md
   - 작업 브리핑:
+      - "#106 최신 유효 공시에서 현금 선택": briefings/0106-latest-valid-cash.md
       - "#105 전체 유형 공시 이력 수집": briefings/0105-filing-history-collection.md
       - "#104 전체 XML 정정표·현금 셀 바인딩": briefings/0104-native-correction-binding.md
       - "#103 지정 접수번호 원문 수집": briefings/0103-exact-receipt-collection.md

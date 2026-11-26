@@ -1,6 +1,6 @@
 {
   "policySource": "docs/specs/common-query-contract.md",
-  "policySha256": "62f43eb3c1e98514a173b558a723811bab6e56836ffdd53dac55ee9db3407e75",
+  "policySha256": "5f10f131c90e38aeaba5b068d6d96c0fd7743cc108ae1a3505af3d138989ab03",
   "queryPolicy": [
     {
       "id": "query-kind",
@@ -98,7 +98,7 @@
     }
   ],
   "source": "docs/system-status.md",
-  "sourceSha256": "e8113ad15fa5a8ab688ec231a2743970df7b473a6f3a416f7bca035fec4a5e01",
+  "sourceSha256": "35602d0b96f9727d796a48a94dc95a22cbd3132e54dc8dd9fb67015d65f0609f",
   "diagram": "flowchart LR\n    A[조회 조건 입력] --> B[법인·공시 찾기]\n    B --> C[원문 수집]\n    C --> D[현금 행·열 추출]\n    D --> E[단위 정규화]\n    E --> F[계약 검증]\n    F --> G[합계·차이 판정]\n    G --> H[조건 비교]\n    H --> I[엑셀 결과]\n\n    classDef done fill:#d1fae5,stroke:#059669,color:#064e3b\n    classDef partial fill:#fef3c7,stroke:#d97706,color:#78350f\n    classDef todo fill:#f3f4f6,stroke:#9ca3af,color:#374151,stroke-dasharray:4\n    class E,F done\n    class A,B,C,D,H,I partial\n    class G todo",
   "stages": [
     {
@@ -113,7 +113,7 @@
       "name": "법인·공시 찾기",
       "status": "일부",
       "evidence": "src/dartness/disclosure_list.py, tests/test_disclosure_list.py, [목록 수집 계약](specs/disclosure-list.md), src/dartness/listed_universe.py, tests/test_listed_universe.py, [상장법인 연결](specs/listed-universe.md), [정정 근거 계약](specs/correction-evidence.md), src/dartness/correction_evidence.py, tests/test_correction_evidence.py, [현금 셀 비교](specs/correction-cash-comparison.md), src/dartness/correction_cash.py, tests/test_correction_cash.py",
-      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. [저장 원문 기간 후보](specs/cash-report-slice.md#report-candidates), src/dartness/cash_report_candidates.py에서 지원 현금 셀·기간·단위 근거 연결. [실제 웹 근거 관측](specs/correction-evidence.md#viewer-observation), src/dartness/correction_observation.py에서 본문 관계/정정표 읽기 연결. [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding), src/dartness/correction_binding.py에서 지원 원문을 기존 관계/비교에 연결. 범용 보고서 의미/전체 이력/유효 정정 선택 미구현"
+      "missing": "OpenDART 현재 등록/기업개황 모집단과 공시 연결 구현. [실제 전체 연결](guides/listed-live-check.md) 4,029회 호출·2,770개 법인·365건 공시 확인. 거래소 명부 대조·원천 갱신 지연 검증·준비된 원본·정정 근거 메타데이터 대조 구현. 준비된 현금 두 셀의 범위/출처/원화 비교 구현. [저장 원문 기간 후보](specs/cash-report-slice.md#report-candidates), src/dartness/cash_report_candidates.py에서 지원 현금 셀·기간·단위 근거 연결. [실제 웹 근거 관측](specs/correction-evidence.md#viewer-observation), src/dartness/correction_observation.py에서 본문 관계/정정표 읽기 연결. [전체 XML/셀 바인딩](specs/correction-evidence.md#native-binding), src/dartness/correction_binding.py에서 지원 원문을 기존 관계/비교에 연결. [지정 이력의 최신 유효 현금 자료 선택](specs/latest-cash-source.md)은 지원 정기보고서 범위에서 연결. 범용 보고서 의미/전수 이력/첨부·철회·다중 정정은 미완료"
     },
     {
       "id": "C",
@@ -192,9 +192,9 @@
       "status": "실제 두 제출서류의 기간·정정표·셀을 웹 관측 및 기존 검증에 연결. 최신본은 아직 선택하지 않음"
     },
     {
-      "group": "다음",
-      "task": "전체 공시 이력과 유효 정정 선택 연결",
-      "status": "추가/철회/첨부·다중 차수와 이력 누락을 보류하며 근거가 충분한 범위만 적용"
+      "group": "지금",
+      "task": "[최신 유효 현금 자료 선택](specs/latest-cash-source.md)(이슈 #101 / PR #106)",
+      "status": "이력 원시 응답·전체 원문·당기/비교열·본문 관계를 대조해 선택. 지정 이력의 지원 정기보고서 범위이며 전수·미지원 첨부/철회/다중 정정은 미완료"
     },
     {
       "group": "다음",
@@ -224,7 +224,7 @@
   ],
   "decisions": [
     {
-      "question": "정정본 연결·여러 후보의 동률 처리",
+      "question": "동일 제출일 순서 불명·첨부/철회 등 미지원 관계의 구체 처리",
       "affected": "B, C"
     },
     {
