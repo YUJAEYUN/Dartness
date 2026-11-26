@@ -79,8 +79,12 @@ class _Groups(HTMLParser):
             self.active, self.group_depth = None, 0
 
 
-def find_balance_section(document: bytes, corp_code: str, basis: CashBasis) -> ReportSection:
-    """Only explicit BS_S/BS_C annual-report groups; basis itself is supplied upstream."""
+def find_balance_section(
+    document: bytes, corp_code: str, basis: CashBasis, *, report_code: str = "11011"
+) -> ReportSection:
+    """Explicit BS_S/BS_C groups for the requested periodic code; annual is the legacy default."""
+    if report_code not in ("11011", "11012", "11013"):
+        raise ValueError("unsupported_report_kind")
     if basis not in ("separate", "individual", "consolidated"):
         raise ValueError("unsupported_basis")
     if len(document) > 32 * 1024 * 1024:
@@ -99,7 +103,7 @@ def find_balance_section(document: bytes, corp_code: str, basis: CashBasis) -> R
         raise ValueError("incomplete_or_multiple_document")
     if parser.company_codes != [corp_code]:
         raise ValueError("document_company_mismatch")
-    if parser.report_codes != ["11011"]:
+    if parser.report_codes != [report_code]:
         raise ValueError("unsupported_report_kind")
     if len(parser.sections) != 1:
         raise ValueError("missing_or_ambiguous_balance_group")

@@ -1,0 +1,43 @@
+{
+  "purpose": "exact receipt source collection; no extraction, relation or version selection",
+  "mode": "exact_receipts",
+  "complete": true,
+  "collected_at": "2026-11-26T01:11:54.943136+00:00",
+  "request_count": 2,
+  "requested_receipts": [
+    "20260515001815",
+    "20260602000487"
+  ],
+  "reports": [
+    {
+      "receipt": "20260515001815",
+      "status": "collected",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260515001815",
+      "archive_sha256": "b1f66476f710ed58c2957e1d788c5ec4a73b78d3848148c8288326202ebef422",
+      "main_document": "20260515001815.xml",
+      "main_document_sha256": "bae21ac59f865ee681b848e1b683047bc1bfcf7c01ff0e87f92640cbde0fedef",
+      "documents": [
+        {
+          "name": "20260515001815.xml",
+          "bytes": 7016694,
+          "sha256": "bae21ac59f865ee681b848e1b683047bc1bfcf7c01ff0e87f92640cbde0fedef"
+        }
+      ]
+    },
+    {
+      "receipt": "20260602000487",
+      "status": "collected",
+      "dart_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20260602000487",
+      "archive_sha256": "4388e6602bdcf608bf1738edc3def240bc91f75dc7b0d2b50c7834f551fd0094",
+      "main_document": "20260602000487.xml",
+      "main_document_sha256": "f70e9a65337f427ce4f5dccd1318d822a534676828be0d42fa2ea1eaa5de88d3",
+      "documents": [
+        {
+          "name": "20260602000487.xml",
+          "bytes": 6707876,
+          "sha256": "f70e9a65337f427ce4f5dccd1318d822a534676828be0d42fa2ea1eaa5de88d3"
+        }
+      ]
+    }
+  ]
+}

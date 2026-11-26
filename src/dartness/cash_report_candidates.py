@@ -58,7 +58,12 @@ class ReportCashCandidates:
 
 
 def read_cash_candidates(
-    report: StoredCashReport, key: CandidateKey, basis: CashBasis, checked_at: datetime
+    report: StoredCashReport,
+    key: CandidateKey,
+    basis: CashBasis,
+    checked_at: datetime,
+    *,
+    report_code: str = "11011",
 ) -> ReportCashCandidates:
     """Require a supported complete period set; never drop a failed comparison column."""
     disclosure = report.disclosure
@@ -74,7 +79,7 @@ def read_cash_candidates(
             raise ValueError("main_document_missing")
         document = files[document_id]
         digest = hashlib.sha256(document).hexdigest()
-        section = find_balance_section(document, key.corp_code, basis)
+        section = find_balance_section(document, key.corp_code, basis, report_code=report_code)
         evidence = CashEvidence(
             disclosure.source_url,
             digest,

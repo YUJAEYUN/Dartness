@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 최신 유효 현금 공시 선택 | [이력 재검사·날짜/제출일 선택·관계·미지원 범위](../specs/latest-cash-source.md). src/dartness/latest_cash.py, src/dartness/filing_history.py, tests/test_latest_cash.py. 지정 이력의 지원 정기보고서 안의 선택이며 전수/모든 정정 유형 완료가 아님 |
 | 저장 공시의 요청 기준일 선택 | [후보 생성·지원·보류와 실행](../specs/cash-report-slice.md#report-candidates). src/dartness/cash_report_candidates.py와 src/dartness/cash_snapshot.py가 실제 기간 열을 기존 날짜/후보 계약과 현금 실행에 연결합니다. tests/test_cash_snapshot.py. 제공 원문 묶음 안의 선택이며 전수·최신 정정·별도/개별 자동 판정은 미완료 |
 | M1 지정 공시 현금 실행 | [입력·지원 태그·범위·실패·검증](../specs/cash-report-slice.md). src/dartness/report_section.py, src/dartness/cash_report.py, tests/test_cash_report.py. 전체 지정 원문에서 구역 선정 후 조건 비교. 전수·최신 정정·최종 엑셀은 미완료 |
 | 정정 전후 현금 셀 비교 | [출처·범위·두 값 비교와 한계](../specs/correction-cash-comparison.md). src/dartness/correction_cash.py, tests/test_correction_cash.py. 원화 현금 입력 비교이며 의미 추출·최신본 적용은 미구현 |
@@ -34,7 +35,7 @@
 | 작업 하나를 따라가기 | [작업 브리핑 양식과 목록](../briefings/index.md), [기존 합의와의 내용 검토](../consistency.md). 형식 검사는 tests/test_docs_consistency.py |
 | 전체 진행 상황·방향 | [시스템 상태](../system-status.md). 단계별 상태를 바꾸면 지도와 표를 함께 고칩니다 |
 | 개발 원칙·실행 평가 | [다섯 개발 원칙](../design/engineering-principles.md), [평가 기록](../record-forms/evaluation.md) |
-| 정정 전체 자료·고정 정답 | [HD건설기계 개발용 사례](../cases/hd-construction-correction.md). tests/fixtures/corrections/hd-construction-2025, tests/test_correction_case.py. 전체 원문은 별도 데이터 커밋에 보존하며 현재 선택기는 두 후보를 보류 |
+| 정정 전체 자료·고정 정답 | [HD건설기계 개발용 사례](../cases/hd-construction-correction.md). tests/fixtures/corrections/hd-construction-2025, tests/test_correction_case.py. 전체 원문은 별도 데이터 커밋에 보존하며 기본 후보 v1은 두 후보를 보류하며 검증된 상위 최신 실행은 위 계약 참조 |
 | 원본·정정공시 연결 조사 | [공식 근거·실제 원본/정정 한 쌍·검증 계획](../design/correction-linking.md). 조사 기록이며 연결·정정 선택 코드는 미구현 |
 | 공시 후보 범위·근거 보존 | [공시 후보 계약](../specs/common-query-contract.md). src/dartness/disclosure_candidate.py, tests/test_disclosure_candidate.py. 같은 날짜의 여러 후보는 보류하고 수집·현금 추출 파일과 분리합니다 |
 | 공통 날짜 입력·선택 코드 | [Python 계약 v1](../specs/common-query-contract.md). src/dartness/query_contract.py, tests/test_query_contract.py. 날짜 선택은 원문 선정·조건 판정이 아닙니다 |

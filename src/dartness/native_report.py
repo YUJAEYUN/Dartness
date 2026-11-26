@@ -8,6 +8,12 @@ from html.parser import HTMLParser
 
 from dartness.report_section import ReportSection
 
+PERIODIC_KINDS = {
+    "11011": "사업보고서",
+    "11012": "반기보고서",
+    "11013": "분기보고서",
+}
+
 
 @dataclass(frozen=True)
 class NativeReportMetadata:
@@ -15,10 +21,12 @@ class NativeReportMetadata:
     period_end: date
     cover: ReportSection
     correction: ReportSection | None
+    report_code: str = "11011"
 
     def to_dict(self) -> dict[str, object]:
         return {
-            "report_kind": "사업보고서",
+            "report_kind": PERIODIC_KINDS[self.report_code],
+            "report_code": self.report_code,
             "period_start": self.period_start.isoformat(),
             "period_end": self.period_end.isoformat(),
             "cover_locator": self.cover.locator,
@@ -128,7 +136,7 @@ class _Metadata(HTMLParser):
             self.active = None
 
 
-def read_native_metadata(document: bytes) -> NativeReportMetadata:
+def read_native_metadata(document: bytes, *, periodic: bool = False) -> NativeReportMetadata:
     """Financial/firm identity is separately checked by the existing full-report inspector."""
     if len(document) > 32 * 1024 * 1024:
         raise ValueError("native_document_too_large")
@@ -144,8 +152,9 @@ def read_native_metadata(document: bytes) -> NativeReportMetadata:
     if (
         parser.active
         or parser.period
-        or parser.kinds != ["11011"]
-        or parser.names != ["사업보고서"]
+        or len(parser.kinds) != 1
+        or parser.kinds[0] not in (PERIODIC_KINDS if periodic else {"11011": "사업보고서"})
+        or parser.names != [PERIODIC_KINDS.get(parser.kinds[0] or "", "")]
         or parser.name_parts is not None
         or parser.document_count != 1
         or parser.document_open
@@ -158,4 +167,6 @@ def read_native_metadata(document: bytes) -> NativeReportMetadata:
     start, end = parser.dates["PERIODFROM"][0], parser.dates["PERIODTO"][0]
     if start > end:
         raise ValueError("native_period_order")
-    return NativeReportMetadata(start, end, covers[0], corrections[0] if corrections else None)
+    return NativeReportMetadata(
+        start, end, covers[0], corrections[0] if corrections else None, parser.kinds[0] or ""
+    )
