@@ -1,6 +1,6 @@
 {
   "policySource": "docs/specs/common-query-contract.md",
-  "policySha256": "62f43eb3c1e98514a173b558a723811bab6e56836ffdd53dac55ee9db3407e75",
+  "policySha256": "6c1e5a0e4fc3c2d5c33c8a255cf3458d9dc0a012548e5152e769679357ecfb72",
   "queryPolicy": [
     {
       "id": "query-kind",
