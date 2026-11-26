@@ -110,8 +110,9 @@ def read_body_history(payload: bytes, corp_code: str, receipt: str) -> tuple[Bod
 
 
 class _ErrataTables(HTMLParser):
-    def __init__(self) -> None:
+    def __init__(self, native: bool) -> None:
         super().__init__(convert_charrefs=True)
+        self.native = native
         self.tables: list[list[list[str]]] = []
         self.table: list[list[str]] | None = None
         self.row: list[str] | None = None
@@ -122,7 +123,7 @@ class _ErrataTables(HTMLParser):
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         data = dict(attrs)
-        if tag == "p" and data.get("class") == "correction":
+        if (tag == "p" and data.get("class") == "correction") or (self.native and tag == "title"):
             if self.heading is not None:
                 raise ValueError("nested_errata_heading")
             self.heading = []
@@ -151,7 +152,7 @@ class _ErrataTables(HTMLParser):
             self.heading.append(data)
 
     def handle_endtag(self, tag: str) -> None:
-        if tag == "p" and self.heading is not None:
+        if tag in ("p", "title") and self.heading is not None:
             self.headings.append(_compact("".join(self.heading)))
             self.heading = None
         elif tag in ("td", "th"):
@@ -186,8 +187,8 @@ def _korean_date(text: str) -> date:
     return date(int(match[1]), int(match[2]), int(match[3]))
 
 
-def read_errata(payload: bytes) -> ErrataObservation:
-    parser = _ErrataTables()
+def read_errata(payload: bytes, *, native: bool = False) -> ErrataObservation:
+    parser = _ErrataTables(native)
     parser.feed(_decode(payload))
     parser.close()
     if parser.headings != ["정정신고(보고)"] or parser.heading is not None:
