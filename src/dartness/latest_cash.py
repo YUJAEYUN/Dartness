@@ -43,6 +43,8 @@ class CorrectionPair:
 class LatestCashResult:
     request: CandidateRequest
     history: FilingHistory
+    inputs: tuple[StoredCashReport, ...]
+    minimum_krw: Decimal
     sources: tuple[ReportCashCandidates, ...]
     report: CashReportResult | None
     reason: str | None
@@ -58,7 +60,15 @@ class LatestCashResult:
             "status": self.status,
             "reason": self.reason,
             "selection_policy": "latest_valid_publication_at_selected_financial_date",
+            "requested_as_of": self.request.run.anchor_date.isoformat(),
+            "earliest_date": self.request.run.earliest_date.isoformat(),
+            "executed_at": self.request.run.executed_at.isoformat(),
+            "basis": self.request.key.basis,
+            "minimum_krw": str(self.minimum_krw),
             "history": self.history.to_dict(),
+            "input_archives": [
+                ReportCashCandidates(source, ()).to_dict() for source in self.inputs
+            ],
             "sources": [source.to_dict() for source in self.sources],
             "validity": self.validity,
             "latest_correction_verified": self.report is not None,
@@ -254,4 +264,6 @@ def query_latest_cash(
         report = replace(result, request_run=run)
     except (ValueError, CollectionError) as error:
         reason = str(error)
-    return LatestCashResult(request, history, tuple(sources), report, reason, validity)
+    return LatestCashResult(
+        request, history, reports, minimum_krw, tuple(sources), report, reason, validity
+    )

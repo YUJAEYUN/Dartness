@@ -182,10 +182,15 @@ def test_unverified_latest_is_never_replaced_with_older_source(failure: str) -> 
         request(), CORP, "separate", Decimal(0), history_for(rows), reports, observations
     )
     assert result.status == "needs_review" and result.report is None and result.reason
-    assert result.to_dict()["selected_receipt"] is None
+    audit = result.to_dict()
+    assert audit["selected_receipt"] is None
+    assert isinstance(audit["input_archives"], list) and len(audit["input_archives"]) == len(
+        reports
+    )
+    assert audit["requested_as_of"] == "2025-12-31" and audit["minimum_krw"] == "0"
     expected = {
         "missing": "periodic_source_set_incomplete_or_duplicate",
-        "corrupt": "source_incomplete:expected_zip",
+        "corrupt": "invalid_xml",
         "body": "selected_body_observation_required",
         "remarks": "correction_unresolved",
         "same_day": "same_day_publication_ambiguous",
