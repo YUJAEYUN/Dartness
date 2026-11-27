@@ -64,7 +64,9 @@ def test_only_verified_same_day_registry_is_reused(tmp_path: Path, change: str) 
     elif change == "hash":
         record["sha256"] = "0" * 64
     elif change == "path":
-        record["file"] = "../outside"
+        outside = tmp_path.parent / (tmp_path.name + "-outside")
+        outside.write_bytes(b"original bytes")
+        record["file"] = "../" + outside.name
     elif change == "partial":
         del record["sha256"]
     elif change == "size":
@@ -159,3 +161,42 @@ def test_partial_and_rejected_payloads_are_not_published_as_reusable(tmp_path: P
     with pytest.raises(CollectionError, match="credential_in_output"):
         capture.api("corpCode.xml", {})
     assert not (tmp_path / "raw").exists()
+
+
+def test_terminated_process_keeps_only_completed_source_for_resume(tmp_path: Path) -> None:
+    import os
+    import subprocess
+    import sys
+
+    program = """
+import signal, sys
+from pathlib import Path
+from dartness.small_cash_e2e import Capture
+capture = Capture(lambda e,p: b"completed source", lambda u:b"", output=Path(sys.argv[1]))
+capture.api("corpCode.xml", {})
+def interrupted(endpoint, params):
+    signal.pause()
+    return b"never completed"
+capture.fetch = interrupted
+capture.api("document.xml", {"rcept_no":"20261116000630"})
+"""
+    process = subprocess.Popen(
+        [sys.executable, "-c", program, str(tmp_path)],
+        env={**os.environ, "PYTHONPATH": str(Path("src").resolve())},
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    try:
+        with pytest.raises(subprocess.TimeoutExpired):
+            process.communicate(timeout=3)
+    finally:
+        process.terminate()
+        process.communicate(timeout=5)
+    assert process.returncode != 0
+    records = json.loads((tmp_path / "requests.json").read_text())["requests"]
+    assert len(records) == 2 and records[0]["sha256"] and "sha256" not in records[1]
+    assert reusable_source(tmp_path, "corpCode.xml", {}, datetime.now(UTC)) is not None
+    assert (
+        reusable_source(tmp_path, "document.xml", {"rcept_no": "20261116000630"}, datetime.now(UTC))
+        is None
+    )
