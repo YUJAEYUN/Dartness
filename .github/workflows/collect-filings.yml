@@ -7,8 +7,12 @@ on:
       collection_mode:
         description: '수집 방식: 기존 연간 평가 자료 또는 지정 접수번호 원문'
         type: choice
-        options: [annual, exact_receipts, filing_history, small_cash_e2e]
+        options: [annual, exact_receipts, filing_history, small_cash_e2e, universe_cash]
         default: annual
+      universe_cash_config:
+        description: 'universe_cash 전용: 명시적 조건·예산 JSON (공개 평가 자료만)'
+        required: false
+        default: ''
       reuse_run_id:
         description: 'small_cash_e2e 전용: 같은 날짜에 수집한 원천의 실행번호, 비우면 새 수집'
         required: false
@@ -42,7 +46,7 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: ${{ inputs.collection_mode == 'universe_cash' && 60 || 10 }}
     permissions:
       contents: write
     steps:
@@ -51,7 +55,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install existing workbook dependencies for the live sample
-        if: inputs.collection_mode == 'small_cash_e2e'
+        if: inputs.collection_mode == 'small_cash_e2e' || inputs.collection_mode == 'universe_cash'
         run: python -m pip install -r requirements.txt
       - name: Read explicitly selected prior sample sources
         if: inputs.collection_mode == 'small_cash_e2e' && inputs.reuse_run_id != ''
@@ -73,8 +77,17 @@ jobs:
           REUSE_DIR: ${{ inputs.reuse_run_id != '' && format('{0}/reuse-sources', runner.temp) || '' }}
           PYTHONPATH: src
         run: timeout --signal=TERM --kill-after=5s 360s python -m dartness.small_cash_e2e
+      - name: Run explicitly configured current-universe cash evaluation
+        if: inputs.collection_mode == 'universe_cash'
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          UNIVERSE_CASH_CONFIG: ${{ inputs.universe_cash_config }}
+          HISTORY_START: ${{ inputs.history_start }}
+          OUTPUT_DIR: ${{ runner.temp }}/filings
+          PYTHONPATH: src
+        run: timeout --signal=TERM --kill-after=5s 3000s python -m dartness.universe_cash_runner
       - name: Collect filings with the repository OpenDART key
-        if: inputs.collection_mode != 'small_cash_e2e'
+        if: inputs.collection_mode != 'small_cash_e2e' && inputs.collection_mode != 'universe_cash'
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           COLLECTION_MODE: ${{ inputs.collection_mode }}
@@ -88,7 +101,7 @@ jobs:
           PYTHONPATH: src
         run: python -m dartness.dart_collect
       - name: Push to a data branch
-        if: success() || (always() && inputs.collection_mode == 'small_cash_e2e')
+        if: success() || (always() && (inputs.collection_mode == 'small_cash_e2e' || inputs.collection_mode == 'universe_cash'))
         env:
           FILINGS: ${{ runner.temp }}/filings
         run: |

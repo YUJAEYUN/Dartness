@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 현재 모집단에서 제한한 현금 수집 연결 | [개발자 입력·한도·범위 미확인·후속](../specs/universe-cash-run.md). src/dartness/universe_cash.py, src/dartness/universe_cash_runner.py, tests/test_universe_cash.py, tests/test_universe_cash_runner.py. 실제 대량 호출은 예산 확인 전이며 합성 검증/전수 완료를 구분 |
 | 소수 원천 재사용·수집 재개 | [범위·시각/해시·실행 제한·비교](../evaluations/sample-source-reuse-2026.md). src/dartness/sample_reuse.py, tests/test_sample_reuse.py. 현재 기업개황/이력/본문은 재사용하지 않음 |
 | 소수 법인 실제 수집 E2E | [조건·상한·실행 전 정답·결과](../evaluations/small-cash-e2e-2026.md). src/dartness/small_cash_e2e.py, tests/test_small_cash_e2e.py. 실제 전수 명부를 만들거나 지원 범위를 확대하지 않는 수동 표본 검사 |
 | 모집단 전체의 현금 조회·통합 출력 | [모집단 검증·법인별 상태·한도·통합 엑셀](../specs/cash-survey.md). src/dartness/cash_survey.py, tests/test_cash_survey.py. 받은 모든 대상을 유지하며 실제 전수 수집 완료가 아님 |

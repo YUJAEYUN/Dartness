@@ -122,3 +122,5 @@ tests/test_docs_consistency.py가 메타데이터 형식, 일곱 칸의 순서, 
 - [PR #117: 실제 소수 법인 수집부터 엑셀까지 확인](0117-small-cash-e2e.md)
 
 - [PR #119: 같은 날 원천 재사용과 수집 재개](0119-sample-source-reuse.md)
+
+- [PR #120: 현재 명부와 제한 현금 수집 연결](0120-universe-cash-run.md)
