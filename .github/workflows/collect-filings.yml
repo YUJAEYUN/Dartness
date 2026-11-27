@@ -9,6 +9,10 @@ on:
         type: choice
         options: [annual, exact_receipts, filing_history, small_cash_e2e]
         default: annual
+      reuse_run_id:
+        description: 'small_cash_e2e 전용: 같은 날짜에 수집한 원천의 실행번호, 비우면 새 수집'
+        required: false
+        default: ''
       receipt_numbers:
         description: 'exact_receipts에서만 사용: 접수번호 쉼표 구분, 최대 2건'
         required: false
@@ -49,6 +53,15 @@ jobs:
       - name: Install existing workbook dependencies for the live sample
         if: inputs.collection_mode == 'small_cash_e2e'
         run: python -m pip install -r requirements.txt
+      - name: Read explicitly selected prior sample sources
+        if: inputs.collection_mode == 'small_cash_e2e' && inputs.reuse_run_id != ''
+        env:
+          REUSE_RUN_ID: ${{ inputs.reuse_run_id }}
+        run: |
+          [[ "$REUSE_RUN_ID" =~ ^[0-9]{1,20}$ ]] || exit 1
+          mkdir -p "$RUNNER_TEMP/reuse-sources"
+          git fetch origin "refs/heads/data/dart-filings-$REUSE_RUN_ID"
+          git archive FETCH_HEAD | tar -x -C "$RUNNER_TEMP/reuse-sources"
       - name: Run bounded live cash sample
         if: inputs.collection_mode == 'small_cash_e2e'
         env:
@@ -57,8 +70,9 @@ jobs:
           HISTORY_START: ${{ inputs.history_start }}
           HISTORY_END: ${{ inputs.history_end }}
           OUTPUT_DIR: ${{ runner.temp }}/filings
+          REUSE_DIR: ${{ inputs.reuse_run_id != '' && format('{0}/reuse-sources', runner.temp) || '' }}
           PYTHONPATH: src
-        run: python -m dartness.small_cash_e2e
+        run: timeout --signal=TERM --kill-after=5s 360s python -m dartness.small_cash_e2e
       - name: Collect filings with the repository OpenDART key
         if: inputs.collection_mode != 'small_cash_e2e'
         env:
@@ -74,9 +88,14 @@ jobs:
           PYTHONPATH: src
         run: python -m dartness.dart_collect
       - name: Push to a data branch
+        if: success() || (always() && inputs.collection_mode == 'small_cash_e2e')
         env:
           FILINGS: ${{ runner.temp }}/filings
         run: |
+          if [ ! -d "$FILINGS" ]; then
+            echo "No captured files to preserve"
+            exit 0
+          fi
           branch="data/dart-filings-${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
