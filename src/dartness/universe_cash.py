@@ -126,8 +126,11 @@ def _collect_sources(
     plan: UniverseCashPlan,
     budget: _Budget,
     clock: Clock,
+    execution_date: date,
 ) -> tuple[CashSurveySources, str | None]:
     initial = QueryRun(plan.request, clock())
+    if initial.execution_date != execution_date:
+        raise ValueError("universe_cash_execution_day_changed")
     if plan.history_start > initial.execution_date:
         raise ValueError("history_start_after_execution")
     manifest, files = collect_history(
@@ -211,7 +214,9 @@ def collect_universe_cash(
             )
             continue
         try:
-            source, failure = _collect_sources(company, basis, plan, budget, clock)
+            source, failure = _collect_sources(
+                company, basis, plan, budget, clock, initial.execution_date
+            )
             sources[company.corp_code] = source
             if failure:
                 table_failures.append((company.corp_code, failure))

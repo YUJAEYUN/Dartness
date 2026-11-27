@@ -250,3 +250,21 @@ def test_multiple_receipt_batches_and_web_budget_preserve_the_complete_target_se
     assert result.survey.entries[0].reason == reason
     assert result.survey.counts["needs_review"] == 1 and result.survey.counts["not_processed"] == 2
     assert result.survey.entries[0].result is None or result.survey.entries[0].result.report is None
+
+
+def test_day_change_after_universe_stops_before_collecting_source_data() -> None:
+    from datetime import UTC, datetime, timedelta
+
+    source = Sources()
+    started = datetime.now(UTC)
+    calls = 0
+
+    def clock() -> datetime:
+        nonlocal calls
+        calls += 1
+        return started if calls <= 6 else started + timedelta(days=1)
+
+    with pytest.raises(ValueError, match="universe_cash_execution_day_changed"):
+        collect_universe_cash(source.plan(), fetch=source.fetch, web=source.web, clock=clock)
+    assert len(source.calls) == 4 and source.web_calls == []
+    assert not any(endpoint == "list.json" for endpoint, _ in source.calls)
