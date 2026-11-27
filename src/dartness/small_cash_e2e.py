@@ -255,14 +255,14 @@ def run_sample(
         "api_requests": cap.api_count,
         "reused_api_responses": cap.reused_count,
         "network_response_bytes": sum(
-            int(r["bytes"])
+            size
             for r in cap.requests
-            if isinstance(r.get("bytes"), int) and r.get("transport") != "reused"
+            if isinstance(size := r.get("bytes"), int) and r.get("transport") != "reused"
         ),
         "reused_response_bytes": sum(
-            int(r["bytes"])
+            size
             for r in cap.requests
-            if isinstance(r.get("bytes"), int) and r.get("transport") == "reused"
+            if isinstance(size := r.get("bytes"), int) and r.get("transport") == "reused"
         ),
         "web_requests": cap.web_count,
         "api_limit": 20,
