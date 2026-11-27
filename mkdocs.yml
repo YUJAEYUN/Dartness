@@ -51,6 +51,7 @@ nav:
       - 최신 유효 현금 자료 선택: specs/latest-cash-source.md
       - 저장 수집 자료의 조회 실행: specs/cash-bundle-runner.md
       - 모집단 현금 조회와 통합 결과: specs/cash-survey.md
+      - 현재 명부와 제한 원문 수집: specs/universe-cash-run.md
       - 실행일 상장법인 연결: specs/listed-universe.md
       - 현금 조회 계약 초안: specs/cash-query-contract.md
       - 현금 표 추출: specs/cash-table-extraction.md
@@ -79,6 +80,7 @@ nav:
       - 최신 공시의 잘못된 입력 거절 확인: briefings/0115-latest-cash-guards.md
       - 실제 소수 법인 수집부터 엑셀까지 확인: briefings/0117-small-cash-e2e.md
       - 같은 날 원천 재사용과 수집 재개: briefings/0119-sample-source-reuse.md
+      - 현재 명부와 제한 현금 수집 연결: briefings/0120-universe-cash-run.md
       - "#107 최신 공시 선택 추가 검증": briefings/0107-latest-cash-evaluation.md
       - "#106 최신 유효 공시에서 현금 선택": briefings/0106-latest-valid-cash.md
       - "#105 전체 유형 공시 이력 수집": briefings/0105-filing-history-collection.md
