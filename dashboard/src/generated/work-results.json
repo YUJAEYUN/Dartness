@@ -3,6 +3,12 @@
   "sha256": "f517d8612776ff16b9d3d3fae36fcfc785e8c9ee4cf094e8c0b7e9dc01fca0b4",
   "groups": [
     {
+      "pr": 123,
+      "issue": 121,
+      "title": "공개 20개 법인에서 기업개황 처리 속도 비교",
+      "records": []
+    },
+    {
       "pr": 122,
       "issue": 121,
       "title": "기업개황 수집 속도를 소수 요청으로 비교",

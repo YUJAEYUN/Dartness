@@ -7,7 +7,7 @@ on:
       collection_mode:
         description: '수집 방식: 기존 연간 평가 자료 또는 지정 접수번호 원문'
         type: choice
-        options: [annual, exact_receipts, filing_history, small_cash_e2e, universe_cash, profile_speed_probe]
+        options: [annual, exact_receipts, filing_history, small_cash_e2e, universe_cash, profile_speed_probe, profile_speed_probe_20]
         default: annual
       universe_cash_config:
         description: 'universe_cash 전용: 명시적 조건·예산 JSON (공개 평가 자료만)'
@@ -87,14 +87,15 @@ jobs:
           PYTHONPATH: src
         run: timeout --signal=TERM --kill-after=5s 3000s python -m dartness.universe_cash_runner
       - name: Compare bounded profile request speeds
-        if: inputs.collection_mode == 'profile_speed_probe'
+        if: inputs.collection_mode == 'profile_speed_probe' || inputs.collection_mode == 'profile_speed_probe_20'
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           OUTPUT_DIR: ${{ runner.temp }}/filings
           PYTHONPATH: src
+          PROFILE_PROBE_EXPANDED: ${{ inputs.collection_mode == 'profile_speed_probe_20' && 'true' || '' }}
         run: timeout --signal=TERM --kill-after=5s 240s python -m dartness.profile_speed_probe
       - name: Collect filings with the repository OpenDART key
-        if: inputs.collection_mode != 'small_cash_e2e' && inputs.collection_mode != 'universe_cash' && inputs.collection_mode != 'profile_speed_probe'
+        if: inputs.collection_mode != 'small_cash_e2e' && inputs.collection_mode != 'universe_cash' && inputs.collection_mode != 'profile_speed_probe' && inputs.collection_mode != 'profile_speed_probe_20'
         env:
           DART_API_KEY: ${{ secrets.DART_API_KEY }}
           COLLECTION_MODE: ${{ inputs.collection_mode }}
@@ -108,7 +109,7 @@ jobs:
           PYTHONPATH: src
         run: python -m dartness.dart_collect
       - name: Push to a data branch
-        if: success() || (always() && (inputs.collection_mode == 'small_cash_e2e' || inputs.collection_mode == 'universe_cash' || inputs.collection_mode == 'profile_speed_probe'))
+        if: success() || (always() && (inputs.collection_mode == 'small_cash_e2e' || inputs.collection_mode == 'universe_cash' || inputs.collection_mode == 'profile_speed_probe' || inputs.collection_mode == 'profile_speed_probe_20'))
         env:
           FILINGS: ${{ runner.temp }}/filings
         run: |

@@ -1,4 +1,4 @@
-"""Manual eight-request profile timing experiment; never builds a universe."""
+"""Bounded manual profile timing experiments; never builds a universe."""
 
 import hashlib
 import json
@@ -15,6 +15,27 @@ from pathlib import Path
 from dartness.dart_smoke import CollectionError, Fetch, _api_status, fetch_bytes
 
 _SAMPLES = (("00118804", "005290"), ("01205842", "267270"))
+# Public registry evidence and selection limitations: docs/design/universe-speed-options.md.
+_EXPANDED_SAMPLES = _SAMPLES + (
+    ("00126380", "005930"),
+    ("00164779", "000660"),
+    ("00164742", "005380"),
+    ("00106641", "000270"),
+    ("00155319", "005490"),
+    ("00120021", "003550"),
+    ("00181712", "034730"),
+    ("00160588", "000880"),
+    ("00266961", "035420"),
+    ("00258801", "035720"),
+    ("00356361", "051910"),
+    ("00401731", "066570"),
+    ("00164788", "012330"),
+    ("00149655", "028260"),
+    ("00159193", "015760"),
+    ("00126256", "032830"),
+    ("00138279", "010950"),
+    ("00547583", "086790"),
+)
 
 
 def _validate(payload: bytes, corp_code: str, stock_code: str) -> None:
@@ -35,8 +56,10 @@ def run_probe(
     fetch: Fetch,
     *,
     checkpoint: Callable[[dict[str, object]], None],
+    expanded: bool = False,
 ) -> dict[str, object]:
     """Compare two rounds with the same global 0.5-second launch spacing."""
+    samples = _EXPANDED_SAMPLES if expanded else _SAMPLES
     lock = threading.Lock()
     gate = threading.Lock()
     stopped = threading.Event()
@@ -55,6 +78,8 @@ def run_probe(
             "started_at": started_at,
             "elapsed_seconds": time.monotonic() - start,
             "api_requests": len(attempts),
+            "sample_size": len(samples),
+            "max_api_requests": 4 * len(samples),
             "max_in_flight": peak,
             "minimum_start_interval_seconds": 0.5,
             "attempts": [dict(item) for item in attempts],
@@ -103,20 +128,21 @@ def run_probe(
                 checkpoint(report("running"))
 
     for round_number in (1, 2):
-        for workers in (1, 2):
+        order = (2, 1) if expanded and round_number == 2 else (1, 2)
+        for workers in order:
             if stopped.is_set():
                 break
             name = f"round-{round_number}-workers-{workers}"
             phase_start = time.monotonic()
             if workers == 1:
-                for corp, stock in _SAMPLES:
+                for corp, stock in samples:
                     if stopped.is_set():
                         break
                     request(corp, stock, name)
             else:
                 with ThreadPoolExecutor(max_workers=2) as executor:
                     futures = [
-                        executor.submit(request, corp, stock, name) for corp, stock in _SAMPLES
+                        executor.submit(request, corp, stock, name) for corp, stock in samples
                     ]
                     for future in futures:
                         future.result()
@@ -130,6 +156,10 @@ def run_probe(
 def main() -> int:
     key = os.environ.get("DART_API_KEY", "")
     output = os.environ.get("OUTPUT_DIR", "")
+    expanded = os.environ.get("PROFILE_PROBE_EXPANDED", "")
+    if expanded not in ("", "true"):
+        print("Profile probe failed: invalid_sample_mode")
+        return 1
     if not re.fullmatch(r"[A-Za-z0-9]{40}", key) or not output:
         print("Profile probe failed: invalid_input")
         return 1
@@ -147,7 +177,11 @@ def main() -> int:
         temp.write_bytes(payload)
         temp.replace(target / "report.json")
 
-    result = run_probe(lambda endpoint, params: fetch_bytes(endpoint, params, key), checkpoint=save)
+    result = run_probe(
+        lambda endpoint, params: fetch_bytes(endpoint, params, key),
+        checkpoint=save,
+        expanded=expanded == "true",
+    )
     print(f"Profile probe: {result['status']}; API attempts: {result['api_requests']}")
     return 0 if result["status"] == "completed_probe" else 1
 
