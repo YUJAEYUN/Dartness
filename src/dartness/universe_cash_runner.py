@@ -67,6 +67,9 @@ def parse_plan(raw: str, history_start: str) -> UniverseCashPlan:
         raise ValueError("explicit_evaluation_targets_and_bases_required")
     if not targets or any(code not in bases for code in targets):
         raise ValueError("confirmed_public_pilot_targets_required")
+    allowed = ("separate", "individual") if scope == "standalone" else ("consolidated",)
+    if any(bases[code] not in allowed for code in targets):
+        raise ValueError("confirmed_scope_mismatch")
     try:
         minimum = Decimal(amount)
     except InvalidOperation as error:

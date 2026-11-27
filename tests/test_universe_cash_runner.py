@@ -31,6 +31,7 @@ def config() -> dict[str, object]:
         ("minimum_krw", "500억원"),
         ("max_api_requests", True),
         ("target_codes", []),
+        ("scope", "consolidated"),
     ],
 )
 def test_invalid_config_is_rejected_without_network(field: str, value: object) -> None:
