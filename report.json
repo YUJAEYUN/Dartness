@@ -1,0 +1,408 @@
+{
+  "scope": "explicit_live_sample_not_market_universe",
+  "stocks": [
+    "005290",
+    "267270"
+  ],
+  "started_at": "2026-11-27T01:05:25.364000+00:00",
+  "finished_at": "2026-11-27T01:05:35.923353+00:00",
+  "history_start": "2026-11-01",
+  "history_end": "2026-11-27",
+  "query_executed_at": "2026-11-27T01:05:31.809792+00:00",
+  "max_age_months": 12,
+  "basis": "separate",
+  "minimum_krw": "50000000000",
+  "api_requests": 4,
+  "reused_api_responses": 3,
+  "network_response_bytes": 253148,
+  "reused_response_bytes": 4439297,
+  "web_requests": 4,
+  "api_limit": 20,
+  "web_limit": 6,
+  "requests": [
+    {
+      "kind": "api",
+      "endpoint": "corpCode.xml",
+      "parameters": {},
+      "file": "raw/api-01-corpCode.xml.zip",
+      "transport": "reused",
+      "source_observed_at": "2026-11-27T01:00:31.283579+00:00",
+      "source_sha256": "468f346b2171aa4f791c97440b7ca8fdc93134db3e6c070f085fa42e118d8e33",
+      "source_file": "raw/api-01-corpCode.xml.zip",
+      "started_at": "2026-11-27T01:05:25.369770+00:00",
+      "finished_at": "2026-11-27T01:05:25.429123+00:00",
+      "bytes": 3640066,
+      "sha256": "468f346b2171aa4f791c97440b7ca8fdc93134db3e6c070f085fa42e118d8e33"
+    },
+    {
+      "kind": "api",
+      "endpoint": "company.json",
+      "parameters": {
+        "corp_code": "00118804"
+      },
+      "file": "raw/api-02-company.json",
+      "transport": "network",
+      "started_at": "2026-11-27T01:05:26.259561+00:00",
+      "finished_at": "2026-11-27T01:05:26.941531+00:00",
+      "bytes": 466,
+      "sha256": "b4a2d24742c0930b8267a89633b9951669f993fcfb1eedb9bfd5abffd5f6db1c"
+    },
+    {
+      "kind": "api",
+      "endpoint": "list.json",
+      "parameters": {
+        "bgn_de": "20261101",
+        "end_de": "20261127",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "00118804"
+      },
+      "file": "raw/api-03-list.json",
+      "transport": "network",
+      "started_at": "2026-11-27T01:05:26.942751+00:00",
+      "finished_at": "2026-11-27T01:05:27.937510+00:00",
+      "bytes": 1291,
+      "sha256": "7d2afe1f6ec3c66ed0a0f6caead032ee49279a26ed034fdc3a45ab4b9d55dae5"
+    },
+    {
+      "kind": "api",
+      "endpoint": "document.xml",
+      "parameters": {
+        "rcept_no": "20261116000630"
+      },
+      "file": "raw/api-04-document.xml.zip",
+      "transport": "reused",
+      "source_observed_at": "2026-11-27T01:00:55.186043+00:00",
+      "source_sha256": "f196a08b9de057d33723f179415ef96b46f56311af7bb06ba5b744ee18911551",
+      "source_file": "raw/api-04-document.xml.zip",
+      "started_at": "2026-11-27T01:05:27.946726+00:00",
+      "finished_at": "2026-11-27T01:05:27.960669+00:00",
+      "bytes": 365384,
+      "sha256": "f196a08b9de057d33723f179415ef96b46f56311af7bb06ba5b744ee18911551"
+    },
+    {
+      "kind": "web",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116000630",
+      "file": "raw/web-01.html",
+      "started_at": "2026-11-27T01:05:27.974088+00:00",
+      "finished_at": "2026-11-27T01:05:29.168702+00:00",
+      "bytes": 108088,
+      "sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9"
+    },
+    {
+      "kind": "api",
+      "endpoint": "company.json",
+      "parameters": {
+        "corp_code": "01205842"
+      },
+      "file": "raw/api-06-company.json",
+      "transport": "network",
+      "started_at": "2026-11-27T01:05:29.169940+00:00",
+      "finished_at": "2026-11-27T01:05:29.859796+00:00",
+      "bytes": 541,
+      "sha256": "6171dcff5b5b735dc3b9e5eaa2ee101ae756a9dc625926bcf5b496e201e56ff2"
+    },
+    {
+      "kind": "api",
+      "endpoint": "list.json",
+      "parameters": {
+        "bgn_de": "20261101",
+        "end_de": "20261127",
+        "page_no": "1",
+        "page_count": "100",
+        "sort": "date",
+        "sort_mth": "asc",
+        "last_reprt_at": "N",
+        "corp_code": "01205842"
+      },
+      "file": "raw/api-07-list.json",
+      "transport": "network",
+      "started_at": "2026-11-27T01:05:29.861067+00:00",
+      "finished_at": "2026-11-27T01:05:30.705687+00:00",
+      "bytes": 2050,
+      "sha256": "44f104c87c55b75bccb03fae4c50982d1a616ecb7f524b325587f077251f7692"
+    },
+    {
+      "kind": "api",
+      "endpoint": "document.xml",
+      "parameters": {
+        "rcept_no": "20261116001470"
+      },
+      "file": "raw/api-08-document.xml.zip",
+      "transport": "reused",
+      "source_observed_at": "2026-11-27T01:01:23.220916+00:00",
+      "source_sha256": "d3e2b87b6ba88e9e626f4f210677be3f5cc2a6a676dcecaa6c54d979db6b2cd7",
+      "source_file": "raw/api-08-document.xml.zip",
+      "started_at": "2026-11-27T01:05:30.708584+00:00",
+      "finished_at": "2026-11-27T01:05:30.720419+00:00",
+      "bytes": 433847,
+      "sha256": "d3e2b87b6ba88e9e626f4f210677be3f5cc2a6a676dcecaa6c54d979db6b2cd7"
+    },
+    {
+      "kind": "web",
+      "url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001470",
+      "file": "raw/web-02.html",
+      "started_at": "2026-11-27T01:05:30.738612+00:00",
+      "finished_at": "2026-11-27T01:05:31.808419+00:00",
+      "bytes": 118713,
+      "sha256": "02df1787028f96259cae207aa500e90d660712da7ea12f842842d2c0fdf91879"
+    },
+    {
+      "kind": "web",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=58&offset=2918733&length=29914&dtd=dart4.xsd",
+      "file": "raw/web-03.html",
+      "started_at": "2026-11-27T01:05:33.127159+00:00",
+      "finished_at": "2026-11-27T01:05:33.757041+00:00",
+      "bytes": 10553,
+      "sha256": "5d0c23b187ad96316e81e4c0c104e0ae278dbf1563e11212d98da600e75d0dc8"
+    },
+    {
+      "kind": "web",
+      "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001470&dcmNo=11660602&eleId=71&offset=4180851&length=33124&dtd=dart4.xsd",
+      "file": "raw/web-04.html",
+      "started_at": "2026-11-27T01:05:35.296615+00:00",
+      "finished_at": "2026-11-27T01:05:35.909468+00:00",
+      "bytes": 11446,
+      "sha256": "6f9cb77da0ecc7e1b8c0c2e985cdce423d2204b46c8513ef9f5ff008d7e13dc9"
+    }
+  ],
+  "companies": [
+    {
+      "stock_code": "005290",
+      "status": "document_match",
+      "corp_code": "00118804",
+      "corp_name": "(주)동진쎄미켐",
+      "market": "K",
+      "history": {
+        "start": "2026-11-01",
+        "end": "2026-11-27",
+        "corp_code": "00118804",
+        "started_at": "2026-11-27T01:05:26.942707+00:00",
+        "collected_at": "2026-11-27T01:05:27.944636+00:00",
+        "response_sha256": [
+          "7d2afe1f6ec3c66ed0a0f6caead032ee49279a26ed034fdc3a45ab4b9d55dae5"
+        ]
+      },
+      "reason": null,
+      "query_result": {
+        "run_scope": "captured_history_periodic_reports",
+        "status": "document_match",
+        "reason": null,
+        "selection_policy": "latest_valid_publication_at_selected_financial_date",
+        "requested_as_of": "2026-11-27",
+        "earliest_date": "2025-11-27",
+        "executed_at": "2026-11-27T01:05:31.809792+00:00",
+        "basis": "separate",
+        "minimum_krw": "50000000000",
+        "history": {
+          "start": "2026-11-01",
+          "end": "2026-11-27",
+          "corp_code": "00118804",
+          "started_at": "2026-11-27T01:05:26.942707+00:00",
+          "collected_at": "2026-11-27T01:05:27.944636+00:00",
+          "response_sha256": [
+            "7d2afe1f6ec3c66ed0a0f6caead032ee49279a26ed034fdc3a45ab4b9d55dae5"
+          ]
+        },
+        "input_archives": [
+          {
+            "receipt": "20261116000630",
+            "corp_code": "00118804",
+            "company_name": "동진쎄미켐",
+            "report_name": "분기보고서 (2026.09)",
+            "remarks": "",
+            "published_on": "2026-11-16",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116000630",
+            "archive_sha256": "f196a08b9de057d33723f179415ef96b46f56311af7bb06ba5b744ee18911551",
+            "failure": null,
+            "excluded_after_cutoff": false,
+            "candidate_count": 0
+          }
+        ],
+        "sources": [
+          {
+            "receipt": "20261116000630",
+            "corp_code": "00118804",
+            "company_name": "동진쎄미켐",
+            "report_name": "분기보고서 (2026.09)",
+            "remarks": "",
+            "published_on": "2026-11-16",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116000630",
+            "archive_sha256": "f196a08b9de057d33723f179415ef96b46f56311af7bb06ba5b744ee18911551",
+            "failure": null,
+            "excluded_after_cutoff": false,
+            "candidate_count": 2
+          }
+        ],
+        "validity": {
+          "scope": "selected_periodic_family_in_captured_history",
+          "body_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+          "body_observed_at": "2026-11-27T01:05:29.169887+00:00",
+          "family_receipts": [
+            "20261116000630"
+          ]
+        },
+        "latest_correction_verified": true,
+        "selected_receipt": "20261116000630",
+        "selected_report": {
+          "run_scope": "specified_report_only",
+          "latest_correction_verified": false,
+          "status": "document_match",
+          "corp_code": "00118804",
+          "company_name": "동진쎄미켐",
+          "receipt": "20261116000630",
+          "published_on": "2026-11-16",
+          "requested_as_of": "2026-11-27",
+          "request_mode": "latest",
+          "is_prior": true,
+          "actual_as_of": "2026-09-30",
+          "basis": "separate",
+          "basis_origin": "supplied_upstream",
+          "minimum_krw": "50000000000",
+          "amount_krw": "166741090356",
+          "raw_amount": "166,741,090,356",
+          "unit": "원",
+          "requested_currency": "KRW",
+          "currency": "KRW",
+          "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116000630",
+          "table_link": {
+            "status": "verified_table_section",
+            "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116000630&dcmNo=11658322&eleId=58&offset=2918733&length=29914&dtd=dart4.xsd",
+            "main_response_sha256": "3eea4cf6f43d35ca8a113769ff2718a9ba856b150e92093b774e3c93a7e33ad9",
+            "section_response_sha256": "5d0c23b187ad96316e81e4c0c104e0ae278dbf1563e11212d98da600e75d0dc8",
+            "verification": "same_receipt_company_basis_date_unit_amount"
+          },
+          "document_sha256": "7d597b1330887088750b3691f40d03edfa0e08a46dc3a927a691ae0089b59b05",
+          "section_sha256": "3ee6dbfd2d63977a703435647b8bf3a571270e80bac76667ea6648c47225f275",
+          "locator": "TABLE-GROUP[{XBRL}BS_S] / line 32565:0 / table[2]/tr[4]/td[2]",
+          "context": "재무상태표\n제 54 기 3분기말 2026.09.30 현재\n제 53 기말          2025.12.31 현재\n(단위 : 원)\n입력 범위: separate; 선택 열: 제 54 기 3분기말",
+          "failure": null,
+          "detail": null,
+          "checked_at": "2026-11-27T01:05:31.809792+00:00"
+        }
+      }
+    },
+    {
+      "stock_code": "267270",
+      "status": "document_match",
+      "corp_code": "01205842",
+      "corp_name": "에이치디건설기계(주)",
+      "market": "Y",
+      "history": {
+        "start": "2026-11-01",
+        "end": "2026-11-27",
+        "corp_code": "01205842",
+        "started_at": "2026-11-27T01:05:29.861025+00:00",
+        "collected_at": "2026-11-27T01:05:30.706911+00:00",
+        "response_sha256": [
+          "44f104c87c55b75bccb03fae4c50982d1a616ecb7f524b325587f077251f7692"
+        ]
+      },
+      "reason": null,
+      "query_result": {
+        "run_scope": "captured_history_periodic_reports",
+        "status": "document_match",
+        "reason": null,
+        "selection_policy": "latest_valid_publication_at_selected_financial_date",
+        "requested_as_of": "2026-11-27",
+        "earliest_date": "2025-11-27",
+        "executed_at": "2026-11-27T01:05:31.809792+00:00",
+        "basis": "separate",
+        "minimum_krw": "50000000000",
+        "history": {
+          "start": "2026-11-01",
+          "end": "2026-11-27",
+          "corp_code": "01205842",
+          "started_at": "2026-11-27T01:05:29.861025+00:00",
+          "collected_at": "2026-11-27T01:05:30.706911+00:00",
+          "response_sha256": [
+            "44f104c87c55b75bccb03fae4c50982d1a616ecb7f524b325587f077251f7692"
+          ]
+        },
+        "input_archives": [
+          {
+            "receipt": "20261116001470",
+            "corp_code": "01205842",
+            "company_name": "HD건설기계",
+            "report_name": "분기보고서 (2026.09)",
+            "remarks": "",
+            "published_on": "2026-11-16",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001470",
+            "archive_sha256": "d3e2b87b6ba88e9e626f4f210677be3f5cc2a6a676dcecaa6c54d979db6b2cd7",
+            "failure": null,
+            "excluded_after_cutoff": false,
+            "candidate_count": 0
+          }
+        ],
+        "sources": [
+          {
+            "receipt": "20261116001470",
+            "corp_code": "01205842",
+            "company_name": "HD건설기계",
+            "report_name": "분기보고서 (2026.09)",
+            "remarks": "",
+            "published_on": "2026-11-16",
+            "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001470",
+            "archive_sha256": "d3e2b87b6ba88e9e626f4f210677be3f5cc2a6a676dcecaa6c54d979db6b2cd7",
+            "failure": null,
+            "excluded_after_cutoff": false,
+            "candidate_count": 2
+          }
+        ],
+        "validity": {
+          "scope": "selected_periodic_family_in_captured_history",
+          "body_response_sha256": "02df1787028f96259cae207aa500e90d660712da7ea12f842842d2c0fdf91879",
+          "body_observed_at": "2026-11-27T01:05:31.809752+00:00",
+          "family_receipts": [
+            "20261116001470"
+          ]
+        },
+        "latest_correction_verified": true,
+        "selected_receipt": "20261116001470",
+        "selected_report": {
+          "run_scope": "specified_report_only",
+          "latest_correction_verified": false,
+          "status": "document_match",
+          "corp_code": "01205842",
+          "company_name": "HD건설기계",
+          "receipt": "20261116001470",
+          "published_on": "2026-11-16",
+          "requested_as_of": "2026-11-27",
+          "request_mode": "latest",
+          "is_prior": true,
+          "actual_as_of": "2026-09-30",
+          "basis": "separate",
+          "basis_origin": "supplied_upstream",
+          "minimum_krw": "50000000000",
+          "amount_krw": "1.34070870E+11",
+          "raw_amount": "134,070,870",
+          "unit": "천원",
+          "requested_currency": "KRW",
+          "currency": "KRW",
+          "source_url": "https://dart.fss.or.kr/dsaf001/main.do?rcpNo=20261116001470",
+          "table_link": {
+            "status": "verified_table_section",
+            "url": "https://dart.fss.or.kr/report/viewer.do?rcpNo=20261116001470&dcmNo=11660602&eleId=71&offset=4180851&length=33124&dtd=dart4.xsd",
+            "main_response_sha256": "02df1787028f96259cae207aa500e90d660712da7ea12f842842d2c0fdf91879",
+            "section_response_sha256": "6f9cb77da0ecc7e1b8c0c2e985cdce423d2204b46c8513ef9f5ff008d7e13dc9",
+            "verification": "same_receipt_company_basis_date_unit_amount"
+          },
+          "document_sha256": "341f438db7311b58d6d9b7ae22c0fe9fcbe2508edccb73f2cf1e9d5eaf1bdbb4",
+          "section_sha256": "56b1f0637c7b8f4757fa0f4f1f045d2f3b82f5ea7470921aad23292819bb6b90",
+          "locator": "TABLE-GROUP[{XBRL}BS_S] / line 40016:0 / table[2]/tr[4]/td[2]",
+          "context": "재무상태표\n제 10 기 3분기말 2026.09.30 현재\n제 9 기말          2025.12.31 현재\n(단위 : 천원)\n입력 범위: separate; 선택 열: 제 10 기 3분기말",
+          "failure": null,
+          "detail": null,
+          "checked_at": "2026-11-27T01:05:31.809792+00:00"
+        }
+      }
+    }
+  ],
+  "counts": {
+    "document_match": 2
+  },
+  "all_values_verified": true
+}
