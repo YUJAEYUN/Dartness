@@ -1,0 +1,830 @@
+{
+  "status": "completed_probe",
+  "started_at": "2026-11-27T05:20:31.913714+00:00",
+  "elapsed_seconds": 54.501629669999986,
+  "api_requests": 80,
+  "sample_size": 20,
+  "max_api_requests": 80,
+  "max_in_flight": 2,
+  "minimum_start_interval_seconds": 0.5,
+  "attempts": [
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00118804",
+      "stock_code": "005290",
+      "start_offset_seconds": 1.47880000014311e-05,
+      "status": "validated",
+      "bytes": 466,
+      "sha256": "b4a2d24742c0930b8267a89633b9951669f993fcfb1eedb9bfd5abffd5f6db1c",
+      "elapsed_seconds": 0.7781336809999999
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "01205842",
+      "stock_code": "267270",
+      "start_offset_seconds": 0.7785820360000031,
+      "status": "validated",
+      "bytes": 541,
+      "sha256": "6171dcff5b5b735dc3b9e5eaa2ee101ae756a9dc625926bcf5b496e201e56ff2",
+      "elapsed_seconds": 0.8765114159999996
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00126380",
+      "stock_code": "005930",
+      "start_offset_seconds": 1.6556326850000005,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "d37caf0b34db38d362d08a7af09a38db177e79700072ca96309e12bf79f00790",
+      "elapsed_seconds": 1.0021761449999929
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00164779",
+      "stock_code": "000660",
+      "start_offset_seconds": 2.6583360700000043,
+      "status": "validated",
+      "bytes": 473,
+      "sha256": "8f46069250abe56790aa1d6d3b3999b7b1f31aeffc7cee987128c8ee8fe395ee",
+      "elapsed_seconds": 0.9216483969999985
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00164742",
+      "stock_code": "005380",
+      "start_offset_seconds": 3.5805009679999955,
+      "status": "validated",
+      "bytes": 536,
+      "sha256": "0c568bb22eb5596f2936b8cc94a2ccb23ffe97324729e94c7fd2276f80346997",
+      "elapsed_seconds": 0.7996859710000024
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00106641",
+      "stock_code": "000270",
+      "start_offset_seconds": 4.380828643000001,
+      "status": "validated",
+      "bytes": 486,
+      "sha256": "4a956a8094eb5c2561b092209cf6221fd6c15ebe70f93933a34e384937a021c6",
+      "elapsed_seconds": 0.964569081999997
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00155319",
+      "stock_code": "005490",
+      "start_offset_seconds": 5.346005195000004,
+      "status": "validated",
+      "bytes": 530,
+      "sha256": "1b268d507540b6cfe18ea857791d12b44602608316446aa7522ed44cd4bfb925",
+      "elapsed_seconds": 0.7921072129999942
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00120021",
+      "stock_code": "003550",
+      "start_offset_seconds": 6.1387736380000035,
+      "status": "validated",
+      "bytes": 453,
+      "sha256": "4aee961c8cae36ca941be42f0449698673fa2f89cc43e9ae98dec20f0bc89f75",
+      "elapsed_seconds": 0.767556509000002
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00181712",
+      "stock_code": "034730",
+      "start_offset_seconds": 6.9069304039999935,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "b1b8af8925164e08e17b6c25ff7486efe030c0d541e7daaa5b78e9927372d54c",
+      "elapsed_seconds": 0.8960237480000046
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00160588",
+      "stock_code": "000880",
+      "start_offset_seconds": 7.803605001999998,
+      "status": "validated",
+      "bytes": 490,
+      "sha256": "490ff7c44099fcee7616d9a91530cf0dc5fd326b857599775e7f3c11c5f641e2",
+      "elapsed_seconds": 1.0008010920000032
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00266961",
+      "stock_code": "035420",
+      "start_offset_seconds": 8.804957359,
+      "status": "validated",
+      "bytes": 501,
+      "sha256": "68e8215cdf2d2e754715efcf168ede61f7ed24e9b08acbea26d10bbfeacb33d8",
+      "elapsed_seconds": 0.7581409250000064
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00258801",
+      "stock_code": "035720",
+      "start_offset_seconds": 9.563628089999995,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "488f287bea17bdf11caed92fb3162f3ded3a110eb2170377a54f96d52864c5ff",
+      "elapsed_seconds": 0.9891695320000053
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00356361",
+      "stock_code": "051910",
+      "start_offset_seconds": 10.553373113000006,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "9ec2c57f6a5e3e4861a2d2fe8f122922cd87d9ec0f740b993515ba0ef26940a5",
+      "elapsed_seconds": 1.0184733959999903
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00401731",
+      "stock_code": "066570",
+      "start_offset_seconds": 11.572416548999996,
+      "status": "validated",
+      "bytes": 518,
+      "sha256": "bedde87fb72308f5906b4684029072c966a05be0bc1a83ed31518e186778bd6a",
+      "elapsed_seconds": 0.9859156619999965
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00164788",
+      "stock_code": "012330",
+      "start_offset_seconds": 12.558946552999998,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "ea4492ded727ccfda62ab9a42e626b1f81b3bd973957d3d9b714048c93ae9cae",
+      "elapsed_seconds": 0.9655105989999981
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00149655",
+      "stock_code": "028260",
+      "start_offset_seconds": 13.524988770999997,
+      "status": "validated",
+      "bytes": 477,
+      "sha256": "48d8d8901d917f025b74cd2035dcfa3d4f25c579ad26812203b40b5b357539b5",
+      "elapsed_seconds": 0.8006370239999967
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00159193",
+      "stock_code": "015760",
+      "start_offset_seconds": 14.326220410999994,
+      "status": "validated",
+      "bytes": 480,
+      "sha256": "199dcb320f07352247c05e5cb90c358196663ad7e77cf456acc9e881a2ff3cb0",
+      "elapsed_seconds": 0.7994792700000062
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00126256",
+      "stock_code": "032830",
+      "start_offset_seconds": 15.126277862999999,
+      "status": "validated",
+      "bytes": 528,
+      "sha256": "1836b9ddef8a265bf89723a04c15cbcd8a7d0c803fefbf3f99b3985ab5e85e72",
+      "elapsed_seconds": 0.8143943400000069
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00138279",
+      "stock_code": "010950",
+      "start_offset_seconds": 15.941318304999996,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "d3d39f290b93a5f7f61de17bfbd1b64d1661edb1fd6cd30968463f2ca8e17fcd",
+      "elapsed_seconds": 0.7863144020000021
+    },
+    {
+      "phase": "round-1-workers-1",
+      "corp_code": "00547583",
+      "stock_code": "086790",
+      "start_offset_seconds": 16.728364838000005,
+      "status": "validated",
+      "bytes": 497,
+      "sha256": "39ad6c9ceb2528445c267fdd338b936447c178276f030a13adc6d17fb336ace1",
+      "elapsed_seconds": 0.8313842660000006
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00118804",
+      "stock_code": "005290",
+      "start_offset_seconds": 17.560657262999996,
+      "status": "validated",
+      "bytes": 466,
+      "sha256": "b4a2d24742c0930b8267a89633b9951669f993fcfb1eedb9bfd5abffd5f6db1c",
+      "elapsed_seconds": 0.8486939320000033
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "01205842",
+      "stock_code": "267270",
+      "start_offset_seconds": 18.060777380999994,
+      "status": "validated",
+      "bytes": 541,
+      "sha256": "6171dcff5b5b735dc3b9e5eaa2ee101ae756a9dc625926bcf5b496e201e56ff2",
+      "elapsed_seconds": 0.7858841550000051
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00126380",
+      "stock_code": "005930",
+      "start_offset_seconds": 18.560893238000006,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "d37caf0b34db38d362d08a7af09a38db177e79700072ca96309e12bf79f00790",
+      "elapsed_seconds": 0.931451624999994
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00164779",
+      "stock_code": "000660",
+      "start_offset_seconds": 19.061002114000004,
+      "status": "validated",
+      "bytes": 473,
+      "sha256": "8f46069250abe56790aa1d6d3b3999b7b1f31aeffc7cee987128c8ee8fe395ee",
+      "elapsed_seconds": 0.820742273999997
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00164742",
+      "stock_code": "005380",
+      "start_offset_seconds": 19.561122928000003,
+      "status": "validated",
+      "bytes": 536,
+      "sha256": "0c568bb22eb5596f2936b8cc94a2ccb23ffe97324729e94c7fd2276f80346997",
+      "elapsed_seconds": 0.7883812669999912
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00106641",
+      "stock_code": "000270",
+      "start_offset_seconds": 20.061238868000004,
+      "status": "validated",
+      "bytes": 486,
+      "sha256": "4a956a8094eb5c2561b092209cf6221fd6c15ebe70f93933a34e384937a021c6",
+      "elapsed_seconds": 0.9634507869999993
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00155319",
+      "stock_code": "005490",
+      "start_offset_seconds": 20.561363388999993,
+      "status": "validated",
+      "bytes": 530,
+      "sha256": "1b268d507540b6cfe18ea857791d12b44602608316446aa7522ed44cd4bfb925",
+      "elapsed_seconds": 0.9772602700000022
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00120021",
+      "stock_code": "003550",
+      "start_offset_seconds": 21.061482252999994,
+      "status": "validated",
+      "bytes": 453,
+      "sha256": "4aee961c8cae36ca941be42f0449698673fa2f89cc43e9ae98dec20f0bc89f75",
+      "elapsed_seconds": 0.9649345680000039
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00181712",
+      "stock_code": "034730",
+      "start_offset_seconds": 21.561571818999994,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "b1b8af8925164e08e17b6c25ff7486efe030c0d541e7daaa5b78e9927372d54c",
+      "elapsed_seconds": 0.7909867530000128
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00160588",
+      "stock_code": "000880",
+      "start_offset_seconds": 22.061690282,
+      "status": "validated",
+      "bytes": 490,
+      "sha256": "490ff7c44099fcee7616d9a91530cf0dc5fd326b857599775e7f3c11c5f641e2",
+      "elapsed_seconds": 0.7824626609999967
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00266961",
+      "stock_code": "035420",
+      "start_offset_seconds": 22.561800668000004,
+      "status": "validated",
+      "bytes": 501,
+      "sha256": "68e8215cdf2d2e754715efcf168ede61f7ed24e9b08acbea26d10bbfeacb33d8",
+      "elapsed_seconds": 0.8420017520000016
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00258801",
+      "stock_code": "035720",
+      "start_offset_seconds": 23.061920985,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "488f287bea17bdf11caed92fb3162f3ded3a110eb2170377a54f96d52864c5ff",
+      "elapsed_seconds": 0.8017841620000041
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00356361",
+      "stock_code": "051910",
+      "start_offset_seconds": 23.562044955999994,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "9ec2c57f6a5e3e4861a2d2fe8f122922cd87d9ec0f740b993515ba0ef26940a5",
+      "elapsed_seconds": 0.7707215000000076
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00401731",
+      "stock_code": "066570",
+      "start_offset_seconds": 24.062172594000003,
+      "status": "validated",
+      "bytes": 518,
+      "sha256": "bedde87fb72308f5906b4684029072c966a05be0bc1a83ed31518e186778bd6a",
+      "elapsed_seconds": 0.777413623000001
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00164788",
+      "stock_code": "012330",
+      "start_offset_seconds": 24.562317141999998,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "ea4492ded727ccfda62ab9a42e626b1f81b3bd973957d3d9b714048c93ae9cae",
+      "elapsed_seconds": 0.9998605859999969
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00149655",
+      "stock_code": "028260",
+      "start_offset_seconds": 25.062435308000005,
+      "status": "validated",
+      "bytes": 477,
+      "sha256": "48d8d8901d917f025b74cd2035dcfa3d4f25c579ad26812203b40b5b357539b5",
+      "elapsed_seconds": 0.7982286409999944
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00159193",
+      "stock_code": "015760",
+      "start_offset_seconds": 25.562991212,
+      "status": "validated",
+      "bytes": 480,
+      "sha256": "199dcb320f07352247c05e5cb90c358196663ad7e77cf456acc9e881a2ff3cb0",
+      "elapsed_seconds": 0.7932579849999968
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00126256",
+      "stock_code": "032830",
+      "start_offset_seconds": 26.063110327999993,
+      "status": "validated",
+      "bytes": 528,
+      "sha256": "1836b9ddef8a265bf89723a04c15cbcd8a7d0c803fefbf3f99b3985ab5e85e72",
+      "elapsed_seconds": 0.8026936770000077
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00138279",
+      "stock_code": "010950",
+      "start_offset_seconds": 26.563231133000002,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "d3d39f290b93a5f7f61de17bfbd1b64d1661edb1fd6cd30968463f2ca8e17fcd",
+      "elapsed_seconds": 0.8111249189999938
+    },
+    {
+      "phase": "round-1-workers-2",
+      "corp_code": "00547583",
+      "stock_code": "086790",
+      "start_offset_seconds": 27.063346643000003,
+      "status": "validated",
+      "bytes": 497,
+      "sha256": "39ad6c9ceb2528445c267fdd338b936447c178276f030a13adc6d17fb336ace1",
+      "elapsed_seconds": 0.8404131890000031
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00118804",
+      "stock_code": "005290",
+      "start_offset_seconds": 27.905037992000004,
+      "status": "validated",
+      "bytes": 466,
+      "sha256": "b4a2d24742c0930b8267a89633b9951669f993fcfb1eedb9bfd5abffd5f6db1c",
+      "elapsed_seconds": 0.7729452349999946
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "01205842",
+      "stock_code": "267270",
+      "start_offset_seconds": 28.405159835999996,
+      "status": "validated",
+      "bytes": 541,
+      "sha256": "6171dcff5b5b735dc3b9e5eaa2ee101ae756a9dc625926bcf5b496e201e56ff2",
+      "elapsed_seconds": 0.8208679829999994
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00126380",
+      "stock_code": "005930",
+      "start_offset_seconds": 28.905278777999996,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "d37caf0b34db38d362d08a7af09a38db177e79700072ca96309e12bf79f00790",
+      "elapsed_seconds": 0.8153302710000077
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00164779",
+      "stock_code": "000660",
+      "start_offset_seconds": 29.405396592000002,
+      "status": "validated",
+      "bytes": 473,
+      "sha256": "8f46069250abe56790aa1d6d3b3999b7b1f31aeffc7cee987128c8ee8fe395ee",
+      "elapsed_seconds": 0.7784254449999963
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00164742",
+      "stock_code": "005380",
+      "start_offset_seconds": 29.905521565,
+      "status": "validated",
+      "bytes": 536,
+      "sha256": "0c568bb22eb5596f2936b8cc94a2ccb23ffe97324729e94c7fd2276f80346997",
+      "elapsed_seconds": 0.7856277129999967
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00106641",
+      "stock_code": "000270",
+      "start_offset_seconds": 30.405639248,
+      "status": "validated",
+      "bytes": 486,
+      "sha256": "4a956a8094eb5c2561b092209cf6221fd6c15ebe70f93933a34e384937a021c6",
+      "elapsed_seconds": 0.8253358829999939
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00155319",
+      "stock_code": "005490",
+      "start_offset_seconds": 30.905755514999996,
+      "status": "validated",
+      "bytes": 530,
+      "sha256": "1b268d507540b6cfe18ea857791d12b44602608316446aa7522ed44cd4bfb925",
+      "elapsed_seconds": 0.848066695
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00120021",
+      "stock_code": "003550",
+      "start_offset_seconds": 31.405869371999998,
+      "status": "validated",
+      "bytes": 453,
+      "sha256": "4aee961c8cae36ca941be42f0449698673fa2f89cc43e9ae98dec20f0bc89f75",
+      "elapsed_seconds": 1.9984823439999957
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00181712",
+      "stock_code": "034730",
+      "start_offset_seconds": 31.905973046,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "b1b8af8925164e08e17b6c25ff7486efe030c0d541e7daaa5b78e9927372d54c",
+      "elapsed_seconds": 0.824440679999995
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00160588",
+      "stock_code": "000880",
+      "start_offset_seconds": 32.731256293,
+      "status": "validated",
+      "bytes": 490,
+      "sha256": "490ff7c44099fcee7616d9a91530cf0dc5fd326b857599775e7f3c11c5f641e2",
+      "elapsed_seconds": 0.7728790740000022
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00266961",
+      "stock_code": "035420",
+      "start_offset_seconds": 33.405323882999994,
+      "status": "validated",
+      "bytes": 501,
+      "sha256": "68e8215cdf2d2e754715efcf168ede61f7ed24e9b08acbea26d10bbfeacb33d8",
+      "elapsed_seconds": 0.9627262170000108
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00258801",
+      "stock_code": "035720",
+      "start_offset_seconds": 33.905442539999996,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "488f287bea17bdf11caed92fb3162f3ded3a110eb2170377a54f96d52864c5ff",
+      "elapsed_seconds": 0.9818158759999989
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00356361",
+      "stock_code": "051910",
+      "start_offset_seconds": 34.405549767,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "9ec2c57f6a5e3e4861a2d2fe8f122922cd87d9ec0f740b993515ba0ef26940a5",
+      "elapsed_seconds": 0.9370086880000059
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00401731",
+      "stock_code": "066570",
+      "start_offset_seconds": 34.90562821899999,
+      "status": "validated",
+      "bytes": 518,
+      "sha256": "bedde87fb72308f5906b4684029072c966a05be0bc1a83ed31518e186778bd6a",
+      "elapsed_seconds": 0.7746475620000126
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00164788",
+      "stock_code": "012330",
+      "start_offset_seconds": 35.405731247999995,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "ea4492ded727ccfda62ab9a42e626b1f81b3bd973957d3d9b714048c93ae9cae",
+      "elapsed_seconds": 0.7464744910000007
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00149655",
+      "stock_code": "028260",
+      "start_offset_seconds": 35.90581602,
+      "status": "validated",
+      "bytes": 477,
+      "sha256": "48d8d8901d917f025b74cd2035dcfa3d4f25c579ad26812203b40b5b357539b5",
+      "elapsed_seconds": 0.7689396399999993
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00159193",
+      "stock_code": "015760",
+      "start_offset_seconds": 36.405897530999994,
+      "status": "validated",
+      "bytes": 480,
+      "sha256": "199dcb320f07352247c05e5cb90c358196663ad7e77cf456acc9e881a2ff3cb0",
+      "elapsed_seconds": 0.8184205890000129
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00126256",
+      "stock_code": "032830",
+      "start_offset_seconds": 36.906009723,
+      "status": "validated",
+      "bytes": 528,
+      "sha256": "1836b9ddef8a265bf89723a04c15cbcd8a7d0c803fefbf3f99b3985ab5e85e72",
+      "elapsed_seconds": 0.7990866939999961
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00138279",
+      "stock_code": "010950",
+      "start_offset_seconds": 37.406124283,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "d3d39f290b93a5f7f61de17bfbd1b64d1661edb1fd6cd30968463f2ca8e17fcd",
+      "elapsed_seconds": 0.7646617560000095
+    },
+    {
+      "phase": "round-2-workers-2",
+      "corp_code": "00547583",
+      "stock_code": "086790",
+      "start_offset_seconds": 37.906227251000004,
+      "status": "validated",
+      "bytes": 497,
+      "sha256": "39ad6c9ceb2528445c267fdd338b936447c178276f030a13adc6d17fb336ace1",
+      "elapsed_seconds": 0.794461260999995
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00118804",
+      "stock_code": "005290",
+      "start_offset_seconds": 38.70182876,
+      "status": "validated",
+      "bytes": 466,
+      "sha256": "b4a2d24742c0930b8267a89633b9951669f993fcfb1eedb9bfd5abffd5f6db1c",
+      "elapsed_seconds": 0.7930671360000048
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "01205842",
+      "stock_code": "267270",
+      "start_offset_seconds": 39.496018754000005,
+      "status": "validated",
+      "bytes": 541,
+      "sha256": "6171dcff5b5b735dc3b9e5eaa2ee101ae756a9dc625926bcf5b496e201e56ff2",
+      "elapsed_seconds": 0.7922210870000015
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00126380",
+      "stock_code": "005930",
+      "start_offset_seconds": 40.289404016000006,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "d37caf0b34db38d362d08a7af09a38db177e79700072ca96309e12bf79f00790",
+      "elapsed_seconds": 0.7749556419999948
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00164779",
+      "stock_code": "000660",
+      "start_offset_seconds": 41.065421592999996,
+      "status": "validated",
+      "bytes": 473,
+      "sha256": "8f46069250abe56790aa1d6d3b3999b7b1f31aeffc7cee987128c8ee8fe395ee",
+      "elapsed_seconds": 0.8657398550000011
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00164742",
+      "stock_code": "005380",
+      "start_offset_seconds": 41.932404019,
+      "status": "validated",
+      "bytes": 536,
+      "sha256": "0c568bb22eb5596f2936b8cc94a2ccb23ffe97324729e94c7fd2276f80346997",
+      "elapsed_seconds": 0.8037649649999992
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00106641",
+      "stock_code": "000270",
+      "start_offset_seconds": 42.737252538999996,
+      "status": "validated",
+      "bytes": 486,
+      "sha256": "4a956a8094eb5c2561b092209cf6221fd6c15ebe70f93933a34e384937a021c6",
+      "elapsed_seconds": 0.7779533860000072
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00155319",
+      "stock_code": "005490",
+      "start_offset_seconds": 43.516366613,
+      "status": "validated",
+      "bytes": 530,
+      "sha256": "1b268d507540b6cfe18ea857791d12b44602608316446aa7522ed44cd4bfb925",
+      "elapsed_seconds": 0.7510804519999965
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00120021",
+      "stock_code": "003550",
+      "start_offset_seconds": 44.268568681000005,
+      "status": "validated",
+      "bytes": 453,
+      "sha256": "4aee961c8cae36ca941be42f0449698673fa2f89cc43e9ae98dec20f0bc89f75",
+      "elapsed_seconds": 0.8075509339999911
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00181712",
+      "stock_code": "034730",
+      "start_offset_seconds": 45.077200344999994,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "b1b8af8925164e08e17b6c25ff7486efe030c0d541e7daaa5b78e9927372d54c",
+      "elapsed_seconds": 0.747853572000011
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00160588",
+      "stock_code": "000880",
+      "start_offset_seconds": 45.826304502,
+      "status": "validated",
+      "bytes": 490,
+      "sha256": "490ff7c44099fcee7616d9a91530cf0dc5fd326b857599775e7f3c11c5f641e2",
+      "elapsed_seconds": 0.7515212009999885
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00266961",
+      "stock_code": "035420",
+      "start_offset_seconds": 46.58348989599999,
+      "status": "validated",
+      "bytes": 501,
+      "sha256": "68e8215cdf2d2e754715efcf168ede61f7ed24e9b08acbea26d10bbfeacb33d8",
+      "elapsed_seconds": 0.771493358000015
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00258801",
+      "stock_code": "035720",
+      "start_offset_seconds": 47.356210004999994,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "488f287bea17bdf11caed92fb3162f3ded3a110eb2170377a54f96d52864c5ff",
+      "elapsed_seconds": 0.8085484119999933
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00356361",
+      "stock_code": "051910",
+      "start_offset_seconds": 48.166041281999995,
+      "status": "validated",
+      "bytes": 447,
+      "sha256": "9ec2c57f6a5e3e4861a2d2fe8f122922cd87d9ec0f740b993515ba0ef26940a5",
+      "elapsed_seconds": 0.7667145620000042
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00401731",
+      "stock_code": "066570",
+      "start_offset_seconds": 48.93390666500001,
+      "status": "validated",
+      "bytes": 518,
+      "sha256": "bedde87fb72308f5906b4684029072c966a05be0bc1a83ed31518e186778bd6a",
+      "elapsed_seconds": 0.7710458629999835
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00164788",
+      "stock_code": "012330",
+      "start_offset_seconds": 49.70625806599999,
+      "status": "validated",
+      "bytes": 495,
+      "sha256": "ea4492ded727ccfda62ab9a42e626b1f81b3bd973957d3d9b714048c93ae9cae",
+      "elapsed_seconds": 0.7817985620000059
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00149655",
+      "stock_code": "028260",
+      "start_offset_seconds": 50.48932412500001,
+      "status": "validated",
+      "bytes": 477,
+      "sha256": "48d8d8901d917f025b74cd2035dcfa3d4f25c579ad26812203b40b5b357539b5",
+      "elapsed_seconds": 0.8222344599999758
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00159193",
+      "stock_code": "015760",
+      "start_offset_seconds": 51.312644174,
+      "status": "validated",
+      "bytes": 480,
+      "sha256": "199dcb320f07352247c05e5cb90c358196663ad7e77cf456acc9e881a2ff3cb0",
+      "elapsed_seconds": 0.830468805999999
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00126256",
+      "stock_code": "032830",
+      "start_offset_seconds": 52.14899130299999,
+      "status": "validated",
+      "bytes": 528,
+      "sha256": "1836b9ddef8a265bf89723a04c15cbcd8a7d0c803fefbf3f99b3985ab5e85e72",
+      "elapsed_seconds": 0.75735275400001
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00138279",
+      "stock_code": "010950",
+      "start_offset_seconds": 52.90739070400001,
+      "status": "validated",
+      "bytes": 484,
+      "sha256": "d3d39f290b93a5f7f61de17bfbd1b64d1661edb1fd6cd30968463f2ca8e17fcd",
+      "elapsed_seconds": 0.7895575139999949
+    },
+    {
+      "phase": "round-2-workers-1",
+      "corp_code": "00547583",
+      "stock_code": "086790",
+      "start_offset_seconds": 53.69824741500001,
+      "status": "validated",
+      "bytes": 497,
+      "sha256": "39ad6c9ceb2528445c267fdd338b936447c178276f030a13adc6d17fb336ace1",
+      "elapsed_seconds": 0.8020190499999842
+    }
+  ],
+  "phases": [
+    {
+      "name": "round-1-workers-1",
+      "elapsed_seconds": 17.560381961000004
+    },
+    {
+      "name": "round-1-workers-2",
+      "elapsed_seconds": 10.344431833999991
+    },
+    {
+      "name": "round-2-workers-2",
+      "elapsed_seconds": 10.79698674299999
+    },
+    {
+      "name": "round-2-workers-1",
+      "elapsed_seconds": 15.799807172000001
+    }
+  ]
+}

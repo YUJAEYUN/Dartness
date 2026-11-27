@@ -106,3 +106,59 @@ def test_cli_rejects_reused_output_before_network(
     monkeypatch.setenv("OUTPUT_DIR", str(tmp_path))
     assert main() == 1
     assert not (tmp_path / "report.json").exists()
+
+
+def test_expanded_probe_has_eighty_attempts_and_reverses_second_round() -> None:
+    # This test checks the experiment budget/order, not the public registry identities.
+    from dartness.profile_speed_probe import _EXPANDED_SAMPLES
+
+    stocks = dict(_EXPANDED_SAMPLES)
+    assert len(stocks) == 20
+    calls: list[str] = []
+    lock = threading.Lock()
+
+    def fetch(endpoint: str, params: dict[str, str]) -> bytes:
+        corp = params["corp_code"]
+        with lock:
+            calls.append(corp)
+        return json.dumps(
+            {"status": "000", "corp_code": corp, "stock_code": stocks[corp], "corp_cls": "Y"}
+        ).encode()
+
+    result = run_probe(fetch, checkpoint=lambda report: None, expanded=True)
+    assert result["status"] == "completed_probe"
+    assert result["sample_size"] == 20
+    assert result["api_requests"] == result["max_api_requests"] == len(calls) == 80
+    assert all(calls.count(corp) == 4 for corp in stocks)
+    phases = result["phases"]
+    assert isinstance(phases, list)
+    assert [phase["name"] for phase in phases] == [
+        "round-1-workers-1",
+        "round-1-workers-2",
+        "round-2-workers-2",
+        "round-2-workers-1",
+    ]
+
+
+def test_expanded_first_failure_does_not_start_remaining_samples() -> None:
+    calls = 0
+
+    def fetch(endpoint: str, params: dict[str, str]) -> bytes:
+        nonlocal calls
+        calls += 1
+        raise CollectionError("rate_limit")
+
+    result = run_probe(fetch, checkpoint=lambda report: None, expanded=True)
+    assert result["status"] == "failed"
+    assert result["max_api_requests"] == 80
+    assert result["api_requests"] == calls == 1
+
+
+def test_cli_rejects_unknown_sample_mode_before_creating_output(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    monkeypatch.setenv("PROFILE_PROBE_EXPANDED", "1000")
+    output = tmp_path / "new"
+    monkeypatch.setenv("OUTPUT_DIR", str(output))
+    assert main() == 1
+    assert not output.exists()
