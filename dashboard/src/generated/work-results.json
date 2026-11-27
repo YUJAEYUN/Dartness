@@ -1,12 +1,61 @@
 {
   "source": "docs/work-results.md",
-  "sha256": "f517d8612776ff16b9d3d3fae36fcfc785e8c9ee4cf094e8c0b7e9dc01fca0b4",
+  "sha256": "08d1b7dcffebba28c970f2e93416e7bbf299ceb06eaf352294f4352284d9f188",
   "groups": [
     {
       "pr": 123,
       "issue": 121,
       "title": "공개 20개 법인에서 기업개황 처리 속도 비교",
-      "records": []
+      "records": [
+        {
+          "pr": 123,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "완료 조건",
+          "content": "공개 20개 법인 80회 속도 비교와 실패 중단 검사",
+          "result": "확인됨",
+          "evidence": {
+            "label": "실제 비교",
+            "url": "https://github.com/YUJAEYUN/Dartness/actions/runs/45945216872"
+          }
+        },
+        {
+          "pr": 123,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "완료 조건",
+          "content": "병합·운영 배포",
+          "result": "미확인",
+          "evidence": {
+            "label": "PR 상태",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/123"
+          }
+        },
+        {
+          "pr": 123,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "사람의 개입",
+          "content": "확대 비교 합의 후 추가 결정 없음",
+          "result": "없음",
+          "evidence": {
+            "label": "작업 범위",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/123"
+          }
+        },
+        {
+          "pr": 123,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "병합 후 문제",
+          "content": "병합 전이며 아직 관측하지 않음",
+          "result": "미기록",
+          "evidence": {
+            "label": "PR 상태",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/123"
+          }
+        }
+      ]
     },
     {
       "pr": 122,
@@ -30,11 +79,11 @@
           "issue": 121,
           "date": "2026-11-27",
           "kind": "완료 조건",
-          "content": "병합·운영 배포",
-          "result": "미확인",
+          "content": "병합·main CI·운영 JS의 병합 SHA/새 브리핑 반영",
+          "result": "확인됨",
           "evidence": {
-            "label": "PR 상태",
-            "url": "https://github.com/YUJAEYUN/Dartness/pull/122"
+            "label": "병합 후 검증",
+            "url": "https://github.com/YUJAEYUN/Dartness/issues/121"
           }
         },
         {

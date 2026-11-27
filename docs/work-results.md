@@ -24,8 +24,12 @@
 
 | PR | 이슈 | 확인일 | 구분 | 확인할 내용 | 결과 | 근거 |
 |---|---|---|---|---|---|---|
+| 123 | 121 | 2026-11-27 | 완료 조건 | 공개 20개 법인 80회 속도 비교와 실패 중단 검사 | 확인됨 | [실제 비교](https://github.com/YUJAEYUN/Dartness/actions/runs/45945216872) |
+| 123 | 121 | 2026-11-27 | 완료 조건 | 병합·운영 배포 | 미확인 | [PR 상태](https://github.com/YUJAEYUN/Dartness/pull/123) |
+| 123 | 121 | 2026-11-27 | 사람의 개입 | 확대 비교 합의 후 추가 결정 없음 | 없음 | [작업 범위](https://github.com/YUJAEYUN/Dartness/pull/123) |
+| 123 | 121 | 2026-11-27 | 병합 후 문제 | 병합 전이며 아직 관측하지 않음 | 미기록 | [PR 상태](https://github.com/YUJAEYUN/Dartness/pull/123) |
 | 122 | 121 | 2026-11-27 | 완료 조건 | 공식 제약 구분과 8회 소수 비교, 운영 명부 기준 유지 | 확인됨 | [공식 안내·실험 근거](https://github.com/YUJAEYUN/Dartness/pull/122) |
-| 122 | 121 | 2026-11-27 | 완료 조건 | 병합·운영 배포 | 미확인 | [PR 상태](https://github.com/YUJAEYUN/Dartness/pull/122) |
+| 122 | 121 | 2026-11-27 | 완료 조건 | 병합·main CI·운영 JS의 병합 SHA/새 브리핑 반영 | 확인됨 | [병합 후 검증](https://github.com/YUJAEYUN/Dartness/issues/121) |
 | 122 | 121 | 2026-11-27 | 사람의 개입 | 소수 비교 범위 안에서 추가 결정 없음 | 없음 | [범위·결과](https://github.com/YUJAEYUN/Dartness/pull/122) |
 | 122 | 121 | 2026-11-27 | 병합 후 문제 | 병합 전이며 아직 관측하지 않음 | 미기록 | [PR 상태](https://github.com/YUJAEYUN/Dartness/pull/122) |
 | 70 | 69 | 2026-11-24 | 완료 조건 | 화면 열기·버튼에서 최신 상태 조회, 실패 시 이전 자료 유지 | 확인됨 | [테스트·검증 결과](https://github.com/YUJAEYUN/Dartness/pull/70) |
