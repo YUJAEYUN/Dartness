@@ -1,0 +1,80 @@
+{
+  "scope": "explicit_live_sample_not_market_universe",
+  "stocks": [
+    "005290",
+    "267270"
+  ],
+  "started_at": "2026-11-27T01:02:51.847326+00:00",
+  "finished_at": "2026-11-27T01:03:53.005071+00:00",
+  "history_start": "2026-11-01",
+  "history_end": "2026-11-27",
+  "query_executed_at": "2026-11-27T01:03:52.996784+00:00",
+  "max_age_months": 12,
+  "basis": "separate",
+  "minimum_krw": "50000000000",
+  "api_requests": 2,
+  "reused_api_responses": 1,
+  "network_response_bytes": 0,
+  "reused_response_bytes": 3640066,
+  "web_requests": 0,
+  "api_limit": 20,
+  "web_limit": 6,
+  "requests": [
+    {
+      "kind": "api",
+      "endpoint": "corpCode.xml",
+      "parameters": {},
+      "file": "raw/api-01-corpCode.xml.zip",
+      "transport": "reused",
+      "source_observed_at": "2026-11-27T01:00:31.283579+00:00",
+      "source_sha256": "468f346b2171aa4f791c97440b7ca8fdc93134db3e6c070f085fa42e118d8e33",
+      "source_file": "raw/api-01-corpCode.xml.zip",
+      "started_at": "2026-11-27T01:02:51.854674+00:00",
+      "finished_at": "2026-11-27T01:02:51.931284+00:00",
+      "bytes": 3640066,
+      "sha256": "468f346b2171aa4f791c97440b7ca8fdc93134db3e6c070f085fa42e118d8e33"
+    },
+    {
+      "kind": "api",
+      "endpoint": "company.json",
+      "parameters": {
+        "corp_code": "00118804"
+      },
+      "file": "raw/api-02-company.json",
+      "transport": "network",
+      "started_at": "2026-11-27T01:02:52.922268+00:00",
+      "failure": "network_error",
+      "finished_at": "2026-11-27T01:03:22.941663+00:00"
+    },
+    {
+      "kind": "api",
+      "endpoint": "company.json",
+      "parameters": {
+        "corp_code": "01205842"
+      },
+      "file": "raw/api-03-company.json",
+      "transport": "network",
+      "started_at": "2026-11-27T01:03:22.942337+00:00",
+      "failure": "network_error",
+      "finished_at": "2026-11-27T01:03:52.996189+00:00"
+    }
+  ],
+  "companies": [
+    {
+      "stock_code": "005290",
+      "status": "needs_review",
+      "corp_code": "00118804",
+      "reason": "network_error"
+    },
+    {
+      "stock_code": "267270",
+      "status": "needs_review",
+      "corp_code": "01205842",
+      "reason": "network_error"
+    }
+  ],
+  "counts": {
+    "needs_review": 2
+  },
+  "all_values_verified": false
+}
