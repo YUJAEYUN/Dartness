@@ -1,7 +1,62 @@
 {
   "source": "docs/work-results.md",
-  "sha256": "247a78df4a3152c368c867bae85e58a8d53e66783d688ab15d2b4f137f72665c",
+  "sha256": "f517d8612776ff16b9d3d3fae36fcfc785e8c9ee4cf094e8c0b7e9dc01fca0b4",
   "groups": [
+    {
+      "pr": 122,
+      "issue": 121,
+      "title": "기업개황 수집 속도를 소수 요청으로 비교",
+      "records": [
+        {
+          "pr": 122,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "완료 조건",
+          "content": "공식 제약 구분과 8회 소수 비교, 운영 명부 기준 유지",
+          "result": "확인됨",
+          "evidence": {
+            "label": "공식 안내·실험 근거",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/122"
+          }
+        },
+        {
+          "pr": 122,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "완료 조건",
+          "content": "병합·운영 배포",
+          "result": "미확인",
+          "evidence": {
+            "label": "PR 상태",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/122"
+          }
+        },
+        {
+          "pr": 122,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "사람의 개입",
+          "content": "소수 비교 범위 안에서 추가 결정 없음",
+          "result": "없음",
+          "evidence": {
+            "label": "범위·결과",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/122"
+          }
+        },
+        {
+          "pr": 122,
+          "issue": 121,
+          "date": "2026-11-27",
+          "kind": "병합 후 문제",
+          "content": "병합 전이며 아직 관측하지 않음",
+          "result": "미기록",
+          "evidence": {
+            "label": "PR 상태",
+            "url": "https://github.com/YUJAEYUN/Dartness/pull/122"
+          }
+        }
+      ]
+    },
     {
       "pr": 120,
       "issue": 121,

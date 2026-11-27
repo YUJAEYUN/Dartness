@@ -8,6 +8,7 @@
 
 | 브리핑 | 종류 |
 |---|---|
+| [#122 기업개황 속도 비교](0122-profile-speed-probe.md) | 성능 조사 |
 | [#111 모집단 조회와 통합 엑셀](0111-cash-survey.md) | 일괄 실행 |
 | [#109 저장 수집 파일의 조회 실행](0109-cash-bundle-runner.md) | 실행 연결 |
 | [#107 최신 공시 선택 추가 검증](0107-latest-cash-evaluation.md) | 추가 법인 평가 |
