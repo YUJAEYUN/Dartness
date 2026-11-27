@@ -79,3 +79,21 @@ def test_runner_exports_partial_scope_and_omits_profile_contact_fields(
     before = len(source.calls)
     assert runner.main() == 1 and len(source.calls) == before
     assert key not in capsys.readouterr().out
+
+
+def test_missing_evaluation_fields_do_not_spend_any_api_requests(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+) -> None:
+    def forbidden(endpoint: str, params: dict[str, str], key: str) -> bytes:
+        pytest.fail("invalid config must not start population collection")
+
+    monkeypatch.setattr(runner, "fetch_bytes", forbidden)
+    monkeypatch.setenv("DART_API_KEY", "A" * 40)
+    monkeypatch.setenv("OUTPUT_DIR", str(tmp_path / "unused"))
+    monkeypatch.setenv("UNIVERSE_CASH_CONFIG", '{"mode":"latest"}')
+    monkeypatch.setenv("HISTORY_START", "2026-03-18")
+    assert runner.main() == 1
+    assert not (tmp_path / "unused").exists()
+    assert "A" * 40 not in capsys.readouterr().out
