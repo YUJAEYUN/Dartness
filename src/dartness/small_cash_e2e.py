@@ -25,6 +25,7 @@ from dartness.dart_receipts import collect_receipts, ensure_no_credential
 from dartness.dart_smoke import CollectionError, Fetch, _api_status, fetch_bytes
 from dartness.latest_cash import BodyObservation, query_latest_cash
 from dartness.query_contract import SEOUL, QueryRun, SnapshotRequest
+from dartness.sample_reuse import reusable_source
 
 
 @dataclass
@@ -35,19 +36,40 @@ class Capture:
     requests: list[dict[str, object]] = field(default_factory=list)
     api_count: int = 0
     web_count: int = 0
+    reused_count: int = 0
+    reuse: Path | None = None
+    output: Path | None = None
+    validator: Callable[[str, bytes], None] | None = None
+
+    def checkpoint(self) -> None:
+        if self.output is not None:
+            path = self.output / "requests.json"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            temp = path.with_suffix(".part")
+            temp.write_text(json.dumps({"requests": self.requests}, ensure_ascii=False))
+            temp.replace(path)
 
     def api(self, endpoint: str, params: dict[str, str]) -> bytes:
-        if self.api_count >= 20:
-            raise CollectionError("sample_api_budget_exhausted")
-        self.api_count += 1
+        cached = reusable_source(self.reuse, endpoint, params, datetime.now(UTC))
+        if cached is None:
+            if self.api_count >= 20:
+                raise CollectionError("sample_api_budget_exhausted")
+            self.api_count += 1
+        else:
+            self.reused_count += 1
         suffix = ".zip" if endpoint in ("corpCode.xml", "document.xml") else ""
-        path = f"raw/api-{self.api_count:02}-{endpoint}{suffix}"
+        path = f"raw/api-{len(self.requests) + 1:02}-{endpoint}{suffix}"
         record: dict[str, object] = {
             "kind": "api",
             "endpoint": endpoint,
             "parameters": params,
             "file": path,
         }
+        record["transport"] = "network" if cached is None else "reused"
+        if cached is not None:
+            payload, origin = cached
+            record.update(origin)
+            return self._read(record, lambda: payload)
         return self._read(record, lambda: self.fetch(endpoint, params))
 
     def page(self, url: str) -> bytes:
@@ -64,21 +86,40 @@ class Capture:
     def _read(self, record: dict[str, object], read: Callable[[], bytes]) -> bytes:
         self.requests.append(record)
         record["started_at"] = datetime.now(UTC).isoformat()
+        self.checkpoint()
         try:
             payload = read()
+            if self.validator is not None:
+                self.validator(str(record["file"]), payload)
         except (ValueError, CollectionError) as error:
             record["failure"] = str(error)
             raise
         finally:
             record["finished_at"] = datetime.now(UTC).isoformat()
+            self.checkpoint()
         filename = str(record["file"])
         self.files[filename] = payload
         record.update(bytes=len(payload), sha256=hashlib.sha256(payload).hexdigest())
+        if self.output is not None:
+            path = self.output / filename
+            path.parent.mkdir(parents=True, exist_ok=True)
+            temp = path.with_suffix(path.suffix + ".part")
+            temp.write_bytes(payload)
+            temp.replace(path)
+        self.checkpoint()
         return payload
 
 
 def run_sample(
-    fetch: Fetch, web: Callable[[str], bytes], stocks: tuple[str, ...], start: date, end: date
+    fetch: Fetch,
+    web: Callable[[str], bytes],
+    stocks: tuple[str, ...],
+    start: date,
+    end: date,
+    *,
+    reuse: Path | None = None,
+    output: Path | None = None,
+    validator: Callable[[str, bytes], None] | None = None,
 ) -> tuple[dict[str, object], dict[str, bytes]]:
     if (
         not 1 <= len(stocks) <= 2
@@ -89,7 +130,7 @@ def run_sample(
     started = datetime.now(UTC)
     if end != started.astimezone(SEOUL).date() or start > end:
         raise ValueError("explicit_history_through_execution_day_required")
-    cap = Capture(fetch, web)
+    cap = Capture(fetch, web, reuse=reuse, output=output, validator=validator)
     entries: list[dict[str, object]] = []
     ready: list[
         tuple[str, str, Path, tuple[StoredCashReport, ...], tuple[BodyObservation, ...]]
@@ -212,6 +253,17 @@ def run_sample(
         "basis": "separate",
         "minimum_krw": str(minimum),
         "api_requests": cap.api_count,
+        "reused_api_responses": cap.reused_count,
+        "network_response_bytes": sum(
+            size
+            for r in cap.requests
+            if isinstance(size := r.get("bytes"), int) and r.get("transport") != "reused"
+        ),
+        "reused_response_bytes": sum(
+            size
+            for r in cap.requests
+            if isinstance(size := r.get("bytes"), int) and r.get("transport") == "reused"
+        ),
         "web_requests": cap.web_count,
         "api_limit": 20,
         "web_limit": 6,
@@ -241,6 +293,9 @@ def main() -> int:
             tuple(s.strip() for s in os.environ.get("STOCK_CODES", "").split(",")),
             date.fromisoformat(os.environ.get("HISTORY_START", "")),
             date.fromisoformat(os.environ.get("HISTORY_END", "")),
+            reuse=Path(os.environ["REUSE_DIR"]) if os.environ.get("REUSE_DIR") else None,
+            output=target,
+            validator=lambda name, data: ensure_no_credential("", {name: data}, key),
         )
         rendered = json.dumps(audit, ensure_ascii=False, indent=2)
         ensure_no_credential(rendered, files, key)
