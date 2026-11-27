@@ -120,3 +120,5 @@ tests/test_docs_consistency.py가 메타데이터 형식, 일곱 칸의 순서, 
 - [PR #115: 최신 공시의 잘못된 입력 거절 확인](0115-latest-cash-guards.md)
 
 - [PR #117: 실제 소수 법인 수집부터 엑셀까지 확인](0117-small-cash-e2e.md)
+
+- [PR #119: 같은 날 원천 재사용과 수집 재개](0119-sample-source-reuse.md)

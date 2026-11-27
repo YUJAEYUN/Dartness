@@ -2,6 +2,62 @@
   "source": "docs/briefings",
   "briefings": [
     {
+      "file": "docs/briefings/0119-sample-source-reuse.md",
+      "sha256": "53fd3f60fbf6423a38b03c92de854cb0d65a2d3961fa1e8625c1936c2dbbd04b",
+      "pr": 119,
+      "issue": 118,
+      "date": "2026-11-27",
+      "stages": [
+        "B",
+        "F"
+      ],
+      "title": "같은 날 원천을 재사용하고 중단된 수집 이어가기",
+      "sections": {
+        "summary": [
+          {
+            "type": "paragraph",
+            "text": "소수 E2E에서 받은 원천을 매번 버리지 않고 같은 날짜 안에서 검증해 다시 사용합니다."
+          }
+        ],
+        "location": [],
+        "changes": [
+          {
+            "type": "paragraph",
+            "text": "법인 코드 ZIP과 같은 접수번호 원문만 한국 시각 같은 날짜·파라미터·해시·크기를 확인해 재사용합니다. 기업개황·목록·본문·표는 매번 새로 받습니다. 응답별 체크포인트를 남기고 최종 결과가 없는 중단 실행도 명시한 후속 실행에서 원천을 재사용할 수 있습니다."
+          }
+        ],
+        "decisions": [
+          {
+            "type": "paragraph",
+            "text": "사용자가 속도 보강을 승인했습니다. 적용은 기존 수동 소수 E2E에 한정하고 전수 명부·조회/판정 기준·기존 정답을 바꾸지 않습니다. 기존 의존성·권한을 유지합니다."
+          }
+        ],
+        "confirm": [
+          {
+            "type": "paragraph",
+            "text": "추가 결정 요청은 없습니다. 오래된 날짜·잘못된 파일/해시·미완료 원천은 사용하지 않고 새 수집으로 진행합니다. 무기한 캐시나 장중 변경이 절대 없다는 보장은 하지 않습니다. 다른 날짜와 실제 전수 모집단으로의 확대는 남아 있습니다."
+          }
+        ],
+        "checked": [
+          {
+            "type": "paragraph",
+            "text": "같은 날짜 원천 재사용·다른 날짜/미래/경로 이탈/변조/충돌/부분 기록 거절과 새 기업개황 적용을 검사합니다. GitHub 표본 실행에는 전체 360초 제한을 두고 종료/실패 뒤에도 저장된 안전한 부분 원천을 데이터 브랜치에 보존합니다. 실패가 성공으로 바뀌지는 않습니다. 실제 새 수집/재사용 시간과 금액 대조는 평가 기록과 이슈에 연결합니다."
+          }
+        ],
+        "evidence": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "[PR #119](https://github.com/YUJAEYUN/Dartness/pull/119), [이슈 #118](https://github.com/YUJAEYUN/Dartness/issues/118)",
+              "[원천 재사용과 시간 비교](../evaluations/sample-source-reuse-2026.md)",
+              "src/dartness/sample_reuse.py, src/dartness/small_cash_e2e.py, tests/test_sample_reuse.py"
+            ]
+          }
+        ]
+      }
+    },
+    {
       "file": "docs/briefings/0117-small-cash-e2e.md",
       "sha256": "792819cc3a3e97940371f46ac4fae263d32712116a9ee9ad9bf7e323805733c2",
       "pr": 117,

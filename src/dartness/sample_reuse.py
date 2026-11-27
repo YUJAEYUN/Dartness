@@ -31,7 +31,11 @@ def reusable_source(
             or index.stat().st_size > 1024 * 1024
         ):
             return None
-        document = json.loads(index.read_bytes())
+        with index.open("rb") as stream:
+            encoded = stream.read(1024 * 1024 + 1)
+        if len(encoded) > 1024 * 1024:
+            return None
+        document = json.loads(encoded)
         records = document.get("requests") if isinstance(document, dict) else None
         if not isinstance(records, list) or len(records) > 50:
             return None
@@ -64,7 +68,10 @@ def reusable_source(
             path = (base / name).resolve(strict=True)
             if not path.is_relative_to(base) or not path.is_file() or path.stat().st_size != size:
                 return None
-            payload = path.read_bytes()
+            with path.open("rb") as stream:
+                payload = stream.read(_MAX_BYTES + 1)
+            if len(payload) != size:
+                return None
             if hashlib.sha256(payload).hexdigest() != digest:
                 return None
             found.append(

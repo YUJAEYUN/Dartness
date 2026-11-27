@@ -254,6 +254,16 @@ def run_sample(
         "minimum_krw": str(minimum),
         "api_requests": cap.api_count,
         "reused_api_responses": cap.reused_count,
+        "network_response_bytes": sum(
+            int(r["bytes"])
+            for r in cap.requests
+            if isinstance(r.get("bytes"), int) and r.get("transport") != "reused"
+        ),
+        "reused_response_bytes": sum(
+            int(r["bytes"])
+            for r in cap.requests
+            if isinstance(r.get("bytes"), int) and r.get("transport") == "reused"
+        ),
         "web_requests": cap.web_count,
         "api_limit": 20,
         "web_limit": 6,

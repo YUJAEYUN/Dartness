@@ -4,6 +4,7 @@
 
 | 작업 | 먼저 읽을 문서 |
 |---|---|
+| 소수 원천 재사용·수집 재개 | [범위·시각/해시·실행 제한·비교](../evaluations/sample-source-reuse-2026.md). src/dartness/sample_reuse.py, tests/test_sample_reuse.py. 현재 기업개황/이력/본문은 재사용하지 않음 |
 | 소수 법인 실제 수집 E2E | [조건·상한·실행 전 정답·결과](../evaluations/small-cash-e2e-2026.md). src/dartness/small_cash_e2e.py, tests/test_small_cash_e2e.py. 실제 전수 명부를 만들거나 지원 범위를 확대하지 않는 수동 표본 검사 |
 | 모집단 전체의 현금 조회·통합 출력 | [모집단 검증·법인별 상태·한도·통합 엑셀](../specs/cash-survey.md). src/dartness/cash_survey.py, tests/test_cash_survey.py. 받은 모든 대상을 유지하며 실제 전수 수집 완료가 아님 |
 | 저장 수집 파일의 조회·출력 실행 | [산출물 로딩·재현 명령·파일 보호](../specs/cash-bundle-runner.md). src/dartness/collection_bundle.py, src/dartness/cash_bundle_runner.py, tests/test_collection_bundle.py. 로컬 파일만 읽고 기존 최신 선택/엑셀을 재사용하는 개발자 경로이며 전수/최종 사용자 입력 형식이 아님 |
